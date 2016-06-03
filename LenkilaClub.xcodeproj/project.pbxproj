@@ -47,7 +47,7 @@
 		B77188EB1CFFF2C700A8D8FB /* Schedule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
 		B77188ED1CFFF3E300A8D8FB /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		B77188EF1CFFF89800A8D8FB /* scheduleArray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = scheduleArray.swift; sourceTree = "<group>"; };
-		B7B0D5CF1CEDA27E00577430 /* LenkilaSportClub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LenkilaSportClub.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B7B0D5CF1CEDA27E00577430 /* LenkilaClub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LenkilaClub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7B0D5D21CEDA27E00577430 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B7B0D5D41CEDA27E00577430 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B7B0D5D71CEDA27E00577430 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -55,10 +55,10 @@
 		B7B0D5DC1CEDA27E00577430 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B7B0D5DF1CEDA27E00577430 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B7B0D5E11CEDA27E00577430 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B7B0D5E61CEDA27F00577430 /* LenkilaSportClubTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LenkilaSportClubTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B7B0D5E61CEDA27F00577430 /* LenkilaClub.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LenkilaClub.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7B0D5EA1CEDA27F00577430 /* LenkilaSportClubTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LenkilaSportClubTests.swift; sourceTree = "<group>"; };
 		B7B0D5EC1CEDA27F00577430 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B7B0D5F11CEDA27F00577430 /* LenkilaSportClubUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LenkilaSportClubUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B7B0D5F11CEDA27F00577430 /* LenkilaClub.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LenkilaClub.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7B0D5F51CEDA27F00577430 /* LenkilaSportClubUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LenkilaSportClubUITests.swift; sourceTree = "<group>"; };
 		B7B0D5F71CEDA27F00577430 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B7B0D6031CEDCB2F00577430 /* ScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
@@ -117,9 +117,9 @@
 		B7B0D5D01CEDA27E00577430 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B7B0D5CF1CEDA27E00577430 /* LenkilaSportClub.app */,
-				B7B0D5E61CEDA27F00577430 /* LenkilaSportClubTests.xctest */,
-				B7B0D5F11CEDA27F00577430 /* LenkilaSportClubUITests.xctest */,
+				B7B0D5CF1CEDA27E00577430 /* LenkilaClub.app */,
+				B7B0D5E61CEDA27F00577430 /* LenkilaClub.xctest */,
+				B7B0D5F11CEDA27F00577430 /* LenkilaClub.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -173,9 +173,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		B7B0D5CE1CEDA27E00577430 /* LenkilaSportClub */ = {
+		B7B0D5CE1CEDA27E00577430 /* LenkilaClub */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B7B0D5FA1CEDA27F00577430 /* Build configuration list for PBXNativeTarget "LenkilaSportClub" */;
+			buildConfigurationList = B7B0D5FA1CEDA27F00577430 /* Build configuration list for PBXNativeTarget "LenkilaClub" */;
 			buildPhases = (
 				8D6EE393D24595F7327A4AED /* Check Pods Manifest.lock */,
 				B7B0D5CB1CEDA27E00577430 /* Sources */,
@@ -188,14 +188,14 @@
 			);
 			dependencies = (
 			);
-			name = LenkilaSportClub;
+			name = LenkilaClub;
 			productName = LenkilaSportClub;
-			productReference = B7B0D5CF1CEDA27E00577430 /* LenkilaSportClub.app */;
+			productReference = B7B0D5CF1CEDA27E00577430 /* LenkilaClub.app */;
 			productType = "com.apple.product-type.application";
 		};
-		B7B0D5E51CEDA27F00577430 /* LenkilaSportClubTests */ = {
+		B7B0D5E51CEDA27F00577430 /* LenkilaClubTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B7B0D5FD1CEDA27F00577430 /* Build configuration list for PBXNativeTarget "LenkilaSportClubTests" */;
+			buildConfigurationList = B7B0D5FD1CEDA27F00577430 /* Build configuration list for PBXNativeTarget "LenkilaClubTests" */;
 			buildPhases = (
 				B7B0D5E21CEDA27F00577430 /* Sources */,
 				B7B0D5E31CEDA27F00577430 /* Frameworks */,
@@ -206,14 +206,14 @@
 			dependencies = (
 				B7B0D5E81CEDA27F00577430 /* PBXTargetDependency */,
 			);
-			name = LenkilaSportClubTests;
+			name = LenkilaClubTests;
 			productName = LenkilaSportClubTests;
-			productReference = B7B0D5E61CEDA27F00577430 /* LenkilaSportClubTests.xctest */;
+			productReference = B7B0D5E61CEDA27F00577430 /* LenkilaClub.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		B7B0D5F01CEDA27F00577430 /* LenkilaSportClubUITests */ = {
+		B7B0D5F01CEDA27F00577430 /* LenkilaClubUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B7B0D6001CEDA27F00577430 /* Build configuration list for PBXNativeTarget "LenkilaSportClubUITests" */;
+			buildConfigurationList = B7B0D6001CEDA27F00577430 /* Build configuration list for PBXNativeTarget "LenkilaClubUITests" */;
 			buildPhases = (
 				B7B0D5ED1CEDA27F00577430 /* Sources */,
 				B7B0D5EE1CEDA27F00577430 /* Frameworks */,
@@ -224,9 +224,9 @@
 			dependencies = (
 				B7B0D5F31CEDA27F00577430 /* PBXTargetDependency */,
 			);
-			name = LenkilaSportClubUITests;
+			name = LenkilaClubUITests;
 			productName = LenkilaSportClubUITests;
-			productReference = B7B0D5F11CEDA27F00577430 /* LenkilaSportClubUITests.xctest */;
+			productReference = B7B0D5F11CEDA27F00577430 /* LenkilaClub.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -255,7 +255,7 @@
 					};
 				};
 			};
-			buildConfigurationList = B7B0D5CA1CEDA27E00577430 /* Build configuration list for PBXProject "LenkilaSportClub" */;
+			buildConfigurationList = B7B0D5CA1CEDA27E00577430 /* Build configuration list for PBXProject "LenkilaClub" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -268,9 +268,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				B7B0D5CE1CEDA27E00577430 /* LenkilaSportClub */,
-				B7B0D5E51CEDA27F00577430 /* LenkilaSportClubTests */,
-				B7B0D5F01CEDA27F00577430 /* LenkilaSportClubUITests */,
+				B7B0D5CE1CEDA27E00577430 /* LenkilaClub */,
+				B7B0D5E51CEDA27F00577430 /* LenkilaClubTests */,
+				B7B0D5F01CEDA27F00577430 /* LenkilaClubUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -388,12 +388,12 @@
 /* Begin PBXTargetDependency section */
 		B7B0D5E81CEDA27F00577430 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = B7B0D5CE1CEDA27E00577430 /* LenkilaSportClub */;
+			target = B7B0D5CE1CEDA27E00577430 /* LenkilaClub */;
 			targetProxy = B7B0D5E71CEDA27F00577430 /* PBXContainerItemProxy */;
 		};
 		B7B0D5F31CEDA27F00577430 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = B7B0D5CE1CEDA27E00577430 /* LenkilaSportClub */;
+			target = B7B0D5CE1CEDA27E00577430 /* LenkilaClub */;
 			targetProxy = B7B0D5F21CEDA27F00577430 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -509,7 +509,7 @@
 				INFOPLIST_FILE = LenkilaSportClub/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Nont.LenkilaSportClub;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = LenkilaClub;
 			};
 			name = Debug;
 		};
@@ -521,7 +521,7 @@
 				INFOPLIST_FILE = LenkilaSportClub/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Nont.LenkilaSportClub;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = LenkilaClub;
 			};
 			name = Release;
 		};
@@ -532,8 +532,8 @@
 				INFOPLIST_FILE = LenkilaSportClubTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Nont.LenkilaSportClubTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LenkilaSportClub.app/LenkilaSportClub";
+				PRODUCT_NAME = LenkilaClub;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LenkilaClub.app/LenkilaClub";
 			};
 			name = Debug;
 		};
@@ -544,8 +544,8 @@
 				INFOPLIST_FILE = LenkilaSportClubTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Nont.LenkilaSportClubTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LenkilaSportClub.app/LenkilaSportClub";
+				PRODUCT_NAME = LenkilaClub;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LenkilaClub.app/LenkilaClub";
 			};
 			name = Release;
 		};
@@ -555,7 +555,7 @@
 				INFOPLIST_FILE = LenkilaSportClubUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Nont.LenkilaSportClubUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = LenkilaClub;
 				TEST_TARGET_NAME = LenkilaSportClub;
 			};
 			name = Debug;
@@ -566,7 +566,7 @@
 				INFOPLIST_FILE = LenkilaSportClubUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Nont.LenkilaSportClubUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = LenkilaClub;
 				TEST_TARGET_NAME = LenkilaSportClub;
 			};
 			name = Release;
@@ -574,7 +574,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		B7B0D5CA1CEDA27E00577430 /* Build configuration list for PBXProject "LenkilaSportClub" */ = {
+		B7B0D5CA1CEDA27E00577430 /* Build configuration list for PBXProject "LenkilaClub" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B7B0D5F81CEDA27F00577430 /* Debug */,
@@ -583,7 +583,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B7B0D5FA1CEDA27F00577430 /* Build configuration list for PBXNativeTarget "LenkilaSportClub" */ = {
+		B7B0D5FA1CEDA27F00577430 /* Build configuration list for PBXNativeTarget "LenkilaClub" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B7B0D5FB1CEDA27F00577430 /* Debug */,
@@ -592,7 +592,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B7B0D5FD1CEDA27F00577430 /* Build configuration list for PBXNativeTarget "LenkilaSportClubTests" */ = {
+		B7B0D5FD1CEDA27F00577430 /* Build configuration list for PBXNativeTarget "LenkilaClubTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B7B0D5FE1CEDA27F00577430 /* Debug */,
@@ -601,7 +601,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B7B0D6001CEDA27F00577430 /* Build configuration list for PBXNativeTarget "LenkilaSportClubUITests" */ = {
+		B7B0D6001CEDA27F00577430 /* Build configuration list for PBXNativeTarget "LenkilaClubUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B7B0D6011CEDA27F00577430 /* Debug */,

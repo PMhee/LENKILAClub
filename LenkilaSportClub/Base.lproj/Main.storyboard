@@ -2814,6 +2814,7 @@
                                 </variation>
                                 <connections>
                                     <action selector="tf_price_action:" destination="1w7-Bw-Xhv" eventType="editingDidBegin" id="WDe-qE-tuJ"/>
+                                    <action selector="tf_price_end:" destination="1w7-Bw-Xhv" eventType="editingDidEnd" id="LhP-Ll-NX3"/>
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1 สัปดาห์" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="afq-7m-fMG">
@@ -3141,6 +3142,7 @@
                                         </variation>
                                         <connections>
                                             <action selector="btn_cancel_action:" destination="1w7-Bw-Xhv" eventType="touchUpInside" id="Jtb-qw-uuc"/>
+                                            <segue destination="7jf-tz-zUQ" kind="modal" modalTransitionStyle="crossDissolve" id="IhC-i5-RyH"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -3225,6 +3227,31 @@
                                     </mask>
                                 </variation>
                             </view>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Iue-dB-pcE">
+                                <rect key="frame" x="-60" y="-14" width="121" height="29"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="28" id="4rr-df-syM"/>
+                                    <constraint firstAttribute="width" constant="143" id="Ph9-gH-aFk"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="จองสนาม"/>
+                                    <segment title="คอร์สเรียน"/>
+                                </segments>
+                                <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="4rr-df-syM"/>
+                                        <exclude reference="Ph9-gH-aFk"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="4rr-df-syM"/>
+                                        <include reference="Ph9-gH-aFk"/>
+                                    </mask>
+                                </variation>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -3277,7 +3304,9 @@
                             <constraint firstItem="Vhz-Jr-fie" firstAttribute="centerX" secondItem="YQR-Ua-lic" secondAttribute="centerX" multiplier="1.875" id="Ebp-nx-w1z"/>
                             <constraint firstItem="OxZ-Xl-pLq" firstAttribute="width" secondItem="R6a-Ug-MOQ" secondAttribute="width" id="G13-P2-NQe"/>
                             <constraint firstItem="Drd-Zq-zIt" firstAttribute="height" secondItem="OxZ-Xl-pLq" secondAttribute="height" id="IZI-me-rtl"/>
-                            <constraint firstItem="FbE-Es-Zhn" firstAttribute="top" secondItem="hL4-gw-6Ia" secondAttribute="bottom" constant="25" id="JvL-5e-Y1W"/>
+                            <constraint firstItem="FbE-Es-Zhn" firstAttribute="top" secondItem="hL4-gw-6Ia" secondAttribute="bottom" constant="25" id="JvL-5e-Y1W">
+                                <variation key="widthClass=compact" constant="66"/>
+                            </constraint>
                             <constraint firstItem="aa8-bz-M4w" firstAttribute="top" secondItem="ap7-Vd-U3E" secondAttribute="top" id="K6l-w8-0s0"/>
                             <constraint firstItem="R6a-Ug-MOQ" firstAttribute="width" secondItem="lzi-Cg-CDy" secondAttribute="width" id="KLb-U9-uKh"/>
                             <constraint firstItem="kkA-B7-Ry4" firstAttribute="top" secondItem="afq-7m-fMG" secondAttribute="bottom" constant="15" id="KaN-Pa-OkB"/>
@@ -3352,6 +3381,7 @@
                             <constraint firstItem="Vhz-Jr-fie" firstAttribute="top" secondItem="SEp-AG-Yoe" secondAttribute="top" id="hdR-nj-F9T"/>
                             <constraint firstItem="ujr-dW-KWu" firstAttribute="top" secondItem="teH-FT-T6g" secondAttribute="bottom" constant="-4" id="heo-dr-uE8"/>
                             <constraint firstItem="R6a-Ug-MOQ" firstAttribute="width" secondItem="teH-FT-T6g" secondAttribute="width" id="i7L-wy-6mn"/>
+                            <constraint firstItem="Iue-dB-pcE" firstAttribute="top" secondItem="hL4-gw-6Ia" secondAttribute="bottom" constant="15" id="iH8-c3-sAH"/>
                             <constraint firstItem="GdI-yJ-Op0" firstAttribute="top" secondItem="iya-rU-NPN" secondAttribute="top" id="iZm-JN-ePd"/>
                             <constraint firstItem="SNm-aH-kit" firstAttribute="leading" secondItem="FbE-Es-Zhn" secondAttribute="leading" id="ie5-Wo-uZP"/>
                             <constraint firstItem="iya-rU-NPN" firstAttribute="top" secondItem="aa8-bz-M4w" secondAttribute="top" id="ilj-OJ-4vZ"/>
@@ -3364,6 +3394,7 @@
                             <constraint firstItem="77l-AO-9BM" firstAttribute="centerX" secondItem="YQR-Ua-lic" secondAttribute="centerX" multiplier="1.375" id="mNy-1i-vPO"/>
                             <constraint firstItem="3i2-5l-aiQ" firstAttribute="top" secondItem="aa8-bz-M4w" secondAttribute="top" id="nes-Jj-vou"/>
                             <constraint firstItem="ap7-Vd-U3E" firstAttribute="centerX" secondItem="YQR-Ua-lic" secondAttribute="centerX" multiplier="0.125" id="nu3-YY-dJM"/>
+                            <constraint firstItem="Iue-dB-pcE" firstAttribute="centerX" secondItem="YQR-Ua-lic" secondAttribute="centerX" id="oMp-qP-XhQ"/>
                             <constraint firstItem="ujr-dW-KWu" firstAttribute="leading" secondItem="teH-FT-T6g" secondAttribute="leading" id="qSH-dG-chz"/>
                             <constraint firstItem="Spu-cN-c7K" firstAttribute="leading" secondItem="Drd-Zq-zIt" secondAttribute="leading" id="qpz-SI-vik"/>
                             <constraint firstItem="tzC-8q-m5S" firstAttribute="width" secondItem="afq-7m-fMG" secondAttribute="width" id="rG7-LP-g1x"/>
@@ -3413,6 +3444,7 @@
                                 <exclude reference="iya-rU-NPN"/>
                                 <exclude reference="77l-AO-9BM"/>
                                 <exclude reference="hL4-gw-6Ia"/>
+                                <exclude reference="Iue-dB-pcE"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="ELY-Qu-1LO"/>
@@ -3494,6 +3526,8 @@
                                 <exclude reference="kbr-pt-seP"/>
                                 <exclude reference="Dr2-ay-HhL"/>
                                 <exclude reference="KaN-Pa-OkB"/>
+                                <exclude reference="iH8-c3-sAH"/>
+                                <exclude reference="oMp-qP-XhQ"/>
                                 <exclude reference="Dfi-GR-xle"/>
                                 <exclude reference="gJ2-NF-kJg"/>
                                 <exclude reference="qpz-SI-vik"/>
@@ -3553,6 +3587,7 @@
                                 <include reference="iya-rU-NPN"/>
                                 <include reference="77l-AO-9BM"/>
                                 <include reference="hL4-gw-6Ia"/>
+                                <include reference="Iue-dB-pcE"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="ELY-Qu-1LO"/>
@@ -3634,6 +3669,8 @@
                                 <include reference="kbr-pt-seP"/>
                                 <include reference="Dr2-ay-HhL"/>
                                 <include reference="KaN-Pa-OkB"/>
+                                <include reference="iH8-c3-sAH"/>
+                                <include reference="oMp-qP-XhQ"/>
                                 <include reference="Dfi-GR-xle"/>
                                 <include reference="gJ2-NF-kJg"/>
                                 <include reference="qpz-SI-vik"/>
@@ -3703,4 +3740,7 @@
         <image name="success" width="256" height="256"/>
         <image name="user" width="256" height="256"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="IhC-i5-RyH"/>
+    </inferredMetricsTieBreakers>
 </document>

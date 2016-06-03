@@ -84,11 +84,10 @@ class ScheduleViewController: UIViewController,UIScrollViewDelegate,UIGestureRec
         let sche = Schedule()
         let formatter = NSDateFormatter()
         formatter.dateStyle = NSDateFormatterStyle.FullStyle
-        sche.date = formatter.stringFromDate(NSDate())
-        sche.time = "12.30 - 13.30"
+        sche.date = "Friday, June 3, 2016"
+        sche.time = "18.00 - 20.30"
         sche.field = "1"
         sche.userID = "1111"
-        sche.id = "1111"
         sche.price = 1000
         sche.rep = 1
         sche.colorTag = "dark_blue"

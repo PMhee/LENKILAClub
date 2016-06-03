@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Realm
 class AddTableViewController: UIViewController,UITextFieldDelegate {
     var field : String!
     var date : NSDate!
@@ -14,6 +15,10 @@ class AddTableViewController: UIViewController,UITextFieldDelegate {
     var name : String!
     var price : String!
     var rep : String!
+    var realPrice : Int!
+    var pickedColor : String!
+    var type : String!
+    var realRep : Int!
     @IBOutlet weak var tf_field: UITextField!
     @IBOutlet weak var tf_date: UITextField!
     @IBOutlet weak var tf_time: UITextField!
@@ -48,19 +53,40 @@ class AddTableViewController: UIViewController,UITextFieldDelegate {
     }
     @IBAction func tf_price_action(sender: UITextField) {
         line_price.backgroundColor = UIColor(red: 16/255, green: 118/255, blue: 152/255, alpha: 1.0)
+        top_space.constant -= 20
     }
     @IBAction func tf_repeat_action(sender: UITextField) {
         line_repeat.backgroundColor = UIColor(red: 16/255, green: 118/255, blue: 152/255, alpha: 1.0)
-        top_space.constant -= 20
+        top_space.constant -= 55
     }
     @IBAction func tf_repeat_end(sender: UITextField) {
+        top_space.constant += 55
+    }
+    @IBAction func tf_price_end(sender: UITextField) {
         top_space.constant += 20
     }
+    
     @IBAction func btn_add_action(sender: AnyObject) {
+        let realm = RLMRealm.defaultRealm()
+        let schedule = Schedule()
+        let sche = Schedule.allObjects()
+        realm.beginWriteTransaction()
+        schedule.field = self.field
+        let format = NSDateFormatter()
+        format.dateStyle = NSDateFormatterStyle.FullStyle
+        schedule.date = format.stringFromDate(self.date)
+        schedule.time = self.time
+        schedule.price = self.realPrice
+        schedule.tag = Int(sche.count)
+        schedule.colorTag = self.pickedColor
+        schedule.type = self.type
+        schedule.rep = self.realRep
+        realm.addObject(schedule)
+        try! realm.commitWriteTransaction()
+        
         self.performSegueWithIdentifier("back_to_schedule", sender: self)
     }
     @IBAction func btn_cancel_action(sender: AnyObject) {
-        self.performSegueWithIdentifier("back_to_schedule", sender: self)
     }
 
     override func viewDidLoad() {
@@ -90,6 +116,10 @@ class AddTableViewController: UIViewController,UITextFieldDelegate {
         tf_time.text = self.time
         tf_repeat.text = self.rep
         tf_price.text = self.price
+        var range: Range<String.Index> = self.price.rangeOfString(" ")!
+        var index: Int = self.price.startIndex.distanceTo(range.startIndex)
+        self.realPrice = Int(self.price.substringWithRange(Range<String.Index>(start:self.price.startIndex.advancedBy(0), end: self.price.startIndex.advancedBy(index))))
+        self.realRep = Int(self.rep.substringWithRange(Range<String.Index>(start:self.rep.startIndex.advancedBy(0), end: self.rep.startIndex.advancedBy(index))))
     }
     func genButton(){
         btn_dec_30.layer.cornerRadius = 15

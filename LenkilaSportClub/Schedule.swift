@@ -15,7 +15,6 @@ class Schedule:RLMObject{
     dynamic var price : Int = 0
     dynamic var field : String = ""
     dynamic var rep : Int = 0
-    dynamic var id : String  = ""
     dynamic var tag : Int  = 0
     dynamic var userID : String = ""
     dynamic var colorTag : String = ""
