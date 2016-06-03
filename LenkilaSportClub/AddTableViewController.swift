@@ -7,7 +7,6 @@
 //
 
 import UIKit
-
 class AddTableViewController: UIViewController,UITextFieldDelegate {
     var field : String!
     var date : NSDate!
@@ -71,6 +70,9 @@ class AddTableViewController: UIViewController,UITextFieldDelegate {
         genTextField()
         tf_name.becomeFirstResponder()
         // Do any additional setup after loading the view.
+    }
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(true)
     }
     func genDelegate(){
         tf_field.delegate = self
