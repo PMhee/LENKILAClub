@@ -18,6 +18,8 @@ class ScheduleViewController: UIViewController,UIScrollViewDelegate,UIGestureRec
     //    var changeWidth: CGFloat!
     @IBOutlet weak var label_date: UILabel!
     var schedualArray = [Schedule]()
+    var userArray = [String:User]()
+    var keepTag = [Int]()
     let tableColor : NSDictionary = ["green":UIColor(red:122/255,green:190/255,blue:139/255,alpha:1.0),"gray":UIColor(red:122/255,green:118/255,blue:119/255,alpha:1.0),"dark_blue":UIColor(red:84/255,green:110/255,blue:122/255,alpha:1.0),"blue":UIColor(red:16/255,green:118/255,blue:152/255,alpha:1.0),"yellow":UIColor(red:252/255,green:221/255,blue:121/255,alpha:1.0),"orange":UIColor(red:231/255,green:158/255,blue:63/255,alpha:1.0),"pink":UIColor(red:205/255,green:122/255,blue:121/255,alpha:1.0),"red":UIColor(red:232/255,green:81/255,blue:83/255,alpha:1.0)]
     var f = UIView!()
     var x = CGFloat!()
@@ -39,12 +41,16 @@ class ScheduleViewController: UIViewController,UIScrollViewDelegate,UIGestureRec
         format.dateStyle = NSDateFormatterStyle.FullStyle
         label_date.text = format.stringFromDate(today.dateByAddingTimeInterval(-60*60*24))
         today = today.dateByAddingTimeInterval(-60*60*24)
+        clearTable()
+        self.genScheduleOnTable()
     }
     @IBAction func btn_right_action(sender: UIButton) {
         let format = NSDateFormatter()
         format.dateStyle = NSDateFormatterStyle.FullStyle
         label_date.text = format.stringFromDate(today.dateByAddingTimeInterval(60*60*24))
         today = today.dateByAddingTimeInterval(60*60*24)
+        clearTable()
+        self.genScheduleOnTable()
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,7 +69,7 @@ class ScheduleViewController: UIViewController,UIScrollViewDelegate,UIGestureRec
         let realm = RLMRealm.defaultRealm()
         let user = User()
         user.age = 22
-        user.contact = "0992850130"
+        user.contact = "099-2850130"
         let format = NSDateFormatter()
         format.timeStyle = NSDateFormatterStyle.ShortStyle
         user.freqPlay = format.stringFromDate(NSDate())
@@ -74,16 +80,19 @@ class ScheduleViewController: UIViewController,UIScrollViewDelegate,UIGestureRec
         user.playCount = 4
         user.price = 1000
         user.workPlace = "Lenkila"
+        userArray[user.id] = user
         let sche = Schedule()
-        format.dateStyle = NSDateFormatterStyle.FullStyle
-        sche.date = format.stringFromDate(NSDate())
-        sche.time = "12.30 - 14.00"
+        let formatter = NSDateFormatter()
+        formatter.dateStyle = NSDateFormatterStyle.FullStyle
+        sche.date = formatter.stringFromDate(NSDate())
+        sche.time = "12.30 - 13.30"
         sche.field = "1"
         sche.userID = "1111"
         sche.id = "1111"
         sche.price = 1000
         sche.rep = 1
-        sche.tag = "dark_blue"
+        sche.colorTag = "dark_blue"
+        sche.tag = 1
         sche.type = "reserve"
         let schedule = Schedule.allObjects()
         schedualArray.append(sche)
@@ -94,32 +103,56 @@ class ScheduleViewController: UIViewController,UIScrollViewDelegate,UIGestureRec
         let h : CGFloat = CGFloat(((1.595*self.view.frame.height)/2)/17)
         let width = (self.view.frame.width)/CGFloat(field_num+1)
         for i in 0...self.schedualArray.count-1{
-            let a : String = self.schedualArray[i].time
-            var range: Range<String.Index> = a.rangeOfString(" ")!
-            var index: Int = a.startIndex.distanceTo(range.startIndex)
-            let startHour = a.substringWithRange(Range<String.Index>(start: a.startIndex.advancedBy(0), end: a.startIndex.advancedBy(2)))
-            var startMin = a.substringWithRange(Range<String.Index>(start: a.startIndex.advancedBy(3), end: a.startIndex.advancedBy(5)))
-            var endMin = a.substringWithRange(Range<String.Index>(start: a.startIndex.advancedBy(11), end: (a.endIndex.advancedBy(0))))
-            let endHour = a.substringWithRange(Range<String.Index>(start: a.startIndex.advancedBy(8), end: a.startIndex.advancedBy(10)))
-            if Int(startMin) == 30 {
-                startMin = "0.5"
-            }else{
-                startMin = "0"
+            if schedualArray[i].date == self.label_date.text! {
+                let a : String = self.schedualArray[i].time
+                var range: Range<String.Index> = a.rangeOfString(" ")!
+                var index: Int = a.startIndex.distanceTo(range.startIndex)
+                let startHour = a.substringWithRange(Range<String.Index>(start: a.startIndex.advancedBy(0), end: a.startIndex.advancedBy(2)))
+                var startMin = a.substringWithRange(Range<String.Index>(start: a.startIndex.advancedBy(3), end: a.startIndex.advancedBy(5)))
+                var endMin = a.substringWithRange(Range<String.Index>(start: a.startIndex.advancedBy(11), end: (a.endIndex.advancedBy(0))))
+                let endHour = a.substringWithRange(Range<String.Index>(start: a.startIndex.advancedBy(8), end: a.startIndex.advancedBy(10)))
+                if Int(startMin) == 30 {
+                    startMin = "0.5"
+                }else{
+                    startMin = "0"
+                }
+                if Int(endMin) == 30 {
+                    endMin = "0.5"
+                }else{
+                    endMin = "0"
+                }
+                if Double(startMin) == 0.5 && Double(endMin) == 0.5 {
+                    endMin = "0.5"
+                }
+                let view = UIView(frame: CGRectMake(CGFloat(Int(self.schedualArray[i].field)!)*width,((CGFloat(Int(startHour)!)-CGFloat(4))*h)+CGFloat(7)+CGFloat(Double(startMin)!)*h,width,((CGFloat(Int(endHour)!)-CGFloat(Int(startHour)!)-CGFloat(Double(startMin)!))*h)+CGFloat(Double(endMin)!)*h))
+                view.backgroundColor = self.tableColor.valueForKey(self.schedualArray[i].colorTag)! as! UIColor
+                self.keepTag.append(self.schedualArray[i].tag)
+                view.tag = self.schedualArray[i].tag
+                self.view.addSubview(view)
+                let lb = UILabel(frame: CGRectMake(CGFloat(Int(self.schedualArray[i].field)!)*width,((CGFloat(Int(startHour)!)-CGFloat(4))*h)+CGFloat(7)+(CGFloat(Double(startMin)!)*h)+CGFloat(3),width,(((CGFloat(Int(endHour)!)-CGFloat(Int(startHour)!)-CGFloat(Double(startMin)!))*h)+CGFloat(Double(endMin)!)*h)/4))
+                lb.text = (self.userArray[schedualArray[i].userID]?.nickName)!
+                lb.textColor = UIColor.whiteColor()
+                lb.font = UIFont(name: "Helvetica Neue", size: 10)
+                lb.textAlignment = .Center
+                self.view.addSubview(lb)
+                let lb1 = UILabel(frame: CGRectMake(CGFloat(Int(self.schedualArray[i].field)!)*width,(((CGFloat(Int(startHour)!)-CGFloat(4))*h)+CGFloat(7)+CGFloat(Double(startMin)!)*h)+(((CGFloat(Int(endHour)!)-CGFloat(Int(startHour)!)-CGFloat(Double(startMin)!))*h)+CGFloat(Double(endMin)!)*h)/4,width,(((CGFloat(Int(endHour)!)-CGFloat(Int(startHour)!))*h)+CGFloat(Double(endMin)!)*h)*3/4))
+                lb1.text = (self.userArray[schedualArray[i].userID]?.contact)!
+                lb1.textColor = UIColor.whiteColor()
+                lb1.font = UIFont(name: "Helvetica Neue", size: 10)
+                lb1.textAlignment = .Center
+                self.view.addSubview(lb1)
             }
-            if Int(endMin) == 30 {
-                endMin = "0.5"
-            }else{
-                endMin = "0"
+        }
+    }
+    func clearTable(){
+        if keepTag.count > 0 {
+            for i in 0...keepTag.count-1 {
+                if let viewWithTag = self.view.viewWithTag(keepTag[i]){
+                    viewWithTag.removeFromSuperview()
+                    keepTag.removeFirst()
+                }
+                
             }
-            if Double(startMin) == 0.5 && Double(endMin) == 0.5 {
-                endMin = "0"
-            }
-            if Double(startMin) == 0.5 && Double(endMin) == 0 {
-                endMin = "-0.5"
-            }
-            let view = UIView(frame: CGRectMake(CGFloat(Int(self.schedualArray[i].field)!)*width,((CGFloat(Int(startHour)!)-CGFloat(4))*h)+CGFloat(7)+CGFloat(Double(startMin)!)*h,width,((CGFloat(Int(endHour)!)-CGFloat(Int(startHour)!))*h)+CGFloat(Double(endMin)!)*h))
-            view.backgroundColor = self.tableColor.valueForKey(self.schedualArray[i].tag)! as! UIColor
-            self.view.addSubview(view)
         }
     }
     func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldReceiveTouch touch: UITouch) -> Bool {
@@ -139,8 +172,8 @@ class ScheduleViewController: UIViewController,UIScrollViewDelegate,UIGestureRec
     func drag(gesture:UIPanGestureRecognizer){
         switch gesture.state {
         case .Changed : let transition = gesture.translationInView(self.view)
-//        print("x "+String(transition.x)+" "+String(self.x))
-//        print("y "+String(transition.y)+" "+String(self.y))
+        //        print("x "+String(transition.x)+" "+String(self.x))
+        //        print("y "+String(transition.y)+" "+String(self.y))
         let h : CGFloat = CGFloat(((1.595*self.view.frame.height)/2)/17)
         var height : Int = Int(transition.y/h)
         if transition.y % h != 0 {
@@ -149,13 +182,13 @@ class ScheduleViewController: UIViewController,UIScrollViewDelegate,UIGestureRec
         let width = (self.view.frame.width)/CGFloat(field_num+1)
         let tempx : Int = Int(self.x/width) //x position
         let tempy : Int = Int(self.y/h) // y position
-        self.hh = height
         //            print(height)
         f = UIView(frame: CGRectMake((CGFloat(tempx)*width),CGFloat(tempy)*h+CGFloat(7),width,(CGFloat(height)*h)))
         f.layer.borderWidth = 1
         f.layer.borderColor = UIColor(red: 225/255, green: 224/255, blue: 225/255, alpha: 1.0).CGColor
         f.backgroundColor = UIColor(red:122/255,green:190/255,blue:139/255,alpha:1.0)
         self.view.addSubview(f)
+        self.hh = height
         self.field = String(tempx)
         self.time = String(tempy+4)+".00"+" - "+String(tempy+height+4)+".00"
         case .Ended : performSegueWithIdentifier("addTable", sender: self)
@@ -184,11 +217,11 @@ class ScheduleViewController: UIViewController,UIScrollViewDelegate,UIGestureRec
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "addTable" {
             if let des = segue.destinationViewController as? AddTableViewController {
-                    des.field = self.field
-                    des.date = self.today
-                    des.time = self.time
-                    des.price = "1000 บาท"
-                    des.rep = "1 สัปดาห์"
+                des.field = self.field
+                des.date = self.today
+                des.time = self.time
+                des.price = "1000 บาท"
+                des.rep = "1 สัปดาห์"
             }
         }
     }
