@@ -8,6 +8,7 @@
 
 import UIKit
 import Realm
+import CVCalendar
 class AddTableViewController: UIViewController,UITextFieldDelegate {
     var field : String!
     var date : NSDate!
@@ -16,9 +17,11 @@ class AddTableViewController: UIViewController,UITextFieldDelegate {
     var price : String!
     var rep : String!
     var realPrice : Int!
-    var pickedColor : String!
-    var type : String!
+    var pickedColor : String = "green"
+    var type :String = "reserve"
     var realRep : Int!
+    var checkedArray = [UIImageView]()
+    @IBOutlet weak var segment: UISegmentedControl!
     @IBOutlet weak var tf_field: UITextField!
     @IBOutlet weak var tf_date: UITextField!
     @IBOutlet weak var tf_time: UITextField!
@@ -41,6 +44,20 @@ class AddTableViewController: UIViewController,UITextFieldDelegate {
     @IBOutlet weak var btn_orange: UIButton!
     @IBOutlet weak var btn_pink: UIButton!
     @IBOutlet weak var btn_red: UIButton!
+    @IBOutlet weak var img_checked_green: UIImageView!
+    @IBOutlet weak var img_checked_gray: UIImageView!
+    @IBOutlet weak var img_checked_dark_blue: UIImageView!
+    @IBOutlet weak var img_checked_blue: UIImageView!
+    @IBOutlet weak var img_checked_yellow: UIImageView!
+    @IBOutlet weak var img_checked_orange: UIImageView!
+    @IBOutlet weak var img_checked_pink: UIImageView!
+    @IBOutlet weak var img_checked_red: UIImageView!
+    @IBAction func btn_inc_30_action(sender: UIButton) {
+        calculateTime(true)
+    }
+    @IBAction func btn_dec_30_action(sender: UIButton) {
+        calculateTime(false)
+    }
     @IBOutlet weak var top_space: NSLayoutConstraint!
     @IBAction func tf_date_action(sender: UITextField) {
         line_date.backgroundColor = UIColor(red: 16/255, green: 118/255, blue: 152/255, alpha: 1.0)
@@ -54,18 +71,109 @@ class AddTableViewController: UIViewController,UITextFieldDelegate {
     @IBAction func tf_price_action(sender: UITextField) {
         line_price.backgroundColor = UIColor(red: 16/255, green: 118/255, blue: 152/255, alpha: 1.0)
         top_space.constant -= 20
+        sender.text = String(self.realPrice)
     }
     @IBAction func tf_repeat_action(sender: UITextField) {
         line_repeat.backgroundColor = UIColor(red: 16/255, green: 118/255, blue: 152/255, alpha: 1.0)
         top_space.constant -= 55
+        sender.text = String(self.realRep)
     }
     @IBAction func tf_repeat_end(sender: UITextField) {
         top_space.constant += 55
+        sender.text = sender.text!+" สัปดาห์"
+        var range = sender.text!.rangeOfString(" ")!
+        var index = sender.text!.startIndex.distanceTo(range.startIndex)
+        self.realRep = Int(sender.text!.substringWithRange(Range<String.Index>(start:sender.text!.startIndex.advancedBy(0), end: sender.text!.startIndex.advancedBy(index))))
     }
     @IBAction func tf_price_end(sender: UITextField) {
         top_space.constant += 20
+        sender.text = sender.text!+" บาท"
+        var range = sender.text!.rangeOfString(" ")!
+        var index = sender.text!.startIndex.distanceTo(range.startIndex)
+        self.realPrice = Int(sender.text!.substringWithRange(Range<String.Index>(start:sender.text!.startIndex.advancedBy(0), end: sender.text!.startIndex.advancedBy(index))))
+    }
+    @IBAction func btn_green_action(sender: UIButton) {
+        self.pickedColor = "green"
+        setButChecked(0)
+    }
+    @IBAction func btn_gray_action(sender: UIButton) {
+        self.pickedColor = "gray"
+        setButChecked(1)
+    }
+    @IBAction func btn_dark_blue_action(sender: UIButton) {
+        self.pickedColor = "dark_blue"
+        setButChecked(2)
+    }
+    @IBAction func btn_blue_action(sender: UIButton) {
+        self.pickedColor = "blue"
+        setButChecked(3)
+    }
+    @IBAction func btn_yellow_action(sender: UIButton) {
+        self.pickedColor = "yellow"
+        setButChecked(4)
+    }
+    @IBAction func btn_orange_action(sender: UIButton) {
+        self.pickedColor = "orange"
+        setButChecked(5)
+    }
+    @IBAction func btn_pink_action(sender: UIButton) {
+        self.pickedColor = "pink"
+        setButChecked(6)
+    }
+    @IBAction func btn_red_action(sender: UIButton) {
+        self.pickedColor = "red"
+        setButChecked(7)
+    }
+    @IBAction func segment_action(sender: UISegmentedControl) {
+        if sender.selectedSegmentIndex == 0 {
+            self.type = "reserve"
+        }else if sender.selectedSegmentIndex == 1 {
+            self.type = "course"
+        }
     }
     
+    func calculateTime(time:Bool){
+        let a : String = self.time
+        var range: Range<String.Index> = a.rangeOfString(" ")!
+        var index: Int = a.startIndex.distanceTo(range.startIndex)
+        var sHour = a.substringWithRange(Range<String.Index>(start: a.startIndex.advancedBy(0), end: a.startIndex.advancedBy(2)))
+        var sMin = a.substringWithRange(Range<String.Index>(start: a.startIndex.advancedBy(3), end: a.startIndex.advancedBy(5)))
+        var eMin = a.substringWithRange(Range<String.Index>(start: a.startIndex.advancedBy(11), end: (a.endIndex.advancedBy(0))))
+        var eHour = a.substringWithRange(Range<String.Index>(start: a.startIndex.advancedBy(8), end: a.startIndex.advancedBy(10)))
+        var startHour : Int = Int(sHour)!
+        var startMin : Int = Int(sMin)!
+        var endHour : Int = Int(eHour)!
+        var endMin : Int  = Int(eMin)!
+        if !time{
+        if startMin == 0 {
+            startHour -= 1
+            sMin = "30"
+        }else if startMin == 30 {
+            sMin = "00"
+        }
+        if endMin == 0 {
+            endHour -= 1
+            eMin = "30"
+        }else if endMin == 30 {
+            eMin = "00"
+        }
+        }else{
+            if startMin == 0 {
+                sMin = "30"
+            }else if startMin == 30 {
+                sMin = "00"
+                startHour += 1
+            }
+            if endMin == 0 {
+                eMin = "30"
+            }else if endMin == 30 {
+                eMin = "00"
+                endHour += 1
+            }
+        }
+        self.time = String(startHour)+"."+sMin+" - "+String(endHour)+"."+eMin
+        tf_time.text = self.time
+    }
     @IBAction func btn_add_action(sender: AnyObject) {
         let realm = RLMRealm.defaultRealm()
         let schedule = Schedule()
@@ -77,20 +185,56 @@ class AddTableViewController: UIViewController,UITextFieldDelegate {
         schedule.date = format.stringFromDate(self.date)
         schedule.time = self.time
         schedule.price = self.realPrice
-        schedule.tag = Int(sche.count)
+        schedule.tag = Int(sche.count)+1
         schedule.colorTag = self.pickedColor
         schedule.type = self.type
-        schedule.rep = self.realRep
+        schedule.userID = "1111"
+        let range = self.rep.rangeOfString(" ")!
+        let index = self.rep.startIndex.distanceTo(range.startIndex)
+        self.realRep = Int(self.tf_repeat.text!.substringWithRange(Range<String.Index>(start:self.tf_repeat.text!.startIndex.advancedBy(0), end: self.tf_repeat.text!.startIndex.advancedBy(index))))
         realm.addObject(schedule)
+        print(self.realRep)
+        var temp = schedule.date
+        if self.realRep >= 2 {
+            self.realRep = self.realRep - 2
+            for i in 0...self.realRep {
+                let schedules = Schedule()
+                schedules.field = self.field
+                let format = NSDateFormatter()
+                format.dateStyle = NSDateFormatterStyle.FullStyle
+                if schedules.date == "" {
+                   schedules.date = temp
+                }
+                print("hello")
+                let nextDay = format.dateFromString(schedules.date)?.dateByAddingTimeInterval(60*60*24*7)
+                schedules.date = format.stringFromDate(nextDay!)
+                schedules.time = self.time
+                schedules.price = self.realPrice
+                schedules.tag = Int(sche.count)+1
+                schedules.colorTag = self.pickedColor
+                schedules.type = self.type
+                schedules.userID = "1111"
+                temp = schedules.date
+                realm.addObject(schedules)
+            }
+        }
         try! realm.commitWriteTransaction()
-        
         self.performSegueWithIdentifier("back_to_schedule", sender: self)
     }
     @IBAction func btn_cancel_action(sender: AnyObject) {
     }
-
+    func setButChecked(checked:Int){
+        for i in 0...checkedArray.count-1{
+            if i != checked{
+                checkedArray[i].hidden = true
+            }else{
+                checkedArray[i].hidden = false
+            }
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
+        checkedArray += [img_checked_green,img_checked_gray,img_checked_dark_blue,img_checked_blue,img_checked_yellow,img_checked_orange,img_checked_pink,img_checked_red]
         genButton()
         genDelegate()
         genTextField()
@@ -119,7 +263,9 @@ class AddTableViewController: UIViewController,UITextFieldDelegate {
         var range: Range<String.Index> = self.price.rangeOfString(" ")!
         var index: Int = self.price.startIndex.distanceTo(range.startIndex)
         self.realPrice = Int(self.price.substringWithRange(Range<String.Index>(start:self.price.startIndex.advancedBy(0), end: self.price.startIndex.advancedBy(index))))
-        self.realRep = Int(self.rep.substringWithRange(Range<String.Index>(start:self.rep.startIndex.advancedBy(0), end: self.rep.startIndex.advancedBy(index))))
+        range = self.rep.rangeOfString(" ")!
+        index = self.rep.startIndex.distanceTo(range.startIndex)
+        self.realRep = Int(self.tf_repeat.text!.substringWithRange(Range<String.Index>(start:self.tf_repeat.text!.startIndex.advancedBy(0), end: self.tf_repeat.text!.startIndex.advancedBy(index))))
     }
     func genButton(){
         btn_dec_30.layer.cornerRadius = 15
@@ -145,9 +291,21 @@ class AddTableViewController: UIViewController,UITextFieldDelegate {
         line_date.backgroundColor = UIColor(red: 232/255, green: 230/255, blue: 231/255, alpha: 1.0)
         line_time.backgroundColor = UIColor(red: 232/255, green: 230/255, blue: 231/255, alpha: 1.0)
         line_name.backgroundColor = UIColor(red: 232/255, green: 230/255, blue: 231/255, alpha: 1.0)
+        line_price.backgroundColor = UIColor(red: 232/255, green: 230/255, blue: 231/255, alpha: 1.0)
         line_repeat.backgroundColor = UIColor(red: 232/255, green: 230/255, blue: 231/255, alpha: 1.0)
         textField.resignFirstResponder()
+        
         return true
+    }
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "back_to_schedule" {
+            if let des = segue.destinationViewController as? ScheduleViewController {
+                let format = NSDateFormatter()
+                format.dateStyle = NSDateFormatterStyle.FullStyle
+                des.date = format.stringFromDate(self.date)
+                des.firstTime = true
+            }
+        }
     }
     /*
      // MARK: - Navigation

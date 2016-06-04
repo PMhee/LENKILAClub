@@ -2,6 +2,7 @@ PODS:
   - Charts (2.2.5):
     - Charts/Core (= 2.2.5)
   - Charts/Core (2.2.5)
+  - CVCalendar (1.2.9)
   - Realm (1.0.0):
     - Realm/Headers (= 1.0.0)
   - Realm/Headers (1.0.0)
@@ -10,10 +11,12 @@ PODS:
 
 DEPENDENCIES:
   - Charts
+  - CVCalendar (~> 1.2.9)
   - RealmSwift
 
 SPEC CHECKSUMS:
   Charts: b48fcc8d7190de910ff9e9748f5360c8ea7856e5
+  CVCalendar: 0799256e0bc3b43e83b7e86c0729ce9ff0624cb6
   Realm: e15cd8e7c11d3e576f628ba0b7cb855269b4991c
   RealmSwift: 3229306d020d96f83b335f87a0dcbf2cef0e6a2b
 

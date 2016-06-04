@@ -7,10 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4067C1A03FCC49CD61210192 /* Pods_LenkilaSportClub.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA14DAF9D1BC69E593107878 /* Pods_LenkilaSportClub.framework */; };
+		B59AC6C2B4115F586F419784 /* Pods_LenkilaClub.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3684B99DE3C981DAAB9F7676 /* Pods_LenkilaClub.framework */; };
 		B77188EC1CFFF2C700A8D8FB /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77188EB1CFFF2C700A8D8FB /* Schedule.swift */; };
 		B77188EE1CFFF3E300A8D8FB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77188ED1CFFF3E300A8D8FB /* User.swift */; };
 		B77188F01CFFF89800A8D8FB /* scheduleArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77188EF1CFFF89800A8D8FB /* scheduleArray.swift */; };
+		B7957EC31D03417A0039D6B7 /* showCalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7957EC21D03417A0039D6B7 /* showCalendarViewController.swift */; };
 		B7B0D5D31CEDA27E00577430 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B0D5D21CEDA27E00577430 /* AppDelegate.swift */; };
 		B7B0D5D51CEDA27E00577430 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B0D5D41CEDA27E00577430 /* ViewController.swift */; };
 		B7B0D5D81CEDA27E00577430 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7B0D5D61CEDA27E00577430 /* Main.storyboard */; };
@@ -22,6 +23,7 @@
 		B7B0D6041CEDCB2F00577430 /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B0D6031CEDCB2F00577430 /* ScheduleViewController.swift */; };
 		B7B0D6061CEDCE7E00577430 /* UIImageEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B0D6051CEDCE7E00577430 /* UIImageEffects.swift */; };
 		B7EA92AC1CFE00E70006C673 /* AddTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7EA92AB1CFE00E70006C673 /* AddTableViewController.swift */; };
+		B7F948C81D01C943008F8DC7 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F948C71D01C943008F8DC7 /* UserViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,11 +44,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		54C6C09EB65D6D83F0376187 /* Pods-LenkilaSportClub.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LenkilaSportClub.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LenkilaSportClub/Pods-LenkilaSportClub.debug.xcconfig"; sourceTree = "<group>"; };
-		7C84CE82ADD99FCE46FFFC29 /* Pods-LenkilaSportClub.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LenkilaSportClub.release.xcconfig"; path = "Pods/Target Support Files/Pods-LenkilaSportClub/Pods-LenkilaSportClub.release.xcconfig"; sourceTree = "<group>"; };
+		3684B99DE3C981DAAB9F7676 /* Pods_LenkilaClub.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LenkilaClub.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5BAE2018D28B45290242DDBB /* Pods-LenkilaClub.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LenkilaClub.release.xcconfig"; path = "Pods/Target Support Files/Pods-LenkilaClub/Pods-LenkilaClub.release.xcconfig"; sourceTree = "<group>"; };
+		5EB0424D7B3218CC229A5CAD /* Pods-LenkilaClub.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LenkilaClub.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LenkilaClub/Pods-LenkilaClub.debug.xcconfig"; sourceTree = "<group>"; };
 		B77188EB1CFFF2C700A8D8FB /* Schedule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
 		B77188ED1CFFF3E300A8D8FB /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		B77188EF1CFFF89800A8D8FB /* scheduleArray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = scheduleArray.swift; sourceTree = "<group>"; };
+		B7957EC21D03417A0039D6B7 /* showCalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = showCalendarViewController.swift; sourceTree = "<group>"; };
 		B7B0D5CF1CEDA27E00577430 /* LenkilaClub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LenkilaClub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7B0D5D21CEDA27E00577430 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B7B0D5D41CEDA27E00577430 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -64,7 +68,7 @@
 		B7B0D6031CEDCB2F00577430 /* ScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
 		B7B0D6051CEDCE7E00577430 /* UIImageEffects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageEffects.swift; sourceTree = "<group>"; };
 		B7EA92AB1CFE00E70006C673 /* AddTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTableViewController.swift; sourceTree = "<group>"; };
-		FA14DAF9D1BC69E593107878 /* Pods_LenkilaSportClub.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LenkilaSportClub.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B7F948C71D01C943008F8DC7 /* UserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,7 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4067C1A03FCC49CD61210192 /* Pods_LenkilaSportClub.framework in Frameworks */,
+				B59AC6C2B4115F586F419784 /* Pods_LenkilaClub.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -93,13 +97,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3954A2C02EF4F512A6077C22 /* Pods */ = {
+		13DF7C49EEADD7CFB1A0D4EC /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				54C6C09EB65D6D83F0376187 /* Pods-LenkilaSportClub.debug.xcconfig */,
-				7C84CE82ADD99FCE46FFFC29 /* Pods-LenkilaSportClub.release.xcconfig */,
+				5EB0424D7B3218CC229A5CAD /* Pods-LenkilaClub.debug.xcconfig */,
+				5BAE2018D28B45290242DDBB /* Pods-LenkilaClub.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		9AF96C9C0CF92EC208DF3F6F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3684B99DE3C981DAAB9F7676 /* Pods_LenkilaClub.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		B7B0D5C61CEDA27E00577430 = {
@@ -109,8 +121,8 @@
 				B7B0D5E91CEDA27F00577430 /* LenkilaSportClubTests */,
 				B7B0D5F41CEDA27F00577430 /* LenkilaSportClubUITests */,
 				B7B0D5D01CEDA27E00577430 /* Products */,
-				3954A2C02EF4F512A6077C22 /* Pods */,
-				CC3A69C6DC57236B1FA5EADA /* Frameworks */,
+				13DF7C49EEADD7CFB1A0D4EC /* Pods */,
+				9AF96C9C0CF92EC208DF3F6F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -140,6 +152,8 @@
 				B77188EB1CFFF2C700A8D8FB /* Schedule.swift */,
 				B77188ED1CFFF3E300A8D8FB /* User.swift */,
 				B77188EF1CFFF89800A8D8FB /* scheduleArray.swift */,
+				B7F948C71D01C943008F8DC7 /* UserViewController.swift */,
+				B7957EC21D03417A0039D6B7 /* showCalendarViewController.swift */,
 			);
 			path = LenkilaSportClub;
 			sourceTree = "<group>";
@@ -162,14 +176,6 @@
 			path = LenkilaSportClubUITests;
 			sourceTree = "<group>";
 		};
-		CC3A69C6DC57236B1FA5EADA /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				FA14DAF9D1BC69E593107878 /* Pods_LenkilaSportClub.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -177,12 +183,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B7B0D5FA1CEDA27F00577430 /* Build configuration list for PBXNativeTarget "LenkilaClub" */;
 			buildPhases = (
-				8D6EE393D24595F7327A4AED /* Check Pods Manifest.lock */,
+				C5FC25739FD0ADE4C763059B /* Check Pods Manifest.lock */,
 				B7B0D5CB1CEDA27E00577430 /* Sources */,
 				B7B0D5CC1CEDA27E00577430 /* Frameworks */,
 				B7B0D5CD1CEDA27E00577430 /* Resources */,
-				4EEFDD04E79E3C1776F2BD44 /* Embed Pods Frameworks */,
-				FEC7EEEFA60B8B99FF9E7C11 /* Copy Pods Resources */,
+				2C31CAE79E998A280E6E5E0E /* Embed Pods Frameworks */,
+				0CBB65885220CB85AA1DC5C2 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -303,7 +309,22 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		4EEFDD04E79E3C1776F2BD44 /* Embed Pods Frameworks */ = {
+		0CBB65885220CB85AA1DC5C2 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LenkilaClub/Pods-LenkilaClub-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2C31CAE79E998A280E6E5E0E /* Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -315,10 +336,10 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LenkilaSportClub/Pods-LenkilaSportClub-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LenkilaClub/Pods-LenkilaClub-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		8D6EE393D24595F7327A4AED /* Check Pods Manifest.lock */ = {
+		C5FC25739FD0ADE4C763059B /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -333,21 +354,6 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		FEC7EEEFA60B8B99FF9E7C11 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LenkilaSportClub/Pods-LenkilaSportClub-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -356,6 +362,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B7B0D6061CEDCE7E00577430 /* UIImageEffects.swift in Sources */,
+				B7F948C81D01C943008F8DC7 /* UserViewController.swift in Sources */,
 				B7B0D5D51CEDA27E00577430 /* ViewController.swift in Sources */,
 				B7B0D5D31CEDA27E00577430 /* AppDelegate.swift in Sources */,
 				B7B0D5DB1CEDA27E00577430 /* LenkilaSportClub.xcdatamodeld in Sources */,
@@ -364,6 +371,7 @@
 				B77188EC1CFFF2C700A8D8FB /* Schedule.swift in Sources */,
 				B7EA92AC1CFE00E70006C673 /* AddTableViewController.swift in Sources */,
 				B77188F01CFFF89800A8D8FB /* scheduleArray.swift in Sources */,
+				B7957EC31D03417A0039D6B7 /* showCalendarViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -503,7 +511,7 @@
 		};
 		B7B0D5FB1CEDA27F00577430 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 54C6C09EB65D6D83F0376187 /* Pods-LenkilaSportClub.debug.xcconfig */;
+			baseConfigurationReference = 5EB0424D7B3218CC229A5CAD /* Pods-LenkilaClub.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = LenkilaSportClub/Info.plist;
@@ -515,7 +523,7 @@
 		};
 		B7B0D5FC1CEDA27F00577430 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7C84CE82ADD99FCE46FFFC29 /* Pods-LenkilaSportClub.release.xcconfig */;
+			baseConfigurationReference = 5BAE2018D28B45290242DDBB /* Pods-LenkilaClub.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = LenkilaSportClub/Info.plist;

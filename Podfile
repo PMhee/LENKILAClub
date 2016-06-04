@@ -3,16 +3,17 @@
 # Uncomment this line if you're using Swift
 use_frameworks!
 
-target 'LenkilaSportClub' do
+target 'LenkilaClub' do
     pod 'RealmSwift'
     pod 'Charts'
+    pod 'CVCalendar', '~> 1.2.9'
 end
 
-target 'LenkilaSportClubTests' do
+target 'LenkilaClubTests' do
 
 end
 
-target 'LenkilaSportClubUITests' do
+target 'LenkilaClubUITests' do
 
 end
 
