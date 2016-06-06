@@ -12,7 +12,10 @@ class showCalendarViewController: UIViewController {
 
     @IBOutlet weak var menuView: CVCalendarMenuView!
     @IBOutlet weak var calendarView: CVCalendarView!
-    
+    var shouldShowDaysOut = true
+    var animationFinished = true
+    var selectedDay:DayView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -33,3 +36,33 @@ class showCalendarViewController: UIViewController {
     */
 
 }
+extension showCalendarViewController:CVCalendarViewDelegate,CVCalendarMenuViewDelegate{
+    func presentationMode() -> CalendarMode {
+        return .MonthView
+    }
+    func firstWeekday() -> Weekday {
+        return .Sunday
+    }
+    func shouldShowWeekdaysOut() -> Bool {
+        return shouldShowDaysOut
+    }
+    
+    func shouldAnimateResizing() -> Bool {
+        return true // Default value is true
+    }
+    func didSelectDayView(dayView: CVCalendarDayView, animationDidFinish: Bool) {
+        print("\(dayView.date.commonDescription) is selected!")
+        selectedDay = dayView
+    }
+
+}
+extension showCalendarViewController: CVCalendarViewAppearanceDelegate {
+    func dayLabelPresentWeekdayInitallyBold() -> Bool {
+        return false
+    }
+    
+    func spaceBetweenDayViews() -> CGFloat {
+        return 2
+    }
+}
+
