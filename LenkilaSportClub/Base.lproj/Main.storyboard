@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="7jf-tz-zUQ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="7jf-tz-zUQ">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -1528,7 +1528,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1878" y="372"/>
+            <point key="canvasLocation" x="1758" y="288"/>
         </scene>
         <!--Show Calendar View Controller-->
         <scene sceneID="F5U-OY-3co">
@@ -1539,6 +1539,7 @@
                         <viewControllerLayoutGuide type="bottom" id="lv5-sp-WGg"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="vVL-O3-kJj">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3M4-pu-31Z" customClass="CVCalendarView" customModule="CVCalendar">
@@ -1592,13 +1593,13 @@
                                 <exclude reference="T2A-PM-MZ9"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="4o0-5D-COq"/>
-                                <exclude reference="je7-Ku-JLh"/>
-                                <exclude reference="x0w-0A-qat"/>
                                 <exclude reference="Ein-Yo-x7H"/>
                                 <exclude reference="RKJ-xE-d0p"/>
                                 <exclude reference="h4R-M6-uvs"/>
                                 <exclude reference="pew-FT-5Qw"/>
+                                <exclude reference="4o0-5D-COq"/>
+                                <exclude reference="je7-Ku-JLh"/>
+                                <exclude reference="x0w-0A-qat"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -1607,13 +1608,13 @@
                                 <include reference="T2A-PM-MZ9"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="4o0-5D-COq"/>
-                                <include reference="je7-Ku-JLh"/>
-                                <include reference="x0w-0A-qat"/>
                                 <include reference="Ein-Yo-x7H"/>
                                 <include reference="RKJ-xE-d0p"/>
                                 <exclude reference="h4R-M6-uvs"/>
                                 <include reference="pew-FT-5Qw"/>
+                                <include reference="4o0-5D-COq"/>
+                                <include reference="je7-Ku-JLh"/>
+                                <include reference="x0w-0A-qat"/>
                             </mask>
                         </variation>
                     </view>
@@ -3047,7 +3048,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mGs-1q-K2p" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2646" y="372"/>
+            <point key="canvasLocation" x="2678" y="256"/>
         </scene>
         <!--User View Controller-->
         <scene sceneID="Ypc-KP-oDI">
@@ -3156,7 +3157,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Z9-QW-6vT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2646" y="-302"/>
+            <point key="canvasLocation" x="2574" y="-646"/>
         </scene>
     </scenes>
     <resources>
