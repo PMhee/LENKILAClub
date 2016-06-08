@@ -34,6 +34,7 @@ class ScheduleViewController: UIViewController,UIScrollViewDelegate,UIGestureRec
     var price : String!
     var rep : String!
     var today = NSDate()
+    @IBOutlet weak var btn_today: UIButton!
     @IBOutlet var tapGesture: UITapGestureRecognizer!
     @IBAction func tap_gesture(sender: UITapGestureRecognizer){
     }
@@ -42,6 +43,13 @@ class ScheduleViewController: UIViewController,UIScrollViewDelegate,UIGestureRec
         format.dateStyle = NSDateFormatterStyle.FullStyle
         label_date.text = format.stringFromDate(format.dateFromString(label_date.text!)!.dateByAddingTimeInterval(-60*60*24))
         //today = today.dateByAddingTimeInterval(-60*60*24)
+        clearTable()
+        self.genScheduleOnTable()
+    }
+    @IBAction func btn_today_action(sender: UIButton) {
+        let format = NSDateFormatter()
+        format.dateStyle = NSDateFormatterStyle.FullStyle
+        label_date.text = format.stringFromDate(NSDate())
         clearTable()
         self.genScheduleOnTable()
     }
@@ -60,6 +68,7 @@ class ScheduleViewController: UIViewController,UIScrollViewDelegate,UIGestureRec
         self.view.addGestureRecognizer(pan)
         self.view.addGestureRecognizer(tapGesture)
         self.genTableField()
+        btn_today.layer.cornerRadius = 15
         // Do any additional setup after loading the view.
     }
     override func viewWillAppear(animated: Bool) {
