@@ -8,6 +8,7 @@
 
 import Foundation
 import Realm
+
 class User:RLMObject{
     dynamic var id : String = ""
     dynamic var name : String = ""

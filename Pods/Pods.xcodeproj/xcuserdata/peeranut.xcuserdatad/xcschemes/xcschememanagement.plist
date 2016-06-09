@@ -19,6 +19,16 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-LenkilaClubTests.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-LenkilaClubUITests.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Realm.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -32,7 +42,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>8C702BFB31AC4B224D0CD7CE08D4EB17</key>
+		<key>1CE7C0495943D0736621125FA232FD26</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>6B48AB3BB641E11E7EEDD8C137AB7E02</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>72ABB46791D8FBA4EE64502E528C298E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8568174C49E41B2E149EAD62B26728C4</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -47,12 +72,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>CBE8524CF22D2B748F5D7DFE405F5746</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>E24F878562D72A554A04DD0C920F2A3C</key>
+		<key>C9F9A57D29E1300D18B8F2C2BF2D54D0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
