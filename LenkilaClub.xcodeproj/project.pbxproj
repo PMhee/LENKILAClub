@@ -1,759 +1,1705 @@
-// !$*UTF8*$!
-{
-	archiveVersion = 1;
-	classes = {
-	};
-	objectVersion = 46;
-	objects = {
-
-/* Begin PBXBuildFile section */
-		14496C19267068FD1C3FB85A /* Pods_LenkilaClubUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87E92AE851E46626A891996E /* Pods_LenkilaClubUITests.framework */; };
-		14D673434DDC3A6AD6F4EF23 /* Pods_LenkilaClubTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFA9C396912C17BC1B939885 /* Pods_LenkilaClubTests.framework */; };
-		197BE227DD40DB60488D84E0 /* Pods_LenkilaClub.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08B79763BF5F20C52B20418E /* Pods_LenkilaClub.framework */; };
-		90D5A8811D093DA1000D2062 /* UserDetailMainHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D5A8801D093DA1000D2062 /* UserDetailMainHeader.swift */; };
-		90D5A8831D0941A1000D2062 /* UserDetailListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D5A8821D0941A1000D2062 /* UserDetailListViewController.swift */; };
-		90D5A8871D094383000D2062 /* UserDetailListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D5A8861D094383000D2062 /* UserDetailListCell.swift */; };
-		B77188EC1CFFF2C700A8D8FB /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77188EB1CFFF2C700A8D8FB /* Schedule.swift */; };
-		B77188EE1CFFF3E300A8D8FB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77188ED1CFFF3E300A8D8FB /* User.swift */; };
-		B77188F01CFFF89800A8D8FB /* scheduleArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77188EF1CFFF89800A8D8FB /* scheduleArray.swift */; };
-		B7957EC31D03417A0039D6B7 /* showCalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7957EC21D03417A0039D6B7 /* showCalendarViewController.swift */; };
-		B7B0D5D31CEDA27E00577430 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B0D5D21CEDA27E00577430 /* AppDelegate.swift */; };
-		B7B0D5D51CEDA27E00577430 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B0D5D41CEDA27E00577430 /* ViewController.swift */; };
-		B7B0D5D81CEDA27E00577430 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7B0D5D61CEDA27E00577430 /* Main.storyboard */; };
-		B7B0D5DB1CEDA27E00577430 /* LenkilaSportClub.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B7B0D5D91CEDA27E00577430 /* LenkilaSportClub.xcdatamodeld */; };
-		B7B0D5DD1CEDA27E00577430 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B7B0D5DC1CEDA27E00577430 /* Assets.xcassets */; };
-		B7B0D5E01CEDA27E00577430 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7B0D5DE1CEDA27E00577430 /* LaunchScreen.storyboard */; };
-		B7B0D5EB1CEDA27F00577430 /* LenkilaSportClubTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B0D5EA1CEDA27F00577430 /* LenkilaSportClubTests.swift */; };
-		B7B0D5F61CEDA27F00577430 /* LenkilaSportClubUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B0D5F51CEDA27F00577430 /* LenkilaSportClubUITests.swift */; };
-		B7B0D6041CEDCB2F00577430 /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B0D6031CEDCB2F00577430 /* ScheduleViewController.swift */; };
-		B7B0D6061CEDCE7E00577430 /* UIImageEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B0D6051CEDCE7E00577430 /* UIImageEffects.swift */; };
-		B7EA92AC1CFE00E70006C673 /* AddTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7EA92AB1CFE00E70006C673 /* AddTableViewController.swift */; };
-		B7F948C81D01C943008F8DC7 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F948C71D01C943008F8DC7 /* UserViewController.swift */; };
-/* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		B7B0D5E71CEDA27F00577430 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B7B0D5C71CEDA27E00577430 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = B7B0D5CE1CEDA27E00577430;
-			remoteInfo = LenkilaSportClub;
-		};
-		B7B0D5F21CEDA27F00577430 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B7B0D5C71CEDA27E00577430 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = B7B0D5CE1CEDA27E00577430;
-			remoteInfo = LenkilaSportClub;
-		};
-/* End PBXContainerItemProxy section */
-
-/* Begin PBXFileReference section */
-		08B79763BF5F20C52B20418E /* Pods_LenkilaClub.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LenkilaClub.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		53F018FF20E592EFE02F69E7 /* Pods-LenkilaClubTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LenkilaClubTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LenkilaClubTests/Pods-LenkilaClubTests.release.xcconfig"; sourceTree = "<group>"; };
-		73A4FBC56D3B5B7D68E7124A /* Pods-LenkilaClubTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LenkilaClubTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LenkilaClubTests/Pods-LenkilaClubTests.debug.xcconfig"; sourceTree = "<group>"; };
-		87E92AE851E46626A891996E /* Pods_LenkilaClubUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LenkilaClubUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		90D5A8801D093DA1000D2062 /* UserDetailMainHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDetailMainHeader.swift; sourceTree = "<group>"; };
-		90D5A8821D0941A1000D2062 /* UserDetailListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDetailListViewController.swift; sourceTree = "<group>"; };
-		90D5A8861D094383000D2062 /* UserDetailListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDetailListCell.swift; sourceTree = "<group>"; };
-		B77188EB1CFFF2C700A8D8FB /* Schedule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
-		B77188ED1CFFF3E300A8D8FB /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		B77188EF1CFFF89800A8D8FB /* scheduleArray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = scheduleArray.swift; sourceTree = "<group>"; };
-		B7957EC21D03417A0039D6B7 /* showCalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = showCalendarViewController.swift; sourceTree = "<group>"; };
-		B7B0D5CF1CEDA27E00577430 /* LenkilaClub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LenkilaClub.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		B7B0D5D21CEDA27E00577430 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B7B0D5D41CEDA27E00577430 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		B7B0D5D71CEDA27E00577430 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		B7B0D5DA1CEDA27E00577430 /* LenkilaSportClub.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LenkilaSportClub.xcdatamodel; sourceTree = "<group>"; };
-		B7B0D5DC1CEDA27E00577430 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		B7B0D5DF1CEDA27E00577430 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		B7B0D5E11CEDA27E00577430 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B7B0D5E61CEDA27F00577430 /* LenkilaClub.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LenkilaClub.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		B7B0D5EA1CEDA27F00577430 /* LenkilaSportClubTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LenkilaSportClubTests.swift; sourceTree = "<group>"; };
-		B7B0D5EC1CEDA27F00577430 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B7B0D5F11CEDA27F00577430 /* LenkilaClub.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LenkilaClub.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		B7B0D5F51CEDA27F00577430 /* LenkilaSportClubUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LenkilaSportClubUITests.swift; sourceTree = "<group>"; };
-		B7B0D5F71CEDA27F00577430 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B7B0D6031CEDCB2F00577430 /* ScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
-		B7B0D6051CEDCE7E00577430 /* UIImageEffects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageEffects.swift; sourceTree = "<group>"; };
-		B7EA92AB1CFE00E70006C673 /* AddTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTableViewController.swift; sourceTree = "<group>"; };
-		B7F948C71D01C943008F8DC7 /* UserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
-		BD2C26AF9F3FFB2907CD7C52 /* Pods-LenkilaClub.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LenkilaClub.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LenkilaClub/Pods-LenkilaClub.debug.xcconfig"; sourceTree = "<group>"; };
-		BFA9C396912C17BC1B939885 /* Pods_LenkilaClubTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LenkilaClubTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C0798E88A4C70EB494D1676A /* Pods-LenkilaClubUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LenkilaClubUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LenkilaClubUITests/Pods-LenkilaClubUITests.release.xcconfig"; sourceTree = "<group>"; };
-		C3E6D3EEBCE6A121264EDE5F /* Pods-LenkilaClubUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LenkilaClubUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LenkilaClubUITests/Pods-LenkilaClubUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		E97073A8EDBF12D8289E7FB0 /* Pods-LenkilaClub.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LenkilaClub.release.xcconfig"; path = "Pods/Target Support Files/Pods-LenkilaClub/Pods-LenkilaClub.release.xcconfig"; sourceTree = "<group>"; };
-/* End PBXFileReference section */
-
-/* Begin PBXFrameworksBuildPhase section */
-		B7B0D5CC1CEDA27E00577430 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				197BE227DD40DB60488D84E0 /* Pods_LenkilaClub.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B7B0D5E31CEDA27F00577430 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				14D673434DDC3A6AD6F4EF23 /* Pods_LenkilaClubTests.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B7B0D5EE1CEDA27F00577430 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				14496C19267068FD1C3FB85A /* Pods_LenkilaClubUITests.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXFrameworksBuildPhase section */
-
-/* Begin PBXGroup section */
-		90D5A87F1D093D09000D2062 /* UserDetailList */ = {
-			isa = PBXGroup;
-			children = (
-				90D5A8821D0941A1000D2062 /* UserDetailListViewController.swift */,
-				90D5A8801D093DA1000D2062 /* UserDetailMainHeader.swift */,
-				90D5A8861D094383000D2062 /* UserDetailListCell.swift */,
-			);
-			name = UserDetailList;
-			sourceTree = "<group>";
-		};
-		B7B0D5C61CEDA27E00577430 = {
-			isa = PBXGroup;
-			children = (
-				B7B0D5D11CEDA27E00577430 /* LenkilaSportClub */,
-				B7B0D5E91CEDA27F00577430 /* LenkilaSportClubTests */,
-				B7B0D5F41CEDA27F00577430 /* LenkilaSportClubUITests */,
-				B7B0D5D01CEDA27E00577430 /* Products */,
-				D6AB6F01D43AB079AA2ACDFF /* Pods */,
-				E91669DF06FFA14933FAFA1A /* Frameworks */,
-			);
-			sourceTree = "<group>";
-		};
-		B7B0D5D01CEDA27E00577430 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				B7B0D5CF1CEDA27E00577430 /* LenkilaClub.app */,
-				B7B0D5E61CEDA27F00577430 /* LenkilaClub.xctest */,
-				B7B0D5F11CEDA27F00577430 /* LenkilaClub.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		B7B0D5D11CEDA27E00577430 /* LenkilaSportClub */ = {
-			isa = PBXGroup;
-			children = (
-				B7B0D5D21CEDA27E00577430 /* AppDelegate.swift */,
-				B7B0D5D41CEDA27E00577430 /* ViewController.swift */,
-				B7B0D5D61CEDA27E00577430 /* Main.storyboard */,
-				B7B0D5DC1CEDA27E00577430 /* Assets.xcassets */,
-				B7B0D5DE1CEDA27E00577430 /* LaunchScreen.storyboard */,
-				90D5A87F1D093D09000D2062 /* UserDetailList */,
-				B7B0D5E11CEDA27E00577430 /* Info.plist */,
-				B7B0D5D91CEDA27E00577430 /* LenkilaSportClub.xcdatamodeld */,
-				B7B0D6051CEDCE7E00577430 /* UIImageEffects.swift */,
-				B7B0D6031CEDCB2F00577430 /* ScheduleViewController.swift */,
-				B7EA92AB1CFE00E70006C673 /* AddTableViewController.swift */,
-				B77188EB1CFFF2C700A8D8FB /* Schedule.swift */,
-				B77188ED1CFFF3E300A8D8FB /* User.swift */,
-				B77188EF1CFFF89800A8D8FB /* scheduleArray.swift */,
-				B7F948C71D01C943008F8DC7 /* UserViewController.swift */,
-				B7957EC21D03417A0039D6B7 /* showCalendarViewController.swift */,
-			);
-			path = LenkilaSportClub;
-			sourceTree = "<group>";
-		};
-		B7B0D5E91CEDA27F00577430 /* LenkilaSportClubTests */ = {
-			isa = PBXGroup;
-			children = (
-				B7B0D5EA1CEDA27F00577430 /* LenkilaSportClubTests.swift */,
-				B7B0D5EC1CEDA27F00577430 /* Info.plist */,
-			);
-			path = LenkilaSportClubTests;
-			sourceTree = "<group>";
-		};
-		B7B0D5F41CEDA27F00577430 /* LenkilaSportClubUITests */ = {
-			isa = PBXGroup;
-			children = (
-				B7B0D5F51CEDA27F00577430 /* LenkilaSportClubUITests.swift */,
-				B7B0D5F71CEDA27F00577430 /* Info.plist */,
-			);
-			path = LenkilaSportClubUITests;
-			sourceTree = "<group>";
-		};
-		D6AB6F01D43AB079AA2ACDFF /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				BD2C26AF9F3FFB2907CD7C52 /* Pods-LenkilaClub.debug.xcconfig */,
-				E97073A8EDBF12D8289E7FB0 /* Pods-LenkilaClub.release.xcconfig */,
-				73A4FBC56D3B5B7D68E7124A /* Pods-LenkilaClubTests.debug.xcconfig */,
-				53F018FF20E592EFE02F69E7 /* Pods-LenkilaClubTests.release.xcconfig */,
-				C3E6D3EEBCE6A121264EDE5F /* Pods-LenkilaClubUITests.debug.xcconfig */,
-				C0798E88A4C70EB494D1676A /* Pods-LenkilaClubUITests.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		E91669DF06FFA14933FAFA1A /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				08B79763BF5F20C52B20418E /* Pods_LenkilaClub.framework */,
-				BFA9C396912C17BC1B939885 /* Pods_LenkilaClubTests.framework */,
-				87E92AE851E46626A891996E /* Pods_LenkilaClubUITests.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-/* End PBXGroup section */
-
-/* Begin PBXNativeTarget section */
-		B7B0D5CE1CEDA27E00577430 /* LenkilaClub */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = B7B0D5FA1CEDA27F00577430 /* Build configuration list for PBXNativeTarget "LenkilaClub" */;
-			buildPhases = (
-				EC288BD9529F9A6BF3017A6D /* [CP] Check Pods Manifest.lock */,
-				B7B0D5CB1CEDA27E00577430 /* Sources */,
-				B7B0D5CC1CEDA27E00577430 /* Frameworks */,
-				B7B0D5CD1CEDA27E00577430 /* Resources */,
-				B762638650A7B7983A74C3E5 /* [CP] Embed Pods Frameworks */,
-				2B5D5C08732118D133EF2BB9 /* [CP] Copy Pods Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = LenkilaClub;
-			productName = LenkilaSportClub;
-			productReference = B7B0D5CF1CEDA27E00577430 /* LenkilaClub.app */;
-			productType = "com.apple.product-type.application";
-		};
-		B7B0D5E51CEDA27F00577430 /* LenkilaClubTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = B7B0D5FD1CEDA27F00577430 /* Build configuration list for PBXNativeTarget "LenkilaClubTests" */;
-			buildPhases = (
-				CBCB3BB1B353AEAD4C967374 /* [CP] Check Pods Manifest.lock */,
-				B7B0D5E21CEDA27F00577430 /* Sources */,
-				B7B0D5E31CEDA27F00577430 /* Frameworks */,
-				B7B0D5E41CEDA27F00577430 /* Resources */,
-				2FA18E52978E913A63266E4F /* [CP] Embed Pods Frameworks */,
-				29397D41FC29A974601EA6EC /* [CP] Copy Pods Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				B7B0D5E81CEDA27F00577430 /* PBXTargetDependency */,
-			);
-			name = LenkilaClubTests;
-			productName = LenkilaSportClubTests;
-			productReference = B7B0D5E61CEDA27F00577430 /* LenkilaClub.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		B7B0D5F01CEDA27F00577430 /* LenkilaClubUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = B7B0D6001CEDA27F00577430 /* Build configuration list for PBXNativeTarget "LenkilaClubUITests" */;
-			buildPhases = (
-				F6CA62CA034A046B938DD211 /* [CP] Check Pods Manifest.lock */,
-				B7B0D5ED1CEDA27F00577430 /* Sources */,
-				B7B0D5EE1CEDA27F00577430 /* Frameworks */,
-				B7B0D5EF1CEDA27F00577430 /* Resources */,
-				828844007046CDCEFA782EE0 /* [CP] Copy Pods Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				B7B0D5F31CEDA27F00577430 /* PBXTargetDependency */,
-			);
-			name = LenkilaClubUITests;
-			productName = LenkilaSportClubUITests;
-			productReference = B7B0D5F11CEDA27F00577430 /* LenkilaClub.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
-/* End PBXNativeTarget section */
-
-/* Begin PBXProject section */
-		B7B0D5C71CEDA27E00577430 /* Project object */ = {
-			isa = PBXProject;
-			attributes = {
-				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0730;
-				ORGANIZATIONNAME = Tanakorn;
-				TargetAttributes = {
-					B7B0D5CE1CEDA27E00577430 = {
-						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = FCA995W2V4;
-					};
-					B7B0D5E51CEDA27F00577430 = {
-						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = WYLP742538;
-						TestTargetID = B7B0D5CE1CEDA27E00577430;
-					};
-					B7B0D5F01CEDA27F00577430 = {
-						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = WYLP742538;
-						TestTargetID = B7B0D5CE1CEDA27E00577430;
-					};
-				};
-			};
-			buildConfigurationList = B7B0D5CA1CEDA27E00577430 /* Build configuration list for PBXProject "LenkilaClub" */;
-			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
-			hasScannedForEncodings = 0;
-			knownRegions = (
-				en,
-				Base,
-			);
-			mainGroup = B7B0D5C61CEDA27E00577430;
-			productRefGroup = B7B0D5D01CEDA27E00577430 /* Products */;
-			projectDirPath = "";
-			projectRoot = "";
-			targets = (
-				B7B0D5CE1CEDA27E00577430 /* LenkilaClub */,
-				B7B0D5E51CEDA27F00577430 /* LenkilaClubTests */,
-				B7B0D5F01CEDA27F00577430 /* LenkilaClubUITests */,
-			);
-		};
-/* End PBXProject section */
-
-/* Begin PBXResourcesBuildPhase section */
-		B7B0D5CD1CEDA27E00577430 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B7B0D5E01CEDA27E00577430 /* LaunchScreen.storyboard in Resources */,
-				B7B0D5DD1CEDA27E00577430 /* Assets.xcassets in Resources */,
-				B7B0D5D81CEDA27E00577430 /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B7B0D5E41CEDA27F00577430 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B7B0D5EF1CEDA27F00577430 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		29397D41FC29A974601EA6EC /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LenkilaClubTests/Pods-LenkilaClubTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		2B5D5C08732118D133EF2BB9 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LenkilaClub/Pods-LenkilaClub-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		2FA18E52978E913A63266E4F /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LenkilaClubTests/Pods-LenkilaClubTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		828844007046CDCEFA782EE0 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LenkilaClubUITests/Pods-LenkilaClubUITests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B762638650A7B7983A74C3E5 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LenkilaClub/Pods-LenkilaClub-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		CBCB3BB1B353AEAD4C967374 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		EC288BD9529F9A6BF3017A6D /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		F6CA62CA034A046B938DD211 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
-/* Begin PBXSourcesBuildPhase section */
-		B7B0D5CB1CEDA27E00577430 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B7B0D6061CEDCE7E00577430 /* UIImageEffects.swift in Sources */,
-				90D5A8811D093DA1000D2062 /* UserDetailMainHeader.swift in Sources */,
-				B7F948C81D01C943008F8DC7 /* UserViewController.swift in Sources */,
-				90D5A8871D094383000D2062 /* UserDetailListCell.swift in Sources */,
-				B7B0D5D51CEDA27E00577430 /* ViewController.swift in Sources */,
-				B7B0D5D31CEDA27E00577430 /* AppDelegate.swift in Sources */,
-				B7B0D5DB1CEDA27E00577430 /* LenkilaSportClub.xcdatamodeld in Sources */,
-				B77188EE1CFFF3E300A8D8FB /* User.swift in Sources */,
-				B7B0D6041CEDCB2F00577430 /* ScheduleViewController.swift in Sources */,
-				B77188EC1CFFF2C700A8D8FB /* Schedule.swift in Sources */,
-				B7EA92AC1CFE00E70006C673 /* AddTableViewController.swift in Sources */,
-				90D5A8831D0941A1000D2062 /* UserDetailListViewController.swift in Sources */,
-				B77188F01CFFF89800A8D8FB /* scheduleArray.swift in Sources */,
-				B7957EC31D03417A0039D6B7 /* showCalendarViewController.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B7B0D5E21CEDA27F00577430 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B7B0D5EB1CEDA27F00577430 /* LenkilaSportClubTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B7B0D5ED1CEDA27F00577430 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B7B0D5F61CEDA27F00577430 /* LenkilaSportClubUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		B7B0D5E81CEDA27F00577430 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = B7B0D5CE1CEDA27E00577430 /* LenkilaClub */;
-			targetProxy = B7B0D5E71CEDA27F00577430 /* PBXContainerItemProxy */;
-		};
-		B7B0D5F31CEDA27F00577430 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = B7B0D5CE1CEDA27E00577430 /* LenkilaClub */;
-			targetProxy = B7B0D5F21CEDA27F00577430 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		B7B0D5D61CEDA27E00577430 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B7B0D5D71CEDA27E00577430 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		B7B0D5DE1CEDA27E00577430 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B7B0D5DF1CEDA27E00577430 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
-/* Begin XCBuildConfiguration section */
-		B7B0D5F81CEDA27F00577430 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_TESTABILITY = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-			};
-			name = Debug;
-		};
-		B7B0D5F91CEDA27F00577430 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_NS_ASSERTIONS = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				SDKROOT = iphoneos;
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		B7B0D5FB1CEDA27F00577430 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = BD2C26AF9F3FFB2907CD7C52 /* Pods-LenkilaClub.debug.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				INFOPLIST_FILE = LenkilaSportClub/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Jump.LenkilaSportClub;
-				PRODUCT_NAME = LenkilaClub;
-			};
-			name = Debug;
-		};
-		B7B0D5FC1CEDA27F00577430 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = E97073A8EDBF12D8289E7FB0 /* Pods-LenkilaClub.release.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				INFOPLIST_FILE = LenkilaSportClub/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Jump.LenkilaSportClub;
-				PRODUCT_NAME = LenkilaClub;
-			};
-			name = Release;
-		};
-		B7B0D5FE1CEDA27F00577430 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 73A4FBC56D3B5B7D68E7124A /* Pods-LenkilaClubTests.debug.xcconfig */;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = LenkilaSportClubTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Nont.LenkilaSportClubTests;
-				PRODUCT_NAME = LenkilaClub;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LenkilaClub.app/LenkilaClub";
-			};
-			name = Debug;
-		};
-		B7B0D5FF1CEDA27F00577430 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 53F018FF20E592EFE02F69E7 /* Pods-LenkilaClubTests.release.xcconfig */;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = LenkilaSportClubTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Nont.LenkilaSportClubTests;
-				PRODUCT_NAME = LenkilaClub;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LenkilaClub.app/LenkilaClub";
-			};
-			name = Release;
-		};
-		B7B0D6011CEDA27F00577430 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = C3E6D3EEBCE6A121264EDE5F /* Pods-LenkilaClubUITests.debug.xcconfig */;
-			buildSettings = {
-				INFOPLIST_FILE = LenkilaSportClubUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Nont.LenkilaSportClubUITests;
-				PRODUCT_NAME = LenkilaClub;
-				TEST_TARGET_NAME = LenkilaSportClub;
-			};
-			name = Debug;
-		};
-		B7B0D6021CEDA27F00577430 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = C0798E88A4C70EB494D1676A /* Pods-LenkilaClubUITests.release.xcconfig */;
-			buildSettings = {
-				INFOPLIST_FILE = LenkilaSportClubUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Nont.LenkilaSportClubUITests;
-				PRODUCT_NAME = LenkilaClub;
-				TEST_TARGET_NAME = LenkilaSportClub;
-			};
-			name = Release;
-		};
-/* End XCBuildConfiguration section */
-
-/* Begin XCConfigurationList section */
-		B7B0D5CA1CEDA27E00577430 /* Build configuration list for PBXProject "LenkilaClub" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				B7B0D5F81CEDA27F00577430 /* Debug */,
-				B7B0D5F91CEDA27F00577430 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		B7B0D5FA1CEDA27F00577430 /* Build configuration list for PBXNativeTarget "LenkilaClub" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				B7B0D5FB1CEDA27F00577430 /* Debug */,
-				B7B0D5FC1CEDA27F00577430 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		B7B0D5FD1CEDA27F00577430 /* Build configuration list for PBXNativeTarget "LenkilaClubTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				B7B0D5FE1CEDA27F00577430 /* Debug */,
-				B7B0D5FF1CEDA27F00577430 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		B7B0D6001CEDA27F00577430 /* Build configuration list for PBXNativeTarget "LenkilaClubUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				B7B0D6011CEDA27F00577430 /* Debug */,
-				B7B0D6021CEDA27F00577430 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-/* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		B7B0D5D91CEDA27E00577430 /* LenkilaSportClub.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				B7B0D5DA1CEDA27E00577430 /* LenkilaSportClub.xcdatamodel */,
-			);
-			currentVersion = B7B0D5DA1CEDA27E00577430 /* LenkilaSportClub.xcdatamodel */;
-			path = LenkilaSportClub.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
-	};
-	rootObject = B7B0D5C71CEDA27E00577430 /* Project object */;
-}
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>archiveVersion</key>
+	<string>1</string>
+	<key>classes</key>
+	<dict/>
+	<key>objectVersion</key>
+	<string>46</string>
+	<key>objects</key>
+	<dict>
+		<key>08B79763BF5F20C52B20418E</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.framework</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>Pods_LenkilaClub.framework</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>14496C19267068FD1C3FB85A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>87E92AE851E46626A891996E</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>14D673434DDC3A6AD6F4EF23</key>
+		<dict>
+			<key>fileRef</key>
+			<string>BFA9C396912C17BC1B939885</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>197BE227DD40DB60488D84E0</key>
+		<dict>
+			<key>fileRef</key>
+			<string>08B79763BF5F20C52B20418E</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>29397D41FC29A974601EA6EC</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>[CP] Copy Pods Resources</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>"${SRCROOT}/Pods/Target Support Files/Pods-LenkilaClubTests/Pods-LenkilaClubTests-resources.sh"
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>2B5D5C08732118D133EF2BB9</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>[CP] Copy Pods Resources</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>"${SRCROOT}/Pods/Target Support Files/Pods-LenkilaClub/Pods-LenkilaClub-resources.sh"
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>2FA18E52978E913A63266E4F</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>[CP] Embed Pods Frameworks</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>"${SRCROOT}/Pods/Target Support Files/Pods-LenkilaClubTests/Pods-LenkilaClubTests-frameworks.sh"
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>53F018FF20E592EFE02F69E7</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>name</key>
+			<string>Pods-LenkilaClubTests.release.xcconfig</string>
+			<key>path</key>
+			<string>Pods/Target Support Files/Pods-LenkilaClubTests/Pods-LenkilaClubTests.release.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>629CA9588F7F7580A863B832</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>Embed Pods Frameworks</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>"${SRCROOT}/Pods/Target Support Files/Pods-LenkilaClub/Pods-LenkilaClub-frameworks.sh"
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>73A4FBC56D3B5B7D68E7124A</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>name</key>
+			<string>Pods-LenkilaClubTests.debug.xcconfig</string>
+			<key>path</key>
+			<string>Pods/Target Support Files/Pods-LenkilaClubTests/Pods-LenkilaClubTests.debug.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>828844007046CDCEFA782EE0</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>[CP] Copy Pods Resources</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>"${SRCROOT}/Pods/Target Support Files/Pods-LenkilaClubUITests/Pods-LenkilaClubUITests-resources.sh"
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>87E92AE851E46626A891996E</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.framework</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>Pods_LenkilaClubUITests.framework</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>90D5A87F1D093D09000D2062</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>90D5A8821D0941A1000D2062</string>
+				<string>90D5A8801D093DA1000D2062</string>
+				<string>90D5A8861D094383000D2062</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>UserDetailList</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>90D5A8801D093DA1000D2062</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>UserDetailMainHeader.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>90D5A8811D093DA1000D2062</key>
+		<dict>
+			<key>fileRef</key>
+			<string>90D5A8801D093DA1000D2062</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>90D5A8821D0941A1000D2062</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>UserDetailListViewController.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>90D5A8831D0941A1000D2062</key>
+		<dict>
+			<key>fileRef</key>
+			<string>90D5A8821D0941A1000D2062</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>90D5A8861D094383000D2062</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>UserDetailListCell.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>90D5A8871D094383000D2062</key>
+		<dict>
+			<key>fileRef</key>
+			<string>90D5A8861D094383000D2062</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>B762638650A7B7983A74C3E5</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>[CP] Embed Pods Frameworks</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>"${SRCROOT}/Pods/Target Support Files/Pods-LenkilaClub/Pods-LenkilaClub-frameworks.sh"
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>B77188EB1CFFF2C700A8D8FB</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>Schedule.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>B77188EC1CFFF2C700A8D8FB</key>
+		<dict>
+			<key>fileRef</key>
+			<string>B77188EB1CFFF2C700A8D8FB</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>B77188ED1CFFF3E300A8D8FB</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>User.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>B77188EE1CFFF3E300A8D8FB</key>
+		<dict>
+			<key>fileRef</key>
+			<string>B77188ED1CFFF3E300A8D8FB</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>B77188EF1CFFF89800A8D8FB</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>scheduleArray.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>B77188F01CFFF89800A8D8FB</key>
+		<dict>
+			<key>fileRef</key>
+			<string>B77188EF1CFFF89800A8D8FB</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>B7957EC21D03417A0039D6B7</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>showCalendarViewController.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>B7957EC31D03417A0039D6B7</key>
+		<dict>
+			<key>fileRef</key>
+			<string>B7957EC21D03417A0039D6B7</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>B7B0D5C61CEDA27E00577430</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>B7B0D5D11CEDA27E00577430</string>
+				<string>B7B0D5E91CEDA27F00577430</string>
+				<string>B7B0D5F41CEDA27F00577430</string>
+				<string>B7B0D5D01CEDA27E00577430</string>
+				<string>D6AB6F01D43AB079AA2ACDFF</string>
+				<string>E91669DF06FFA14933FAFA1A</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>B7B0D5C71CEDA27E00577430</key>
+		<dict>
+			<key>attributes</key>
+			<dict>
+				<key>LastSwiftUpdateCheck</key>
+				<string>0730</string>
+				<key>LastUpgradeCheck</key>
+				<string>0730</string>
+				<key>ORGANIZATIONNAME</key>
+				<string>Tanakorn</string>
+				<key>TargetAttributes</key>
+				<dict>
+					<key>B7B0D5CE1CEDA27E00577430</key>
+					<dict>
+						<key>CreatedOnToolsVersion</key>
+						<string>7.3</string>
+						<key>DevelopmentTeam</key>
+						<string>FCA995W2V4</string>
+					</dict>
+					<key>B7B0D5E51CEDA27F00577430</key>
+					<dict>
+						<key>CreatedOnToolsVersion</key>
+						<string>7.3</string>
+						<key>DevelopmentTeam</key>
+						<string>WYLP742538</string>
+						<key>TestTargetID</key>
+						<string>B7B0D5CE1CEDA27E00577430</string>
+					</dict>
+					<key>B7B0D5F01CEDA27F00577430</key>
+					<dict>
+						<key>CreatedOnToolsVersion</key>
+						<string>7.3</string>
+						<key>DevelopmentTeam</key>
+						<string>WYLP742538</string>
+						<key>TestTargetID</key>
+						<string>B7B0D5CE1CEDA27E00577430</string>
+					</dict>
+				</dict>
+			</dict>
+			<key>buildConfigurationList</key>
+			<string>B7B0D5CA1CEDA27E00577430</string>
+			<key>compatibilityVersion</key>
+			<string>Xcode 3.2</string>
+			<key>developmentRegion</key>
+			<string>English</string>
+			<key>hasScannedForEncodings</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXProject</string>
+			<key>knownRegions</key>
+			<array>
+				<string>en</string>
+				<string>Base</string>
+			</array>
+			<key>mainGroup</key>
+			<string>B7B0D5C61CEDA27E00577430</string>
+			<key>productRefGroup</key>
+			<string>B7B0D5D01CEDA27E00577430</string>
+			<key>projectDirPath</key>
+			<string></string>
+			<key>projectReferences</key>
+			<array/>
+			<key>projectRoot</key>
+			<string></string>
+			<key>targets</key>
+			<array>
+				<string>B7B0D5CE1CEDA27E00577430</string>
+				<string>B7B0D5E51CEDA27F00577430</string>
+				<string>B7B0D5F01CEDA27F00577430</string>
+			</array>
+		</dict>
+		<key>B7B0D5CA1CEDA27E00577430</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>B7B0D5F81CEDA27F00577430</string>
+				<string>B7B0D5F91CEDA27F00577430</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>B7B0D5CB1CEDA27E00577430</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>B7B0D6061CEDCE7E00577430</string>
+				<string>90D5A8811D093DA1000D2062</string>
+				<string>B7F948C81D01C943008F8DC7</string>
+				<string>90D5A8871D094383000D2062</string>
+				<string>B7B0D5D51CEDA27E00577430</string>
+				<string>B7B0D5D31CEDA27E00577430</string>
+				<string>B7B0D5DB1CEDA27E00577430</string>
+				<string>B77188EE1CFFF3E300A8D8FB</string>
+				<string>B7B0D6041CEDCB2F00577430</string>
+				<string>B77188EC1CFFF2C700A8D8FB</string>
+				<string>B7EA92AC1CFE00E70006C673</string>
+				<string>90D5A8831D0941A1000D2062</string>
+				<string>B77188F01CFFF89800A8D8FB</string>
+				<string>B7957EC31D03417A0039D6B7</string>
+			</array>
+			<key>isa</key>
+			<string>PBXSourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>B7B0D5CC1CEDA27E00577430</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>197BE227DD40DB60488D84E0</string>
+			</array>
+			<key>isa</key>
+			<string>PBXFrameworksBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>B7B0D5CD1CEDA27E00577430</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>B7B0D5E01CEDA27E00577430</string>
+				<string>B7B0D5DD1CEDA27E00577430</string>
+				<string>B7B0D5D81CEDA27E00577430</string>
+			</array>
+			<key>isa</key>
+			<string>PBXResourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>B7B0D5CE1CEDA27E00577430</key>
+		<dict>
+			<key>buildConfigurationList</key>
+			<string>B7B0D5FA1CEDA27F00577430</string>
+			<key>buildPhases</key>
+			<array>
+				<string>EC288BD9529F9A6BF3017A6D</string>
+				<string>B7B0D5CB1CEDA27E00577430</string>
+				<string>B7B0D5CC1CEDA27E00577430</string>
+				<string>B7B0D5CD1CEDA27E00577430</string>
+				<string>B762638650A7B7983A74C3E5</string>
+				<string>2B5D5C08732118D133EF2BB9</string>
+				<string>629CA9588F7F7580A863B832</string>
+			</array>
+			<key>buildRules</key>
+			<array/>
+			<key>dependencies</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXNativeTarget</string>
+			<key>name</key>
+			<string>LenkilaClub</string>
+			<key>productName</key>
+			<string>LenkilaSportClub</string>
+			<key>productReference</key>
+			<string>B7B0D5CF1CEDA27E00577430</string>
+			<key>productType</key>
+			<string>com.apple.product-type.application</string>
+		</dict>
+		<key>B7B0D5CF1CEDA27E00577430</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.application</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>LenkilaClub.app</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>B7B0D5D01CEDA27E00577430</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>B7B0D5CF1CEDA27E00577430</string>
+				<string>B7B0D5E61CEDA27F00577430</string>
+				<string>B7B0D5F11CEDA27F00577430</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Products</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>B7B0D5D11CEDA27E00577430</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>B7B0D5D21CEDA27E00577430</string>
+				<string>B7B0D5D41CEDA27E00577430</string>
+				<string>B7B0D5D61CEDA27E00577430</string>
+				<string>B7B0D5DC1CEDA27E00577430</string>
+				<string>B7B0D5DE1CEDA27E00577430</string>
+				<string>90D5A87F1D093D09000D2062</string>
+				<string>B7B0D5E11CEDA27E00577430</string>
+				<string>B7B0D5D91CEDA27E00577430</string>
+				<string>B7B0D6051CEDCE7E00577430</string>
+				<string>B7B0D6031CEDCB2F00577430</string>
+				<string>B7EA92AB1CFE00E70006C673</string>
+				<string>B77188EB1CFFF2C700A8D8FB</string>
+				<string>B77188ED1CFFF3E300A8D8FB</string>
+				<string>B77188EF1CFFF89800A8D8FB</string>
+				<string>B7F948C71D01C943008F8DC7</string>
+				<string>B7957EC21D03417A0039D6B7</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>LenkilaSportClub</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>B7B0D5D21CEDA27E00577430</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>AppDelegate.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>B7B0D5D31CEDA27E00577430</key>
+		<dict>
+			<key>fileRef</key>
+			<string>B7B0D5D21CEDA27E00577430</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>B7B0D5D41CEDA27E00577430</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>ViewController.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>B7B0D5D51CEDA27E00577430</key>
+		<dict>
+			<key>fileRef</key>
+			<string>B7B0D5D41CEDA27E00577430</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>B7B0D5D61CEDA27E00577430</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>B7B0D5D71CEDA27E00577430</string>
+			</array>
+			<key>isa</key>
+			<string>PBXVariantGroup</string>
+			<key>name</key>
+			<string>Main.storyboard</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>B7B0D5D71CEDA27E00577430</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>file.storyboard</string>
+			<key>name</key>
+			<string>Base</string>
+			<key>path</key>
+			<string>Base.lproj/Main.storyboard</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>B7B0D5D81CEDA27E00577430</key>
+		<dict>
+			<key>fileRef</key>
+			<string>B7B0D5D61CEDA27E00577430</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>B7B0D5D91CEDA27E00577430</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>B7B0D5DA1CEDA27E00577430</string>
+			</array>
+			<key>currentVersion</key>
+			<string>B7B0D5DA1CEDA27E00577430</string>
+			<key>isa</key>
+			<string>XCVersionGroup</string>
+			<key>path</key>
+			<string>LenkilaSportClub.xcdatamodeld</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+			<key>versionGroupType</key>
+			<string>wrapper.xcdatamodel</string>
+		</dict>
+		<key>B7B0D5DA1CEDA27E00577430</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.xcdatamodel</string>
+			<key>path</key>
+			<string>LenkilaSportClub.xcdatamodel</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>B7B0D5DB1CEDA27E00577430</key>
+		<dict>
+			<key>fileRef</key>
+			<string>B7B0D5D91CEDA27E00577430</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>B7B0D5DC1CEDA27E00577430</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>folder.assetcatalog</string>
+			<key>path</key>
+			<string>Assets.xcassets</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>B7B0D5DD1CEDA27E00577430</key>
+		<dict>
+			<key>fileRef</key>
+			<string>B7B0D5DC1CEDA27E00577430</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>B7B0D5DE1CEDA27E00577430</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>B7B0D5DF1CEDA27E00577430</string>
+			</array>
+			<key>isa</key>
+			<string>PBXVariantGroup</string>
+			<key>name</key>
+			<string>LaunchScreen.storyboard</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>B7B0D5DF1CEDA27E00577430</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>file.storyboard</string>
+			<key>name</key>
+			<string>Base</string>
+			<key>path</key>
+			<string>Base.lproj/LaunchScreen.storyboard</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>B7B0D5E01CEDA27E00577430</key>
+		<dict>
+			<key>fileRef</key>
+			<string>B7B0D5DE1CEDA27E00577430</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>B7B0D5E11CEDA27E00577430</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.xml</string>
+			<key>path</key>
+			<string>Info.plist</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>B7B0D5E21CEDA27F00577430</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>B7B0D5EB1CEDA27F00577430</string>
+			</array>
+			<key>isa</key>
+			<string>PBXSourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>B7B0D5E31CEDA27F00577430</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>14D673434DDC3A6AD6F4EF23</string>
+			</array>
+			<key>isa</key>
+			<string>PBXFrameworksBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>B7B0D5E41CEDA27F00577430</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXResourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>B7B0D5E51CEDA27F00577430</key>
+		<dict>
+			<key>buildConfigurationList</key>
+			<string>B7B0D5FD1CEDA27F00577430</string>
+			<key>buildPhases</key>
+			<array>
+				<string>CBCB3BB1B353AEAD4C967374</string>
+				<string>B7B0D5E21CEDA27F00577430</string>
+				<string>B7B0D5E31CEDA27F00577430</string>
+				<string>B7B0D5E41CEDA27F00577430</string>
+				<string>2FA18E52978E913A63266E4F</string>
+				<string>29397D41FC29A974601EA6EC</string>
+			</array>
+			<key>buildRules</key>
+			<array/>
+			<key>dependencies</key>
+			<array>
+				<string>B7B0D5E81CEDA27F00577430</string>
+			</array>
+			<key>isa</key>
+			<string>PBXNativeTarget</string>
+			<key>name</key>
+			<string>LenkilaClubTests</string>
+			<key>productName</key>
+			<string>LenkilaSportClubTests</string>
+			<key>productReference</key>
+			<string>B7B0D5E61CEDA27F00577430</string>
+			<key>productType</key>
+			<string>com.apple.product-type.bundle.unit-test</string>
+		</dict>
+		<key>B7B0D5E61CEDA27F00577430</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.cfbundle</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>LenkilaClub.xctest</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>B7B0D5E71CEDA27F00577430</key>
+		<dict>
+			<key>containerPortal</key>
+			<string>B7B0D5C71CEDA27E00577430</string>
+			<key>isa</key>
+			<string>PBXContainerItemProxy</string>
+			<key>proxyType</key>
+			<string>1</string>
+			<key>remoteGlobalIDString</key>
+			<string>B7B0D5CE1CEDA27E00577430</string>
+			<key>remoteInfo</key>
+			<string>LenkilaSportClub</string>
+		</dict>
+		<key>B7B0D5E81CEDA27F00577430</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXTargetDependency</string>
+			<key>target</key>
+			<string>B7B0D5CE1CEDA27E00577430</string>
+			<key>targetProxy</key>
+			<string>B7B0D5E71CEDA27F00577430</string>
+		</dict>
+		<key>B7B0D5E91CEDA27F00577430</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>B7B0D5EA1CEDA27F00577430</string>
+				<string>B7B0D5EC1CEDA27F00577430</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>LenkilaSportClubTests</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>B7B0D5EA1CEDA27F00577430</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>LenkilaSportClubTests.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>B7B0D5EB1CEDA27F00577430</key>
+		<dict>
+			<key>fileRef</key>
+			<string>B7B0D5EA1CEDA27F00577430</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>B7B0D5EC1CEDA27F00577430</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.xml</string>
+			<key>path</key>
+			<string>Info.plist</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>B7B0D5ED1CEDA27F00577430</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>B7B0D5F61CEDA27F00577430</string>
+			</array>
+			<key>isa</key>
+			<string>PBXSourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>B7B0D5EE1CEDA27F00577430</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>14496C19267068FD1C3FB85A</string>
+			</array>
+			<key>isa</key>
+			<string>PBXFrameworksBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>B7B0D5EF1CEDA27F00577430</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXResourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>B7B0D5F01CEDA27F00577430</key>
+		<dict>
+			<key>buildConfigurationList</key>
+			<string>B7B0D6001CEDA27F00577430</string>
+			<key>buildPhases</key>
+			<array>
+				<string>F6CA62CA034A046B938DD211</string>
+				<string>B7B0D5ED1CEDA27F00577430</string>
+				<string>B7B0D5EE1CEDA27F00577430</string>
+				<string>B7B0D5EF1CEDA27F00577430</string>
+				<string>828844007046CDCEFA782EE0</string>
+			</array>
+			<key>buildRules</key>
+			<array/>
+			<key>dependencies</key>
+			<array>
+				<string>B7B0D5F31CEDA27F00577430</string>
+			</array>
+			<key>isa</key>
+			<string>PBXNativeTarget</string>
+			<key>name</key>
+			<string>LenkilaClubUITests</string>
+			<key>productName</key>
+			<string>LenkilaSportClubUITests</string>
+			<key>productReference</key>
+			<string>B7B0D5F11CEDA27F00577430</string>
+			<key>productType</key>
+			<string>com.apple.product-type.bundle.ui-testing</string>
+		</dict>
+		<key>B7B0D5F11CEDA27F00577430</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.cfbundle</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>LenkilaClub.xctest</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>B7B0D5F21CEDA27F00577430</key>
+		<dict>
+			<key>containerPortal</key>
+			<string>B7B0D5C71CEDA27E00577430</string>
+			<key>isa</key>
+			<string>PBXContainerItemProxy</string>
+			<key>proxyType</key>
+			<string>1</string>
+			<key>remoteGlobalIDString</key>
+			<string>B7B0D5CE1CEDA27E00577430</string>
+			<key>remoteInfo</key>
+			<string>LenkilaSportClub</string>
+		</dict>
+		<key>B7B0D5F31CEDA27F00577430</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXTargetDependency</string>
+			<key>target</key>
+			<string>B7B0D5CE1CEDA27E00577430</string>
+			<key>targetProxy</key>
+			<string>B7B0D5F21CEDA27F00577430</string>
+		</dict>
+		<key>B7B0D5F41CEDA27F00577430</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>B7B0D5F51CEDA27F00577430</string>
+				<string>B7B0D5F71CEDA27F00577430</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>LenkilaSportClubUITests</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>B7B0D5F51CEDA27F00577430</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>LenkilaSportClubUITests.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>B7B0D5F61CEDA27F00577430</key>
+		<dict>
+			<key>fileRef</key>
+			<string>B7B0D5F51CEDA27F00577430</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>B7B0D5F71CEDA27F00577430</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.xml</string>
+			<key>path</key>
+			<string>Info.plist</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>B7B0D5F81CEDA27F00577430</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>ALWAYS_SEARCH_USER_PATHS</key>
+				<string>NO</string>
+				<key>CLANG_ANALYZER_NONNULL</key>
+				<string>YES</string>
+				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
+				<string>gnu++0x</string>
+				<key>CLANG_CXX_LIBRARY</key>
+				<string>libc++</string>
+				<key>CLANG_ENABLE_MODULES</key>
+				<string>YES</string>
+				<key>CLANG_ENABLE_OBJC_ARC</key>
+				<string>YES</string>
+				<key>CLANG_WARN_BOOL_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN_EMPTY_BODY</key>
+				<string>YES</string>
+				<key>CLANG_WARN_ENUM_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_INT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN_UNREACHABLE_CODE</key>
+				<string>YES</string>
+				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
+				<string>YES</string>
+				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
+				<string>iPhone Developer</string>
+				<key>COPY_PHASE_STRIP</key>
+				<string>NO</string>
+				<key>DEBUG_INFORMATION_FORMAT</key>
+				<string>dwarf</string>
+				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
+				<string>YES</string>
+				<key>ENABLE_TESTABILITY</key>
+				<string>YES</string>
+				<key>GCC_C_LANGUAGE_STANDARD</key>
+				<string>gnu99</string>
+				<key>GCC_DYNAMIC_NO_PIC</key>
+				<string>NO</string>
+				<key>GCC_NO_COMMON_BLOCKS</key>
+				<string>YES</string>
+				<key>GCC_OPTIMIZATION_LEVEL</key>
+				<string>0</string>
+				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
+				<array>
+					<string>DEBUG=1</string>
+					<string>$(inherited)</string>
+				</array>
+				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
+				<string>YES</string>
+				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
+				<string>YES_ERROR</string>
+				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
+				<string>YES_AGGRESSIVE</string>
+				<key>GCC_WARN_UNUSED_FUNCTION</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNUSED_VARIABLE</key>
+				<string>YES</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>9.3</string>
+				<key>MTL_ENABLE_DEBUG_INFO</key>
+				<string>YES</string>
+				<key>ONLY_ACTIVE_ARCH</key>
+				<string>YES</string>
+				<key>SDKROOT</key>
+				<string>iphoneos</string>
+				<key>SWIFT_OPTIMIZATION_LEVEL</key>
+				<string>-Onone</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>B7B0D5F91CEDA27F00577430</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>ALWAYS_SEARCH_USER_PATHS</key>
+				<string>NO</string>
+				<key>CLANG_ANALYZER_NONNULL</key>
+				<string>YES</string>
+				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
+				<string>gnu++0x</string>
+				<key>CLANG_CXX_LIBRARY</key>
+				<string>libc++</string>
+				<key>CLANG_ENABLE_MODULES</key>
+				<string>YES</string>
+				<key>CLANG_ENABLE_OBJC_ARC</key>
+				<string>YES</string>
+				<key>CLANG_WARN_BOOL_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN_EMPTY_BODY</key>
+				<string>YES</string>
+				<key>CLANG_WARN_ENUM_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_INT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN_UNREACHABLE_CODE</key>
+				<string>YES</string>
+				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
+				<string>YES</string>
+				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
+				<string>iPhone Developer</string>
+				<key>COPY_PHASE_STRIP</key>
+				<string>NO</string>
+				<key>DEBUG_INFORMATION_FORMAT</key>
+				<string>dwarf-with-dsym</string>
+				<key>ENABLE_NS_ASSERTIONS</key>
+				<string>NO</string>
+				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
+				<string>YES</string>
+				<key>GCC_C_LANGUAGE_STANDARD</key>
+				<string>gnu99</string>
+				<key>GCC_NO_COMMON_BLOCKS</key>
+				<string>YES</string>
+				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
+				<string>YES</string>
+				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
+				<string>YES_ERROR</string>
+				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
+				<string>YES_AGGRESSIVE</string>
+				<key>GCC_WARN_UNUSED_FUNCTION</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNUSED_VARIABLE</key>
+				<string>YES</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>9.3</string>
+				<key>MTL_ENABLE_DEBUG_INFO</key>
+				<string>NO</string>
+				<key>SDKROOT</key>
+				<string>iphoneos</string>
+				<key>VALIDATE_PRODUCT</key>
+				<string>YES</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>B7B0D5FA1CEDA27F00577430</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>B7B0D5FB1CEDA27F00577430</string>
+				<string>B7B0D5FC1CEDA27F00577430</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>B7B0D5FB1CEDA27F00577430</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>BD2C26AF9F3FFB2907CD7C52</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
+				<string>AppIcon</string>
+				<key>CODE_SIGN_IDENTITY</key>
+				<string>iPhone Developer</string>
+				<key>INFOPLIST_FILE</key>
+				<string>LenkilaSportClub/Info.plist</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<string>$(inherited) @executable_path/Frameworks</string>
+				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
+				<string>Jump.LenkilaSportClub</string>
+				<key>PRODUCT_NAME</key>
+				<string>LenkilaClub</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>B7B0D5FC1CEDA27F00577430</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>E97073A8EDBF12D8289E7FB0</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
+				<string>AppIcon</string>
+				<key>CODE_SIGN_IDENTITY</key>
+				<string>iPhone Developer</string>
+				<key>INFOPLIST_FILE</key>
+				<string>LenkilaSportClub/Info.plist</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<string>$(inherited) @executable_path/Frameworks</string>
+				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
+				<string>Jump.LenkilaSportClub</string>
+				<key>PRODUCT_NAME</key>
+				<string>LenkilaClub</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>B7B0D5FD1CEDA27F00577430</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>B7B0D5FE1CEDA27F00577430</string>
+				<string>B7B0D5FF1CEDA27F00577430</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>B7B0D5FE1CEDA27F00577430</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>73A4FBC56D3B5B7D68E7124A</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>BUNDLE_LOADER</key>
+				<string>$(TEST_HOST)</string>
+				<key>INFOPLIST_FILE</key>
+				<string>LenkilaSportClubTests/Info.plist</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<string>$(inherited) @executable_path/Frameworks @loader_path/Frameworks</string>
+				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
+				<string>Nont.LenkilaSportClubTests</string>
+				<key>PRODUCT_NAME</key>
+				<string>LenkilaClub</string>
+				<key>TEST_HOST</key>
+				<string>$(BUILT_PRODUCTS_DIR)/LenkilaClub.app/LenkilaClub</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>B7B0D5FF1CEDA27F00577430</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>53F018FF20E592EFE02F69E7</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>BUNDLE_LOADER</key>
+				<string>$(TEST_HOST)</string>
+				<key>INFOPLIST_FILE</key>
+				<string>LenkilaSportClubTests/Info.plist</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<string>$(inherited) @executable_path/Frameworks @loader_path/Frameworks</string>
+				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
+				<string>Nont.LenkilaSportClubTests</string>
+				<key>PRODUCT_NAME</key>
+				<string>LenkilaClub</string>
+				<key>TEST_HOST</key>
+				<string>$(BUILT_PRODUCTS_DIR)/LenkilaClub.app/LenkilaClub</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>B7B0D6001CEDA27F00577430</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>B7B0D6011CEDA27F00577430</string>
+				<string>B7B0D6021CEDA27F00577430</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>B7B0D6011CEDA27F00577430</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>C3E6D3EEBCE6A121264EDE5F</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>INFOPLIST_FILE</key>
+				<string>LenkilaSportClubUITests/Info.plist</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<string>$(inherited) @executable_path/Frameworks @loader_path/Frameworks</string>
+				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
+				<string>Nont.LenkilaSportClubUITests</string>
+				<key>PRODUCT_NAME</key>
+				<string>LenkilaClub</string>
+				<key>TEST_TARGET_NAME</key>
+				<string>LenkilaSportClub</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>B7B0D6021CEDA27F00577430</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>C0798E88A4C70EB494D1676A</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>INFOPLIST_FILE</key>
+				<string>LenkilaSportClubUITests/Info.plist</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<string>$(inherited) @executable_path/Frameworks @loader_path/Frameworks</string>
+				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
+				<string>Nont.LenkilaSportClubUITests</string>
+				<key>PRODUCT_NAME</key>
+				<string>LenkilaClub</string>
+				<key>TEST_TARGET_NAME</key>
+				<string>LenkilaSportClub</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>B7B0D6031CEDCB2F00577430</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>ScheduleViewController.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>B7B0D6041CEDCB2F00577430</key>
+		<dict>
+			<key>fileRef</key>
+			<string>B7B0D6031CEDCB2F00577430</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>B7B0D6051CEDCE7E00577430</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>UIImageEffects.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>B7B0D6061CEDCE7E00577430</key>
+		<dict>
+			<key>fileRef</key>
+			<string>B7B0D6051CEDCE7E00577430</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>B7EA92AB1CFE00E70006C673</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>AddTableViewController.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>B7EA92AC1CFE00E70006C673</key>
+		<dict>
+			<key>fileRef</key>
+			<string>B7EA92AB1CFE00E70006C673</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>B7F948C71D01C943008F8DC7</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>UserViewController.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>B7F948C81D01C943008F8DC7</key>
+		<dict>
+			<key>fileRef</key>
+			<string>B7F948C71D01C943008F8DC7</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>BD2C26AF9F3FFB2907CD7C52</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>name</key>
+			<string>Pods-LenkilaClub.debug.xcconfig</string>
+			<key>path</key>
+			<string>Pods/Target Support Files/Pods-LenkilaClub/Pods-LenkilaClub.debug.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BFA9C396912C17BC1B939885</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.framework</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>Pods_LenkilaClubTests.framework</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>C0798E88A4C70EB494D1676A</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>name</key>
+			<string>Pods-LenkilaClubUITests.release.xcconfig</string>
+			<key>path</key>
+			<string>Pods/Target Support Files/Pods-LenkilaClubUITests/Pods-LenkilaClubUITests.release.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>C3E6D3EEBCE6A121264EDE5F</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>name</key>
+			<string>Pods-LenkilaClubUITests.debug.xcconfig</string>
+			<key>path</key>
+			<string>Pods/Target Support Files/Pods-LenkilaClubUITests/Pods-LenkilaClubUITests.debug.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>CBCB3BB1B353AEAD4C967374</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>[CP] Check Pods Manifest.lock</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>diff "${PODS_ROOT}/../Podfile.lock" "${PODS_ROOT}/Manifest.lock" &gt; /dev/null
+if [[ $? != 0 ]] ; then
+    cat &lt;&lt; EOM
+error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.
+EOM
+    exit 1
+fi
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>D6AB6F01D43AB079AA2ACDFF</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>BD2C26AF9F3FFB2907CD7C52</string>
+				<string>E97073A8EDBF12D8289E7FB0</string>
+				<string>73A4FBC56D3B5B7D68E7124A</string>
+				<string>53F018FF20E592EFE02F69E7</string>
+				<string>C3E6D3EEBCE6A121264EDE5F</string>
+				<string>C0798E88A4C70EB494D1676A</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Pods</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>E91669DF06FFA14933FAFA1A</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>08B79763BF5F20C52B20418E</string>
+				<string>BFA9C396912C17BC1B939885</string>
+				<string>87E92AE851E46626A891996E</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Frameworks</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>E97073A8EDBF12D8289E7FB0</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>name</key>
+			<string>Pods-LenkilaClub.release.xcconfig</string>
+			<key>path</key>
+			<string>Pods/Target Support Files/Pods-LenkilaClub/Pods-LenkilaClub.release.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>EC288BD9529F9A6BF3017A6D</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>[CP] Check Pods Manifest.lock</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>diff "${PODS_ROOT}/../Podfile.lock" "${PODS_ROOT}/Manifest.lock" &gt; /dev/null
+if [[ $? != 0 ]] ; then
+    cat &lt;&lt; EOM
+error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.
+EOM
+    exit 1
+fi
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>F6CA62CA034A046B938DD211</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>[CP] Check Pods Manifest.lock</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>diff "${PODS_ROOT}/../Podfile.lock" "${PODS_ROOT}/Manifest.lock" &gt; /dev/null
+if [[ $? != 0 ]] ; then
+    cat &lt;&lt; EOM
+error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.
+EOM
+    exit 1
+fi
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+	</dict>
+	<key>rootObject</key>
+	<string>B7B0D5C71CEDA27E00577430</string>
+</dict>
+</plist>
