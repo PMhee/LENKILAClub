@@ -42,7 +42,7 @@ class UserDetailListViewController: UIViewController,UITableViewDelegate,UITable
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section != 0 {
-            return 0
+            return 0 //return number of user. Not zero!
         }
         return 1
     }
@@ -61,6 +61,12 @@ class UserDetailListViewController: UIViewController,UITableViewDelegate,UITable
             let cellIdentifier = "UserList"
             let currentIndex = indexPath.row
             let userList = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! UserDetailListCell
+            
+            //Configure cells
+            
+            //Example
+//            let name1: String = ArrayName[currentIndex]
+//            userList.name.text = name1.toString()
 
             
             return userList
