@@ -88,10 +88,12 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-LenkilaClub/Charts.framework"
   install_framework "Pods-LenkilaClub/Realm.framework"
   install_framework "Pods-LenkilaClub/RealmSwift.framework"
+  install_framework "Pods-LenkilaClub/SCLAlertView.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-LenkilaClub/CVCalendar.framework"
   install_framework "Pods-LenkilaClub/Charts.framework"
   install_framework "Pods-LenkilaClub/Realm.framework"
   install_framework "Pods-LenkilaClub/RealmSwift.framework"
+  install_framework "Pods-LenkilaClub/SCLAlertView.framework"
 fi

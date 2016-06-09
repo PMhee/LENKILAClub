@@ -30,12 +30,8 @@ class UserViewController: UIViewController {
             for i in 0...user.count-1 {
                 userArray.append(user[i] as! User)
             }
-        if user.count > 0{
-            for i in 0...user.count-1 {
-                userArray.append(user[i] as! User)
         }
-        }
-    }
+    
     }
     func genUserTable(){
         if userArray.count > 0 {
@@ -48,15 +44,6 @@ class UserViewController: UIViewController {
                 }
                 scroll_view.addSubview(button)
             }
-        if userArray.count>0{
-            for i in 0...userArray.count-1 {
-                let button = UIButton(frame: CGRectMake(0,124+(40*CGFloat(i)),700,40))
-                button.backgroundColor = UIColor.grayColor()
-                scroll_view.addSubview(button)
-            }
-        }
-        
-    
     
     }
     }
