@@ -12,11 +12,11 @@
 		197BE227DD40DB60488D84E0 /* Pods_LenkilaClub.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08B79763BF5F20C52B20418E /* Pods_LenkilaClub.framework */; };
 		90D5A8811D093DA1000D2062 /* UserDetailMainHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D5A8801D093DA1000D2062 /* UserDetailMainHeader.swift */; };
 		90D5A8831D0941A1000D2062 /* UserDetailListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D5A8821D0941A1000D2062 /* UserDetailListViewController.swift */; };
-		90D5A8871D094383000D2062 /* UserDetailListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D5A8861D094383000D2062 /* UserDetailListCell.swift */; };
 		B77188EC1CFFF2C700A8D8FB /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77188EB1CFFF2C700A8D8FB /* Schedule.swift */; };
 		B77188EE1CFFF3E300A8D8FB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77188ED1CFFF3E300A8D8FB /* User.swift */; };
 		B77188F01CFFF89800A8D8FB /* scheduleArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77188EF1CFFF89800A8D8FB /* scheduleArray.swift */; };
 		B7957EC31D03417A0039D6B7 /* showCalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7957EC21D03417A0039D6B7 /* showCalendarViewController.swift */; };
+		B7AE00931D09FCDA009DC015 /* EditUserDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AE00921D09FCDA009DC015 /* EditUserDetailViewController.swift */; };
 		B7B0D5D31CEDA27E00577430 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B0D5D21CEDA27E00577430 /* AppDelegate.swift */; };
 		B7B0D5D51CEDA27E00577430 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B0D5D41CEDA27E00577430 /* ViewController.swift */; };
 		B7B0D5D81CEDA27E00577430 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7B0D5D61CEDA27E00577430 /* Main.storyboard */; };
@@ -55,11 +55,11 @@
 		87E92AE851E46626A891996E /* Pods_LenkilaClubUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LenkilaClubUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		90D5A8801D093DA1000D2062 /* UserDetailMainHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDetailMainHeader.swift; sourceTree = "<group>"; };
 		90D5A8821D0941A1000D2062 /* UserDetailListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDetailListViewController.swift; sourceTree = "<group>"; };
-		90D5A8861D094383000D2062 /* UserDetailListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDetailListCell.swift; sourceTree = "<group>"; };
 		B77188EB1CFFF2C700A8D8FB /* Schedule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
 		B77188ED1CFFF3E300A8D8FB /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		B77188EF1CFFF89800A8D8FB /* scheduleArray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = scheduleArray.swift; sourceTree = "<group>"; };
 		B7957EC21D03417A0039D6B7 /* showCalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = showCalendarViewController.swift; sourceTree = "<group>"; };
+		B7AE00921D09FCDA009DC015 /* EditUserDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditUserDetailViewController.swift; sourceTree = "<group>"; };
 		B7B0D5CF1CEDA27E00577430 /* LenkilaClub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LenkilaClub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7B0D5D21CEDA27E00577430 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B7B0D5D41CEDA27E00577430 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -118,9 +118,18 @@
 			children = (
 				90D5A8821D0941A1000D2062 /* UserDetailListViewController.swift */,
 				90D5A8801D093DA1000D2062 /* UserDetailMainHeader.swift */,
-				90D5A8861D094383000D2062 /* UserDetailListCell.swift */,
+				B7AE00921D09FCDA009DC015 /* EditUserDetailViewController.swift */,
 			);
 			name = UserDetailList;
+			sourceTree = "<group>";
+		};
+		B749890B1D09EC6E0058D874 /* Schedule */ = {
+			isa = PBXGroup;
+			children = (
+				B7B0D6031CEDCB2F00577430 /* ScheduleViewController.swift */,
+				B7EA92AB1CFE00E70006C673 /* AddTableViewController.swift */,
+			);
+			name = Schedule;
 			sourceTree = "<group>";
 		};
 		B7B0D5C61CEDA27E00577430 = {
@@ -148,6 +157,7 @@
 		B7B0D5D11CEDA27E00577430 /* LenkilaSportClub */ = {
 			isa = PBXGroup;
 			children = (
+				B749890B1D09EC6E0058D874 /* Schedule */,
 				B7B0D5D21CEDA27E00577430 /* AppDelegate.swift */,
 				B7B0D5D41CEDA27E00577430 /* ViewController.swift */,
 				B7B0D5D61CEDA27E00577430 /* Main.storyboard */,
@@ -157,8 +167,6 @@
 				B7B0D5E11CEDA27E00577430 /* Info.plist */,
 				B7B0D5D91CEDA27E00577430 /* LenkilaSportClub.xcdatamodeld */,
 				B7B0D6051CEDCE7E00577430 /* UIImageEffects.swift */,
-				B7B0D6031CEDCB2F00577430 /* ScheduleViewController.swift */,
-				B7EA92AB1CFE00E70006C673 /* AddTableViewController.swift */,
 				B77188EB1CFFF2C700A8D8FB /* Schedule.swift */,
 				B77188ED1CFFF3E300A8D8FB /* User.swift */,
 				B77188EF1CFFF89800A8D8FB /* scheduleArray.swift */,
@@ -222,6 +230,7 @@
 				B7B0D5CD1CEDA27E00577430 /* Resources */,
 				B762638650A7B7983A74C3E5 /* [CP] Embed Pods Frameworks */,
 				2B5D5C08732118D133EF2BB9 /* [CP] Copy Pods Resources */,
+				629CA9588F7F7580A863B832 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -392,6 +401,21 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LenkilaClubTests/Pods-LenkilaClubTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		629CA9588F7F7580A863B832 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LenkilaClub/Pods-LenkilaClub-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		828844007046CDCEFA782EE0 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -477,12 +501,12 @@
 				B7B0D6061CEDCE7E00577430 /* UIImageEffects.swift in Sources */,
 				90D5A8811D093DA1000D2062 /* UserDetailMainHeader.swift in Sources */,
 				B7F948C81D01C943008F8DC7 /* UserViewController.swift in Sources */,
-				90D5A8871D094383000D2062 /* UserDetailListCell.swift in Sources */,
 				B7B0D5D51CEDA27E00577430 /* ViewController.swift in Sources */,
 				B7B0D5D31CEDA27E00577430 /* AppDelegate.swift in Sources */,
 				B7B0D5DB1CEDA27E00577430 /* LenkilaSportClub.xcdatamodeld in Sources */,
 				B77188EE1CFFF3E300A8D8FB /* User.swift in Sources */,
 				B7B0D6041CEDCB2F00577430 /* ScheduleViewController.swift in Sources */,
+				B7AE00931D09FCDA009DC015 /* EditUserDetailViewController.swift in Sources */,
 				B77188EC1CFFF2C700A8D8FB /* Schedule.swift in Sources */,
 				B7EA92AC1CFE00E70006C673 /* AddTableViewController.swift in Sources */,
 				90D5A8831D0941A1000D2062 /* UserDetailListViewController.swift in Sources */,

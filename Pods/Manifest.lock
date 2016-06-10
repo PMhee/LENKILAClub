@@ -8,18 +8,19 @@ PODS:
   - Realm/Headers (1.0.0)
   - RealmSwift (1.0.0):
     - Realm (= 1.0.0)
+  - SCLAlertView (0.5.8)
 
 DEPENDENCIES:
   - Charts
   - CVCalendar (~> 1.2.9)
   - RealmSwift
+  - SCLAlertView
 
 SPEC CHECKSUMS:
   Charts: b48fcc8d7190de910ff9e9748f5360c8ea7856e5
   CVCalendar: 0799256e0bc3b43e83b7e86c0729ce9ff0624cb6
   Realm: e15cd8e7c11d3e576f628ba0b7cb855269b4991c
   RealmSwift: 3229306d020d96f83b335f87a0dcbf2cef0e6a2b
+  SCLAlertView: 653e84d1f9fd95333bc54671fbadb7d0c47fce49
 
-PODFILE CHECKSUM: 3d69fecee96f5c69c14482ee43d09bf92f68500a
-
-COCOAPODS: 1.0.1
+COCOAPODS: 0.39.0

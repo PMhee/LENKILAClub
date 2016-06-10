@@ -7,6 +7,7 @@ target 'LenkilaClub' do
     pod 'RealmSwift'
     pod 'Charts'
     pod 'CVCalendar', '~> 1.2.9'
+    pod 'SCLAlertView'
 end
 
 target 'LenkilaClubTests' do
