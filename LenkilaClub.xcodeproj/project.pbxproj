@@ -294,7 +294,7 @@
 				TargetAttributes = {
 					B7B0D5CE1CEDA27E00577430 = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = FCA995W2V4;
+						DevelopmentTeam = WYLP742538;
 					};
 					B7B0D5E51CEDA27F00577430 = {
 						CreatedOnToolsVersion = 7.3;
@@ -655,10 +655,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = LenkilaSportClub/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Jump.LenkilaSportClub;
+				PRODUCT_BUNDLE_IDENTIFIER = Nont.LenkilaSportClub;
 				PRODUCT_NAME = LenkilaClub;
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -668,10 +670,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = LenkilaSportClub/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Jump.LenkilaSportClub;
+				PRODUCT_BUNDLE_IDENTIFIER = Nont.LenkilaSportClub;
 				PRODUCT_NAME = LenkilaClub;
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

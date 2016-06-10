@@ -59,6 +59,9 @@ class AddTableViewController: UIViewController,UITextFieldDelegate {
         calculateTime(false)
     }
     @IBOutlet weak var top_space: NSLayoutConstraint!
+    @IBAction func tf_field_action(sender: UITextField) {
+        line_field.backgroundColor = UIColor(red: 16/255, green: 118/255, blue: 152/255, alpha: 1.0)
+    }
     @IBAction func tf_date_action(sender: UITextField) {
         line_date.backgroundColor = UIColor(red: 16/255, green: 118/255, blue: 152/255, alpha: 1.0)
     }
@@ -205,7 +208,6 @@ class AddTableViewController: UIViewController,UITextFieldDelegate {
                 if schedules.date == "" {
                    schedules.date = temp
                 }
-                print("hello")
                 let nextDay = format.dateFromString(schedules.date)?.dateByAddingTimeInterval(60*60*24*7)
                 schedules.date = format.stringFromDate(nextDay!)
                 schedules.time = self.time
