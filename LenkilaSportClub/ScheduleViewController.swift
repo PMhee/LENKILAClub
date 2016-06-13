@@ -16,15 +16,16 @@ class ScheduleViewController: UIViewController,UIScrollViewDelegate,UIGestureRec
     //    @IBOutlet weak var cons_lead_view: NSLayoutConstraint!
     //    var changeHeight : CGFloat!
     //    var changeWidth: CGFloat!
+    @IBOutlet weak var cons_vw_tab_width: NSLayoutConstraint!
     @IBOutlet weak var label_date: UILabel!
     var schedualArray = [Schedule]()
     var userArray = [String:User]()
     var keepTag = [Int]()
     var firstTime : Bool = false
     let tableColor : NSDictionary = ["green":UIColor(red:122/255,green:190/255,blue:139/255,alpha:1.0),"gray":UIColor(red:122/255,green:118/255,blue:119/255,alpha:1.0),"dark_blue":UIColor(red:84/255,green:110/255,blue:122/255,alpha:1.0),"blue":UIColor(red:16/255,green:118/255,blue:152/255,alpha:1.0),"yellow":UIColor(red:252/255,green:221/255,blue:121/255,alpha:1.0),"orange":UIColor(red:231/255,green:158/255,blue:63/255,alpha:1.0),"pink":UIColor(red:205/255,green:122/255,blue:121/255,alpha:1.0),"red":UIColor(red:232/255,green:81/255,blue:83/255,alpha:1.0)]
-    var f = UIView!()
-    var x = CGFloat!()
-    var y = CGFloat!()
+    var f : UIView! = nil
+    var x : CGFloat! = nil
+    var y : CGFloat! = nil
     let field_num = 4
     var hh  = 0
     var field : String!
@@ -34,9 +35,42 @@ class ScheduleViewController: UIViewController,UIScrollViewDelegate,UIGestureRec
     var price : String!
     var rep : String!
     var today = NSDate()
+    var tab_trigger : Bool = false
+    var enable_touch : Bool = false
     @IBOutlet weak var btn_today: UIButton!
     @IBOutlet var tapGesture: UITapGestureRecognizer!
-    @IBAction func tap_gesture(sender: UITapGestureRecognizer){
+    @IBAction func btn_tab_action(sender: UIButton) {
+        trigger_tab()
+    }
+    func delay(delay:Double, closure:()->()) {
+        dispatch_after(
+            dispatch_time(
+                DISPATCH_TIME_NOW,
+                Int64(delay * Double(NSEC_PER_SEC))
+            ),
+            dispatch_get_main_queue(), closure)
+    }
+    func trigger_tab(){
+        var count = 0.0
+        if !tab_trigger{
+            //self.UserDetailTableView.userInteractionEnabled = false
+            while(count <= 0.25){
+                delay(count){
+                    self.cons_vw_tab_width.constant += self.view.frame.width/13
+                }
+                count += 0.025
+            }
+        }else{
+            //self.UserDetailTableView.userInteractionEnabled = true
+            while(count <= 0.25){
+                delay(count){
+                    self.cons_vw_tab_width.constant -= self.view.frame.width/13
+                }
+                count += 0.025
+            }
+            
+        }
+        tab_trigger = !tab_trigger
     }
     @IBAction func btn_left_action(sender: UIButton) {
         let format = NSDateFormatter()
@@ -188,19 +222,34 @@ class ScheduleViewController: UIViewController,UIScrollViewDelegate,UIGestureRec
         }
         
     }
+    func gestureRecognizerShouldBegin(gestureRecognizer: UIGestureRecognizer) -> Bool {
+        if enable_touch {
+            self.trigger_tab()
+            enable_touch = !enable_touch
+            return true
+        }else{
+            return false
+        }
+    }
     func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldReceiveTouch touch: UITouch) -> Bool {
         //print(touch.locationInView(self.view))
         //f = UIView(frame: CGRectMake(touch.locationInView(self.view).x, touch.locationInView(self.view).y, 20, 20))
         self.x = touch.locationInView(self.view).x
         self.y = touch.locationInView(self.view).y
-        
+        if tab_trigger {
+            x = touch.locationInView(self.view).x
+            if x > self.view.frame.width * 11 / 13 {
+                enable_touch = !enable_touch
+            }
+            return true
+        }else if tab_trigger{
+            return false
+        }else{
+            return true
+        }
+
         //f.backgroundColor = UIColor.blueColor()
         //self.view.addSubview(f)
-        return true
-    }
-    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldReceivePress press: UIPress) -> Bool {
-        //print(press)
-        return true
     }
     func drag(gesture:UIPanGestureRecognizer){
         switch gesture.state {
