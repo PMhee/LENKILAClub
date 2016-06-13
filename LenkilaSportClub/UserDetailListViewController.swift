@@ -149,12 +149,13 @@ class UserDetailListViewController: UIViewController,UITableViewDelegate,UITable
             des.name = self.userArray[(indexPath?.row)!].name
             des.nickName = self.userArray[(indexPath?.row)!].nickName
             des.gender = self.userArray[(indexPath?.row)!].gender
-            des.age = self.userArray[(indexPath?.row)!].age
+            des.age = Float(self.userArray[(indexPath?.row)!].age)
             des.workPlace = self.userArray[(indexPath?.row)!].workPlace
             des.playCount = self.userArray[(indexPath?.row)!].playCount
             des.freqPlay = self.userArray[(indexPath?.row)!].freqPlay
             des.contact = self.userArray[(indexPath?.row)!].contact
             des.price = self.userArray[(indexPath?.row)!].price
+            des.id = self.userArray[(indexPath?.row)!].id
         }
     }
     
