@@ -20,6 +20,8 @@ class ScheduleViewController: UIViewController,UIScrollViewDelegate,UIGestureRec
     var tag : Int = 0
     var temp_tag : Int = 0
     var drag_top : Bool = false
+    var cut_slot = [CGFloat]()
+    var temp_h : Int = 0
     @IBOutlet var long_gesture: UILongPressGestureRecognizer!
     @IBOutlet weak var vw_tab: UIView!
     @IBOutlet weak var cons_vw_tab_width: NSLayoutConstraint!
@@ -290,50 +292,79 @@ class ScheduleViewController: UIViewController,UIScrollViewDelegate,UIGestureRec
                 let first = (tempy-4)+(16*(tempx-1))
                 let second = ((tempy-4)+(height-1))+(16*(tempx-1))
                 if hh < transition.y{
-                for i in first...second{
-                    if slot[i] != "free" {
-                        let appearance = SCLAlertView.SCLAppearance(
-                            kTitleFont: UIFont(name: "ThaiSansLite", size: 20)!,
-                            kTextFont: UIFont(name: "ThaiSansLite", size: 16)!,
-                            kButtonFont: UIFont(name: "ThaiSansLite", size: 16)!,
-                            showCloseButton: true
-                        )
-                        let alert = SCLAlertView(appearance:appearance)
-                        alert.showError("ผิดพลาด", subTitle: "ทับกับตารางอื่น")
-                        enable_create_table = !enable_create_table
-                        let begin = self.schedualArray[schedualArray.count-1].tag+1
-                        for i in begin...self.tag{
-                            if let tag = self.view.viewWithTag(i) {
-                                tag.removeFromSuperview()
+                    if first < second {
+                        for i in first...second{
+                            if slot[i] != "free" {
+                                let appearance = SCLAlertView.SCLAppearance(
+                                    kTitleFont: UIFont(name: "ThaiSansLite", size: 20)!,
+                                    kTextFont: UIFont(name: "ThaiSansLite", size: 16)!,
+                                    kButtonFont: UIFont(name: "ThaiSansLite", size: 16)!,
+                                    showCloseButton: true
+                                )
+                                let alert = SCLAlertView(appearance:appearance)
+                                alert.showError("ผิดพลาด", subTitle: "ทับกับตารางอื่น")
+                                enable_create_table = !enable_create_table
+                                let begin = self.schedualArray[schedualArray.count-1].tag+1
+                                if begin < self.tag{
+                                    for i in begin...self.tag{
+                                        if let tag = self.view.viewWithTag(i) {
+                                            print(i)
+                                            print("remove")
+                                            tag.removeFromSuperview()
+                                        }
+                                    }
+                                }
+                                self.tag = self.schedualArray[schedualArray.count-1].tag
                             }
                         }
-                        self.tag = self.schedualArray[schedualArray.count-1].tag
                     }
-                }
                 }
                 if hh > transition.y{
                     drag_top = true
-                    //print(tag)
-                    if let tag = self.view.viewWithTag(self.tag) {
-                        tag.removeFromSuperview()
+                    if temp_h > 0 {
+                        drag_top = false
                     }
+                    if temp_h > height {
+                        if var tag = self.view.viewWithTag(self.tag) {
+                            print("remove")
+                            temp_h = height
+                            self.tag -= 1
+                            hh = transition.y
+                            tag.removeFromSuperview()
+//                            if tag.tag <= self.schedualArray[schedualArray.count-1].tag{
+//                                
+//                            }else{
+//                            tag.removeFromSuperview()
+//                            }
+                        }
+                    }
+                    
+                    //print(tag)
+                    //                    if let tag = self.view.viewWithTag(self.tag) {
+                    //                        tag.removeFromSuperview()
+                    //                    }
+                }else{
+                    drag_top = false
                 }
-                if enable_create_table && hh < transition.y{
-                drag_top = false
-                f = UIView(frame: CGRectMake((CGFloat(tempx)*width),CGFloat(tempy)*h+CGFloat(7),width,(CGFloat(height)*h)))
-                f.layer.borderWidth = 1
-                f.layer.borderColor = UIColor(red: 225/255, green: 224/255, blue: 225/255, alpha: 1.0).CGColor
-                f.backgroundColor = UIColor(red:232/255,green:81/255,blue:83/255,alpha:1.0)
-                f.tag = self.tag+1
-                print(self.tag+1)
-                self.tag+=1
-                self.view.addSubview(f)
-                self.hh = transition.y
-                self.field = String(tempx)
-                self.time = String(tempy+4)+".00"+" - "+String(tempy+height+4)+".00"
+                if enable_create_table && !drag_top{
+                    f = UIView(frame: CGRectMake((CGFloat(tempx)*width),CGFloat(tempy)*h+CGFloat(7),width,(CGFloat(height)*h)))
+                    f.layer.borderWidth = 1
+                    f.layer.borderColor = UIColor(red: 225/255, green: 224/255, blue: 225/255, alpha: 1.0).CGColor
+                    f.backgroundColor = UIColor(red:232/255,green:81/255,blue:83/255,alpha:1.0)
+                    if temp_h < height{
+                        f.tag = self.tag+1
+                        self.tag+=1
+                        self.view.addSubview(f)
+                    }
+                    print(self.tag)
+                    temp_h = height
+                    self.hh = transition.y
+                    self.field = String(tempx)
+                    self.time = String(tempy+4)+".00"+" - "+String(tempy+height+4)+".00"
                 }
             }
         case .Ended :
+            self.tag += 1
             if enable_create_table && !drag_top{
                 enable_create_table = false
                 performSegueWithIdentifier("addTable", sender: self)

@@ -399,6 +399,7 @@ class AddTableViewController: UIViewController,UITextFieldDelegate,UIGestureReco
         }
     }
     @IBAction func btn_cancel_action(sender: AnyObject) {
+        self.performSegueWithIdentifier("back_to_schedule", sender: self)
     }
     func setButChecked(checked:Int){
         for i in 0...checkedArray.count-1{
