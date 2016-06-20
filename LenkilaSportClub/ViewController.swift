@@ -14,7 +14,6 @@ class ViewController: UIViewController,UITextFieldDelegate {
     @IBOutlet weak var password_textfield: UITextField!
     @IBOutlet weak var signin_button: UIButton!
     @IBOutlet weak var facebook_button: UIButton!
-    @IBOutlet weak var background_image: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,9 +25,6 @@ class ViewController: UIViewController,UITextFieldDelegate {
         borderButtom(password_textfield)
         username_textfield.attributedPlaceholder = NSAttributedString(string:"username",attributes: [NSForegroundColorAttributeName: UIColor.whiteColor()])
         password_textfield.attributedPlaceholder = NSAttributedString(string:"password",attributes: [NSForegroundColorAttributeName: UIColor.whiteColor()])
-        var image_blur = UIImage()
-        image_blur = UIImage(named: "bg")!.applyBlurWithRadius(3, tintColor: UIColor(white:0.2, alpha: 0.4), saturationDeltaFactor: 0.9)!
-        background_image.image = image_blur
         // Do any additional setup after loading the view, typically from a nib.
     }
 

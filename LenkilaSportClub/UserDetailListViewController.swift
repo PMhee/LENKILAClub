@@ -131,10 +131,9 @@ class UserDetailListViewController: UIViewController,UITableViewDelegate,UITable
     }
     func gatherUser(){
         let user = User.allObjects()
-        print(user.count)
         if user.count > 0 {
             for i in 0...user.count-1 {
-                userArray.append(user[i] as! User)
+                 userArray.append(user[i] as! User)
                 print(user[i])
             }
         }
