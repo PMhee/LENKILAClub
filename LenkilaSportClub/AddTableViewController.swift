@@ -233,6 +233,7 @@ class AddTableViewController: UIViewController,UITextFieldDelegate,UIGestureReco
         schedule.colorTag = self.pickedColor
         schedule.type = self.type
         schedule.id = String(sche.count)
+        schedule.paid_type = "cash"
         let range = self.rep.rangeOfString(" ")!
         let index = self.rep.startIndex.distanceTo(range.startIndex)
         self.realRep = Int(self.tf_repeat.text!.substringWithRange(Range<String.Index>(start:self.tf_repeat.text!.startIndex.advancedBy(0), end: self.tf_repeat.text!.startIndex.advancedBy(index))))
@@ -259,6 +260,7 @@ class AddTableViewController: UIViewController,UITextFieldDelegate,UIGestureReco
                 schedules.colorTag = self.pickedColor
                 schedules.type = self.type
                 schedules.id = String(sche.count)
+                schedules.paid_type = "cash"
                 let users = User.allObjects()
                 var found = false
                 if users.count > 0 {
@@ -310,6 +312,7 @@ class AddTableViewController: UIViewController,UITextFieldDelegate,UIGestureReco
                     schedule.tag = Int(sche.count)+1
                     schedule.colorTag = self.pickedColor
                     schedule.type = self.type
+                    schedule.paid_type = "cash"
                     schedule.id = String(sche.count)
                     let range = self.rep.rangeOfString(" ")!
                     let index = self.rep.startIndex.distanceTo(range.startIndex)
@@ -337,6 +340,7 @@ class AddTableViewController: UIViewController,UITextFieldDelegate,UIGestureReco
                             schedules.colorTag = self.pickedColor
                             schedules.type = self.type
                             schedules.userID = user.id
+                            schedules.paid_type = "cash"
                             schedules.id = String(sche.count)
                             temp = schedules.date
                             realm.beginWriteTransaction()

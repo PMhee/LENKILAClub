@@ -18,4 +18,6 @@ class Schedule:RLMObject{
     dynamic var tag : Int  = 0
     dynamic var userID : String = ""
     dynamic var colorTag : String = ""
+    dynamic var paid_type : String = ""
+    dynamic var already_paid : Bool = false
 }
