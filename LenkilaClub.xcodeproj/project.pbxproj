@@ -12,6 +12,8 @@
 		197BE227DD40DB60488D84E0 /* Pods_LenkilaClub.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08B79763BF5F20C52B20418E /* Pods_LenkilaClub.framework */; };
 		90D5A8811D093DA1000D2062 /* UserDetailMainHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D5A8801D093DA1000D2062 /* UserDetailMainHeader.swift */; };
 		90D5A8831D0941A1000D2062 /* UserDetailListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D5A8821D0941A1000D2062 /* UserDetailListViewController.swift */; };
+		B76AFAD11D0F677500619815 /* LayijiMahaniyom Bao.otf in Resources */ = {isa = PBXBuildFile; fileRef = B76AFACF1D0F677500619815 /* LayijiMahaniyom Bao.otf */; };
+		B76AFAD41D0F698100619815 /* thaisanslite_r1.otf in Resources */ = {isa = PBXBuildFile; fileRef = B76AFAD31D0F698100619815 /* thaisanslite_r1.otf */; };
 		B77188EC1CFFF2C700A8D8FB /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77188EB1CFFF2C700A8D8FB /* Schedule.swift */; };
 		B77188EE1CFFF3E300A8D8FB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77188ED1CFFF3E300A8D8FB /* User.swift */; };
 		B77188F01CFFF89800A8D8FB /* scheduleArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77188EF1CFFF89800A8D8FB /* scheduleArray.swift */; };
@@ -55,6 +57,8 @@
 		87E92AE851E46626A891996E /* Pods_LenkilaClubUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LenkilaClubUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		90D5A8801D093DA1000D2062 /* UserDetailMainHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDetailMainHeader.swift; sourceTree = "<group>"; };
 		90D5A8821D0941A1000D2062 /* UserDetailListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDetailListViewController.swift; sourceTree = "<group>"; };
+		B76AFACF1D0F677500619815 /* LayijiMahaniyom Bao.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LayijiMahaniyom Bao.otf"; sourceTree = "<group>"; };
+		B76AFAD31D0F698100619815 /* thaisanslite_r1.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = thaisanslite_r1.otf; sourceTree = "<group>"; };
 		B77188EB1CFFF2C700A8D8FB /* Schedule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
 		B77188ED1CFFF3E300A8D8FB /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		B77188EF1CFFF89800A8D8FB /* scheduleArray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = scheduleArray.swift; sourceTree = "<group>"; };
@@ -132,9 +136,19 @@
 			name = Schedule;
 			sourceTree = "<group>";
 		};
+		B76AFACE1D0F676000619815 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				B76AFACF1D0F677500619815 /* LayijiMahaniyom Bao.otf */,
+				B76AFAD31D0F698100619815 /* thaisanslite_r1.otf */,
+			);
+			name = Resource;
+			sourceTree = "<group>";
+		};
 		B7B0D5C61CEDA27E00577430 = {
 			isa = PBXGroup;
 			children = (
+				B76AFACE1D0F676000619815 /* Resource */,
 				B7B0D5D11CEDA27E00577430 /* LenkilaSportClub */,
 				B7B0D5E91CEDA27F00577430 /* LenkilaSportClubTests */,
 				B7B0D5F41CEDA27F00577430 /* LenkilaSportClubUITests */,
@@ -294,7 +308,7 @@
 				TargetAttributes = {
 					B7B0D5CE1CEDA27E00577430 = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = FCA995W2V4;
+						DevelopmentTeam = WYLP742538;
 					};
 					B7B0D5E51CEDA27F00577430 = {
 						CreatedOnToolsVersion = 7.3;
@@ -334,6 +348,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				B7B0D5E01CEDA27E00577430 /* LaunchScreen.storyboard in Resources */,
+				B76AFAD11D0F677500619815 /* LayijiMahaniyom Bao.otf in Resources */,
+				B76AFAD41D0F698100619815 /* thaisanslite_r1.otf in Resources */,
 				B7B0D5DD1CEDA27E00577430 /* Assets.xcassets in Resources */,
 				B7B0D5D81CEDA27E00577430 /* Main.storyboard in Resources */,
 			);
@@ -655,10 +671,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = LenkilaSportClub/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Jump.LenkilaSportClub;
+				PRODUCT_BUNDLE_IDENTIFIER = Nont.LenkilaSportClub;
 				PRODUCT_NAME = LenkilaClub;
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -668,10 +686,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = LenkilaSportClub/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Jump.LenkilaSportClub;
+				PRODUCT_BUNDLE_IDENTIFIER = Nont.LenkilaSportClub;
 				PRODUCT_NAME = LenkilaClub;
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

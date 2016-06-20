@@ -15,7 +15,7 @@ class User:RLMObject{
     dynamic var nickName : String = ""
     dynamic var gender : String = "ไม่มี"
     dynamic var age : Int = 0
-    dynamic var workPlace : String = "ไม่มี"
+    dynamic var workPlace : String = ""
     dynamic var playCount : Int  = 0
     dynamic var freqPlay : String = "ไม่มี"
     dynamic var contact : String = ""

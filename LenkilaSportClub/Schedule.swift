@@ -9,6 +9,7 @@
 import Foundation
 import Realm
 class Schedule:RLMObject{
+    dynamic var id : String = ""
     dynamic var type : String = ""
     dynamic var date : String = ""
     dynamic var time : String = ""

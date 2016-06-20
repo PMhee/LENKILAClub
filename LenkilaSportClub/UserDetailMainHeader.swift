@@ -21,22 +21,6 @@ class UserDetailMainHeader: UITableViewCell {
     @IBOutlet var contact: UILabel!
     @IBOutlet var price: UILabel!
     
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        self.number.adjustsFontSizeToFitWidth = true;
-        self.name.adjustsFontSizeToFitWidth = true;
-        self.nickname.adjustsFontSizeToFitWidth = true;
-        self.gender.adjustsFontSizeToFitWidth = true;
-        self.age.adjustsFontSizeToFitWidth = true;
-        self.workplace.adjustsFontSizeToFitWidth = true;
-        self.numberOfTimes.adjustsFontSizeToFitWidth = true;
-        self.time.adjustsFontSizeToFitWidth = true;
-        self.contact.adjustsFontSizeToFitWidth = true;
-        self.price.adjustsFontSizeToFitWidth = true;
-                
-    }
-    
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         
