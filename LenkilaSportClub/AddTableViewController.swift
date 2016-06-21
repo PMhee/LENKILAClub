@@ -267,7 +267,6 @@ class AddTableViewController: UIViewController,UITextFieldDelegate,UIGestureReco
                 for i in 0...users.count-1{
                     let user : User = users[i] as! User
                     if tf_name.text! == user.nickName{
-                        print("found")
                         schedules.userID = user.id
                         found = true
                         continue
@@ -372,6 +371,7 @@ class AddTableViewController: UIViewController,UITextFieldDelegate,UIGestureReco
             }
             }
             if found {
+                print("hello"+self.tf_price.text!)
                 realm.beginWriteTransaction()
                 realm.addObject(schedule)
                 try! realm.commitWriteTransaction()

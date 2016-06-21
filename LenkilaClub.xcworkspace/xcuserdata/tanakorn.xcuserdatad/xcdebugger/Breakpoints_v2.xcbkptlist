@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LenkilaSportClub/TransactionManagementViewController.swift"
-            timestampString = "488132962.558572"
+            timestampString = "488174596.755429"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "182"
-            endingLineNumber = "182"
+            startingLineNumber = "212"
+            endingLineNumber = "212"
             landmarkName = "accept_action(_:)"
             landmarkType = "5">
          </BreakpointContent>
