@@ -105,6 +105,8 @@ class TransactionManagementViewController: UIViewController,UIGestureRecognizerD
         return scheduleArray.count
     }
     func gatherAllData(){
+        scheduleArray = [Schedule]()
+        userArray = [User]()
             let schedule = Schedule.allObjects()
             if schedule.count > 0 {
                 for i in 0...schedule.count-1 {
@@ -121,8 +123,19 @@ class TransactionManagementViewController: UIViewController,UIGestureRecognizerD
                 userArray.append(user[i] as! User)
             }
         }
+        let realm = RLMRealm.defaultRealm()
+        realm.beginWriteTransaction()
+        sortDate()
+        try! realm.commitWriteTransaction()
         transactionTableView.reloadData()
-            
+    }
+    func sortDate(){
+        for i in 0...scheduleArray.count-1{
+            let date = scheduleArray[i].date
+            let time = scheduleArray[i].time
+            scheduleArray[i].sort_date = createSortDate(date, time: time)
+        }
+        scheduleArray.sortInPlace({$0.sort_date < $1.sort_date})
     }
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cellIdentifier = "Cell"
@@ -172,7 +185,24 @@ class TransactionManagementViewController: UIViewController,UIGestureRecognizerD
         price.text = numberFormatter.stringFromNumber((scheduleArray[indexPath.row].price * diff_hour) as NSNumber)! + " บาท"
         let accept = cell.viewWithTag(9) as! UIButton
         accept.addTarget(self, action: #selector(self.accept_action), forControlEvents: .TouchUpInside)
+        let cancel = cell.viewWithTag(10) as! UIButton
+        cancel.addTarget(self, action: #selector(self.cancel_action), forControlEvents: .TouchUpInside)
         return cell
+    }
+    func cancel_action(sender:UIButton){
+        let realm = RLMRealm.defaultRealm()
+        realm.beginWriteTransaction()
+        let schedule = Schedule.allObjects()
+        var buttonPress :CGPoint = sender.convertPoint(CGPointZero, toView: self.transactionTableView)
+        var indexPath : NSIndexPath = self.transactionTableView.indexPathForRowAtPoint(buttonPress)!
+        for i in 0...schedule.count-1 {
+            let s = schedule[i] as! Schedule
+            if s.id == scheduleArray[indexPath.row].id {
+                realm.deleteObject(s)
+            }
+        }
+        try! realm.commitWriteTransaction()
+        self.gatherAllData()
     }
     func accept_action(sender:UIButton){
         let realm = RLMRealm.defaultRealm()
@@ -188,6 +218,71 @@ class TransactionManagementViewController: UIViewController,UIGestureRecognizerD
         }
         try! realm.commitWriteTransaction()
         self.gatherAllData()
+    }
+    func createSortDate(date:String,var time:String)->Int{
+        let dateFormatt = NSDateFormatter()
+        dateFormatt.dateStyle = NSDateFormatterStyle.FullStyle
+        dateFormatt.dateFromString(date)
+        let formatt = NSDateFormatter()
+        formatt.dateStyle = NSDateFormatterStyle.ShortStyle
+        var d = formatt.stringFromDate(dateFormatt.dateFromString(date)!)
+        var range = d.rangeOfString("/")!
+        var index = d.startIndex.distanceTo(range.startIndex)
+        var month = d.substringWithRange(Range<String.Index>(start: d.startIndex.advancedBy(0), end: d.startIndex.advancedBy(index)))
+        d = d.substringWithRange(Range<String.Index>(start: d.startIndex.advancedBy(index+1), end: d.endIndex.advancedBy(0)))
+        range = d.rangeOfString("/")!
+        index = d.startIndex.distanceTo(range.startIndex)
+        if month.characters.count == 1 {
+            month = "0"+month
+        }
+        var day = d.substringWithRange(Range<String.Index>(start: d.startIndex.advancedBy(0), end: d.startIndex.advancedBy(index)))
+        if day.characters.count == 1 {
+            day = "0"+day
+        }
+        var year = d.substringWithRange(Range<String.Index>(start: d.startIndex.advancedBy(index+1), end: d.endIndex.advancedBy(0)))
+        range = time.rangeOfString(".")!
+        index = time.startIndex.distanceTo(range.startIndex)
+        var startHour = time.substringWithRange(Range<String.Index>(start: time.startIndex.advancedBy(0), end: time.startIndex.advancedBy(index)))
+        if startHour.characters.count == 1 {
+            startHour = "0"+startHour
+        }
+        time = time.substringWithRange(Range<String.Index>(start: time.startIndex.advancedBy(index+1), end: time.endIndex.advancedBy(0)))
+        range = time.rangeOfString(" ")!
+        index = time.startIndex.distanceTo(range.startIndex)
+        var startMin = time.substringWithRange(Range<String.Index>(start: time.startIndex.advancedBy(0), end: time.startIndex.advancedBy(index)))
+        return Int(year+month+day+startHour+startMin)!
+    }
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+    }
+    func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
+        let acceptAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "ชำระ" , handler: { (action:UITableViewRowAction!, indexPath:NSIndexPath!) -> Void in
+            let realm = RLMRealm.defaultRealm()
+            realm.beginWriteTransaction()
+            let schedule = Schedule.allObjects()
+            for i in 0...schedule.count-1 {
+                let s = schedule[i] as! Schedule
+                if s.id == self.scheduleArray[indexPath.row].id {
+                    s.already_paid = true
+                }
+            }
+            try! realm.commitWriteTransaction()
+            self.gatherAllData()
+        })
+        let cancelAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "ยกเลิก" , handler: { (action:UITableViewRowAction!, indexPath:NSIndexPath!) -> Void in
+            let realm = RLMRealm.defaultRealm()
+            realm.beginWriteTransaction()
+            let schedule = Schedule.allObjects()
+            for i in 0...schedule.count-1 {
+                let s = schedule[i] as! Schedule
+                print(indexPath.row)
+                if s.id == self.scheduleArray[indexPath.row].id {
+                    realm.deleteObject(s)
+                }
+            }
+            try! realm.commitWriteTransaction()
+            self.gatherAllData()
+        })
+        return [acceptAction,cancelAction]
     }
     /*
     // MARK: - Navigation
