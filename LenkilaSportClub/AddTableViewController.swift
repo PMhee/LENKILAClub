@@ -241,6 +241,7 @@ class AddTableViewController: UIViewController,UITextFieldDelegate,UIGestureReco
         schedule.type = self.type
         schedule.id = String(sche.count)
         schedule.paid_type = "cash"
+        schedule.sort_date = createSortDate(schedule.date, time: schedule.time)
         let range = self.rep.rangeOfString(" ")!
         let index = self.rep.startIndex.distanceTo(range.startIndex)
         self.realRep = Int(self.tf_repeat.text!.substringWithRange(Range<String.Index>(start:self.tf_repeat.text!.startIndex.advancedBy(0), end: self.tf_repeat.text!.startIndex.advancedBy(index))))
@@ -272,6 +273,7 @@ class AddTableViewController: UIViewController,UITextFieldDelegate,UIGestureReco
                 schedules.type = self.type
                 schedules.id = String(sche.count)
                 schedules.paid_type = "cash"
+                schedules.sort_date = createSortDate(schedules.date, time: schedules.time)
                 let users = User.allObjects()
                 var found = false
                 if users.count > 0 {
@@ -327,6 +329,7 @@ class AddTableViewController: UIViewController,UITextFieldDelegate,UIGestureReco
                     schedule.colorTag = self.pickedColor
                     schedule.type = self.type
                     schedule.paid_type = "cash"
+                    schedule.sort_date = self.createSortDate(schedule.date, time: schedule.time)
                     schedule.id = String(sche.count)
                     let range = self.rep.rangeOfString(" ")!
                     let index = self.rep.startIndex.distanceTo(range.startIndex)
@@ -359,6 +362,7 @@ class AddTableViewController: UIViewController,UITextFieldDelegate,UIGestureReco
                             schedules.type = self.type
                             schedules.userID = user.id
                             schedules.paid_type = "cash"
+                            schedules.sort_date = self.createSortDate(schedules.date, time: schedules.time)
                             schedules.id = String(sche.count)
                             temp = schedules.date
                             realm.beginWriteTransaction()
@@ -532,6 +536,39 @@ class AddTableViewController: UIViewController,UITextFieldDelegate,UIGestureReco
                 des.firstTime = true
             }
         }
+    }
+    func createSortDate(date:String,var time:String)->Int{
+        let dateFormatt = NSDateFormatter()
+        dateFormatt.dateStyle = NSDateFormatterStyle.FullStyle
+        dateFormatt.dateFromString(date)
+        let formatt = NSDateFormatter()
+        formatt.dateStyle = NSDateFormatterStyle.ShortStyle
+        var d = formatt.stringFromDate(dateFormatt.dateFromString(date)!)
+        var range = d.rangeOfString("/")!
+        var index = d.startIndex.distanceTo(range.startIndex)
+        var month = d.substringWithRange(Range<String.Index>(start: d.startIndex.advancedBy(0), end: d.startIndex.advancedBy(index)))
+        d = d.substringWithRange(Range<String.Index>(start: d.startIndex.advancedBy(index+1), end: d.endIndex.advancedBy(0)))
+        range = d.rangeOfString("/")!
+        index = d.startIndex.distanceTo(range.startIndex)
+        if month.characters.count == 1 {
+            month = "0"+month
+        }
+        var day = d.substringWithRange(Range<String.Index>(start: d.startIndex.advancedBy(0), end: d.startIndex.advancedBy(index)))
+        if day.characters.count == 1 {
+            day = "0"+day
+        }
+        var year = d.substringWithRange(Range<String.Index>(start: d.startIndex.advancedBy(index+1), end: d.endIndex.advancedBy(0)))
+        range = time.rangeOfString(".")!
+        index = time.startIndex.distanceTo(range.startIndex)
+        var startHour = time.substringWithRange(Range<String.Index>(start: time.startIndex.advancedBy(0), end: time.startIndex.advancedBy(index)))
+        if startHour.characters.count == 1 {
+            startHour = "0"+startHour
+        }
+        time = time.substringWithRange(Range<String.Index>(start: time.startIndex.advancedBy(index+1), end: time.endIndex.advancedBy(0)))
+        range = time.rangeOfString(" ")!
+        index = time.startIndex.distanceTo(range.startIndex)
+        var startMin = time.substringWithRange(Range<String.Index>(start: time.startIndex.advancedBy(0), end: time.startIndex.advancedBy(index)))
+        return Int(year+month+day+startHour+startMin)!
     }
     /*
      // MARK: - Navigation

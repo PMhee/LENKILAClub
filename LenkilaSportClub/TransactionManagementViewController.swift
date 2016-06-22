@@ -15,6 +15,7 @@ class TransactionManagementViewController: UIViewController,UIGestureRecognizerD
     @IBOutlet weak var btn_history_transaction: UIButton!
     @IBOutlet var tap_gesture: UITapGestureRecognizer!
     var tab_trigger = false
+    var freq_play_array = [FreqPlay]()
     @IBOutlet weak var cons_vw_tab_width: NSLayoutConstraint!
     var x : CGFloat = 0
     var y : CGFloat = 0
@@ -107,6 +108,18 @@ class TransactionManagementViewController: UIViewController,UIGestureRecognizerD
         return scheduleArray.count
     }
     func gatherAllData(){
+        freq_play_array = [FreqPlay]()
+        let freq_play = FreqPlay.allObjects()
+        if freq_play.count > 0 {
+            for i in 0...freq_play.count-1{
+                let freq = freq_play[i] as! FreqPlay
+                freq_play_array.append(freq)
+            }
+        }
+        let realm = RLMRealm.defaultRealm()
+        realm.beginWriteTransaction()
+        sortFreqPlay()
+        try! realm.commitWriteTransaction()
         if state_present{
             scheduleArray = [Schedule]()
             userArray = [User]()
@@ -120,12 +133,13 @@ class TransactionManagementViewController: UIViewController,UIGestureRecognizerD
                     if !s.already_paid && s.sort_date >= createSortDate(format.stringFromDate(NSDate()), time: "00.00 -") {
                         self.scheduleArray.append(s)
                     }
-                    print(schedule[i])
+                    //print(schedule[i])
                 }
             }
             let user = User.allObjects()
             if user.count > 0 {
                 for i in 0...user.count-1{
+                    print(user[i])
                     userArray.append(user[i] as! User)
                 }
             }
@@ -162,10 +176,13 @@ class TransactionManagementViewController: UIViewController,UIGestureRecognizerD
         }
     }
     func sortDate(){
-        for i in 0...scheduleArray.count-1{
-            let date = scheduleArray[i].date
-            let time = scheduleArray[i].time
-            scheduleArray[i].sort_date = createSortDate(date, time: time)
+        print(scheduleArray.count)
+        if scheduleArray.count > 0 {
+            for i in 0...scheduleArray.count-1{
+                let date = scheduleArray[i].date
+                let time = scheduleArray[i].time
+                scheduleArray[i].sort_date = createSortDate(date, time: time)
+            }
         }
         if state_present{
             scheduleArray.sortInPlace({$0.sort_date < $1.sort_date})
@@ -181,6 +198,9 @@ class TransactionManagementViewController: UIViewController,UIGestureRecognizerD
         }
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath)
         cell.selectionStyle = UITableViewCellSelectionStyle.None
+        if !state_present{
+            cell.userInteractionEnabled = false
+        }
         let paid_type = cell.viewWithTag(1) as! UILabel
         switch  scheduleArray[indexPath.row].paid_type {
         case "cash" :
@@ -217,13 +237,13 @@ class TransactionManagementViewController: UIViewController,UIGestureRecognizerD
         let hour_count = cell.viewWithTag(7) as! UILabel
         var diff_hour = Double(endHour)! - Double(startHour)!
         if Int(startMin)>Int(endMin){
-        hour_count.text = String(Int(endHour)!-Int(startHour)!)+" ชั่วโมง"+":"+"30 นาที"
-        diff_hour += 0.5
+            hour_count.text = String(Int(endHour)!-Int(startHour)!)+" ชั่วโมง"+" "+"30 นาที"
+            diff_hour += 0.5
         }else if Int(startMin)<Int(endMin){
-        hour_count.text = String(Int(endHour)!-Int(startHour)!-1)+" ชั่วโมง"+":"+"30 นาที"
-        diff_hour -= 0.5
+            hour_count.text = String(Int(endHour)!-Int(startHour)!-1)+" ชั่วโมง"+" "+"30 นาที"
+            diff_hour -= 0.5
         }else{
-        hour_count.text = String(Int(endHour)!-Int(startHour)!)+" ชั่วโมง"+":"+"00 นาที"
+            hour_count.text = String(Int(endHour)!-Int(startHour)!)+" ชั่วโมง"+" "+"00 นาที"
         }
         let price = cell.viewWithTag(8) as! UILabel
         let numberFormatter = NSNumberFormatter()
@@ -265,6 +285,73 @@ class TransactionManagementViewController: UIViewController,UIGestureRecognizerD
         var startMin = time.substringWithRange(Range<String.Index>(start: time.startIndex.advancedBy(0), end: time.startIndex.advancedBy(index)))
         return Int(year+month+day+startHour+startMin)!
     }
+    func sortFreqPlay(){
+        freq_play_array.sortInPlace({$0.userID < $1.userID})
+    }
+    func updateFreqPlay(user_id:String) -> String{
+        var freqArray = [Int]()
+        var keepFreq = [String:Int]()
+        if freq_play_array.count > 0 {
+            for i in 0...freq_play_array.count-1 {
+                freqArray.append(Int(freq_play_array[i].userID)!)
+            }
+            let idx = binarySearch(freqArray, searchItem: Int(user_id)!)
+            for j in idx...freq_play_array.count-1{
+                if user_id != freq_play_array[j].userID{
+                    continue
+                }
+                if keepFreq[freq_play_array[j].freq_play+" "+freq_play_array[j].day] == nil {
+                    keepFreq[freq_play_array[j].freq_play+" "+freq_play_array[j].day] = 1
+                }else{
+                    keepFreq[freq_play_array[j].freq_play+" "+freq_play_array[j].day]! += 1
+                }
+                
+            }
+        }
+        print(keepFreq)
+        return findMaxFreq(keepFreq)
+        
+    }
+    func findMaxFreq(freq_play:[String:Int]) -> String{
+        var freq_time = ""
+        if freq_play.count > 0 {
+            var max = 0
+            for i in 0...freq_play.count-1{
+                let index = freq_play.startIndex.advancedBy(i)
+                if max < freq_play[freq_play.keys[index]]!{
+                    max = freq_play[freq_play.keys[index]]!
+                    freq_time = freq_play.keys[index]
+                }
+            }
+        }
+        return freq_time
+    }
+    func binarySearch<T:Comparable>(inputArr:Array<T>, searchItem: T)->Int{
+        var lowerIndex = 0;
+        var upperIndex = inputArr.count - 1
+        while (true) {
+            let currentIndex = (lowerIndex + upperIndex)/2
+            if(inputArr[currentIndex] == searchItem) {
+                if currentIndex != 0 {
+                    if inputArr[currentIndex-1] == searchItem{
+                        upperIndex = currentIndex - 1
+                    }else{
+                        return currentIndex
+                    }
+                }else{
+                    return 0
+                }
+            } else if (lowerIndex > upperIndex) {
+                return -1
+            } else {
+                if (inputArr[currentIndex] > searchItem) {
+                    upperIndex = currentIndex - 1
+                } else {
+                    lowerIndex = currentIndex + 1
+                }
+            }
+        }
+    }
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
     }
     func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
@@ -272,14 +359,45 @@ class TransactionManagementViewController: UIViewController,UIGestureRecognizerD
             let realm = RLMRealm.defaultRealm()
             realm.beginWriteTransaction()
             let schedule = Schedule.allObjects()
+            var id = ""
+            var time = ""
             for i in 0...schedule.count-1 {
                 let s = schedule[i] as! Schedule
                 if s.id == self.scheduleArray[indexPath.row].id {
                     s.already_paid = true
+                    let user = User.allObjects()
+                    let freq_play = FreqPlay()
+                    if user.count > 0 {
+                        for j in 0...user.count-1 {
+                            let u = user[j] as! User
+                            if u.id == s.userID{
+                                id = u.id
+                                u.playCount += 1
+                                time = s.time
+                                freq_play.userID = id
+                                freq_play.freq_play = time
+                                let range = s.date.rangeOfString(",")!
+                                let index = s.date.startIndex.distanceTo(range.startIndex)
+                                freq_play.day = s.date.substringWithRange(Range<String.Index>(start: s.date.startIndex.advancedBy(0), end: s.date.startIndex.advancedBy(index)))
+                                realm.addObject(freq_play)
+                            }
+                        }
+                    }
                 }
             }
             try! realm.commitWriteTransaction()
             self.gatherAllData()
+            realm.beginWriteTransaction()
+            let user = User.allObjects()
+            if user.count > 0 {
+                for i in 0...user.count-1{
+                    let u = user[i] as! User
+                    if u.id == id {
+                        u.freqPlay = self.updateFreqPlay(u.id)
+                    }
+                }
+            }
+            try! realm.commitWriteTransaction()
         })
         acceptAction.backgroundColor = UIColor(red: 122/255, green: 190/255, blue: 139/255, alpha: 1.0)
         if state_present{

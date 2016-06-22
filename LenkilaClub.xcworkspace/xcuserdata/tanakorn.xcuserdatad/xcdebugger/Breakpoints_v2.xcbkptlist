@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LenkilaSportClub/AddTableViewController.swift"
-            timestampString = "488193723.005965"
+            timestampString = "488314139.319266"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "273"
-            endingLineNumber = "273"
+            startingLineNumber = "274"
+            endingLineNumber = "274"
             landmarkName = "btn_add_action(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -42,12 +42,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LenkilaSportClub/TransactionManagementViewController.swift"
-            timestampString = "488226995.829154"
+            timestampString = "488315479.132707"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "94"
             endingLineNumber = "94"
             landmarkName = "gestureRecognizerShouldBegin(_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LenkilaSportClub/TransactionManagementViewController.swift"
+            timestampString = "488318179.848869"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "341"
+            endingLineNumber = "341"
+            landmarkName = "binarySearch(_:searchItem:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

@@ -17,6 +17,7 @@
 		B77188EC1CFFF2C700A8D8FB /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77188EB1CFFF2C700A8D8FB /* Schedule.swift */; };
 		B77188EE1CFFF3E300A8D8FB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77188ED1CFFF3E300A8D8FB /* User.swift */; };
 		B77188F01CFFF89800A8D8FB /* scheduleArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77188EF1CFFF89800A8D8FB /* scheduleArray.swift */; };
+		B772FAA01D1A506A0024F3BF /* FreqPlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = B772FA9F1D1A506A0024F3BF /* FreqPlay.swift */; };
 		B78899E71D13C221009B6E3F /* TransactionManagementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78899E61D13C221009B6E3F /* TransactionManagementViewController.swift */; };
 		B7957EC31D03417A0039D6B7 /* showCalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7957EC21D03417A0039D6B7 /* showCalendarViewController.swift */; };
 		B7AE00931D09FCDA009DC015 /* EditUserDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AE00921D09FCDA009DC015 /* EditUserDetailViewController.swift */; };
@@ -60,9 +61,10 @@
 		90D5A8821D0941A1000D2062 /* UserDetailListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDetailListViewController.swift; sourceTree = "<group>"; };
 		B76AFACF1D0F677500619815 /* LayijiMahaniyom Bao.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LayijiMahaniyom Bao.otf"; sourceTree = "<group>"; };
 		B76AFAD31D0F698100619815 /* thaisanslite_r1.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = thaisanslite_r1.otf; sourceTree = "<group>"; };
-		B77188EB1CFFF2C700A8D8FB /* Schedule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
-		B77188ED1CFFF3E300A8D8FB /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		B77188EB1CFFF2C700A8D8FB /* Schedule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Schedule.swift; path = LenkilaSportClub/Schedule.swift; sourceTree = "<group>"; };
+		B77188ED1CFFF3E300A8D8FB /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = LenkilaSportClub/User.swift; sourceTree = "<group>"; };
 		B77188EF1CFFF89800A8D8FB /* scheduleArray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = scheduleArray.swift; sourceTree = "<group>"; };
+		B772FA9F1D1A506A0024F3BF /* FreqPlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FreqPlay.swift; sourceTree = "<group>"; };
 		B78899E61D13C221009B6E3F /* TransactionManagementViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionManagementViewController.swift; sourceTree = "<group>"; };
 		B7957EC21D03417A0039D6B7 /* showCalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = showCalendarViewController.swift; sourceTree = "<group>"; };
 		B7AE00921D09FCDA009DC015 /* EditUserDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditUserDetailViewController.swift; sourceTree = "<group>"; };
@@ -147,6 +149,16 @@
 			name = Resource;
 			sourceTree = "<group>";
 		};
+		B772FA9E1D1A50270024F3BF /* RealmDB */ = {
+			isa = PBXGroup;
+			children = (
+				B77188EB1CFFF2C700A8D8FB /* Schedule.swift */,
+				B77188ED1CFFF3E300A8D8FB /* User.swift */,
+				B772FA9F1D1A506A0024F3BF /* FreqPlay.swift */,
+			);
+			name = RealmDB;
+			sourceTree = "<group>";
+		};
 		B78899E51D13C1F4009B6E3F /* Transaction */ = {
 			isa = PBXGroup;
 			children = (
@@ -158,6 +170,7 @@
 		B7B0D5C61CEDA27E00577430 = {
 			isa = PBXGroup;
 			children = (
+				B772FA9E1D1A50270024F3BF /* RealmDB */,
 				B76AFACE1D0F676000619815 /* Resource */,
 				B7B0D5D11CEDA27E00577430 /* LenkilaSportClub */,
 				B7B0D5E91CEDA27F00577430 /* LenkilaSportClubTests */,
@@ -192,8 +205,6 @@
 				B7B0D5E11CEDA27E00577430 /* Info.plist */,
 				B7B0D5D91CEDA27E00577430 /* LenkilaSportClub.xcdatamodeld */,
 				B7B0D6051CEDCE7E00577430 /* UIImageEffects.swift */,
-				B77188EB1CFFF2C700A8D8FB /* Schedule.swift */,
-				B77188ED1CFFF3E300A8D8FB /* User.swift */,
 				B77188EF1CFFF89800A8D8FB /* scheduleArray.swift */,
 				B7F948C71D01C943008F8DC7 /* UserViewController.swift */,
 				B7957EC21D03417A0039D6B7 /* showCalendarViewController.swift */,
@@ -538,6 +549,7 @@
 				B77188EC1CFFF2C700A8D8FB /* Schedule.swift in Sources */,
 				B7EA92AC1CFE00E70006C673 /* AddTableViewController.swift in Sources */,
 				90D5A8831D0941A1000D2062 /* UserDetailListViewController.swift in Sources */,
+				B772FAA01D1A506A0024F3BF /* FreqPlay.swift in Sources */,
 				B77188F01CFFF89800A8D8FB /* scheduleArray.swift in Sources */,
 				B7957EC31D03417A0039D6B7 /* showCalendarViewController.swift in Sources */,
 			);
