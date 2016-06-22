@@ -10,6 +10,8 @@ import UIKit
 import Realm
 import SCLAlertView
 class UserDetailListViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UIPopoverPresentationControllerDelegate,UIGestureRecognizerDelegate {
+    var isPortrait = UIDevice.currentDevice().orientation == .Portrait || UIDevice.currentDevice().orientation == .PortraitUpsideDown
+    
     var tab_trigger = false
     var add_trigger = false
     @IBOutlet weak var cons_vw_tab_width: NSLayoutConstraint!
@@ -19,7 +21,7 @@ class UserDetailListViewController: UIViewController,UITableViewDelegate,UITable
     @IBOutlet var tap_gesture: UITapGestureRecognizer!
     var alert : SCLAlertView! = nil
     var userArray = [User]()
-    var all_font = UIFont(name: "ThaiSansLite",size: 16)
+    var all_font = UIFont(name: "ThaiSansLite",size: 14)
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -149,35 +151,75 @@ class UserDetailListViewController: UIViewController,UITableViewDelegate,UITable
             if tab_trigger {
                 trigger_tab()
             }
+            isPortrait = true
             all_font = UIFont(name: "ThaiSansLite",size: 14)
             self.UserDetailTableView.reloadData()
         case .PortraitUpsideDown:
             if tab_trigger {
                 trigger_tab()
             }
+            isPortrait = true
             all_font = UIFont(name: "ThaiSansLite",size: 14)
             self.UserDetailTableView.reloadData()
         case .LandscapeLeft:
             if tab_trigger {
                 trigger_tab()
             }
+            isPortrait = false
             all_font = UIFont(name: "ThaiSansLite",size: 16)
             self.UserDetailTableView.reloadData()
         case .LandscapeRight:
             if tab_trigger {
                 trigger_tab()
             }
+            isPortrait = false
             all_font = UIFont(name: "ThaiSansLite",size: 16)
             self.UserDetailTableView.reloadData()
         default:
             if tab_trigger {
                 trigger_tab()
             }
+            isPortrait = UIDevice.currentDevice().orientation == .Portrait || UIDevice.currentDevice().orientation == .PortraitUpsideDown
             all_font = UIFont(name: "ThaiSansLite",size: 16)
             self.UserDetailTableView.reloadData()
         }
     }
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if(isPortrait){
+            let v = UIView()
+            v.backgroundColor = UIColor(red: 231/255, green: 230/255, blue: 231/255, alpha: 1.0)
+            let no = UILabel(frame: CGRectMake(0,18, tableView.frame.width*0.09, 14))
+            no.text = "ลำดับ"
+            no.font = all_font
+            no.textAlignment = .Center
+            
+            let nickName = UILabel(frame: CGRectMake(no.frame.origin.x+tableView.frame.width*0.09,18, tableView.frame.width*0.226, 14))
+            nickName.text = "ชื่อเล่น"
+            nickName.textAlignment = .Center
+            nickName.font = all_font
+           
+            let age = UILabel(frame: CGRectMake((nickName.frame.origin.x+tableView.frame.width*0.226)+5,18, tableView.frame.width*0.06, 14))
+            age.text = "อายุ"
+            age.textAlignment = .Center
+            age.font = all_font
+            let freq = UILabel(frame: CGRectMake(age.frame.origin.x+tableView.frame.width*0.06,18, tableView.frame.width*0.370, 14))
+            freq.textAlignment = .Center
+            freq.text = "ช่วงที่มา"
+            freq.font = all_font
+            let contact = UILabel(frame: CGRectMake(freq.frame.origin.x+tableView.frame.width*0.370,18, tableView.frame.width*0.260, 14))
+            contact.text = "ติดต่อ"
+            contact.textAlignment = .Center
+            contact.font = all_font
+            
+            v.addSubview(contact)
+            v.addSubview(freq)
+            v.addSubview(age)
+            v.addSubview(nickName)
+            v.addSubview(no)
+            return v
+
+            
+        }else{
             let v = UIView()
             v.backgroundColor = UIColor(red: 231/255, green: 230/255, blue: 231/255, alpha: 1.0)
             let no = UILabel(frame: CGRectMake(0,18, tableView.frame.width*0.051, 14))
@@ -231,11 +273,35 @@ class UserDetailListViewController: UIViewController,UITableViewDelegate,UITable
             v.addSubview(name)
             v.addSubview(no)
             return v
+
+        }
     }
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 50
     }
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        if(isPortrait){
+            let cellIdentifier = "UserListPortrait"
+            let currentIndex = indexPath.row
+            let userList = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath)
+            let no = userList.viewWithTag(1) as! UILabel
+            no.text = String(currentIndex+1)
+            let nickName = userList.viewWithTag(2) as! UILabel
+            nickName.text = userArray[currentIndex].nickName
+            let age = userList.viewWithTag(3) as! UILabel
+            age.text = String(userArray[currentIndex].age)
+            let freqPlay = userList.viewWithTag(4) as! UILabel
+            freqPlay.text = userArray[currentIndex].freqPlay
+            let contact = userList.viewWithTag(5) as! UILabel
+            contact.text = userArray[currentIndex].contact
+            if indexPath.row % 2 == 1 {
+                userList.backgroundColor = UIColor(red:232/255,green:233/255,blue:232/255,alpha:1.0)
+            }else{
+                userList.backgroundColor = UIColor.whiteColor()
+            }
+            return userList
+            
+        }else{
             let cellIdentifier = "UserList"
             let currentIndex = indexPath.row
             let userList = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath)
@@ -265,6 +331,7 @@ class UserDetailListViewController: UIViewController,UITableViewDelegate,UITable
                 userList.backgroundColor = UIColor.whiteColor()
             }
             return userList
+        }
         }
     func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
         return .None

@@ -9,7 +9,7 @@
 import UIKit
 import Realm
 class TransactionManagementViewController: UIViewController,UIGestureRecognizerDelegate,UITableViewDelegate,UITableViewDataSource {
-
+    
     var state_present : Bool = true
     @IBOutlet weak var btn_present_transaction: UIButton!
     @IBOutlet weak var btn_history_transaction: UIButton!
@@ -21,6 +21,7 @@ class TransactionManagementViewController: UIViewController,UIGestureRecognizerD
     var enable_touch :Bool = false
     var scheduleArray = [Schedule]()
     var userArray = [User]()
+    var cellIdentifier :String! = nil
     @IBOutlet weak var transactionTableView: UITableView!
     @IBAction func btn_tab_action(sender: UIButton) {
         trigger_tab()
@@ -59,11 +60,13 @@ class TransactionManagementViewController: UIViewController,UIGestureRecognizerD
         self.btn_history_transaction.backgroundColor = UIColor(red: 29/255, green: 29/255, blue: 29/255, alpha: 1.0)
         self.btn_present_transaction.backgroundColor = UIColor(red: 122/255, green: 118/255, blue: 119/255, alpha: 1.0)
         state_present = !state_present
+        gatherAllData()
     }
     @IBAction func btn_history_transaction_action(sender: UIButton) {
         self.btn_present_transaction.backgroundColor = UIColor(red: 29/255, green: 29/255, blue: 29/255, alpha: 1.0)
         self.btn_history_transaction.backgroundColor = UIColor(red: 122/255, green: 118/255, blue: 119/255, alpha: 1.0)
         state_present = !state_present
+        gatherAllData()
     }
     
     override func viewDidLoad() {
@@ -101,33 +104,62 @@ class TransactionManagementViewController: UIViewController,UIGestureRecognizerD
         // Dispose of any resources that can be recreated.
     }
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(scheduleArray.count)
         return scheduleArray.count
     }
     func gatherAllData(){
-        scheduleArray = [Schedule]()
-        userArray = [User]()
+        if state_present{
+            scheduleArray = [Schedule]()
+            userArray = [User]()
             let schedule = Schedule.allObjects()
             if schedule.count > 0 {
                 for i in 0...schedule.count-1 {
                     let s = schedule[i] as! Schedule
-                    if !s.already_paid{
+                    let format = NSDateFormatter()
+                    format.dateStyle = NSDateFormatterStyle.FullStyle
+                    print(format.stringFromDate(NSDate()))
+                    if !s.already_paid && s.sort_date >= createSortDate(format.stringFromDate(NSDate()), time: "00.00 -") {
+                        self.scheduleArray.append(s)
+                    }
+                    print(schedule[i])
+                }
+            }
+            let user = User.allObjects()
+            if user.count > 0 {
+                for i in 0...user.count-1{
+                    userArray.append(user[i] as! User)
+                }
+            }
+            let realm = RLMRealm.defaultRealm()
+            realm.beginWriteTransaction()
+            sortDate()
+            try! realm.commitWriteTransaction()
+            transactionTableView.reloadData()
+        }else{
+            scheduleArray = [Schedule]()
+            userArray = [User]()
+            let schedule = Schedule.allObjects()
+            if schedule.count > 0 {
+                for i in 0...schedule.count-1 {
+                    let s = schedule[i] as! Schedule
+                    if s.already_paid{
                         scheduleArray.append(s)
                     }
                     print(schedule[i])
                 }
             }
             let user = User.allObjects()
-        if user.count > 0 {
-            for i in 0...user.count-1{
-                userArray.append(user[i] as! User)
+            if user.count > 0 {
+                for i in 0...user.count-1{
+                    userArray.append(user[i] as! User)
+                }
             }
+            let realm = RLMRealm.defaultRealm()
+            realm.beginWriteTransaction()
+            sortDate()
+            try! realm.commitWriteTransaction()
+            transactionTableView.reloadData()
+            self.transactionTableView.editing = false
         }
-        let realm = RLMRealm.defaultRealm()
-        realm.beginWriteTransaction()
-        sortDate()
-        try! realm.commitWriteTransaction()
-        transactionTableView.reloadData()
     }
     func sortDate(){
         for i in 0...scheduleArray.count-1{
@@ -135,11 +167,18 @@ class TransactionManagementViewController: UIViewController,UIGestureRecognizerD
             let time = scheduleArray[i].time
             scheduleArray[i].sort_date = createSortDate(date, time: time)
         }
-        scheduleArray.sortInPlace({$0.sort_date < $1.sort_date})
+        if state_present{
+            scheduleArray.sortInPlace({$0.sort_date < $1.sort_date})
+        }else{
+            scheduleArray.sortInPlace({$0.sort_date > $1.sort_date})
+        }
     }
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cellIdentifier = "Cell"
-        let currentIndex = indexPath.row
+        if state_present{
+            cellIdentifier = "Cell"
+        }else{
+            cellIdentifier = "cell"
+        }
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath)
         cell.selectionStyle = UITableViewCellSelectionStyle.None
         let paid_type = cell.viewWithTag(1) as! UILabel
@@ -165,59 +204,33 @@ class TransactionManagementViewController: UIViewController,UIGestureRecognizerD
         day.text = scheduleArray[indexPath.row].date
         var a : String = self.scheduleArray[indexPath.row].time
         var range: Range<String.Index> = a.rangeOfString(".")!
-        var index: Int = a.startIndex.distanceTo(range.startIndex)
-        let startHour = a.substringWithRange(Range<String.Index>(start: a.startIndex.advancedBy(0), end: a.startIndex.advancedBy(index)))
+        let index: Int = a.startIndex.distanceTo(range.startIndex)
+        let startHour = a.substringWithRange(Range<String.Index>(a.startIndex.advancedBy(0)..<a.startIndex.advancedBy(index)))
         range = a.rangeOfString(" ")!
         let index1 = a.startIndex.distanceTo(range.startIndex)
-        var startMin = a.substringWithRange(Range<String.Index>(start: a.startIndex.advancedBy(index+1), end: (a.startIndex.advancedBy(index1))))
+        let startMin = a.substringWithRange(Range<String.Index>(start: a.startIndex.advancedBy(index+1), end: (a.startIndex.advancedBy(index1))))
         a = a.substringWithRange(Range<String.Index>(start: a.startIndex.advancedBy(index1+3), end: (a.endIndex.advancedBy(0))))
         range = a.rangeOfString(".")!
         let index2 = a.startIndex.distanceTo(range.startIndex)
         let endHour = a.substringWithRange(Range<String.Index>(start: a.startIndex.advancedBy(0), end: (a.startIndex.advancedBy(index2))))
-        var endMin = a.substringWithRange(Range<String.Index>(start: a.startIndex.advancedBy(index2+1), end: (a.endIndex.advancedBy(0))))
+        let endMin = a.substringWithRange(Range<String.Index>(start: a.startIndex.advancedBy(index2+1), end: (a.endIndex.advancedBy(0))))
         let hour_count = cell.viewWithTag(7) as! UILabel
-        var diff_hour = Int(endHour)! - Int(startHour)!
-        hour_count.text = String(Int(endHour)!-Int(startHour)!)+" ชั่วโมง"
+        var diff_hour = Double(endHour)! - Double(startHour)!
+        if Int(startMin)>Int(endMin){
+        hour_count.text = String(Int(endHour)!-Int(startHour)!)+" ชั่วโมง"+":"+"30 นาที"
+        diff_hour += 0.5
+        }else if Int(startMin)<Int(endMin){
+        hour_count.text = String(Int(endHour)!-Int(startHour)!-1)+" ชั่วโมง"+":"+"30 นาที"
+        diff_hour -= 0.5
+        }else{
+        hour_count.text = String(Int(endHour)!-Int(startHour)!)+" ชั่วโมง"+":"+"00 นาที"
+        }
         let price = cell.viewWithTag(8) as! UILabel
         let numberFormatter = NSNumberFormatter()
         numberFormatter.internationalCurrencySymbol = ""
         numberFormatter.numberStyle = NSNumberFormatterStyle.CurrencyISOCodeStyle
-        price.text = numberFormatter.stringFromNumber((scheduleArray[indexPath.row].price * diff_hour) as NSNumber)! + " บาท"
-        let accept = cell.viewWithTag(9) as! UIButton
-        accept.addTarget(self, action: #selector(self.accept_action), forControlEvents: .TouchUpInside)
-        let cancel = cell.viewWithTag(10) as! UIButton
-        cancel.addTarget(self, action: #selector(self.cancel_action), forControlEvents: .TouchUpInside)
+        price.text = numberFormatter.stringFromNumber((Double(scheduleArray[indexPath.row].price) * diff_hour) as NSNumber)! + " บาท"
         return cell
-    }
-    func cancel_action(sender:UIButton){
-        let realm = RLMRealm.defaultRealm()
-        realm.beginWriteTransaction()
-        let schedule = Schedule.allObjects()
-        var buttonPress :CGPoint = sender.convertPoint(CGPointZero, toView: self.transactionTableView)
-        var indexPath : NSIndexPath = self.transactionTableView.indexPathForRowAtPoint(buttonPress)!
-        for i in 0...schedule.count-1 {
-            let s = schedule[i] as! Schedule
-            if s.id == scheduleArray[indexPath.row].id {
-                realm.deleteObject(s)
-            }
-        }
-        try! realm.commitWriteTransaction()
-        self.gatherAllData()
-    }
-    func accept_action(sender:UIButton){
-        let realm = RLMRealm.defaultRealm()
-        realm.beginWriteTransaction()
-        let schedule = Schedule.allObjects()
-        var buttonPress :CGPoint = sender.convertPoint(CGPointZero, toView: self.transactionTableView)
-        var indexPath : NSIndexPath = self.transactionTableView.indexPathForRowAtPoint(buttonPress)!
-        for i in 0...schedule.count-1 {
-            let s = schedule[i] as! Schedule
-            if s.id == scheduleArray[indexPath.row].id {
-                s.already_paid = true
-            }
-        }
-        try! realm.commitWriteTransaction()
-        self.gatherAllData()
     }
     func createSortDate(date:String,var time:String)->Int{
         let dateFormatt = NSDateFormatter()
@@ -268,30 +281,21 @@ class TransactionManagementViewController: UIViewController,UIGestureRecognizerD
             try! realm.commitWriteTransaction()
             self.gatherAllData()
         })
-        let cancelAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "ยกเลิก" , handler: { (action:UITableViewRowAction!, indexPath:NSIndexPath!) -> Void in
-            let realm = RLMRealm.defaultRealm()
-            realm.beginWriteTransaction()
-            let schedule = Schedule.allObjects()
-            for i in 0...schedule.count-1 {
-                let s = schedule[i] as! Schedule
-                print(indexPath.row)
-                if s.id == self.scheduleArray[indexPath.row].id {
-                    realm.deleteObject(s)
-                }
-            }
-            try! realm.commitWriteTransaction()
-            self.gatherAllData()
-        })
-        return [acceptAction,cancelAction]
+        acceptAction.backgroundColor = UIColor(red: 122/255, green: 190/255, blue: 139/255, alpha: 1.0)
+        if state_present{
+            return [acceptAction]
+        }else{
+            return nil
+        }
     }
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
