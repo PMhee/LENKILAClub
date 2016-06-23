@@ -170,6 +170,7 @@ class ScheduleViewController: UIViewController,UIScrollViewDelegate,UIGestureRec
             }
         }
         print(schedualArray)
+        clearTable()
         self.genScheduleOnTable()
         if schedualArray.count > 0 {
             self.tag = schedualArray[schedualArray.count-1].tag

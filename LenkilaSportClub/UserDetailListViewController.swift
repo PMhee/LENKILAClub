@@ -11,7 +11,6 @@ import Realm
 import SCLAlertView
 class UserDetailListViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UIPopoverPresentationControllerDelegate,UIGestureRecognizerDelegate {
     var isPortrait = UIDevice.currentDevice().orientation == .Portrait || UIDevice.currentDevice().orientation == .PortraitUpsideDown
-    
     var tab_trigger = false
     var add_trigger = false
     @IBOutlet weak var cons_vw_tab_width: NSLayoutConstraint!
@@ -67,38 +66,38 @@ class UserDetailListViewController: UIViewController,UITableViewDelegate,UITable
     }
     @IBAction func btn_add_user_action(sender: UIButton) {
         performSegueWithIdentifier("add_user", sender: self)
-//        add_trigger = true
-//        let appearance = SCLAlertView.SCLAppearance(
-//            showCloseButton: false
-//        )
-//        alert = SCLAlertView(appearance: appearance)
-//        let nickName = alert.addTextField("ใส่ชื่อเล่น")
-//        let contact = alert.addTextField("ใส่เบอร์โทรศัพท์")
-//        alert.addButton("เพิ่ม", action: {
-//            let realm = RLMRealm.defaultRealm()
-//            let user = User()
-//            user.id = String(self.userArray.count)
-//            user.nickName = nickName.text!
-//            let c = contact.text!
-//            if nickName.text!.characters.count == 0 {
-//                let warn = SCLAlertView()
-//                warn.showError("ข้อมูลไม่ครบ", subTitle:"กรุณาใส่ชื่อเล่น",duration:3.0)
-//            }else
-//            if c.characters.count != 10 {
-//                let warn = SCLAlertView()
-//                warn.showError("ใส่เบอร์โทรศัพท์ผิดพลาด", subTitle:"เบอร์โทรศัพท์ไม่ถึง 10 หลัก",duration:3.0)
-//            }else{
-//                let cf = c.substringWithRange(Range<String.Index>(start: c.startIndex.advancedBy(0), end: (c.startIndex.advancedBy(3))))
-//                let ce = c.substringWithRange(Range<String.Index>(start: c.startIndex.advancedBy(3), end: (c.endIndex.advancedBy(0))))
-//                user.contact = cf+"-"+ce
-//                realm.beginWriteTransaction()
-//                realm.addObject(user)
-//                try! realm.commitWriteTransaction()
-//                self.userArray.removeAll()
-//                self.gatherUser()
-//            }
-//        })
-//        alert.showEdit("เพิ่มข้อมูลผู้เล่น", subTitle: "")
+        //        add_trigger = true
+        //        let appearance = SCLAlertView.SCLAppearance(
+        //            showCloseButton: false
+        //        )
+        //        alert = SCLAlertView(appearance: appearance)
+        //        let nickName = alert.addTextField("ใส่ชื่อเล่น")
+        //        let contact = alert.addTextField("ใส่เบอร์โทรศัพท์")
+        //        alert.addButton("เพิ่ม", action: {
+        //            let realm = RLMRealm.defaultRealm()
+        //            let user = User()
+        //            user.id = String(self.userArray.count)
+        //            user.nickName = nickName.text!
+        //            let c = contact.text!
+        //            if nickName.text!.characters.count == 0 {
+        //                let warn = SCLAlertView()
+        //                warn.showError("ข้อมูลไม่ครบ", subTitle:"กรุณาใส่ชื่อเล่น",duration:3.0)
+        //            }else
+        //            if c.characters.count != 10 {
+        //                let warn = SCLAlertView()
+        //                warn.showError("ใส่เบอร์โทรศัพท์ผิดพลาด", subTitle:"เบอร์โทรศัพท์ไม่ถึง 10 หลัก",duration:3.0)
+        //            }else{
+        //                let cf = c.substringWithRange(Range<String.Index>(start: c.startIndex.advancedBy(0), end: (c.startIndex.advancedBy(3))))
+        //                let ce = c.substringWithRange(Range<String.Index>(start: c.startIndex.advancedBy(3), end: (c.endIndex.advancedBy(0))))
+        //                user.contact = cf+"-"+ce
+        //                realm.beginWriteTransaction()
+        //                realm.addObject(user)
+        //                try! realm.commitWriteTransaction()
+        //                self.userArray.removeAll()
+        //                self.gatherUser()
+        //            }
+        //        })
+        //        alert.showEdit("เพิ่มข้อมูลผู้เล่น", subTitle: "")
     }
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
@@ -109,13 +108,13 @@ class UserDetailListViewController: UIViewController,UITableViewDelegate,UITable
         // Dispose of any resources that can be recreated.
     }
     
-//    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
-//        if self.view.frame.width < 700 {
-//            return UIInterfaceOrientationMask.Landscape
-//        }else{
-//            return UIInterfaceOrientationMask.Portrait
-//        }
-//    }
+    //    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+    //        if self.view.frame.width < 700 {
+    //            return UIInterfaceOrientationMask.Landscape
+    //        }else{
+    //            return UIInterfaceOrientationMask.Portrait
+    //        }
+    //    }
     func delay(delay:Double, closure:()->()) {
         dispatch_after(
             dispatch_time(
@@ -135,7 +134,7 @@ class UserDetailListViewController: UIViewController,UITableViewDelegate,UITable
         let user = User.allObjects()
         if user.count > 0 {
             for i in 0...user.count-1 {
-                 userArray.append(user[i] as! User)
+                userArray.append(user[i] as! User)
                 print(user[i])
             }
         }
@@ -197,7 +196,7 @@ class UserDetailListViewController: UIViewController,UITableViewDelegate,UITable
             nickName.text = "ชื่อเล่น"
             nickName.textAlignment = .Center
             nickName.font = all_font
-           
+            
             let age = UILabel(frame: CGRectMake((nickName.frame.origin.x+tableView.frame.width*0.226)+5,18, tableView.frame.width*0.06, 14))
             age.text = "อายุ"
             age.textAlignment = .Center
@@ -217,7 +216,7 @@ class UserDetailListViewController: UIViewController,UITableViewDelegate,UITable
             v.addSubview(nickName)
             v.addSubview(no)
             return v
-
+            
             
         }else{
             let v = UIView()
@@ -273,7 +272,7 @@ class UserDetailListViewController: UIViewController,UITableViewDelegate,UITable
             v.addSubview(name)
             v.addSubview(no)
             return v
-
+            
         }
     }
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -332,30 +331,30 @@ class UserDetailListViewController: UIViewController,UITableViewDelegate,UITable
             }
             return userList
         }
-        }
+    }
     func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
         return .None
     }
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "add_user" {
             if let des = segue.destinationViewController as? EditUserDetailViewController {
-                    des.add_user = true
+                des.add_user = true
             }
         }else{
-        if let des = segue.destinationViewController as? EditUserDetailViewController {
-            let cell : UITableViewCell = sender as! UITableViewCell
-            let indexPath = self.UserDetailTableView.indexPathForCell(cell)
-            des.name = self.userArray[(indexPath?.row)!].name
-            des.nickName = self.userArray[(indexPath?.row)!].nickName
-            des.gender = self.userArray[(indexPath?.row)!].gender
-            des.age = Float(self.userArray[(indexPath?.row)!].age)
-            des.workPlace = self.userArray[(indexPath?.row)!].workPlace
-            des.playCount = self.userArray[(indexPath?.row)!].playCount
-            des.freqPlay = self.userArray[(indexPath?.row)!].freqPlay
-            des.contact = self.userArray[(indexPath?.row)!].contact
-            des.price = self.userArray[(indexPath?.row)!].price
-            des.id = self.userArray[(indexPath?.row)!].id
-        }
+            if let des = segue.destinationViewController as? EditUserDetailViewController {
+                let cell : UITableViewCell = sender as! UITableViewCell
+                let indexPath = self.UserDetailTableView.indexPathForCell(cell)
+                des.name = self.userArray[(indexPath?.row)!].name
+                des.nickName = self.userArray[(indexPath?.row)!].nickName
+                des.gender = self.userArray[(indexPath?.row)!].gender
+                des.age = Float(self.userArray[(indexPath?.row)!].age)
+                des.workPlace = self.userArray[(indexPath?.row)!].workPlace
+                des.playCount = self.userArray[(indexPath?.row)!].playCount
+                des.freqPlay = userArray[(indexPath?.row)!].freqPlay
+                des.contact = self.userArray[(indexPath?.row)!].contact
+                des.price = self.userArray[(indexPath?.row)!].price
+                des.id = self.userArray[(indexPath?.row)!].id
+            }
         }
     }
     

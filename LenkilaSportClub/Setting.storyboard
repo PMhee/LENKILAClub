@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
@@ -49,18 +50,18 @@
                                         <state key="normal" title="Button" image="menu"/>
                                         <variation key="default">
                                             <mask key="constraints">
-                                                <exclude reference="e1M-J4-EZG"/>
-                                                <exclude reference="HdS-og-j5I"/>
                                                 <exclude reference="BvA-2d-5GP"/>
+                                                <exclude reference="HdS-og-j5I"/>
                                                 <exclude reference="dEm-gS-ZXD"/>
+                                                <exclude reference="e1M-J4-EZG"/>
                                             </mask>
                                         </variation>
                                         <variation key="widthClass=compact">
                                             <mask key="constraints">
-                                                <exclude reference="e1M-J4-EZG"/>
-                                                <exclude reference="HdS-og-j5I"/>
                                                 <include reference="BvA-2d-5GP"/>
+                                                <exclude reference="HdS-og-j5I"/>
                                                 <include reference="dEm-gS-ZXD"/>
+                                                <exclude reference="e1M-J4-EZG"/>
                                             </mask>
                                         </variation>
                                     </button>
@@ -114,17 +115,17 @@
                                         <include reference="9fv-23-1Up"/>
                                     </mask>
                                     <mask key="constraints">
+                                        <include reference="E1H-aj-Ae7"/>
                                         <exclude reference="IX5-o2-uDB"/>
                                         <include reference="Iz3-tv-KkT"/>
-                                        <include reference="E1H-aj-Ae7"/>
                                         <include reference="0qW-3U-fss"/>
                                         <include reference="d9Z-bk-Yjj"/>
                                         <include reference="Ul3-S8-RHf"/>
                                         <include reference="nvF-1p-GC3"/>
                                         <include reference="BvF-Uv-zkU"/>
+                                        <exclude reference="Dh0-YW-E3K"/>
                                         <exclude reference="JUC-dl-Ft6"/>
                                         <include reference="jMj-dz-wWw"/>
-                                        <exclude reference="Dh0-YW-E3K"/>
                                     </mask>
                                 </variation>
                             </view>
@@ -136,6 +137,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="A2o-Bu-J1q" id="qmQ-uO-euW">
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Fu6-oJ-e0N">
@@ -215,12 +217,6 @@
                                                     <exclude reference="P5c-kw-N2R"/>
                                                 </mask>
                                                 <mask key="constraints">
-                                                    <exclude reference="1iS-3Y-Vvu"/>
-                                                    <exclude reference="IAg-ti-VBD"/>
-                                                    <exclude reference="e9y-Ov-wgs"/>
-                                                    <exclude reference="fqQ-fI-OHM"/>
-                                                    <exclude reference="pJC-Ep-o6y"/>
-                                                    <exclude reference="udm-wX-x2D"/>
                                                     <exclude reference="5bO-fC-ivT"/>
                                                     <exclude reference="LkQ-Vk-qYp"/>
                                                     <exclude reference="TqK-eb-2VF"/>
@@ -228,6 +224,12 @@
                                                     <exclude reference="agz-hd-oq7"/>
                                                     <exclude reference="hKS-f6-cyK"/>
                                                     <exclude reference="kxb-0i-FNG"/>
+                                                    <exclude reference="1iS-3Y-Vvu"/>
+                                                    <exclude reference="IAg-ti-VBD"/>
+                                                    <exclude reference="e9y-Ov-wgs"/>
+                                                    <exclude reference="fqQ-fI-OHM"/>
+                                                    <exclude reference="pJC-Ep-o6y"/>
+                                                    <exclude reference="udm-wX-x2D"/>
                                                 </mask>
                                             </variation>
                                             <variation key="widthClass=compact">
@@ -236,12 +238,6 @@
                                                     <include reference="P5c-kw-N2R"/>
                                                 </mask>
                                                 <mask key="constraints">
-                                                    <include reference="1iS-3Y-Vvu"/>
-                                                    <exclude reference="IAg-ti-VBD"/>
-                                                    <exclude reference="e9y-Ov-wgs"/>
-                                                    <exclude reference="fqQ-fI-OHM"/>
-                                                    <include reference="pJC-Ep-o6y"/>
-                                                    <exclude reference="udm-wX-x2D"/>
                                                     <include reference="5bO-fC-ivT"/>
                                                     <include reference="LkQ-Vk-qYp"/>
                                                     <exclude reference="TqK-eb-2VF"/>
@@ -249,6 +245,12 @@
                                                     <exclude reference="agz-hd-oq7"/>
                                                     <exclude reference="hKS-f6-cyK"/>
                                                     <exclude reference="kxb-0i-FNG"/>
+                                                    <include reference="1iS-3Y-Vvu"/>
+                                                    <exclude reference="IAg-ti-VBD"/>
+                                                    <exclude reference="e9y-Ov-wgs"/>
+                                                    <exclude reference="fqQ-fI-OHM"/>
+                                                    <include reference="pJC-Ep-o6y"/>
+                                                    <exclude reference="udm-wX-x2D"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
@@ -286,15 +288,15 @@
                                 <exclude reference="NOF-9K-xZJ"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="4SG-dr-Sb4"/>
-                                <exclude reference="RGS-YV-CrV"/>
-                                <exclude reference="dph-RV-96J"/>
-                                <exclude reference="jpC-9z-gCZ"/>
                                 <exclude reference="1HL-0S-PiN"/>
                                 <exclude reference="2e9-oi-xe8"/>
                                 <exclude reference="V4G-Jr-skE"/>
                                 <exclude reference="heJ-lc-avV"/>
                                 <exclude reference="vyV-gx-kzV"/>
+                                <exclude reference="4SG-dr-Sb4"/>
+                                <exclude reference="RGS-YV-CrV"/>
+                                <exclude reference="dph-RV-96J"/>
+                                <exclude reference="jpC-9z-gCZ"/>
                                 <exclude reference="2Vg-Hc-85F"/>
                             </mask>
                         </variation>
@@ -303,15 +305,15 @@
                                 <include reference="NOF-9K-xZJ"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="4SG-dr-Sb4"/>
-                                <include reference="RGS-YV-CrV"/>
-                                <include reference="dph-RV-96J"/>
-                                <exclude reference="jpC-9z-gCZ"/>
                                 <exclude reference="1HL-0S-PiN"/>
                                 <include reference="2e9-oi-xe8"/>
                                 <include reference="V4G-Jr-skE"/>
                                 <exclude reference="heJ-lc-avV"/>
                                 <include reference="vyV-gx-kzV"/>
+                                <include reference="4SG-dr-Sb4"/>
+                                <include reference="RGS-YV-CrV"/>
+                                <include reference="dph-RV-96J"/>
+                                <exclude reference="jpC-9z-gCZ"/>
                                 <include reference="2Vg-Hc-85F"/>
                             </mask>
                         </variation>
@@ -335,6 +337,7 @@
                         <viewControllerLayoutGuide type="bottom" id="us6-pB-oxl"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="HcW-so-h0E">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contact" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wdq-L4-74z">
@@ -342,9 +345,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="160" y="81" width="61" height="21"/>
-                                </variation>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
