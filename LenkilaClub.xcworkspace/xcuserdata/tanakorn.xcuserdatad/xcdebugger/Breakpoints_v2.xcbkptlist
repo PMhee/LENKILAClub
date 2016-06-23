@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LenkilaSportClub/ScheduleViewController.swift"
-            timestampString = "487829262.430101"
+            timestampString = "488194448.785381"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "409"
-            endingLineNumber = "409"
+            startingLineNumber = "410"
+            endingLineNumber = "410"
             landmarkName = "genSlot()"
             landmarkType = "5">
          </BreakpointContent>
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LenkilaSportClub/AddTableViewController.swift"
-            timestampString = "488101771.869322"
+            timestampString = "488314139.319266"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "262"
-            endingLineNumber = "262"
+            startingLineNumber = "274"
+            endingLineNumber = "274"
             landmarkName = "btn_add_action(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LenkilaSportClub/TransactionManagementViewController.swift"
-            timestampString = "488131714.393208"
+            timestampString = "488315479.132707"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "91"
-            endingLineNumber = "91"
+            startingLineNumber = "94"
+            endingLineNumber = "94"
             landmarkName = "gestureRecognizerShouldBegin(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -58,12 +58,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LenkilaSportClub/TransactionManagementViewController.swift"
-            timestampString = "488174596.755429"
+            timestampString = "488318179.848869"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "212"
-            endingLineNumber = "212"
-            landmarkName = "accept_action(_:)"
+            startingLineNumber = "341"
+            endingLineNumber = "341"
+            landmarkName = "binarySearch(_:searchItem:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

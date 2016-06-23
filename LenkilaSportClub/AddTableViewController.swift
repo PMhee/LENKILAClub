@@ -25,6 +25,7 @@ class AddTableViewController: UIViewController,UITextFieldDelegate,UIGestureReco
     var y : CGFloat! = nil
     var enable_touch : Bool = false
     var not_found :Bool = false
+    var edit_price : Bool = false
     @IBOutlet weak var cons_vw_tab_width: NSLayoutConstraint!
     @IBOutlet var tab_gesture: UITapGestureRecognizer!
     var checkedArray = [UIImageView]()
@@ -80,6 +81,7 @@ class AddTableViewController: UIViewController,UITextFieldDelegate,UIGestureReco
         line_name.backgroundColor = UIColor(red: 16/255, green: 118/255, blue: 152/255, alpha: 1.0)
     }
     @IBAction func tf_price_action(sender: UITextField) {
+        edit_price = !edit_price
         line_price.backgroundColor = UIColor(red: 16/255, green: 118/255, blue: 152/255, alpha: 1.0)
         top_space.constant -= 20
         sender.text = String(self.realPrice)
@@ -132,6 +134,7 @@ class AddTableViewController: UIViewController,UITextFieldDelegate,UIGestureReco
     }
     @IBAction func tf_price_end(sender: UITextField) {
         top_space.constant += 20
+        edit_price = !edit_price
         sender.text = sender.text!+" บาท"
         var range = sender.text!.rangeOfString(" ")!
         var index = sender.text!.startIndex.distanceTo(range.startIndex)
@@ -228,12 +231,17 @@ class AddTableViewController: UIViewController,UITextFieldDelegate,UIGestureReco
         format.dateStyle = NSDateFormatterStyle.FullStyle
         schedule.date = format.stringFromDate(self.date)
         schedule.time = self.time
+        if edit_price{
+            schedule.price = Int(self.tf_price.text!)!
+        }else{
         schedule.price = self.realPrice
+        }
         schedule.tag = Int(sche.count)+1
         schedule.colorTag = self.pickedColor
         schedule.type = self.type
         schedule.id = String(sche.count)
         schedule.paid_type = "cash"
+        schedule.sort_date = createSortDate(schedule.date, time: schedule.time)
         let range = self.rep.rangeOfString(" ")!
         let index = self.rep.startIndex.distanceTo(range.startIndex)
         self.realRep = Int(self.tf_repeat.text!.substringWithRange(Range<String.Index>(start:self.tf_repeat.text!.startIndex.advancedBy(0), end: self.tf_repeat.text!.startIndex.advancedBy(index))))
@@ -255,12 +263,17 @@ class AddTableViewController: UIViewController,UITextFieldDelegate,UIGestureReco
                 schedules.date = format.stringFromDate(nextDay!)
                 }
                 schedules.time = self.time
+                if edit_price {
+                schedules.price = Int(self.tf_price.text!)!
+                }else{
                 schedules.price = self.realPrice
+                }
                 schedules.tag = Int(sche.count)+1
                 schedules.colorTag = self.pickedColor
                 schedules.type = self.type
                 schedules.id = String(sche.count)
                 schedules.paid_type = "cash"
+                schedules.sort_date = createSortDate(schedules.date, time: schedules.time)
                 let users = User.allObjects()
                 var found = false
                 if users.count > 0 {
@@ -307,11 +320,16 @@ class AddTableViewController: UIViewController,UITextFieldDelegate,UIGestureReco
                     format.dateStyle = NSDateFormatterStyle.FullStyle
                     schedule.date = format.stringFromDate(self.date)
                     schedule.time = self.time
+                    if self.edit_price{
+                        schedule.price = Int(self.tf_price.text!)!
+                    }else{
                     schedule.price = self.realPrice
+                    }
                     schedule.tag = Int(sche.count)+1
                     schedule.colorTag = self.pickedColor
                     schedule.type = self.type
                     schedule.paid_type = "cash"
+                    schedule.sort_date = self.createSortDate(schedule.date, time: schedule.time)
                     schedule.id = String(sche.count)
                     let range = self.rep.rangeOfString(" ")!
                     let index = self.rep.startIndex.distanceTo(range.startIndex)
@@ -334,12 +352,17 @@ class AddTableViewController: UIViewController,UITextFieldDelegate,UIGestureReco
                                 schedules.date = format.stringFromDate(nextDay!)
                             }
                             schedules.time = self.time
+                            if self.edit_price{
+                                schedules.price = Int(self.tf_price.text!)!
+                            }else{
                             schedules.price = self.realPrice
+                            }
                             schedules.tag = Int(sche.count)+1
                             schedules.colorTag = self.pickedColor
                             schedules.type = self.type
                             schedules.userID = user.id
                             schedules.paid_type = "cash"
+                            schedules.sort_date = self.createSortDate(schedules.date, time: schedules.time)
                             schedules.id = String(sche.count)
                             temp = schedules.date
                             realm.beginWriteTransaction()
@@ -513,6 +536,39 @@ class AddTableViewController: UIViewController,UITextFieldDelegate,UIGestureReco
                 des.firstTime = true
             }
         }
+    }
+    func createSortDate(date:String,var time:String)->Int{
+        let dateFormatt = NSDateFormatter()
+        dateFormatt.dateStyle = NSDateFormatterStyle.FullStyle
+        dateFormatt.dateFromString(date)
+        let formatt = NSDateFormatter()
+        formatt.dateStyle = NSDateFormatterStyle.ShortStyle
+        var d = formatt.stringFromDate(dateFormatt.dateFromString(date)!)
+        var range = d.rangeOfString("/")!
+        var index = d.startIndex.distanceTo(range.startIndex)
+        var month = d.substringWithRange(Range<String.Index>(start: d.startIndex.advancedBy(0), end: d.startIndex.advancedBy(index)))
+        d = d.substringWithRange(Range<String.Index>(start: d.startIndex.advancedBy(index+1), end: d.endIndex.advancedBy(0)))
+        range = d.rangeOfString("/")!
+        index = d.startIndex.distanceTo(range.startIndex)
+        if month.characters.count == 1 {
+            month = "0"+month
+        }
+        var day = d.substringWithRange(Range<String.Index>(start: d.startIndex.advancedBy(0), end: d.startIndex.advancedBy(index)))
+        if day.characters.count == 1 {
+            day = "0"+day
+        }
+        var year = d.substringWithRange(Range<String.Index>(start: d.startIndex.advancedBy(index+1), end: d.endIndex.advancedBy(0)))
+        range = time.rangeOfString(".")!
+        index = time.startIndex.distanceTo(range.startIndex)
+        var startHour = time.substringWithRange(Range<String.Index>(start: time.startIndex.advancedBy(0), end: time.startIndex.advancedBy(index)))
+        if startHour.characters.count == 1 {
+            startHour = "0"+startHour
+        }
+        time = time.substringWithRange(Range<String.Index>(start: time.startIndex.advancedBy(index+1), end: time.endIndex.advancedBy(0)))
+        range = time.rangeOfString(" ")!
+        index = time.startIndex.distanceTo(range.startIndex)
+        var startMin = time.substringWithRange(Range<String.Index>(start: time.startIndex.advancedBy(0), end: time.startIndex.advancedBy(index)))
+        return Int(year+month+day+startHour+startMin)!
     }
     /*
      // MARK: - Navigation
