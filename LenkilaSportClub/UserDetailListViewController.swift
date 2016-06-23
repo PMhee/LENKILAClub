@@ -21,7 +21,7 @@ class UserDetailListViewController: UIViewController,UITableViewDelegate,UITable
     @IBOutlet var tap_gesture: UITapGestureRecognizer!
     var alert : SCLAlertView! = nil
     var userArray = [User]()
-    var all_font = UIFont(name: "ThaiSansLite",size: 16)
+    var all_font = UIFont(name: "ThaiSansLite",size: 14)
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
