@@ -20,7 +20,14 @@ class SettingViewController: UIViewController, UITableViewDelegate, UITableViewD
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-    }
+        //SettingHamburger
+        let button = UIButton()
+        button.frame = CGRectMake(0, 0, 20, 20) //won't work if you don't set frame
+        button.setImage(UIImage(named: "menu"), forState: .Normal)
+        button.addTarget(self, action: Selector("fbButtonPressed"), forControlEvents: .TouchUpInside)
+        let barButton = UIBarButtonItem()
+        barButton.customView = button
+        self.navigationItem.leftBarButtonItem = barButton    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

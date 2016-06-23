@@ -7,15 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		14496C19267068FD1C3FB85A /* Pods_LenkilaClubUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87E92AE851E46626A891996E /* Pods_LenkilaClubUITests.framework */; };
-		14D673434DDC3A6AD6F4EF23 /* Pods_LenkilaClubTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFA9C396912C17BC1B939885 /* Pods_LenkilaClubTests.framework */; };
-		197BE227DD40DB60488D84E0 /* Pods_LenkilaClub.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08B79763BF5F20C52B20418E /* Pods_LenkilaClub.framework */; };
+		26C41DDC32314A242487B3E1 /* Pods_LenkilaClubTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A09C0246BA32B63D693F63F /* Pods_LenkilaClubTests.framework */; };
+		844DB5DD435208890AA16C57 /* Pods_LenkilaClubUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F22EFD3FB526B4B7EE2DEFF /* Pods_LenkilaClubUITests.framework */; };
 		90003C721D1A8349003E9375 /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90003C711D1A8349003E9375 /* Setting.storyboard */; };
 		90003C761D1A8B05003E9375 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90003C751D1A8B05003E9375 /* SettingViewController.swift */; };
 		90003C781D1A93B2003E9375 /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90003C771D1A93B2003E9375 /* SettingTableViewCell.swift */; };
 		90003C7A1D1A9AC4003E9375 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90003C791D1A9AC4003E9375 /* Main.storyboard */; };
-		90D5A8811D093DA1000D2062 /* UserDetailMainHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D5A8801D093DA1000D2062 /* UserDetailMainHeader.swift */; };
 		90D5A8831D0941A1000D2062 /* UserDetailListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D5A8821D0941A1000D2062 /* UserDetailListViewController.swift */; };
+		A24694CA9F49194113B986ED /* Pods_LenkilaClub.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 231034E43D8FA9D5F9BCC465 /* Pods_LenkilaClub.framework */; };
 		B76AFAD11D0F677500619815 /* LayijiMahaniyom Bao.otf in Resources */ = {isa = PBXBuildFile; fileRef = B76AFACF1D0F677500619815 /* LayijiMahaniyom Bao.otf */; };
 		B76AFAD41D0F698100619815 /* thaisanslite_r1.otf in Resources */ = {isa = PBXBuildFile; fileRef = B76AFAD31D0F698100619815 /* thaisanslite_r1.otf */; };
 		B77188EC1CFFF2C700A8D8FB /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77188EB1CFFF2C700A8D8FB /* Schedule.swift */; };
@@ -53,16 +52,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		08B79763BF5F20C52B20418E /* Pods_LenkilaClub.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LenkilaClub.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		53F018FF20E592EFE02F69E7 /* Pods-LenkilaClubTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LenkilaClubTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LenkilaClubTests/Pods-LenkilaClubTests.release.xcconfig"; sourceTree = "<group>"; };
-		73A4FBC56D3B5B7D68E7124A /* Pods-LenkilaClubTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LenkilaClubTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LenkilaClubTests/Pods-LenkilaClubTests.debug.xcconfig"; sourceTree = "<group>"; };
-		87E92AE851E46626A891996E /* Pods_LenkilaClubUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LenkilaClubUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		231034E43D8FA9D5F9BCC465 /* Pods_LenkilaClub.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LenkilaClub.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2318D2B9ED00729437EC207D /* Pods-LenkilaClubUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LenkilaClubUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LenkilaClubUITests/Pods-LenkilaClubUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		788FC116ECABEDE302D97A5B /* Pods-LenkilaClub.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LenkilaClub.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LenkilaClub/Pods-LenkilaClub.debug.xcconfig"; sourceTree = "<group>"; };
+		7A470E43F08F16F9FCBAB9AD /* Pods-LenkilaClubTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LenkilaClubTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LenkilaClubTests/Pods-LenkilaClubTests.debug.xcconfig"; sourceTree = "<group>"; };
+		7F22EFD3FB526B4B7EE2DEFF /* Pods_LenkilaClubUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LenkilaClubUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8A09C0246BA32B63D693F63F /* Pods_LenkilaClubTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LenkilaClubTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		90003C711D1A8349003E9375 /* Setting.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Setting.storyboard; sourceTree = "<group>"; };
 		90003C751D1A8B05003E9375 /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		90003C771D1A93B2003E9375 /* SettingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
 		90003C791D1A9AC4003E9375 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		90D5A8801D093DA1000D2062 /* UserDetailMainHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDetailMainHeader.swift; sourceTree = "<group>"; };
 		90D5A8821D0941A1000D2062 /* UserDetailListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDetailListViewController.swift; sourceTree = "<group>"; };
+		9BA99452800B8E83089DCDD4 /* Pods-LenkilaClubUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LenkilaClubUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LenkilaClubUITests/Pods-LenkilaClubUITests.release.xcconfig"; sourceTree = "<group>"; };
 		B76AFACF1D0F677500619815 /* LayijiMahaniyom Bao.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LayijiMahaniyom Bao.otf"; sourceTree = "<group>"; };
 		B76AFAD31D0F698100619815 /* thaisanslite_r1.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = thaisanslite_r1.otf; sourceTree = "<group>"; };
 		B77188EB1CFFF2C700A8D8FB /* Schedule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Schedule.swift; path = LenkilaSportClub/Schedule.swift; sourceTree = "<group>"; };
@@ -86,11 +87,8 @@
 		B7B0D6031CEDCB2F00577430 /* ScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
 		B7B0D6051CEDCE7E00577430 /* UIImageEffects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageEffects.swift; sourceTree = "<group>"; };
 		B7EA92AB1CFE00E70006C673 /* AddTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTableViewController.swift; sourceTree = "<group>"; };
-		BD2C26AF9F3FFB2907CD7C52 /* Pods-LenkilaClub.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LenkilaClub.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LenkilaClub/Pods-LenkilaClub.debug.xcconfig"; sourceTree = "<group>"; };
-		BFA9C396912C17BC1B939885 /* Pods_LenkilaClubTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LenkilaClubTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C0798E88A4C70EB494D1676A /* Pods-LenkilaClubUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LenkilaClubUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LenkilaClubUITests/Pods-LenkilaClubUITests.release.xcconfig"; sourceTree = "<group>"; };
-		C3E6D3EEBCE6A121264EDE5F /* Pods-LenkilaClubUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LenkilaClubUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LenkilaClubUITests/Pods-LenkilaClubUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		E97073A8EDBF12D8289E7FB0 /* Pods-LenkilaClub.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LenkilaClub.release.xcconfig"; path = "Pods/Target Support Files/Pods-LenkilaClub/Pods-LenkilaClub.release.xcconfig"; sourceTree = "<group>"; };
+		F6193FE10ED62F19717EB82C /* Pods-LenkilaClub.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LenkilaClub.release.xcconfig"; path = "Pods/Target Support Files/Pods-LenkilaClub/Pods-LenkilaClub.release.xcconfig"; sourceTree = "<group>"; };
+		F9D74B4F9719CD65D8997001 /* Pods-LenkilaClubTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LenkilaClubTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LenkilaClubTests/Pods-LenkilaClubTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,7 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				197BE227DD40DB60488D84E0 /* Pods_LenkilaClub.framework in Frameworks */,
+				A24694CA9F49194113B986ED /* Pods_LenkilaClub.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -106,7 +104,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				14D673434DDC3A6AD6F4EF23 /* Pods_LenkilaClubTests.framework in Frameworks */,
+				26C41DDC32314A242487B3E1 /* Pods_LenkilaClubTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -114,13 +112,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				14496C19267068FD1C3FB85A /* Pods_LenkilaClubUITests.framework in Frameworks */,
+				844DB5DD435208890AA16C57 /* Pods_LenkilaClubUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		000403D4BA48F0A90D47F7CF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				231034E43D8FA9D5F9BCC465 /* Pods_LenkilaClub.framework */,
+				8A09C0246BA32B63D693F63F /* Pods_LenkilaClubTests.framework */,
+				7F22EFD3FB526B4B7EE2DEFF /* Pods_LenkilaClubUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		90003C701D1A8139003E9375 /* Setting */ = {
 			isa = PBXGroup;
 			children = (
@@ -184,8 +192,8 @@
 				B7B0D5E91CEDA27F00577430 /* LenkilaSportClubTests */,
 				B7B0D5F41CEDA27F00577430 /* LenkilaSportClubUITests */,
 				B7B0D5D01CEDA27E00577430 /* Products */,
-				D6AB6F01D43AB079AA2ACDFF /* Pods */,
-				E91669DF06FFA14933FAFA1A /* Frameworks */,
+				D0330B583D32DF57485ED4E0 /* Pods */,
+				000403D4BA48F0A90D47F7CF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -237,27 +245,17 @@
 			path = LenkilaSportClubUITests;
 			sourceTree = "<group>";
 		};
-		D6AB6F01D43AB079AA2ACDFF /* Pods */ = {
+		D0330B583D32DF57485ED4E0 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				BD2C26AF9F3FFB2907CD7C52 /* Pods-LenkilaClub.debug.xcconfig */,
-				E97073A8EDBF12D8289E7FB0 /* Pods-LenkilaClub.release.xcconfig */,
-				73A4FBC56D3B5B7D68E7124A /* Pods-LenkilaClubTests.debug.xcconfig */,
-				53F018FF20E592EFE02F69E7 /* Pods-LenkilaClubTests.release.xcconfig */,
-				C3E6D3EEBCE6A121264EDE5F /* Pods-LenkilaClubUITests.debug.xcconfig */,
-				C0798E88A4C70EB494D1676A /* Pods-LenkilaClubUITests.release.xcconfig */,
+				788FC116ECABEDE302D97A5B /* Pods-LenkilaClub.debug.xcconfig */,
+				F6193FE10ED62F19717EB82C /* Pods-LenkilaClub.release.xcconfig */,
+				7A470E43F08F16F9FCBAB9AD /* Pods-LenkilaClubTests.debug.xcconfig */,
+				F9D74B4F9719CD65D8997001 /* Pods-LenkilaClubTests.release.xcconfig */,
+				2318D2B9ED00729437EC207D /* Pods-LenkilaClubUITests.debug.xcconfig */,
+				9BA99452800B8E83089DCDD4 /* Pods-LenkilaClubUITests.release.xcconfig */,
 			);
 			name = Pods;
-			sourceTree = "<group>";
-		};
-		E91669DF06FFA14933FAFA1A /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				08B79763BF5F20C52B20418E /* Pods_LenkilaClub.framework */,
-				BFA9C396912C17BC1B939885 /* Pods_LenkilaClubTests.framework */,
-				87E92AE851E46626A891996E /* Pods_LenkilaClubUITests.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -273,7 +271,6 @@
 				B7B0D5CD1CEDA27E00577430 /* Resources */,
 				B762638650A7B7983A74C3E5 /* [CP] Embed Pods Frameworks */,
 				2B5D5C08732118D133EF2BB9 /* [CP] Copy Pods Resources */,
-				629CA9588F7F7580A863B832 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -337,7 +334,7 @@
 				TargetAttributes = {
 					B7B0D5CE1CEDA27E00577430 = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = WYLP742538;
+						DevelopmentTeam = FCA995W2V4;
 					};
 					B7B0D5E51CEDA27F00577430 = {
 						CreatedOnToolsVersion = 7.3;
@@ -447,21 +444,6 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LenkilaClubTests/Pods-LenkilaClubTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		629CA9588F7F7580A863B832 /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LenkilaClub/Pods-LenkilaClub-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		828844007046CDCEFA782EE0 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -545,8 +527,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				B7B0D6061CEDCE7E00577430 /* UIImageEffects.swift in Sources */,
-				90D5A8811D093DA1000D2062 /* UserDetailMainHeader.swift in Sources */,
-				B7F948C81D01C943008F8DC7 /* UserViewController.swift in Sources */,
 				90003C761D1A8B05003E9375 /* SettingViewController.swift in Sources */,
 				B7B0D5D51CEDA27E00577430 /* ViewController.swift in Sources */,
 				B78899E71D13C221009B6E3F /* TransactionManagementViewController.swift in Sources */,
@@ -691,14 +671,14 @@
 		};
 		B7B0D5FB1CEDA27F00577430 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BD2C26AF9F3FFB2907CD7C52 /* Pods-LenkilaClub.debug.xcconfig */;
+			baseConfigurationReference = 788FC116ECABEDE302D97A5B /* Pods-LenkilaClub.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = LenkilaSportClub/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Nont.LenkilaSportClub;
+				PRODUCT_BUNDLE_IDENTIFIER = Jump.LenkilaSportClub;
 				PRODUCT_NAME = LenkilaClub;
 				PROVISIONING_PROFILE = "";
 			};
@@ -706,14 +686,14 @@
 		};
 		B7B0D5FC1CEDA27F00577430 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E97073A8EDBF12D8289E7FB0 /* Pods-LenkilaClub.release.xcconfig */;
+			baseConfigurationReference = F6193FE10ED62F19717EB82C /* Pods-LenkilaClub.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = LenkilaSportClub/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Nont.LenkilaSportClub;
+				PRODUCT_BUNDLE_IDENTIFIER = Jump.LenkilaSportClub;
 				PRODUCT_NAME = LenkilaClub;
 				PROVISIONING_PROFILE = "";
 			};
@@ -721,7 +701,7 @@
 		};
 		B7B0D5FE1CEDA27F00577430 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 73A4FBC56D3B5B7D68E7124A /* Pods-LenkilaClubTests.debug.xcconfig */;
+			baseConfigurationReference = 7A470E43F08F16F9FCBAB9AD /* Pods-LenkilaClubTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = LenkilaSportClubTests/Info.plist;
@@ -734,7 +714,7 @@
 		};
 		B7B0D5FF1CEDA27F00577430 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 53F018FF20E592EFE02F69E7 /* Pods-LenkilaClubTests.release.xcconfig */;
+			baseConfigurationReference = F9D74B4F9719CD65D8997001 /* Pods-LenkilaClubTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = LenkilaSportClubTests/Info.plist;
@@ -747,7 +727,7 @@
 		};
 		B7B0D6011CEDA27F00577430 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C3E6D3EEBCE6A121264EDE5F /* Pods-LenkilaClubUITests.debug.xcconfig */;
+			baseConfigurationReference = 2318D2B9ED00729437EC207D /* Pods-LenkilaClubUITests.debug.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = LenkilaSportClubUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -759,7 +739,7 @@
 		};
 		B7B0D6021CEDA27F00577430 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C0798E88A4C70EB494D1676A /* Pods-LenkilaClubUITests.release.xcconfig */;
+			baseConfigurationReference = 9BA99452800B8E83089DCDD4 /* Pods-LenkilaClubUITests.release.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = LenkilaSportClubUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
