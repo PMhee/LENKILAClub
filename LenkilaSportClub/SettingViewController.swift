@@ -10,7 +10,10 @@ import UIKit
 
 class SettingViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet var tableView: UITableView!
-    
+    @IBOutlet var vw_tab: UIView!
+    @IBOutlet var tap_gesture: UITapGestureRecognizer!
+    @IBOutlet var menuButton: UIBarButtonItem!
+
     var settingLabel =  [["ซื้อแพ็คเกจ","ใส่คูปอง","ติดต่อฝ่ายขาย"]
                         ,["ข้อมูลส่วนตัว","แก้ไขสนาม","เปลี่ยนรหัสผ่าน"]
                         ,["แก้ไขขนาดตัวอักษร","การแจ้งเตือน","เปลี่ยนภาษา"]
@@ -25,9 +28,10 @@ class SettingViewController: UIViewController, UITableViewDelegate, UITableViewD
         button.frame = CGRectMake(0, 0, 20, 20) //won't work if you don't set frame
         button.setImage(UIImage(named: "menu"), forState: .Normal)
         button.addTarget(self, action: Selector("fbButtonPressed"), forControlEvents: .TouchUpInside)
-        let barButton = UIBarButtonItem()
-        barButton.customView = button
-        self.navigationItem.leftBarButtonItem = barButton    }
+        //let barButton = UIBarButtonItem()
+        menuButton.customView = button
+        //self.navigationItem.leftBarButtonItem = barButton    
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

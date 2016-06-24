@@ -186,9 +186,6 @@
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <color key="titleShadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         </state>
-                                                        <variation key="widthClass=compact" misplaced="YES">
-                                                            <rect key="frame" x="0.0" y="0.0" width="240" height="62"/>
-                                                        </variation>
                                                     </button>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="calendar" translatesAutoresizingMaskIntoConstraints="NO" id="VIv-Nd-kcn">
                                                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
@@ -235,8 +232,7 @@
                                                         <exclude reference="h1f-Md-crr"/>
                                                     </mask>
                                                 </variation>
-                                                <variation key="widthClass=compact" misplaced="YES">
-                                                    <rect key="frame" x="0.0" y="0.0" width="240" height="62"/>
+                                                <variation key="widthClass=compact">
                                                     <mask key="subviews">
                                                         <include reference="AvU-4T-IDN"/>
                                                         <include reference="VIv-Nd-kcn"/>
@@ -282,9 +278,6 @@
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <color key="titleShadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         </state>
-                                                        <variation key="widthClass=compact" misplaced="YES">
-                                                            <rect key="frame" x="0.0" y="0.0" width="240" height="62"/>
-                                                        </variation>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" red="0.1137254902" green="0.1137254902" blue="0.1137254902" alpha="1" colorSpace="calibratedRGB"/>
@@ -314,8 +307,7 @@
                                                         <exclude reference="9vw-Wd-S3q"/>
                                                     </mask>
                                                 </variation>
-                                                <variation key="widthClass=compact" misplaced="YES">
-                                                    <rect key="frame" x="0.0" y="62" width="240" height="62"/>
+                                                <variation key="widthClass=compact">
                                                     <mask key="subviews">
                                                         <include reference="JYW-vf-tB9"/>
                                                         <include reference="TdR-uX-dv0"/>
@@ -342,9 +334,6 @@
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <color key="titleShadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         </state>
-                                                        <variation key="widthClass=compact" misplaced="YES">
-                                                            <rect key="frame" x="0.0" y="0.0" width="240" height="62"/>
-                                                        </variation>
                                                     </button>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="analysis" translatesAutoresizingMaskIntoConstraints="NO" id="1UV-yn-Ma2">
                                                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
@@ -397,8 +386,7 @@
                                                         <exclude reference="VK0-GD-7dn"/>
                                                     </mask>
                                                 </variation>
-                                                <variation key="widthClass=compact" misplaced="YES">
-                                                    <rect key="frame" x="0.0" y="124" width="240" height="62"/>
+                                                <variation key="widthClass=compact">
                                                     <mask key="subviews">
                                                         <include reference="A9D-xt-pxp"/>
                                                         <include reference="1UV-yn-Ma2"/>
@@ -426,9 +414,6 @@
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <color key="titleShadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         </state>
-                                                        <variation key="widthClass=compact" misplaced="YES">
-                                                            <rect key="frame" x="0.0" y="0.0" width="240" height="62"/>
-                                                        </variation>
                                                     </button>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="setting" translatesAutoresizingMaskIntoConstraints="NO" id="xos-Uu-P6G">
                                                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
@@ -473,8 +458,7 @@
                                                         <exclude reference="jxi-Qe-h7x"/>
                                                     </mask>
                                                 </variation>
-                                                <variation key="widthClass=compact" misplaced="YES">
-                                                    <rect key="frame" x="0.0" y="248" width="240" height="62"/>
+                                                <variation key="widthClass=compact">
                                                     <mask key="subviews">
                                                         <include reference="Tz0-ee-xcL"/>
                                                         <include reference="xos-Uu-P6G"/>
@@ -500,9 +484,6 @@
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <color key="titleShadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         </state>
-                                                        <variation key="widthClass=compact" misplaced="YES">
-                                                            <rect key="frame" x="0.0" y="0.0" width="240" height="62"/>
-                                                        </variation>
                                                     </button>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logout" translatesAutoresizingMaskIntoConstraints="NO" id="Fil-ra-CK9">
                                                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
@@ -551,8 +532,7 @@
                                                         <exclude reference="TnL-V7-Cxe"/>
                                                     </mask>
                                                 </variation>
-                                                <variation key="widthClass=compact" misplaced="YES">
-                                                    <rect key="frame" x="0.0" y="310" width="240" height="62"/>
+                                                <variation key="widthClass=compact">
                                                     <mask key="subviews">
                                                         <include reference="lyc-7K-50L"/>
                                                         <include reference="Fil-ra-CK9"/>
@@ -581,9 +561,6 @@
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <color key="titleShadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         </state>
-                                                        <variation key="widthClass=compact" misplaced="YES">
-                                                            <rect key="frame" x="0.0" y="0.0" width="240" height="62"/>
-                                                        </variation>
                                                     </button>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="credit-card" translatesAutoresizingMaskIntoConstraints="NO" id="vqz-vH-JTw">
                                                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
@@ -631,8 +608,7 @@
                                                         <exclude reference="j09-rS-L6m"/>
                                                     </mask>
                                                 </variation>
-                                                <variation key="widthClass=compact" misplaced="YES">
-                                                    <rect key="frame" x="0.0" y="186" width="240" height="62"/>
+                                                <variation key="widthClass=compact">
                                                     <mask key="subviews">
                                                         <include reference="tmg-v2-53x"/>
                                                         <include reference="vqz-vH-JTw"/>
@@ -717,8 +693,7 @@
                                                 <exclude reference="nvO-f9-jsp"/>
                                             </mask>
                                         </variation>
-                                        <variation key="widthClass=compact" misplaced="YES">
-                                            <rect key="frame" x="0.0" y="-2" width="240" height="130"/>
+                                        <variation key="widthClass=compact">
                                             <mask key="subviews">
                                                 <include reference="yws-7E-1jZ"/>
                                                 <include reference="92q-Rx-iZT"/>
@@ -800,6 +775,7 @@
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="vZe-Ze-ZJ0" firstAttribute="top" secondItem="NOF-9K-xZJ" secondAttribute="bottom" id="2Vg-Hc-85F"/>
                             <constraint firstItem="NOF-9K-xZJ" firstAttribute="leading" secondItem="p0C-OF-zVz" secondAttribute="leadingMargin" constant="-20" id="2e9-oi-xe8"/>
@@ -822,6 +798,7 @@
                                 <exclude reference="YTf-zA-6Ry"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="2Vg-Hc-85F"/>
                                 <exclude reference="2e9-oi-xe8"/>
                                 <exclude reference="2el-xH-bsc"/>
                                 <exclude reference="V4G-Jr-skE"/>
@@ -829,7 +806,6 @@
                                 <exclude reference="Erl-eE-Qze"/>
                                 <exclude reference="a6d-P8-Q1h"/>
                                 <exclude reference="aA1-og-ADt"/>
-                                <exclude reference="2Vg-Hc-85F"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -838,6 +814,7 @@
                                 <include reference="YTf-zA-6Ry"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="2Vg-Hc-85F"/>
                                 <include reference="2e9-oi-xe8"/>
                                 <exclude reference="2el-xH-bsc"/>
                                 <include reference="V4G-Jr-skE"/>
@@ -845,19 +822,27 @@
                                 <include reference="Erl-eE-Qze"/>
                                 <include reference="a6d-P8-Q1h"/>
                                 <include reference="aA1-og-ADt"/>
-                                <include reference="2Vg-Hc-85F"/>
                             </mask>
                         </variation>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="xpz-tO-XeX" appends="YES" id="3Xw-sb-hlP"/>
+                        </connections>
                     </view>
-                    <navigationItem key="navigationItem" title="Setting" id="Y7r-10-Ovh"/>
+                    <navigationItem key="navigationItem" title="Setting" id="Y7r-10-Ovh">
+                        <barButtonItem key="leftBarButtonItem" title="Item" id="pYx-Rs-X4Y"/>
+                    </navigationItem>
                     <connections>
+                        <outlet property="menuButton" destination="pYx-Rs-X4Y" id="NXz-fx-ow7"/>
                         <outlet property="tableView" destination="NOF-9K-xZJ" id="fsY-dD-dui"/>
+                        <outlet property="tap_gesture" destination="xpz-tO-XeX" id="QP2-9r-OdX"/>
+                        <outlet property="vw_tab" destination="YTf-zA-6Ry" id="J13-zw-sHw"/>
                         <segue destination="18o-pQ-fvM" kind="show" identifier="contactUs" id="fE5-gI-1U2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zRE-Ki-zUl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="xpz-tO-XeX"/>
             </objects>
-            <point key="canvasLocation" x="1831.5" y="-19"/>
+            <point key="canvasLocation" x="1659" y="-28"/>
         </scene>
         <!--Contact Us-->
         <scene sceneID="VrC-bC-wBL">
