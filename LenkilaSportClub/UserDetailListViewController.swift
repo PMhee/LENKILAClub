@@ -147,6 +147,7 @@ class UserDetailListViewController: UIViewController,UITableViewDelegate,UITable
     override func didRotateFromInterfaceOrientation(fromInterfaceOrientation: UIInterfaceOrientation) {
         switch UIDevice.currentDevice().orientation{
         case .Portrait:
+            print("hello")
             if tab_trigger {
                 trigger_tab()
             }
