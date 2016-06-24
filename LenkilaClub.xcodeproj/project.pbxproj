@@ -271,6 +271,7 @@
 				B7B0D5CD1CEDA27E00577430 /* Resources */,
 				B762638650A7B7983A74C3E5 /* [CP] Embed Pods Frameworks */,
 				2B5D5C08732118D133EF2BB9 /* [CP] Copy Pods Resources */,
+				E805521AF74F1B17E93DE83E /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -334,7 +335,7 @@
 				TargetAttributes = {
 					B7B0D5CE1CEDA27E00577430 = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = FCA995W2V4;
+						DevelopmentTeam = WYLP742538;
 					};
 					B7B0D5E51CEDA27F00577430 = {
 						CreatedOnToolsVersion = 7.3;
@@ -487,6 +488,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E805521AF74F1B17E93DE83E /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LenkilaClub/Pods-LenkilaClub-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		EC288BD9529F9A6BF3017A6D /* [CP] Check Pods Manifest.lock */ = {
@@ -674,11 +690,12 @@
 			baseConfigurationReference = 788FC116ECABEDE302D97A5B /* Pods-LenkilaClub.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = LenkilaSportClub/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Jump.LenkilaSportClub;
+				PRODUCT_BUNDLE_IDENTIFIER = Nont.LenkilaSportClub;
 				PRODUCT_NAME = LenkilaClub;
 				PROVISIONING_PROFILE = "";
 			};
@@ -689,11 +706,12 @@
 			baseConfigurationReference = F6193FE10ED62F19717EB82C /* Pods-LenkilaClub.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = LenkilaSportClub/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Jump.LenkilaSportClub;
+				PRODUCT_BUNDLE_IDENTIFIER = Nont.LenkilaSportClub;
 				PRODUCT_NAME = LenkilaClub;
 				PROVISIONING_PROFILE = "";
 			};
