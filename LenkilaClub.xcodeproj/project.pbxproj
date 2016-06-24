@@ -14,6 +14,7 @@
 		90003C781D1A93B2003E9375 /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90003C771D1A93B2003E9375 /* SettingTableViewCell.swift */; };
 		90003C7A1D1A9AC4003E9375 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90003C791D1A9AC4003E9375 /* Main.storyboard */; };
 		90D5A8831D0941A1000D2062 /* UserDetailListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D5A8821D0941A1000D2062 /* UserDetailListViewController.swift */; };
+		90FC1EDB1D1CE90C00B57C5B /* Transaction.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90FC1EDA1D1CE90C00B57C5B /* Transaction.storyboard */; };
 		A24694CA9F49194113B986ED /* Pods_LenkilaClub.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 231034E43D8FA9D5F9BCC465 /* Pods_LenkilaClub.framework */; };
 		B76AFAD11D0F677500619815 /* LayijiMahaniyom Bao.otf in Resources */ = {isa = PBXBuildFile; fileRef = B76AFACF1D0F677500619815 /* LayijiMahaniyom Bao.otf */; };
 		B76AFAD41D0F698100619815 /* thaisanslite_r1.otf in Resources */ = {isa = PBXBuildFile; fileRef = B76AFAD31D0F698100619815 /* thaisanslite_r1.otf */; };
@@ -63,6 +64,7 @@
 		90003C771D1A93B2003E9375 /* SettingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
 		90003C791D1A9AC4003E9375 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		90D5A8821D0941A1000D2062 /* UserDetailListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDetailListViewController.swift; sourceTree = "<group>"; };
+		90FC1EDA1D1CE90C00B57C5B /* Transaction.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Transaction.storyboard; sourceTree = "<group>"; };
 		9BA99452800B8E83089DCDD4 /* Pods-LenkilaClubUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LenkilaClubUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LenkilaClubUITests/Pods-LenkilaClubUITests.release.xcconfig"; sourceTree = "<group>"; };
 		B76AFACF1D0F677500619815 /* LayijiMahaniyom Bao.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LayijiMahaniyom Bao.otf"; sourceTree = "<group>"; };
 		B76AFAD31D0F698100619815 /* thaisanslite_r1.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = thaisanslite_r1.otf; sourceTree = "<group>"; };
@@ -147,6 +149,16 @@
 			name = UserDetailList;
 			sourceTree = "<group>";
 		};
+		90FC1ED91D1CE8EE00B57C5B /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				90003C791D1A9AC4003E9375 /* Main.storyboard */,
+				90003C711D1A8349003E9375 /* Setting.storyboard */,
+				90FC1EDA1D1CE90C00B57C5B /* Transaction.storyboard */,
+			);
+			name = Storyboard;
+			sourceTree = "<group>";
+		};
 		B749890B1D09EC6E0058D874 /* Schedule */ = {
 			isa = PBXGroup;
 			children = (
@@ -210,13 +222,12 @@
 		B7B0D5D11CEDA27E00577430 /* LenkilaSportClub */ = {
 			isa = PBXGroup;
 			children = (
+				90FC1ED91D1CE8EE00B57C5B /* Storyboard */,
 				B78899E51D13C1F4009B6E3F /* Transaction */,
 				B749890B1D09EC6E0058D874 /* Schedule */,
 				90D5A87F1D093D09000D2062 /* UserDetailList */,
 				B7B0D5D21CEDA27E00577430 /* AppDelegate.swift */,
 				B7B0D5D41CEDA27E00577430 /* ViewController.swift */,
-				90003C791D1A9AC4003E9375 /* Main.storyboard */,
-				90003C711D1A8349003E9375 /* Setting.storyboard */,
 				90003C701D1A8139003E9375 /* Setting */,
 				B7B0D5DC1CEDA27E00577430 /* Assets.xcassets */,
 				B7B0D5DE1CEDA27E00577430 /* LaunchScreen.storyboard */,
@@ -376,6 +387,7 @@
 			files = (
 				B7B0D5E01CEDA27E00577430 /* LaunchScreen.storyboard in Resources */,
 				B76AFAD11D0F677500619815 /* LayijiMahaniyom Bao.otf in Resources */,
+				90FC1EDB1D1CE90C00B57C5B /* Transaction.storyboard in Resources */,
 				B76AFAD41D0F698100619815 /* thaisanslite_r1.otf in Resources */,
 				90003C7A1D1A9AC4003E9375 /* Main.storyboard in Resources */,
 				B7B0D5DD1CEDA27E00577430 /* Assets.xcassets in Resources */,
