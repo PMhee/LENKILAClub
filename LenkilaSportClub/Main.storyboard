@@ -1242,6 +1242,9 @@
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <color key="titleShadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         </state>
+                                                        <connections>
+                                                            <segue destination="mQI-7D-0HT" kind="presentation" modalTransitionStyle="crossDissolve" id="5f3-Hf-rTH"/>
+                                                        </connections>
                                                     </button>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="analysis" translatesAutoresizingMaskIntoConstraints="NO" id="k0w-j7-IDQ">
                                                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
@@ -1538,6 +1541,13 @@
                                                     </mask>
                                                 </variation>
                                             </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AhY-nn-vwp">
+                                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <variation key="widthClass=compact" fixedFrame="YES">
+                                                    <rect key="frame" x="91" y="0.0" width="0.0" height="457"/>
+                                                </variation>
+                                            </view>
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="U98-mP-5rc" firstAttribute="top" secondItem="y7I-Z5-7gu" secondAttribute="bottom" id="1k9-oK-VJQ"/>
@@ -1577,6 +1587,7 @@
                                                 <exclude reference="e7X-h4-80f"/>
                                                 <exclude reference="Yxa-qe-V7R"/>
                                                 <exclude reference="6dE-F2-hkD"/>
+                                                <exclude reference="AhY-nn-vwp"/>
                                             </mask>
                                             <mask key="constraints">
                                                 <exclude reference="6KK-vV-MEx"/>
@@ -1615,6 +1626,7 @@
                                                 <include reference="e7X-h4-80f"/>
                                                 <include reference="Yxa-qe-V7R"/>
                                                 <include reference="6dE-F2-hkD"/>
+                                                <include reference="AhY-nn-vwp"/>
                                             </mask>
                                             <mask key="constraints">
                                                 <include reference="6KK-vV-MEx"/>
@@ -2313,6 +2325,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Irv-r5-fmi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="752.25" y="617"/>
+        </scene>
+        <!--Analysis-->
+        <scene sceneID="IlQ-Xm-ZZa">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Analysis" id="mQI-7D-0HT" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="a0N-5h-dJE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="999.75" y="618"/>
         </scene>
         <!--Add Table View Controller-->
         <scene sceneID="Nuz-Wb-NGL">

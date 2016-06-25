@@ -32,6 +32,8 @@
 		B7B0D5F61CEDA27F00577430 /* LenkilaSportClubUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B0D5F51CEDA27F00577430 /* LenkilaSportClubUITests.swift */; };
 		B7B0D6041CEDCB2F00577430 /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B0D6031CEDCB2F00577430 /* ScheduleViewController.swift */; };
 		B7B0D6061CEDCE7E00577430 /* UIImageEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B0D6051CEDCE7E00577430 /* UIImageEffects.swift */; };
+		B7C98C761D1EA3C700D6A5A0 /* Analysis.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7C98C751D1EA3C700D6A5A0 /* Analysis.storyboard */; };
+		B7C98C791D1EA6CC00D6A5A0 /* AnalysisViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C98C781D1EA6CC00D6A5A0 /* AnalysisViewController.swift */; };
 		B7EA92AC1CFE00E70006C673 /* AddTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7EA92AB1CFE00E70006C673 /* AddTableViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -88,6 +90,8 @@
 		B7B0D5F71CEDA27F00577430 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B7B0D6031CEDCB2F00577430 /* ScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
 		B7B0D6051CEDCE7E00577430 /* UIImageEffects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageEffects.swift; sourceTree = "<group>"; };
+		B7C98C751D1EA3C700D6A5A0 /* Analysis.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Analysis.storyboard; sourceTree = "<group>"; };
+		B7C98C781D1EA6CC00D6A5A0 /* AnalysisViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalysisViewController.swift; sourceTree = "<group>"; };
 		B7EA92AB1CFE00E70006C673 /* AddTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTableViewController.swift; sourceTree = "<group>"; };
 		F6193FE10ED62F19717EB82C /* Pods-LenkilaClub.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LenkilaClub.release.xcconfig"; path = "Pods/Target Support Files/Pods-LenkilaClub/Pods-LenkilaClub.release.xcconfig"; sourceTree = "<group>"; };
 		F9D74B4F9719CD65D8997001 /* Pods-LenkilaClubTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LenkilaClubTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LenkilaClubTests/Pods-LenkilaClubTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -155,6 +159,7 @@
 				90003C791D1A9AC4003E9375 /* Main.storyboard */,
 				90003C711D1A8349003E9375 /* Setting.storyboard */,
 				90FC1EDA1D1CE90C00B57C5B /* Transaction.storyboard */,
+				B7C98C751D1EA3C700D6A5A0 /* Analysis.storyboard */,
 			);
 			name = Storyboard;
 			sourceTree = "<group>";
@@ -222,6 +227,7 @@
 		B7B0D5D11CEDA27E00577430 /* LenkilaSportClub */ = {
 			isa = PBXGroup;
 			children = (
+				B7C98C771D1EA6B700D6A5A0 /* Analysis */,
 				90FC1ED91D1CE8EE00B57C5B /* Storyboard */,
 				B78899E51D13C1F4009B6E3F /* Transaction */,
 				B749890B1D09EC6E0058D874 /* Schedule */,
@@ -254,6 +260,14 @@
 				B7B0D5F71CEDA27F00577430 /* Info.plist */,
 			);
 			path = LenkilaSportClubUITests;
+			sourceTree = "<group>";
+		};
+		B7C98C771D1EA6B700D6A5A0 /* Analysis */ = {
+			isa = PBXGroup;
+			children = (
+				B7C98C781D1EA6CC00D6A5A0 /* AnalysisViewController.swift */,
+			);
+			name = Analysis;
 			sourceTree = "<group>";
 		};
 		D0330B583D32DF57485ED4E0 /* Pods */ = {
@@ -391,6 +405,7 @@
 				B76AFAD41D0F698100619815 /* thaisanslite_r1.otf in Resources */,
 				90003C7A1D1A9AC4003E9375 /* Main.storyboard in Resources */,
 				B7B0D5DD1CEDA27E00577430 /* Assets.xcassets in Resources */,
+				B7C98C761D1EA3C700D6A5A0 /* Analysis.storyboard in Resources */,
 				90003C721D1A8349003E9375 /* Setting.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -568,6 +583,7 @@
 				B7EA92AC1CFE00E70006C673 /* AddTableViewController.swift in Sources */,
 				90D5A8831D0941A1000D2062 /* UserDetailListViewController.swift in Sources */,
 				B772FAA01D1A506A0024F3BF /* FreqPlay.swift in Sources */,
+				B7C98C791D1EA6CC00D6A5A0 /* AnalysisViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
