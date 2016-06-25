@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LenkilaSportClub/TransactionManagementViewController.swift"
-            timestampString = "488315479.132707"
+            timestampString = "488539207.778213"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "94"
-            endingLineNumber = "94"
+            startingLineNumber = "93"
+            endingLineNumber = "93"
             landmarkName = "gestureRecognizerShouldBegin(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LenkilaSportClub/TransactionManagementViewController.swift"
-            timestampString = "488318179.848869"
+            timestampString = "488539207.778213"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "341"
-            endingLineNumber = "341"
+            startingLineNumber = "340"
+            endingLineNumber = "340"
             landmarkName = "binarySearch(_:searchItem:)"
             landmarkType = "5">
          </BreakpointContent>

@@ -9,7 +9,6 @@
 import UIKit
 import Realm
 class TransactionManagementViewController: UIViewController,UIGestureRecognizerDelegate,UITableViewDelegate,UITableViewDataSource {
-    
     var state_present : Bool = true
     @IBOutlet weak var btn_present_transaction: UIButton!
     @IBOutlet weak var btn_history_transaction: UIButton!
