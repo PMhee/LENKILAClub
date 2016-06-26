@@ -241,7 +241,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hN5-nR-Zwp" id="3CY-0A-jdl">
-                                            <rect key="frame" x="0.0" y="0.0" width="240" height="136"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="89"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uxa-YI-BcL">
@@ -258,13 +258,16 @@
                                                     <fontDescription key="fontDescription" name="ThaiSansLite" family="Thai Sans Lite" pointSize="20"/>
                                                     <color key="textColor" red="0.3294117647" green="0.43137254899999999" blue="0.47843137250000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
+                                                    <variation key="widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="94" y="4" width="74" height="24"/>
+                                                    </variation>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vDa-FL-D2i">
                                                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                                     <color key="backgroundColor" red="0.3294117647" green="0.43137254899999999" blue="0.47843137250000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="2" id="9tl-u0-77i">
-                                                            <variation key="widthClass=compact" constant="1"/>
+                                                            <variation key="widthClass=compact" constant="2"/>
                                                         </constraint>
                                                     </constraints>
                                                     <variation key="default">
@@ -283,6 +286,9 @@
                                                     <fontDescription key="fontDescription" name="ThaiSansLite" family="Thai Sans Lite" pointSize="20"/>
                                                     <color key="textColor" red="0.3294117647" green="0.43137254899999999" blue="0.47843137250000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
+                                                    <variation key="widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="269" y="4" width="119" height="24"/>
+                                                    </variation>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="6" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thursday,September 23,2016" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D7m-af-Fud">
                                                     <rect key="frame" x="-42" y="-21" width="42" height="21"/>
@@ -321,12 +327,18 @@
                                                             <fontDescription key="fontDescription" name="ThaiSansLite" family="Thai Sans Lite" pointSize="23"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
+                                                            <variation key="widthClass=compact" misplaced="YES">
+                                                                <rect key="frame" x="8" y="17" width="75" height="27"/>
+                                                            </variation>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" tag="8" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2,400.00 บาท" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="umm-LZ-epA">
                                                             <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                                             <fontDescription key="fontDescription" name="ThaiSansLite" family="Thai Sans Lite" pointSize="17"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
+                                                            <variation key="widthClass=compact" misplaced="YES">
+                                                                <rect key="frame" x="-6" y="50" width="102" height="20"/>
+                                                            </variation>
                                                         </label>
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.432796124637783" green="0.57172429449611173" blue="0.63880208333333333" alpha="1" colorSpace="calibratedRGB"/>
@@ -399,6 +411,7 @@
                                                 <constraint firstItem="vDa-FL-D2i" firstAttribute="top" secondItem="Nb6-Xn-1uk" secondAttribute="bottom" constant="-2" id="meR-hS-m0Z">
                                                     <variation key="widthClass=compact" constant="0.0"/>
                                                 </constraint>
+                                                <constraint firstItem="D7m-af-Fud" firstAttribute="leading" secondItem="vDa-FL-D2i" secondAttribute="leading" id="qhk-7S-ZD7"/>
                                                 <constraint firstItem="8iR-47-cuZ" firstAttribute="centerX" secondItem="D7m-af-Fud" secondAttribute="centerX" id="t5G-2i-9ZI"/>
                                                 <constraint firstItem="QB9-qD-Pv2" firstAttribute="top" secondItem="yJK-OC-X37" secondAttribute="bottom" constant="-6" id="wNq-vu-ScP">
                                                     <variation key="widthClass=compact" constant="0.0"/>
@@ -406,6 +419,7 @@
                                                 <constraint firstAttribute="leadingMargin" secondItem="yJK-OC-X37" secondAttribute="leading" id="wxU-2y-o4p">
                                                     <variation key="widthClass=compact" constant="8"/>
                                                 </constraint>
+                                                <constraint firstItem="8iR-47-cuZ" firstAttribute="leading" secondItem="D7m-af-Fud" secondAttribute="leading" id="yKC-n2-Q0u"/>
                                                 <constraint firstItem="D7m-af-Fud" firstAttribute="centerX" secondItem="vDa-FL-D2i" secondAttribute="centerX" id="yzX-1E-d7i"/>
                                             </constraints>
                                             <variation key="default">
@@ -432,9 +446,11 @@
                                                     <exclude reference="hC9-v3-0UM"/>
                                                     <exclude reference="meR-hS-m0Z"/>
                                                     <exclude reference="5P3-nO-eeU"/>
+                                                    <exclude reference="qhk-7S-ZD7"/>
                                                     <exclude reference="yzX-1E-d7i"/>
                                                     <exclude reference="QEX-UK-HWr"/>
                                                     <exclude reference="t5G-2i-9ZI"/>
+                                                    <exclude reference="yKC-n2-Q0u"/>
                                                     <exclude reference="cXN-1d-ALz"/>
                                                 </mask>
                                             </variation>
@@ -462,9 +478,11 @@
                                                     <include reference="hC9-v3-0UM"/>
                                                     <include reference="meR-hS-m0Z"/>
                                                     <include reference="5P3-nO-eeU"/>
-                                                    <include reference="yzX-1E-d7i"/>
+                                                    <include reference="qhk-7S-ZD7"/>
+                                                    <exclude reference="yzX-1E-d7i"/>
                                                     <include reference="QEX-UK-HWr"/>
-                                                    <include reference="t5G-2i-9ZI"/>
+                                                    <exclude reference="t5G-2i-9ZI"/>
+                                                    <include reference="yKC-n2-Q0u"/>
                                                     <include reference="cXN-1d-ALz"/>
                                                 </mask>
                                             </variation>
@@ -475,7 +493,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Z07-1H-qOH" id="9uQ-Z0-bxo">
-                                            <rect key="frame" x="0.0" y="0.0" width="240" height="136"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="89"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="em8-9A-x1B">
@@ -492,13 +510,16 @@
                                                     <fontDescription key="fontDescription" name="ThaiSansLite" family="Thai Sans Lite" pointSize="20"/>
                                                     <color key="textColor" red="0.1137254902" green="0.1137254902" blue="0.1137254902" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
+                                                    <variation key="widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="94" y="4" width="74" height="24"/>
+                                                    </variation>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EBm-86-IMf">
                                                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                                     <color key="backgroundColor" red="0.1137254902" green="0.1137254902" blue="0.1137254902" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="2" id="oRc-9e-4b3">
-                                                            <variation key="widthClass=compact" constant="1"/>
+                                                            <variation key="widthClass=compact" constant="2"/>
                                                         </constraint>
                                                     </constraints>
                                                     <variation key="default">
@@ -517,6 +538,9 @@
                                                     <fontDescription key="fontDescription" name="ThaiSansLite" family="Thai Sans Lite" pointSize="20"/>
                                                     <color key="textColor" red="0.1137254902" green="0.1137254902" blue="0.1137254902" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
+                                                    <variation key="widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="269" y="4" width="119" height="24"/>
+                                                    </variation>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="6" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thursday,September 23,2016" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t8f-53-thi">
                                                     <rect key="frame" x="-42" y="-21" width="42" height="21"/>
@@ -555,12 +579,18 @@
                                                             <fontDescription key="fontDescription" name="ThaiSansLite" family="Thai Sans Lite" pointSize="23"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
+                                                            <variation key="widthClass=compact" misplaced="YES">
+                                                                <rect key="frame" x="8" y="17" width="75" height="27"/>
+                                                            </variation>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" tag="8" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2,400.00 บาท" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZF0-Og-9z4">
                                                             <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                                             <fontDescription key="fontDescription" name="ThaiSansLite" family="Thai Sans Lite" pointSize="17"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
+                                                            <variation key="widthClass=compact" misplaced="YES">
+                                                                <rect key="frame" x="-6" y="50" width="102" height="20"/>
+                                                            </variation>
                                                         </label>
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.1137254902" green="0.1137254902" blue="0.1137254902" alpha="1" colorSpace="calibratedRGB"/>
@@ -586,12 +616,12 @@
                                                             <exclude reference="ZF0-Og-9z4"/>
                                                         </mask>
                                                         <mask key="constraints">
-                                                            <exclude reference="OgI-kA-OHm"/>
                                                             <exclude reference="OFJ-z9-Q5X"/>
-                                                            <exclude reference="i6T-Hx-0ps"/>
+                                                            <exclude reference="OgI-kA-OHm"/>
                                                             <exclude reference="Ghn-sd-7Qk"/>
-                                                            <exclude reference="s2a-Nb-LXQ"/>
+                                                            <exclude reference="i6T-Hx-0ps"/>
                                                             <exclude reference="gF8-TW-gVy"/>
+                                                            <exclude reference="s2a-Nb-LXQ"/>
                                                         </mask>
                                                     </variation>
                                                     <variation key="widthClass=compact">
@@ -600,12 +630,12 @@
                                                             <include reference="ZF0-Og-9z4"/>
                                                         </mask>
                                                         <mask key="constraints">
-                                                            <include reference="OgI-kA-OHm"/>
                                                             <include reference="OFJ-z9-Q5X"/>
-                                                            <include reference="i6T-Hx-0ps"/>
+                                                            <include reference="OgI-kA-OHm"/>
                                                             <include reference="Ghn-sd-7Qk"/>
-                                                            <include reference="s2a-Nb-LXQ"/>
+                                                            <include reference="i6T-Hx-0ps"/>
                                                             <include reference="gF8-TW-gVy"/>
+                                                            <include reference="s2a-Nb-LXQ"/>
                                                         </mask>
                                                     </variation>
                                                 </view>
@@ -627,6 +657,7 @@
                                                     <variation key="widthClass=compact" constant="-9"/>
                                                 </constraint>
                                                 <constraint firstItem="t8f-53-thi" firstAttribute="centerX" secondItem="EBm-86-IMf" secondAttribute="centerX" id="bCr-9B-yFd"/>
+                                                <constraint firstItem="ait-0Q-y2X" firstAttribute="leading" secondItem="t8f-53-thi" secondAttribute="leading" id="eZX-U6-GED"/>
                                                 <constraint firstItem="O2Q-df-3fn" firstAttribute="width" secondItem="9uQ-Z0-bxo" secondAttribute="width" id="ffI-XX-6V8"/>
                                                 <constraint firstItem="54b-I9-Q7J" firstAttribute="trailing" secondItem="EBm-86-IMf" secondAttribute="trailing" id="gqh-Ze-aCG"/>
                                                 <constraint firstAttribute="leadingMargin" secondItem="zqP-eF-dMt" secondAttribute="leading" id="i17-dY-2ec">
@@ -640,6 +671,7 @@
                                                     <variation key="widthClass=compact" constant="0.0"/>
                                                 </constraint>
                                                 <constraint firstItem="ait-0Q-y2X" firstAttribute="top" secondItem="t8f-53-thi" secondAttribute="bottom" constant="1" id="tK6-MJ-6nk"/>
+                                                <constraint firstItem="t8f-53-thi" firstAttribute="leading" secondItem="EBm-86-IMf" secondAttribute="leading" id="w2H-hf-LCz"/>
                                                 <constraint firstItem="EBm-86-IMf" firstAttribute="top" secondItem="9uQ-Z0-bxo" secondAttribute="topMargin" constant="20" id="wtP-zN-bba"/>
                                             </constraints>
                                             <variation key="default">
@@ -656,19 +688,21 @@
                                                 <mask key="constraints">
                                                     <exclude reference="Yhj-nx-FhR"/>
                                                     <exclude reference="i17-dY-2ec"/>
-                                                    <exclude reference="iYk-e1-M4h"/>
                                                     <exclude reference="ffI-XX-6V8"/>
+                                                    <exclude reference="iYk-e1-M4h"/>
                                                     <exclude reference="lXC-vm-A5D"/>
                                                     <exclude reference="Moo-hm-65w"/>
-                                                    <exclude reference="Kbx-QJ-eiA"/>
-                                                    <exclude reference="j2u-hq-PGo"/>
                                                     <exclude reference="JHL-b8-4ZP"/>
-                                                    <exclude reference="wtP-zN-bba"/>
+                                                    <exclude reference="Kbx-QJ-eiA"/>
                                                     <exclude reference="TPT-Cu-igY"/>
+                                                    <exclude reference="j2u-hq-PGo"/>
+                                                    <exclude reference="wtP-zN-bba"/>
                                                     <exclude reference="Rq9-if-xCc"/>
                                                     <exclude reference="bCr-9B-yFd"/>
-                                                    <exclude reference="tK6-MJ-6nk"/>
+                                                    <exclude reference="w2H-hf-LCz"/>
                                                     <exclude reference="Q6E-IM-2K9"/>
+                                                    <exclude reference="eZX-U6-GED"/>
+                                                    <exclude reference="tK6-MJ-6nk"/>
                                                     <exclude reference="gqh-Ze-aCG"/>
                                                 </mask>
                                             </variation>
@@ -686,19 +720,21 @@
                                                 <mask key="constraints">
                                                     <include reference="Yhj-nx-FhR"/>
                                                     <include reference="i17-dY-2ec"/>
-                                                    <include reference="iYk-e1-M4h"/>
                                                     <include reference="ffI-XX-6V8"/>
+                                                    <include reference="iYk-e1-M4h"/>
                                                     <include reference="lXC-vm-A5D"/>
                                                     <include reference="Moo-hm-65w"/>
-                                                    <include reference="Kbx-QJ-eiA"/>
-                                                    <include reference="j2u-hq-PGo"/>
                                                     <include reference="JHL-b8-4ZP"/>
-                                                    <include reference="wtP-zN-bba"/>
+                                                    <include reference="Kbx-QJ-eiA"/>
                                                     <include reference="TPT-Cu-igY"/>
+                                                    <include reference="j2u-hq-PGo"/>
+                                                    <include reference="wtP-zN-bba"/>
                                                     <include reference="Rq9-if-xCc"/>
-                                                    <include reference="bCr-9B-yFd"/>
+                                                    <exclude reference="bCr-9B-yFd"/>
+                                                    <include reference="w2H-hf-LCz"/>
+                                                    <exclude reference="Q6E-IM-2K9"/>
+                                                    <include reference="eZX-U6-GED"/>
                                                     <include reference="tK6-MJ-6nk"/>
-                                                    <include reference="Q6E-IM-2K9"/>
                                                     <include reference="gqh-Ze-aCG"/>
                                                 </mask>
                                             </variation>

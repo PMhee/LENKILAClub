@@ -8,13 +8,22 @@
 
 import UIKit
 
-class AnalysisViewController: UIViewController {
+class AnalysisViewController: UIViewController,UIGestureRecognizerDelegate {
 
+    var x :CGFloat = 0
+    var y :CGFloat = 0
+    var enable_touch : Bool = false
+    @IBOutlet var tap_gesture: UITapGestureRecognizer!
     @IBOutlet weak var cons_tab_width: NSLayoutConstraint!
     var tab_trigger : Bool = false
     @IBAction func btn_tab_action(sender: UIButton) {
         trigger_tab()
     }
+    @IBOutlet weak var vw_show_money: UIView!
+    @IBOutlet weak var vw_show_reserve: UIView!
+    @IBOutlet weak var vw_show_graph: UIView!
+    
+    
     func delay(delay:Double, closure:()->()) {
         dispatch_after(
             dispatch_time(
@@ -47,10 +56,40 @@ class AnalysisViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.tap_gesture.delegate = self
+        self.view.addGestureRecognizer(tap_gesture)
+        vw_show_money.layer.cornerRadius = 5
+        vw_show_money.layer.borderWidth = 2
+        vw_show_money.layer.borderColor = UIColor(red: 231/255, green: 230/255, blue: 231/255, alpha: 1.0).CGColor
+        vw_show_reserve.layer.cornerRadius = 5
+        vw_show_reserve.layer.borderWidth = 2
+        vw_show_reserve.layer.borderColor = UIColor(red: 231/255, green: 230/255, blue: 231/255, alpha: 1.0).CGColor
+        vw_show_graph.layer.cornerRadius = 5
+        vw_show_graph.layer.borderWidth = 2
+        vw_show_graph.layer.borderColor = UIColor(red: 231/255, green: 230/255, blue: 231/255, alpha: 1.0).CGColor
         // Do any additional setup after loading the view.
     }
-
+    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldReceiveTouch touch: UITouch) -> Bool {
+        if tab_trigger {
+            x = touch.locationInView(self.view).x
+            y = touch.locationInView(self.view).y
+            if x > self.view.frame.width * 11 / 13 {
+                enable_touch = !enable_touch
+            }
+            return true
+        }else{
+            return false
+        }
+    }
+    func gestureRecognizerShouldBegin(gestureRecognizer: UIGestureRecognizer) -> Bool {
+        if enable_touch {
+            self.trigger_tab()
+            enable_touch = !enable_touch
+            return true
+        }else{
+            return false
+        }
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
