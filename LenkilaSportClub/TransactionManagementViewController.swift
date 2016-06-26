@@ -9,6 +9,7 @@
 import UIKit
 import Realm
 class TransactionManagementViewController: UIViewController,UIGestureRecognizerDelegate,UITableViewDelegate,UITableViewDataSource {
+
     var state_present : Bool = true
     @IBOutlet weak var btn_present_transaction: UIButton!
     @IBOutlet weak var btn_history_transaction: UIButton!
@@ -58,13 +59,13 @@ class TransactionManagementViewController: UIViewController,UIGestureRecognizerD
     }
     @IBAction func btn_present_transaction_action(sender: UIButton) {
         self.btn_history_transaction.backgroundColor = UIColor(red: 29/255, green: 29/255, blue: 29/255, alpha: 1.0)
-        self.btn_present_transaction.backgroundColor = UIColor(red: 122/255, green: 118/255, blue: 119/255, alpha: 1.0)
+        self.btn_present_transaction.backgroundColor = UIColor(red: 84/255, green: 110/255, blue: 122/255, alpha: 1.0)
         state_present = !state_present
         gatherAllData()
     }
     @IBAction func btn_history_transaction_action(sender: UIButton) {
         self.btn_present_transaction.backgroundColor = UIColor(red: 29/255, green: 29/255, blue: 29/255, alpha: 1.0)
-        self.btn_history_transaction.backgroundColor = UIColor(red: 122/255, green: 118/255, blue: 119/255, alpha: 1.0)
+        self.btn_history_transaction.backgroundColor = UIColor(red: 84/255, green: 110/255, blue: 122/255, alpha: 1.0)
         state_present = !state_present
         gatherAllData()
     }
@@ -200,12 +201,13 @@ class TransactionManagementViewController: UIViewController,UIGestureRecognizerD
         if !state_present{
             cell.userInteractionEnabled = false
         }
+        cell.textLabel?.font = UIFont(name: "ThaiSansLite",size: 16)
         let paid_type = cell.viewWithTag(1) as! UILabel
         switch  scheduleArray[indexPath.row].paid_type {
         case "cash" :
-            paid_type.text = "ชำระหน้าร้าน"
+            paid_type.text = "จ่ายร้าน"
         case "credit" :
-            paid_type.text = "บัตรเครดิต"
+            paid_type.text = "เครดิต"
         case "debit" :
             paid_type.text = "บัตรเงินสด"
         default:
@@ -215,8 +217,8 @@ class TransactionManagementViewController: UIViewController,UIGestureRecognizerD
         name.text  = "คุณ "+userArray[Int(scheduleArray[indexPath.row].userID)!].nickName
         let contact = cell.viewWithTag(3) as! UILabel
         contact.text = userArray[Int(scheduleArray[indexPath.row].userID)!].contact
-        let num_field = cell.viewWithTag(4) as! UILabel
-        num_field.text = "สนาม "+scheduleArray[indexPath.row].field
+//        let num_field = cell.viewWithTag(4) as! UILabel
+//        num_field.text = "สนาม "+scheduleArray[indexPath.row].field
         let time = cell.viewWithTag(5) as! UILabel
         time.text = "เวลา "+scheduleArray[indexPath.row].time
         let day = cell.viewWithTag(6) as! UILabel
@@ -233,16 +235,16 @@ class TransactionManagementViewController: UIViewController,UIGestureRecognizerD
         let index2 = a.startIndex.distanceTo(range.startIndex)
         let endHour = a.substringWithRange(Range<String.Index>(start: a.startIndex.advancedBy(0), end: (a.startIndex.advancedBy(index2))))
         let endMin = a.substringWithRange(Range<String.Index>(start: a.startIndex.advancedBy(index2+1), end: (a.endIndex.advancedBy(0))))
-        let hour_count = cell.viewWithTag(7) as! UILabel
+        //let hour_count = cell.viewWithTag(7) as! UILabel
         var diff_hour = Double(endHour)! - Double(startHour)!
         if Int(startMin)>Int(endMin){
-            hour_count.text = String(Int(endHour)!-Int(startHour)!)+" ชั่วโมง"+" "+"30 นาที"
+            //hour_count.text = String(Int(endHour)!-Int(startHour)!)+" ชั่วโมง"+" "+"30 นาที"
             diff_hour += 0.5
         }else if Int(startMin)<Int(endMin){
-            hour_count.text = String(Int(endHour)!-Int(startHour)!-1)+" ชั่วโมง"+" "+"30 นาที"
+            //hour_count.text = String(Int(endHour)!-Int(startHour)!-1)+" ชั่วโมง"+" "+"30 นาที"
             diff_hour -= 0.5
         }else{
-            hour_count.text = String(Int(endHour)!-Int(startHour)!)+" ชั่วโมง"+" "+"00 นาที"
+            //hour_count.text = String(Int(endHour)!-Int(startHour)!)+" ชั่วโมง"+" "+"00 นาที"
         }
         let price = cell.viewWithTag(8) as! UILabel
         let numberFormatter = NSNumberFormatter()
@@ -354,7 +356,7 @@ class TransactionManagementViewController: UIViewController,UIGestureRecognizerD
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
     }
     func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
-        let acceptAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "ชำระ" , handler: { (action:UITableViewRowAction!, indexPath:NSIndexPath!) -> Void in
+        let acceptAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "\u{21B5}\n จ่าย" , handler: { (action:UITableViewRowAction!, indexPath:NSIndexPath!) -> Void in
             let realm = RLMRealm.defaultRealm()
             realm.beginWriteTransaction()
             let schedule = Schedule.allObjects()
@@ -404,6 +406,9 @@ class TransactionManagementViewController: UIViewController,UIGestureRecognizerD
         }else{
             return nil
         }
+    }
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 90
     }
     /*
      // MARK: - Navigation

@@ -146,9 +146,47 @@ class EditUserDetailViewController: UIViewController,UITextFieldDelegate,UIGestu
             u.workPlace = self.tf_work_place.text!
             u.contact = self.tf_contact.text!
             realm.beginWriteTransaction()
+            if u.nickName == "" {
+                let appearance = SCLAlertView.SCLAppearance(
+                    kTitleFont: UIFont(name: "ThaiSansLite", size: 20)!,
+                    kTextFont: UIFont(name: "ThaiSansLite", size: 16)!,
+                    kButtonFont: UIFont(name: "ThaiSansLite", size: 16)!,
+                    showCloseButton: false
+                )
+                let alert = SCLAlertView(appearance: appearance)
+                alert.addButton("ยกเลิก", action: {
+                })
+                alert.showError("ผิดพลาด", subTitle: "กรุณาใส่ชื่อเล่น")
+            }else{
+            var found = false
+            let user = User.allObjects()
+                if user.count > 0 {
+                    for i in 0...user.count-1{
+                        let  us = user[i] as! User
+                        if u.nickName == us.nickName {
+                            found = true
+                            continue
+                        }
+                    }
+                }
+                if found {
+                    let appearance = SCLAlertView.SCLAppearance(
+                        kTitleFont: UIFont(name: "ThaiSansLite", size: 20)!,
+                        kTextFont: UIFont(name: "ThaiSansLite", size: 16)!,
+                        kButtonFont: UIFont(name: "ThaiSansLite", size: 16)!,
+                        showCloseButton: false
+                    )
+                    let alert = SCLAlertView(appearance: appearance)
+                    alert.addButton("ยกเลิก", action: {
+                    })
+                    alert.showError("ผิดพลาด", subTitle: "ชื่อผู้เล่นซ้ำ")
+                }else{
             realm.addObject(u)
-            try! realm.commitWriteTransaction()
             self.performSegueWithIdentifier("send_back_to_user", sender: self)
+                }
+            }
+            try! realm.commitWriteTransaction()
+            
             
         }
     }

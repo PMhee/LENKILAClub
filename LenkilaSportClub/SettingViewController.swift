@@ -8,17 +8,54 @@
 
 import UIKit
 
-class SettingViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class SettingViewController: UIViewController, UITableViewDelegate, UITableViewDataSource,UIGestureRecognizerDelegate {
     @IBOutlet var tableView: UITableView!
     @IBOutlet var vw_tab: UIView!
     @IBOutlet var tap_gesture: UITapGestureRecognizer!
     @IBOutlet var menuButton: UIBarButtonItem!
-
+    @IBOutlet weak var cons_vw_width: NSLayoutConstraint!
+    var x :CGFloat = 0
+    var y :CGFloat = 0
+    var enable_touch : Bool = false
+    var tab_trigger : Bool = false
     var settingLabel =  [["ซื้อแพ็คเกจ","ใส่คูปอง","ติดต่อฝ่ายขาย"]
                         ,["ข้อมูลส่วนตัว","แก้ไขสนาม","เปลี่ยนรหัสผ่าน"]
                         ,["แก้ไขขนาดตัวอักษร","การแจ้งเตือน","เปลี่ยนภาษา"]
                         ,["คู่มือการใช้งาน","คำถามที่พบบ่อย","ติดต่อเรา"]]
 
+    @IBAction func btn_tab_action(sender: UIButton) {
+        trigger_tab()
+    }
+    func trigger_tab(){
+        var count = 0.0
+        if !tab_trigger{
+            //self.UserDetailTableView.userInteractionEnabled = false
+            while(count <= 0.25){
+                delay(count){
+                    self.cons_vw_width.constant += self.view.frame.width/13
+                }
+                count += 0.025
+            }
+        }else{
+            //self.UserDetailTableView.userInteractionEnabled = true
+            while(count <= 0.25){
+                delay(count){
+                    self.cons_vw_width.constant -= self.view.frame.width/13
+                }
+                count += 0.025
+            }
+            
+        }
+        tab_trigger = !tab_trigger
+    }
+    func delay(delay:Double, closure:()->()) {
+        dispatch_after(
+            dispatch_time(
+                DISPATCH_TIME_NOW,
+                Int64(delay * Double(NSEC_PER_SEC))
+            ),
+            dispatch_get_main_queue(), closure)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -30,7 +67,9 @@ class SettingViewController: UIViewController, UITableViewDelegate, UITableViewD
         button.addTarget(self, action: Selector("fbButtonPressed"), forControlEvents: .TouchUpInside)
         //let barButton = UIBarButtonItem()
         menuButton.customView = button
-        //self.navigationItem.leftBarButtonItem = barButton    
+        //self.navigationItem.leftBarButtonItem = barButton 
+        self.tap_gesture.delegate = self
+        self.view.addGestureRecognizer(tap_gesture)
     }
 
     override func didReceiveMemoryWarning() {
@@ -91,6 +130,27 @@ class SettingViewController: UIViewController, UITableViewDelegate, UITableViewD
     func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 0.00001
     }
-    
+    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldReceiveTouch touch: UITouch) -> Bool {
+        if tab_trigger {
+            x = touch.locationInView(self.view).x
+            y = touch.locationInView(self.view).y
+            if x > self.view.frame.width * 11 / 13 {
+                enable_touch = !enable_touch
+            }
+            return true
+        }else{
+            return false
+        }
+    }
+    func gestureRecognizerShouldBegin(gestureRecognizer: UIGestureRecognizer) -> Bool {
+        if enable_touch {
+            self.trigger_tab()
+            enable_touch = !enable_touch
+            return true
+        }else{
+            return false
+        }
+    }
+
 
 }
