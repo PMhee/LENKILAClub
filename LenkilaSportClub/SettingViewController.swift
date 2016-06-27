@@ -88,11 +88,11 @@ class SettingViewController: UIViewController, UITableViewDelegate, UITableViewD
         return 3
     }
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if section == 1 {
+        if section == 0 {
             return "Lenkila Shop"
-        } else if section == 2 {
+        } else if section == 1 {
             return "Profile"
-        } else if section == 3 {
+        } else if section == 2 {
             return "General"
         } else {
             return "Help & Support"
@@ -110,8 +110,33 @@ class SettingViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
 
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if(indexPath.section == 0){
+            if(indexPath.row == 0){
+                self.performSegueWithIdentifier("buyPackage", sender: self)
+            }else if(indexPath.row == 1){
+                self.performSegueWithIdentifier("coupon", sender: self)
+            }else{
+                self.performSegueWithIdentifier("sellCenter", sender: self)
+            }
+        }
+        if(indexPath.section == 1){
+            if(indexPath.row == 0){
+                self.performSegueWithIdentifier("profile", sender: self)
+            }else if(indexPath.row == 1){
+                self.performSegueWithIdentifier("editField", sender: self)
+            }else{
+                self.performSegueWithIdentifier("changePassword", sender: self)
+            }
+        }
         if(indexPath.section == 2){
-            if(indexPath.row == 2){
+            if(indexPath.row == 0){
+                let alertController = UIAlertController(title: "ขออภัย", message: "ระบบการเปลี่ยนขนาดตัวอักษรยังอยู่ในระหว่างการพัฒนา และจะถูกเพิ่มในเวอร์ชันถัดไป", preferredStyle: .Alert)
+                let doneAction = UIAlertAction(title: "รับทราบ", style: .Default, handler: nil)
+                alertController.addAction(doneAction)
+                self.presentViewController(alertController, animated: true, completion: nil)
+            }else if(indexPath.row == 1){
+                self.performSegueWithIdentifier("notification", sender: self)
+            }else{
                 let alertController = UIAlertController(title: "ขออภัย", message: "ระบบการเปลี่ยนภาษายังอยู่ในระหว่างการพัฒนา และจะถูกเพิ่มในเวอร์ชันถัดไป", preferredStyle: .Alert)
                 let doneAction = UIAlertAction(title: "รับทราบ", style: .Default, handler: nil)
                 alertController.addAction(doneAction)
@@ -119,7 +144,11 @@ class SettingViewController: UIViewController, UITableViewDelegate, UITableViewD
             }
             
         }else{
-            if(indexPath.row == 2){
+            if(indexPath.row == 0){
+                self.performSegueWithIdentifier("tutorial", sender: self)
+            }else if(indexPath.row == 1){
+                self.performSegueWithIdentifier("faq", sender: self)
+            }else{
                 self.performSegueWithIdentifier("contactUs", sender: self)
             }
         }

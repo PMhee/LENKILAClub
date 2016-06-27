@@ -14,6 +14,24 @@
 		90003C781D1A93B2003E9375 /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90003C771D1A93B2003E9375 /* SettingTableViewCell.swift */; };
 		90003C7A1D1A9AC4003E9375 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90003C791D1A9AC4003E9375 /* Main.storyboard */; };
 		90D5A8831D0941A1000D2062 /* UserDetailListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D5A8821D0941A1000D2062 /* UserDetailListViewController.swift */; };
+		90F7FEBC1D20F00E0054200B /* ThaiSansNeue-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 90EB14941D20EEDC009C55C6 /* ThaiSansNeue-Black.otf */; };
+		90F7FEBD1D20F00E0054200B /* ThaiSansNeue-BlackItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 90EB14951D20EEDC009C55C6 /* ThaiSansNeue-BlackItalic.otf */; };
+		90F7FEBE1D20F00E0054200B /* ThaiSansNeue-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 90EB14961D20EEDC009C55C6 /* ThaiSansNeue-Bold.otf */; };
+		90F7FEBF1D20F00E0054200B /* ThaiSansNeue-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 90EB14971D20EEDC009C55C6 /* ThaiSansNeue-BoldItalic.otf */; };
+		90F7FEC01D20F00E0054200B /* ThaiSansNeue-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 90EB14981D20EEDC009C55C6 /* ThaiSansNeue-ExtraBold.otf */; };
+		90F7FEC11D20F00E0054200B /* ThaiSansNeue-ExtraBoldItali.otf in Resources */ = {isa = PBXBuildFile; fileRef = 90EB14991D20EEDC009C55C6 /* ThaiSansNeue-ExtraBoldItali.otf */; };
+		90F7FEC21D20F00E0054200B /* ThaiSansNeue-ExtraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 90EB149A1D20EEDC009C55C6 /* ThaiSansNeue-ExtraLight.otf */; };
+		90F7FEC31D20F00E0054200B /* ThaiSansNeue-ExtraLightItal.otf in Resources */ = {isa = PBXBuildFile; fileRef = 90EB149B1D20EEDC009C55C6 /* ThaiSansNeue-ExtraLightItal.otf */; };
+		90F7FEC41D20F00E0054200B /* ThaiSansNeue-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 90EB149C1D20EEDC009C55C6 /* ThaiSansNeue-Italic.otf */; };
+		90F7FEC51D20F00E0054200B /* ThaiSansNeue-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 90EB149D1D20EEDC009C55C6 /* ThaiSansNeue-Light.otf */; };
+		90F7FEC61D20F00E0054200B /* ThaiSansNeue-LightItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 90EB149E1D20EEDC009C55C6 /* ThaiSansNeue-LightItalic.otf */; };
+		90F7FEC71D20F00E0054200B /* ThaiSansNeue-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 90EB149F1D20EEDC009C55C6 /* ThaiSansNeue-Regular.otf */; };
+		90F7FEC81D20F00E0054200B /* ThaiSansNeue-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 90EB14A01D20EEDC009C55C6 /* ThaiSansNeue-SemiBold.otf */; };
+		90F7FEC91D20F00E0054200B /* ThaiSansNeue-SemiBoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 90EB14A11D20EEDC009C55C6 /* ThaiSansNeue-SemiBoldItalic.otf */; };
+		90F7FECA1D20F00E0054200B /* ThaiSansNeue-UltraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 90EB14A21D20EEDC009C55C6 /* ThaiSansNeue-UltraBold.otf */; };
+		90F7FECB1D20F00E0054200B /* ThaiSansNeue-UltraBoldItali.otf in Resources */ = {isa = PBXBuildFile; fileRef = 90EB14A31D20EEDC009C55C6 /* ThaiSansNeue-UltraBoldItali.otf */; };
+		90F7FECC1D20F00E0054200B /* ThaiSansNeue-UltraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 90EB14A41D20EEDC009C55C6 /* ThaiSansNeue-UltraLight.otf */; };
+		90F7FECD1D20F00E0054200B /* ThaiSansNeue-UltraLightItal.otf in Resources */ = {isa = PBXBuildFile; fileRef = 90EB14A51D20EEDC009C55C6 /* ThaiSansNeue-UltraLightItal.otf */; };
 		90FC1EDB1D1CE90C00B57C5B /* Transaction.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90FC1EDA1D1CE90C00B57C5B /* Transaction.storyboard */; };
 		A24694CA9F49194113B986ED /* Pods_LenkilaClub.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 231034E43D8FA9D5F9BCC465 /* Pods_LenkilaClub.framework */; };
 		B76AFAD11D0F677500619815 /* LayijiMahaniyom Bao.otf in Resources */ = {isa = PBXBuildFile; fileRef = B76AFACF1D0F677500619815 /* LayijiMahaniyom Bao.otf */; };
@@ -66,6 +84,24 @@
 		90003C771D1A93B2003E9375 /* SettingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
 		90003C791D1A9AC4003E9375 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		90D5A8821D0941A1000D2062 /* UserDetailListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDetailListViewController.swift; sourceTree = "<group>"; };
+		90EB14941D20EEDC009C55C6 /* ThaiSansNeue-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ThaiSansNeue-Black.otf"; sourceTree = "<group>"; };
+		90EB14951D20EEDC009C55C6 /* ThaiSansNeue-BlackItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ThaiSansNeue-BlackItalic.otf"; sourceTree = "<group>"; };
+		90EB14961D20EEDC009C55C6 /* ThaiSansNeue-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ThaiSansNeue-Bold.otf"; sourceTree = "<group>"; };
+		90EB14971D20EEDC009C55C6 /* ThaiSansNeue-BoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ThaiSansNeue-BoldItalic.otf"; sourceTree = "<group>"; };
+		90EB14981D20EEDC009C55C6 /* ThaiSansNeue-ExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ThaiSansNeue-ExtraBold.otf"; sourceTree = "<group>"; };
+		90EB14991D20EEDC009C55C6 /* ThaiSansNeue-ExtraBoldItali.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ThaiSansNeue-ExtraBoldItali.otf"; sourceTree = "<group>"; };
+		90EB149A1D20EEDC009C55C6 /* ThaiSansNeue-ExtraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ThaiSansNeue-ExtraLight.otf"; sourceTree = "<group>"; };
+		90EB149B1D20EEDC009C55C6 /* ThaiSansNeue-ExtraLightItal.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ThaiSansNeue-ExtraLightItal.otf"; sourceTree = "<group>"; };
+		90EB149C1D20EEDC009C55C6 /* ThaiSansNeue-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ThaiSansNeue-Italic.otf"; sourceTree = "<group>"; };
+		90EB149D1D20EEDC009C55C6 /* ThaiSansNeue-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ThaiSansNeue-Light.otf"; sourceTree = "<group>"; };
+		90EB149E1D20EEDC009C55C6 /* ThaiSansNeue-LightItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ThaiSansNeue-LightItalic.otf"; sourceTree = "<group>"; };
+		90EB149F1D20EEDC009C55C6 /* ThaiSansNeue-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ThaiSansNeue-Regular.otf"; sourceTree = "<group>"; };
+		90EB14A01D20EEDC009C55C6 /* ThaiSansNeue-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ThaiSansNeue-SemiBold.otf"; sourceTree = "<group>"; };
+		90EB14A11D20EEDC009C55C6 /* ThaiSansNeue-SemiBoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ThaiSansNeue-SemiBoldItalic.otf"; sourceTree = "<group>"; };
+		90EB14A21D20EEDC009C55C6 /* ThaiSansNeue-UltraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ThaiSansNeue-UltraBold.otf"; sourceTree = "<group>"; };
+		90EB14A31D20EEDC009C55C6 /* ThaiSansNeue-UltraBoldItali.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ThaiSansNeue-UltraBoldItali.otf"; sourceTree = "<group>"; };
+		90EB14A41D20EEDC009C55C6 /* ThaiSansNeue-UltraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ThaiSansNeue-UltraLight.otf"; sourceTree = "<group>"; };
+		90EB14A51D20EEDC009C55C6 /* ThaiSansNeue-UltraLightItal.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ThaiSansNeue-UltraLightItal.otf"; sourceTree = "<group>"; };
 		90FC1EDA1D1CE90C00B57C5B /* Transaction.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Transaction.storyboard; sourceTree = "<group>"; };
 		9BA99452800B8E83089DCDD4 /* Pods-LenkilaClubUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LenkilaClubUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LenkilaClubUITests/Pods-LenkilaClubUITests.release.xcconfig"; sourceTree = "<group>"; };
 		B76AFACF1D0F677500619815 /* LayijiMahaniyom Bao.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LayijiMahaniyom Bao.otf"; sourceTree = "<group>"; };
@@ -178,6 +214,24 @@
 			children = (
 				B76AFACF1D0F677500619815 /* LayijiMahaniyom Bao.otf */,
 				B76AFAD31D0F698100619815 /* thaisanslite_r1.otf */,
+				90EB14941D20EEDC009C55C6 /* ThaiSansNeue-Black.otf */,
+				90EB14951D20EEDC009C55C6 /* ThaiSansNeue-BlackItalic.otf */,
+				90EB14961D20EEDC009C55C6 /* ThaiSansNeue-Bold.otf */,
+				90EB14971D20EEDC009C55C6 /* ThaiSansNeue-BoldItalic.otf */,
+				90EB14981D20EEDC009C55C6 /* ThaiSansNeue-ExtraBold.otf */,
+				90EB14991D20EEDC009C55C6 /* ThaiSansNeue-ExtraBoldItali.otf */,
+				90EB149A1D20EEDC009C55C6 /* ThaiSansNeue-ExtraLight.otf */,
+				90EB149B1D20EEDC009C55C6 /* ThaiSansNeue-ExtraLightItal.otf */,
+				90EB149C1D20EEDC009C55C6 /* ThaiSansNeue-Italic.otf */,
+				90EB149D1D20EEDC009C55C6 /* ThaiSansNeue-Light.otf */,
+				90EB149E1D20EEDC009C55C6 /* ThaiSansNeue-LightItalic.otf */,
+				90EB149F1D20EEDC009C55C6 /* ThaiSansNeue-Regular.otf */,
+				90EB14A01D20EEDC009C55C6 /* ThaiSansNeue-SemiBold.otf */,
+				90EB14A11D20EEDC009C55C6 /* ThaiSansNeue-SemiBoldItalic.otf */,
+				90EB14A21D20EEDC009C55C6 /* ThaiSansNeue-UltraBold.otf */,
+				90EB14A31D20EEDC009C55C6 /* ThaiSansNeue-UltraBoldItali.otf */,
+				90EB14A41D20EEDC009C55C6 /* ThaiSansNeue-UltraLight.otf */,
+				90EB14A51D20EEDC009C55C6 /* ThaiSansNeue-UltraLightItal.otf */,
 			);
 			name = Resource;
 			sourceTree = "<group>";
@@ -399,6 +453,24 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90F7FEBC1D20F00E0054200B /* ThaiSansNeue-Black.otf in Resources */,
+				90F7FEBD1D20F00E0054200B /* ThaiSansNeue-BlackItalic.otf in Resources */,
+				90F7FEBE1D20F00E0054200B /* ThaiSansNeue-Bold.otf in Resources */,
+				90F7FEBF1D20F00E0054200B /* ThaiSansNeue-BoldItalic.otf in Resources */,
+				90F7FEC01D20F00E0054200B /* ThaiSansNeue-ExtraBold.otf in Resources */,
+				90F7FEC11D20F00E0054200B /* ThaiSansNeue-ExtraBoldItali.otf in Resources */,
+				90F7FEC21D20F00E0054200B /* ThaiSansNeue-ExtraLight.otf in Resources */,
+				90F7FEC31D20F00E0054200B /* ThaiSansNeue-ExtraLightItal.otf in Resources */,
+				90F7FEC41D20F00E0054200B /* ThaiSansNeue-Italic.otf in Resources */,
+				90F7FEC51D20F00E0054200B /* ThaiSansNeue-Light.otf in Resources */,
+				90F7FEC61D20F00E0054200B /* ThaiSansNeue-LightItalic.otf in Resources */,
+				90F7FEC71D20F00E0054200B /* ThaiSansNeue-Regular.otf in Resources */,
+				90F7FEC81D20F00E0054200B /* ThaiSansNeue-SemiBold.otf in Resources */,
+				90F7FEC91D20F00E0054200B /* ThaiSansNeue-SemiBoldItalic.otf in Resources */,
+				90F7FECA1D20F00E0054200B /* ThaiSansNeue-UltraBold.otf in Resources */,
+				90F7FECB1D20F00E0054200B /* ThaiSansNeue-UltraBoldItali.otf in Resources */,
+				90F7FECC1D20F00E0054200B /* ThaiSansNeue-UltraLight.otf in Resources */,
+				90F7FECD1D20F00E0054200B /* ThaiSansNeue-UltraLightItal.otf in Resources */,
 				B7B0D5E01CEDA27E00577430 /* LaunchScreen.storyboard in Resources */,
 				B76AFAD11D0F677500619815 /* LayijiMahaniyom Bao.otf in Resources */,
 				90FC1EDB1D1CE90C00B57C5B /* Transaction.storyboard in Resources */,
