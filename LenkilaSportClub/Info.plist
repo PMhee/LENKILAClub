@@ -24,6 +24,7 @@
 	<true/>
 	<key>UIAppFonts</key>
 	<array>
+		<string>Titillium-Bold.otf</string>
 		<string>ThaiSansNeue-Bold.otf</string>
 		<string>ThaiSansNeue-ExtraBold.otf</string>
 		<string>LayijiMahaniyom Bao.otf</string>

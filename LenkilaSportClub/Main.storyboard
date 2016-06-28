@@ -2399,8 +2399,7 @@
                                         <exclude reference="M7R-fM-6yH"/>
                                     </mask>
                                 </variation>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="110" y="143" width="180" height="30"/>
+                                <variation key="widthClass=compact">
                                     <mask key="constraints">
                                         <include reference="M7R-fM-6yH"/>
                                     </mask>
@@ -2420,8 +2419,7 @@
                                         <exclude reference="e3j-58-7ji"/>
                                     </mask>
                                 </variation>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="110" y="169" width="180" height="1"/>
+                                <variation key="widthClass=compact">
                                     <mask key="constraints">
                                         <include reference="e3j-58-7ji"/>
                                     </mask>
@@ -5336,7 +5334,8 @@
                                                 <exclude reference="TT8-Xx-KDX"/>
                                             </mask>
                                         </variation>
-                                        <variation key="widthClass=compact">
+                                        <variation key="widthClass=compact" misplaced="YES">
+                                            <rect key="frame" x="0.0" y="0.0" width="0.0" height="347"/>
                                             <mask key="subviews">
                                                 <include reference="yh5-P7-hQl"/>
                                                 <include reference="eRp-Ti-Y7E"/>
@@ -7076,9 +7075,9 @@
         <image name="user" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="inV-ku-RnF"/>
-        <segue reference="fZ1-2Q-0La"/>
+        <segue reference="gQt-sg-ifv"/>
         <segue reference="qly-p2-sCg"/>
+        <segue reference="fZ1-2Q-0La"/>
         <segue reference="REe-cY-fxJ"/>
     </inferredMetricsTieBreakers>
 </document>
