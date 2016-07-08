@@ -2291,7 +2291,11 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vGh-E7-bZh" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <screenEdgePanGestureRecognizer minimumNumberOfTouches="1" id="3hy-3z-dDi"/>
                 <tapGestureRecognizer id="NEe-Sq-eBH"/>
-                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="3i9-7D-nH5"/>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="3i9-7D-nH5">
+                    <connections>
+                        <action selector="long_press:" destination="7jf-tz-zUQ" id="BVT-vu-Yuq"/>
+                    </connections>
+                </pongPressGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="724.5" y="134"/>
         </scene>

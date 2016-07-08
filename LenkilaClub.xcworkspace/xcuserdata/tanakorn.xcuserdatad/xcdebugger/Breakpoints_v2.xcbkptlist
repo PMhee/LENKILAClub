@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LenkilaSportClub/ScheduleViewController.swift"
-            timestampString = "489077186.01571"
+            timestampString = "489673951.32277"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "391"
-            endingLineNumber = "391"
+            startingLineNumber = "462"
+            endingLineNumber = "462"
             landmarkName = "genSlot()"
             landmarkType = "5">
          </BreakpointContent>
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LenkilaSportClub/AddTableViewController.swift"
-            timestampString = "489134841.854153"
+            timestampString = "489673418.942723"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "276"
-            endingLineNumber = "276"
+            startingLineNumber = "285"
+            endingLineNumber = "285"
             landmarkName = "btn_add_action(_:)"
             landmarkType = "5">
          </BreakpointContent>

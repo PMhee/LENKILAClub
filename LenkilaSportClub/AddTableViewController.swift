@@ -27,6 +27,7 @@ class AddTableViewController: UIViewController,UITextFieldDelegate,UIGestureReco
     var not_found :Bool = false
     var edit_price : Bool = false
     var diff_hour : Double = 0.0
+    var scheduleArray = [Schedule]()
     @IBOutlet weak var cons_vw_tab_width: NSLayoutConstraint!
     @IBOutlet var tab_gesture: UITapGestureRecognizer!
     var checkedArray = [UIImageView]()
@@ -238,7 +239,11 @@ class AddTableViewController: UIViewController,UITextFieldDelegate,UIGestureReco
         }else{
         schedule.price = self.realPrice * diff_hour
         }
-        schedule.tag = Int(sche.count)+1
+        if self.scheduleArray.count == 0 {
+            schedule.tag = 1
+        }else{
+        schedule.tag = self.scheduleArray[scheduleArray.count-1].tag+1
+        }
         schedule.colorTag = self.pickedColor
         schedule.type = self.type
         schedule.id = String(sche.count)
@@ -270,7 +275,11 @@ class AddTableViewController: UIViewController,UITextFieldDelegate,UIGestureReco
                 }else{
                 schedules.price = self.realPrice * diff_hour
                 }
-                schedules.tag = Int(sche.count)+1
+                if self.scheduleArray.count == 0 {
+                    schedule.tag = 1
+                }else{
+                schedules.tag = scheduleArray[scheduleArray.count-1].tag+1
+                }
                 schedules.colorTag = self.pickedColor
                 schedules.type = self.type
                 schedules.id = String(sche.count)
@@ -327,7 +336,11 @@ class AddTableViewController: UIViewController,UITextFieldDelegate,UIGestureReco
                     }else{
                     schedule.price = self.realPrice * self.diff_hour
                     }
-                    schedule.tag = Int(sche.count)+1
+                    if self.scheduleArray.count == 0 {
+                        schedule.tag = 1
+                    }else{
+                    schedule.tag = self.scheduleArray[self.scheduleArray.count-1].tag+1
+                    }
                     schedule.colorTag = self.pickedColor
                     schedule.type = self.type
                     schedule.paid_type = "cash"
@@ -359,7 +372,11 @@ class AddTableViewController: UIViewController,UITextFieldDelegate,UIGestureReco
                             }else{
                             schedules.price = self.realPrice * self.diff_hour
                             }
-                            schedules.tag = Int(sche.count)+1
+                            if self.scheduleArray.count == 0 {
+                                schedule.tag = 1
+                            }else{
+                            schedules.tag = self.scheduleArray[self.scheduleArray.count-1].tag+1
+                            }
                             schedules.colorTag = self.pickedColor
                             schedules.type = self.type
                             schedules.userID = user.id
@@ -450,6 +467,10 @@ class AddTableViewController: UIViewController,UITextFieldDelegate,UIGestureReco
         let attr = NSDictionary(object: UIFont(name: "ThaiSansLite", size: 17.0)!, forKey: NSFontAttributeName)
         self.segment.setTitleTextAttributes(attr as [NSObject: AnyObject], forState: .Normal)
         tf_name.becomeFirstResponder()
+        let schedule = Schedule.allObjects()
+        for i in 0..<schedule.count{
+            scheduleArray.append(schedule[i] as! Schedule)
+        }
         // Do any additional setup after loading the view.
     }
     override func viewWillAppear(animated: Bool) {
