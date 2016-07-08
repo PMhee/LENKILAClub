@@ -220,7 +220,7 @@ class TransactionManagementViewController: UIViewController,UIGestureRecognizerD
 //        let num_field = cell.viewWithTag(4) as! UILabel
 //        num_field.text = "สนาม "+scheduleArray[indexPath.row].field
         let time = cell.viewWithTag(5) as! UILabel
-        time.text = "เวลา "+scheduleArray[indexPath.row].time
+        time.text = scheduleArray[indexPath.row].time
         let day = cell.viewWithTag(6) as! UILabel
         day.text = scheduleArray[indexPath.row].date
         var a : String = self.scheduleArray[indexPath.row].time
@@ -250,7 +250,7 @@ class TransactionManagementViewController: UIViewController,UIGestureRecognizerD
         let numberFormatter = NSNumberFormatter()
         numberFormatter.internationalCurrencySymbol = ""
         numberFormatter.numberStyle = NSNumberFormatterStyle.CurrencyISOCodeStyle
-        price.text = numberFormatter.stringFromNumber((Double(scheduleArray[indexPath.row].price) * diff_hour) as NSNumber)! + " บาท"
+        price.text = numberFormatter.stringFromNumber((Double(scheduleArray[indexPath.row].price)) as NSNumber)! + " บาท"
         return cell
     }
     func createSortDate(date:String,var time:String)->Int{
@@ -408,7 +408,7 @@ class TransactionManagementViewController: UIViewController,UIGestureRecognizerD
         }
     }
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 90
+        return 88
     }
     /*
      // MARK: - Navigation

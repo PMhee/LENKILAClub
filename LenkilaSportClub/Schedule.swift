@@ -13,7 +13,7 @@ class Schedule:RLMObject{
     dynamic var type : String = ""
     dynamic var date : String = ""
     dynamic var time : String = ""
-    dynamic var price : Int = 0
+    dynamic var price : Double = 0.0
     dynamic var field : String = ""
     dynamic var tag : Int  = 0
     dynamic var userID : String = ""

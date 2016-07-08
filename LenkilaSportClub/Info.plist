@@ -25,6 +25,7 @@
 	<key>UIAppFonts</key>
 	<array>
 		<string>LayijiMahaniyom Bao.otf</string>
+		<string>TitilliumWeb-Regular.ttf</string>
 		<string>thaisanslite_r1.otf</string>
 	</array>
 	<key>UILaunchStoryboardName</key>

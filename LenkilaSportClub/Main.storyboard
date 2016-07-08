@@ -647,7 +647,7 @@
                                     </mask>
                                 </variation>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n2H-rL-tw7">
+                            <view contentMode="scaleToFill" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="n2H-rL-tw7">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <color key="backgroundColor" red="0.90588235294117647" green="0.90196078431372551" blue="0.90588235294117647" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -2282,6 +2282,7 @@
                         <outlet property="cons_vw_tab_width" destination="c4Q-zF-0gd" id="Fqf-yI-qPP"/>
                         <outlet property="label_date" destination="w0E-xP-Xcy" id="cb7-bs-gtL"/>
                         <outlet property="long_gesture" destination="3i9-7D-nH5" id="DgH-DW-uvC"/>
+                        <outlet property="problem_view" destination="n2H-rL-tw7" id="1Be-ak-gFF"/>
                         <outlet property="tapGesture" destination="NEe-Sq-eBH" id="DTe-lL-nGu"/>
                         <outlet property="vw_tab" destination="w3Q-hJ-lUS" id="cFa-sb-FbV"/>
                         <segue destination="1w7-Bw-Xhv" kind="modal" identifier="addTable" modalTransitionStyle="crossDissolve" id="QFP-Nj-vFV"/>

@@ -17,7 +17,7 @@ class AddTableViewController: UIViewController,UITextFieldDelegate,UIGestureReco
     var name : String!
     var price : String!
     var rep : String!
-    var realPrice : Int!
+    var realPrice : Double!
     var pickedColor : String = "red"
     var type :String = "reserve"
     var realRep : Int!
@@ -26,6 +26,7 @@ class AddTableViewController: UIViewController,UITextFieldDelegate,UIGestureReco
     var enable_touch : Bool = false
     var not_found :Bool = false
     var edit_price : Bool = false
+    var diff_hour : Double = 0.0
     @IBOutlet weak var cons_vw_tab_width: NSLayoutConstraint!
     @IBOutlet var tab_gesture: UITapGestureRecognizer!
     var checkedArray = [UIImageView]()
@@ -138,7 +139,7 @@ class AddTableViewController: UIViewController,UITextFieldDelegate,UIGestureReco
         sender.text = sender.text!+" บาท"
         var range = sender.text!.rangeOfString(" ")!
         var index = sender.text!.startIndex.distanceTo(range.startIndex)
-        self.realPrice = Int(sender.text!.substringWithRange(Range<String.Index>(start:sender.text!.startIndex.advancedBy(0), end: sender.text!.startIndex.advancedBy(index))))
+        self.realPrice = Double(sender.text!.substringWithRange(Range<String.Index>(start:sender.text!.startIndex.advancedBy(0), end: sender.text!.startIndex.advancedBy(index))))
     }
     @IBAction func btn_green_action(sender: UIButton) {
         self.pickedColor = "green"
@@ -223,6 +224,7 @@ class AddTableViewController: UIViewController,UITextFieldDelegate,UIGestureReco
         tf_time.text = self.time
     }
     @IBAction func btn_add_action(sender: AnyObject) {
+        findDiffHour()
         let realm = RLMRealm.defaultRealm()
         let schedule = Schedule()
         let sche = Schedule.allObjects()
@@ -232,9 +234,9 @@ class AddTableViewController: UIViewController,UITextFieldDelegate,UIGestureReco
         schedule.date = format.stringFromDate(self.date)
         schedule.time = self.time
         if edit_price{
-            schedule.price = Int(self.tf_price.text!)!
+            schedule.price = Double(self.tf_price.text!)! * diff_hour
         }else{
-        schedule.price = self.realPrice
+        schedule.price = self.realPrice * diff_hour
         }
         schedule.tag = Int(sche.count)+1
         schedule.colorTag = self.pickedColor
@@ -264,9 +266,9 @@ class AddTableViewController: UIViewController,UITextFieldDelegate,UIGestureReco
                 }
                 schedules.time = self.time
                 if edit_price {
-                schedules.price = Int(self.tf_price.text!)!
+                schedules.price = Double(self.tf_price.text!)! * diff_hour
                 }else{
-                schedules.price = self.realPrice
+                schedules.price = self.realPrice * diff_hour
                 }
                 schedules.tag = Int(sche.count)+1
                 schedules.colorTag = self.pickedColor
@@ -321,9 +323,9 @@ class AddTableViewController: UIViewController,UITextFieldDelegate,UIGestureReco
                     schedule.date = format.stringFromDate(self.date)
                     schedule.time = self.time
                     if self.edit_price{
-                        schedule.price = Int(self.tf_price.text!)!
+                        schedule.price = Double(self.tf_price.text!)! * self.diff_hour
                     }else{
-                    schedule.price = self.realPrice
+                    schedule.price = self.realPrice * self.diff_hour
                     }
                     schedule.tag = Int(sche.count)+1
                     schedule.colorTag = self.pickedColor
@@ -353,9 +355,9 @@ class AddTableViewController: UIViewController,UITextFieldDelegate,UIGestureReco
                             }
                             schedules.time = self.time
                             if self.edit_price{
-                                schedules.price = Int(self.tf_price.text!)!
+                                schedules.price = Double(self.tf_price.text!)! * self.diff_hour
                             }else{
-                            schedules.price = self.realPrice
+                            schedules.price = self.realPrice * self.diff_hour
                             }
                             schedules.tag = Int(sche.count)+1
                             schedules.colorTag = self.pickedColor
@@ -493,7 +495,7 @@ class AddTableViewController: UIViewController,UITextFieldDelegate,UIGestureReco
         tf_price.text = self.price
         var range: Range<String.Index> = self.price.rangeOfString(" ")!
         var index: Int = self.price.startIndex.distanceTo(range.startIndex)
-        self.realPrice = Int(self.price.substringWithRange(Range<String.Index>(start:self.price.startIndex.advancedBy(0), end: self.price.startIndex.advancedBy(index))))
+        self.realPrice = Double(self.price.substringWithRange(Range<String.Index>(start:self.price.startIndex.advancedBy(0), end: self.price.startIndex.advancedBy(index))))
         range = self.rep.rangeOfString(" ")!
         index = self.rep.startIndex.distanceTo(range.startIndex)
         self.realRep = Int(self.tf_repeat.text!.substringWithRange(Range<String.Index>(start:self.tf_repeat.text!.startIndex.advancedBy(0), end: self.tf_repeat.text!.startIndex.advancedBy(index))))
@@ -536,6 +538,33 @@ class AddTableViewController: UIViewController,UITextFieldDelegate,UIGestureReco
                 des.firstTime = true
             }
         }
+    }
+    func findDiffHour(){
+        var a : String = self.tf_time.text!
+        var range: Range<String.Index> = a.rangeOfString(".")!
+        let index: Int = a.startIndex.distanceTo(range.startIndex)
+        let startHour = a.substringWithRange(Range<String.Index>(a.startIndex.advancedBy(0)..<a.startIndex.advancedBy(index)))
+        range = a.rangeOfString(" ")!
+        let index1 = a.startIndex.distanceTo(range.startIndex)
+        let startMin = a.substringWithRange(Range<String.Index>(start: a.startIndex.advancedBy(index+1), end: (a.startIndex.advancedBy(index1))))
+        a = a.substringWithRange(Range<String.Index>(start: a.startIndex.advancedBy(index1+3), end: (a.endIndex.advancedBy(0))))
+        range = a.rangeOfString(".")!
+        let index2 = a.startIndex.distanceTo(range.startIndex)
+        let endHour = a.substringWithRange(Range<String.Index>(start: a.startIndex.advancedBy(0), end: (a.startIndex.advancedBy(index2))))
+        let endMin = a.substringWithRange(Range<String.Index>(start: a.startIndex.advancedBy(index2+1), end: (a.endIndex.advancedBy(0))))
+        //let hour_count = cell.viewWithTag(7) as! UILabel
+        var diff_hour = Double(endHour)! - Double(startHour)!
+        if Int(startMin)>Int(endMin){
+            //hour_count.text = String(Int(endHour)!-Int(startHour)!)+" ชั่วโมง"+" "+"30 นาที"
+            diff_hour += 0.5
+        }else if Int(startMin)<Int(endMin){
+            //hour_count.text = String(Int(endHour)!-Int(startHour)!-1)+" ชั่วโมง"+" "+"30 นาที"
+            diff_hour -= 0.5
+        }else{
+            //hour_count.text = String(Int(endHour)!-Int(startHour)!)+" ชั่วโมง"+" "+"00 นาที"
+        }
+        self.diff_hour = diff_hour
+        
     }
     func createSortDate(date:String,var time:String)->Int{
         let dateFormatt = NSDateFormatter()

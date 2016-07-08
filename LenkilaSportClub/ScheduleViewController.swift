@@ -17,6 +17,7 @@ class ScheduleViewController: UIViewController,UIScrollViewDelegate,UIGestureRec
     //    @IBOutlet weak var cons_lead_view: NSLayoutConstraint!
     //    var changeHeight : CGFloat!
     //    var changeWidth: CGFloat!
+    @IBOutlet weak var problem_view: UIView!
     var tag : Int = 0
     var temp_tag : Int = 0
     var drag_top : Bool = false
@@ -112,13 +113,14 @@ class ScheduleViewController: UIViewController,UIScrollViewDelegate,UIGestureRec
         let pan = UIPanGestureRecognizer(target: self, action: #selector(ScheduleViewController.drag(_:)))
         self.view.addGestureRecognizer(pan)
         self.view.addGestureRecognizer(tapGesture)
-        self.genTableField()
         btn_today.layer.cornerRadius = 15
+        self.genScheduleOnTable()
         // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
+        self.genTableField()
         if firstTime {
             self.label_date.text = self.date
         }else{
@@ -126,37 +128,6 @@ class ScheduleViewController: UIViewController,UIScrollViewDelegate,UIGestureRec
             format.dateStyle = NSDateFormatterStyle.FullStyle
             label_date.text = format.stringFromDate(NSDate())
         }
-        //        let realm = RLMRealm.defaultRealm()
-        //        let user = User()
-        //        user.age = 22
-        //        user.contact = "099-2850130"
-        //        let format = NSDateFormatter()
-        //        format.timeStyle = NSDateFormatterStyle.ShortStyle
-        //        user.freqPlay = format.stringFromDate(NSDate())
-        //        user.gender = "ชาย"
-        //        user.id = "1111"
-        //        user.name = "ธนากร รัตนจริยา"
-        //        user.nickName = "นนท์"
-        //        user.playCount = 4
-        //        user.price = 1000
-        //        user.workPlace = "Lenkila"
-        //        realm.beginWriteTransaction()
-        //        realm.addObject(user)
-        //        try! realm.commitWriteTransaction()
-        //        let sche = Schedule()
-        //        let formatter = NSDateFormatter()
-        //        formatter.dateStyle = NSDateFormatterStyle.FullStyle
-        //        sche.date = "Friday, June 3, 2016"
-        //        sche.time = "18.00 - 20.30"
-        //        sche.field = "1"
-        //        sche.userID = "1111"
-        //        sche.price = 1000
-        //        sche.rep = 1
-        //        sche.colorTag = "dark_blue"
-        //        sche.tag = 1
-        //        sche.type = "reserve"
-        //        let schedule = Schedule.allObjects()
-        //        schedualArray.append(sche)
         let sche = Schedule.allObjects()
         let users = User.allObjects()
         if sche.count > 0 {
@@ -176,6 +147,7 @@ class ScheduleViewController: UIViewController,UIScrollViewDelegate,UIGestureRec
             self.tag = schedualArray[schedualArray.count-1].tag
         }
         self.view.bringSubviewToFront(vw_tab)
+
     }
     func genScheduleOnTable(){
         let h : CGFloat = CGFloat(((1.595*self.view.frame.height)/2)/17)
@@ -213,6 +185,9 @@ class ScheduleViewController: UIViewController,UIScrollViewDelegate,UIGestureRec
                     self.keepTag.append(self.schedualArray[i].tag)
                     view.tag = self.schedualArray[i].tag
                     self.view.addSubview(view)
+                    view.layer.borderWidth = 1
+                    view.layer.masksToBounds = true
+                    view.layer.borderColor = UIColor(red: 238/255, green: 238/255, blue: 238/255, alpha: 1.0).CGColor
                     let lb = UILabel(frame:CGRectMake(0,0,width,view.frame.height/2))
                     lb.text = (self.userArray[schedualArray[i].userID]?.nickName)!
                     lb.textColor = UIColor.whiteColor()
@@ -225,6 +200,10 @@ class ScheduleViewController: UIViewController,UIScrollViewDelegate,UIGestureRec
                     lb1.font = UIFont(name:"ThaiSansLite", size: 13)
                     lb1.textAlignment = .Center
                     view.addSubview(lb1)
+                    self.view.sendSubviewToBack(self.problem_view)
+                    self.view.bringSubviewToFront(view)
+                    self.view.bringSubviewToFront(lb)
+                    self.view.bringSubviewToFront(lb1)
                     self.view.bringSubviewToFront(vw_tab)
                 }
             }
@@ -241,7 +220,6 @@ class ScheduleViewController: UIViewController,UIScrollViewDelegate,UIGestureRec
         }
         
     }
-    
     func gestureRecognizerShouldBegin(gestureRecognizer: UIGestureRecognizer) -> Bool {
         if enable_touch {
             self.trigger_tab()
