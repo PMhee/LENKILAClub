@@ -1,0 +1,1037 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		26C41DDC32314A242487B3E1 /* Pods_LenkilaClubTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A09C0246BA32B63D693F63F /* Pods_LenkilaClubTests.framework */; };
+		844DB5DD435208890AA16C57 /* Pods_LenkilaClubUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F22EFD3FB526B4B7EE2DEFF /* Pods_LenkilaClubUITests.framework */; };
+		90003C721D1A8349003E9375 /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90003C711D1A8349003E9375 /* Setting.storyboard */; };
+		90003C761D1A8B05003E9375 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90003C751D1A8B05003E9375 /* SettingViewController.swift */; };
+		90003C781D1A93B2003E9375 /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90003C771D1A93B2003E9375 /* SettingTableViewCell.swift */; };
+		90003C7A1D1A9AC4003E9375 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90003C791D1A9AC4003E9375 /* Main.storyboard */; };
+		902EC56D1D2528BC00E09816 /* CouponViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 902EC56C1D2528BC00E09816 /* CouponViewController.swift */; };
+		9049C9C41D211F7D0014D464 /* SettingCurrentPackageViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9049C9C31D211F7D0014D464 /* SettingCurrentPackageViewCell.swift */; };
+		9049C9D51D223C3E0014D464 /* Titillium-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9049C9C51D2234BE0014D464 /* Titillium-Black.otf */; };
+		9049C9D61D223C3E0014D464 /* Titillium-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9049C9C61D2234BE0014D464 /* Titillium-Bold.otf */; };
+		9049C9D71D223C3E0014D464 /* Titillium-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9049C9C71D2234BE0014D464 /* Titillium-BoldItalic.otf */; };
+		9049C9D81D223C3E0014D464 /* Titillium-BoldUpright.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9049C9C81D2234BE0014D464 /* Titillium-BoldUpright.otf */; };
+		9049C9D91D223C3E0014D464 /* Titillium-LightItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9049C9D01D22355F0014D464 /* Titillium-LightItalic.otf */; };
+		9049C9DA1D223C3E0014D464 /* Titillium-LightUpright.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9049C9D11D22355F0014D464 /* Titillium-LightUpright.otf */; };
+		9049C9DB1D223C3E0014D464 /* Titillium-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9049C9D21D22355F0014D464 /* Titillium-Regular.otf */; };
+		9049C9DC1D223C3E0014D464 /* Titillium-ThinItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9049C9D31D22355F0014D464 /* Titillium-ThinItalic.otf */; };
+		9049C9DD1D223C3E0014D464 /* Titillium-ThinUpright.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9049C9D41D22355F0014D464 /* Titillium-ThinUpright.otf */; };
+		9049C9DE1D223C3E0014D464 /* Titillium-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9049C9C91D2234BE0014D464 /* Titillium-Light.otf */; };
+		9049C9DF1D223C3E0014D464 /* Titillium-RegularItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9049C9CA1D2234BE0014D464 /* Titillium-RegularItalic.otf */; };
+		9049C9E01D223C3E0014D464 /* Titillium-RegularUpright.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9049C9CB1D2234BE0014D464 /* Titillium-RegularUpright.otf */; };
+		9049C9E11D223C3E0014D464 /* Titillium-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9049C9CC1D2234BE0014D464 /* Titillium-Semibold.otf */; };
+		9049C9E21D223C3E0014D464 /* Titillium-SemiboldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9049C9CD1D2234BE0014D464 /* Titillium-SemiboldItalic.otf */; };
+		9049C9E31D223C3E0014D464 /* Titillium-SemiboldUpright.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9049C9CE1D2234BE0014D464 /* Titillium-SemiboldUpright.otf */; };
+		9049C9E41D223C3E0014D464 /* Titillium-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9049C9CF1D2234BE0014D464 /* Titillium-Thin.otf */; };
+		9049C9E61D2250190014D464 /* FAQViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9049C9E51D2250190014D464 /* FAQViewController.swift */; };
+		9049C9E81D2386CD0014D464 /* ContactUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9049C9E71D2386CD0014D464 /* ContactUsViewController.swift */; };
+		9049C9EA1D23EF570014D464 /* SendProlemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9049C9E91D23EF570014D464 /* SendProlemViewController.swift */; };
+		9095C5691D2F971400D424B4 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9095C5681D2F971400D424B4 /* ChangePasswordViewController.swift */; };
+		9095C56C1D2FA93F00D424B4 /* NewPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9095C56B1D2FA93F00D424B4 /* NewPasswordViewController.swift */; };
+		9095C56E1D2FA96000D424B4 /* ConfirmPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9095C56D1D2FA96000D424B4 /* ConfirmPasswordViewController.swift */; };
+		9095C5701D2FCCCA00D424B4 /* SegueFromLeft.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9095C56F1D2FCCCA00D424B4 /* SegueFromLeft.swift */; };
+		9095C5721D2FCCFA00D424B4 /* SegueFromRight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9095C5711D2FCCFA00D424B4 /* SegueFromRight.swift */; };
+		90D5A8831D0941A1000D2062 /* UserDetailListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D5A8821D0941A1000D2062 /* UserDetailListViewController.swift */; };
+		90F7FEBC1D20F00E0054200B /* ThaiSansNeue-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 90EB14941D20EEDC009C55C6 /* ThaiSansNeue-Black.otf */; };
+		90F7FEBD1D20F00E0054200B /* ThaiSansNeue-BlackItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 90EB14951D20EEDC009C55C6 /* ThaiSansNeue-BlackItalic.otf */; };
+		90F7FEBE1D20F00E0054200B /* ThaiSansNeue-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 90EB14961D20EEDC009C55C6 /* ThaiSansNeue-Bold.otf */; };
+		90F7FEBF1D20F00E0054200B /* ThaiSansNeue-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 90EB14971D20EEDC009C55C6 /* ThaiSansNeue-BoldItalic.otf */; };
+		90F7FEC01D20F00E0054200B /* ThaiSansNeue-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 90EB14981D20EEDC009C55C6 /* ThaiSansNeue-ExtraBold.otf */; };
+		90F7FEC11D20F00E0054200B /* ThaiSansNeue-ExtraBoldItali.otf in Resources */ = {isa = PBXBuildFile; fileRef = 90EB14991D20EEDC009C55C6 /* ThaiSansNeue-ExtraBoldItali.otf */; };
+		90F7FEC21D20F00E0054200B /* ThaiSansNeue-ExtraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 90EB149A1D20EEDC009C55C6 /* ThaiSansNeue-ExtraLight.otf */; };
+		90F7FEC31D20F00E0054200B /* ThaiSansNeue-ExtraLightItal.otf in Resources */ = {isa = PBXBuildFile; fileRef = 90EB149B1D20EEDC009C55C6 /* ThaiSansNeue-ExtraLightItal.otf */; };
+		90F7FEC41D20F00E0054200B /* ThaiSansNeue-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 90EB149C1D20EEDC009C55C6 /* ThaiSansNeue-Italic.otf */; };
+		90F7FEC51D20F00E0054200B /* ThaiSansNeue-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 90EB149D1D20EEDC009C55C6 /* ThaiSansNeue-Light.otf */; };
+		90F7FEC61D20F00E0054200B /* ThaiSansNeue-LightItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 90EB149E1D20EEDC009C55C6 /* ThaiSansNeue-LightItalic.otf */; };
+		90F7FEC71D20F00E0054200B /* ThaiSansNeue-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 90EB149F1D20EEDC009C55C6 /* ThaiSansNeue-Regular.otf */; };
+		90F7FEC81D20F00E0054200B /* ThaiSansNeue-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 90EB14A01D20EEDC009C55C6 /* ThaiSansNeue-SemiBold.otf */; };
+		90F7FEC91D20F00E0054200B /* ThaiSansNeue-SemiBoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 90EB14A11D20EEDC009C55C6 /* ThaiSansNeue-SemiBoldItalic.otf */; };
+		90F7FECA1D20F00E0054200B /* ThaiSansNeue-UltraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 90EB14A21D20EEDC009C55C6 /* ThaiSansNeue-UltraBold.otf */; };
+		90F7FECB1D20F00E0054200B /* ThaiSansNeue-UltraBoldItali.otf in Resources */ = {isa = PBXBuildFile; fileRef = 90EB14A31D20EEDC009C55C6 /* ThaiSansNeue-UltraBoldItali.otf */; };
+		90F7FECC1D20F00E0054200B /* ThaiSansNeue-UltraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 90EB14A41D20EEDC009C55C6 /* ThaiSansNeue-UltraLight.otf */; };
+		90F7FECD1D20F00E0054200B /* ThaiSansNeue-UltraLightItal.otf in Resources */ = {isa = PBXBuildFile; fileRef = 90EB14A51D20EEDC009C55C6 /* ThaiSansNeue-UltraLightItal.otf */; };
+		90FC1EDB1D1CE90C00B57C5B /* Transaction.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90FC1EDA1D1CE90C00B57C5B /* Transaction.storyboard */; };
+		A24694CA9F49194113B986ED /* Pods_LenkilaClub.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 231034E43D8FA9D5F9BCC465 /* Pods_LenkilaClub.framework */; };
+		B76AFAD11D0F677500619815 /* LayijiMahaniyom Bao.otf in Resources */ = {isa = PBXBuildFile; fileRef = B76AFACF1D0F677500619815 /* LayijiMahaniyom Bao.otf */; };
+		B76AFAD41D0F698100619815 /* thaisanslite_r1.otf in Resources */ = {isa = PBXBuildFile; fileRef = B76AFAD31D0F698100619815 /* thaisanslite_r1.otf */; };
+		B77188EC1CFFF2C700A8D8FB /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77188EB1CFFF2C700A8D8FB /* Schedule.swift */; };
+		B77188EE1CFFF3E300A8D8FB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77188ED1CFFF3E300A8D8FB /* User.swift */; };
+		B772FAA01D1A506A0024F3BF /* FreqPlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = B772FA9F1D1A506A0024F3BF /* FreqPlay.swift */; };
+		B78899E71D13C221009B6E3F /* TransactionManagementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78899E61D13C221009B6E3F /* TransactionManagementViewController.swift */; };
+		B7AE00931D09FCDA009DC015 /* EditUserDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AE00921D09FCDA009DC015 /* EditUserDetailViewController.swift */; };
+		B7B0D5D31CEDA27E00577430 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B0D5D21CEDA27E00577430 /* AppDelegate.swift */; };
+		B7B0D5D51CEDA27E00577430 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B0D5D41CEDA27E00577430 /* ViewController.swift */; };
+		B7B0D5DB1CEDA27E00577430 /* LenkilaSportClub.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B7B0D5D91CEDA27E00577430 /* LenkilaSportClub.xcdatamodeld */; };
+		B7B0D5DD1CEDA27E00577430 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B7B0D5DC1CEDA27E00577430 /* Assets.xcassets */; };
+		B7B0D5E01CEDA27E00577430 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7B0D5DE1CEDA27E00577430 /* LaunchScreen.storyboard */; };
+		B7B0D5EB1CEDA27F00577430 /* LenkilaSportClubTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B0D5EA1CEDA27F00577430 /* LenkilaSportClubTests.swift */; };
+		B7B0D5F61CEDA27F00577430 /* LenkilaSportClubUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B0D5F51CEDA27F00577430 /* LenkilaSportClubUITests.swift */; };
+		B7B0D6041CEDCB2F00577430 /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B0D6031CEDCB2F00577430 /* ScheduleViewController.swift */; };
+		B7B0D6061CEDCE7E00577430 /* UIImageEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B0D6051CEDCE7E00577430 /* UIImageEffects.swift */; };
+		B7C98C761D1EA3C700D6A5A0 /* Analysis.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7C98C751D1EA3C700D6A5A0 /* Analysis.storyboard */; };
+		B7C98C791D1EA6CC00D6A5A0 /* AnalysisViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C98C781D1EA6CC00D6A5A0 /* AnalysisViewController.swift */; };
+		B7EA92AC1CFE00E70006C673 /* AddTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7EA92AB1CFE00E70006C673 /* AddTableViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B7B0D5E71CEDA27F00577430 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B7B0D5C71CEDA27E00577430 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B7B0D5CE1CEDA27E00577430;
+			remoteInfo = LenkilaSportClub;
+		};
+		B7B0D5F21CEDA27F00577430 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B7B0D5C71CEDA27E00577430 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B7B0D5CE1CEDA27E00577430;
+			remoteInfo = LenkilaSportClub;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		231034E43D8FA9D5F9BCC465 /* Pods_LenkilaClub.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LenkilaClub.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2318D2B9ED00729437EC207D /* Pods-LenkilaClubUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LenkilaClubUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LenkilaClubUITests/Pods-LenkilaClubUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		788FC116ECABEDE302D97A5B /* Pods-LenkilaClub.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LenkilaClub.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LenkilaClub/Pods-LenkilaClub.debug.xcconfig"; sourceTree = "<group>"; };
+		7A470E43F08F16F9FCBAB9AD /* Pods-LenkilaClubTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LenkilaClubTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LenkilaClubTests/Pods-LenkilaClubTests.debug.xcconfig"; sourceTree = "<group>"; };
+		7F22EFD3FB526B4B7EE2DEFF /* Pods_LenkilaClubUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LenkilaClubUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8A09C0246BA32B63D693F63F /* Pods_LenkilaClubTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LenkilaClubTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		90003C711D1A8349003E9375 /* Setting.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Setting.storyboard; sourceTree = "<group>"; };
+		90003C751D1A8B05003E9375 /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		90003C771D1A93B2003E9375 /* SettingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
+		90003C791D1A9AC4003E9375 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		902EC56C1D2528BC00E09816 /* CouponViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CouponViewController.swift; sourceTree = "<group>"; };
+		9049C9C31D211F7D0014D464 /* SettingCurrentPackageViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingCurrentPackageViewCell.swift; sourceTree = "<group>"; };
+		9049C9C51D2234BE0014D464 /* Titillium-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Titillium-Black.otf"; sourceTree = "<group>"; };
+		9049C9C61D2234BE0014D464 /* Titillium-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Titillium-Bold.otf"; sourceTree = "<group>"; };
+		9049C9C71D2234BE0014D464 /* Titillium-BoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Titillium-BoldItalic.otf"; sourceTree = "<group>"; };
+		9049C9C81D2234BE0014D464 /* Titillium-BoldUpright.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Titillium-BoldUpright.otf"; sourceTree = "<group>"; };
+		9049C9C91D2234BE0014D464 /* Titillium-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Titillium-Light.otf"; sourceTree = "<group>"; };
+		9049C9CA1D2234BE0014D464 /* Titillium-RegularItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Titillium-RegularItalic.otf"; sourceTree = "<group>"; };
+		9049C9CB1D2234BE0014D464 /* Titillium-RegularUpright.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Titillium-RegularUpright.otf"; sourceTree = "<group>"; };
+		9049C9CC1D2234BE0014D464 /* Titillium-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Titillium-Semibold.otf"; sourceTree = "<group>"; };
+		9049C9CD1D2234BE0014D464 /* Titillium-SemiboldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Titillium-SemiboldItalic.otf"; sourceTree = "<group>"; };
+		9049C9CE1D2234BE0014D464 /* Titillium-SemiboldUpright.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Titillium-SemiboldUpright.otf"; sourceTree = "<group>"; };
+		9049C9CF1D2234BE0014D464 /* Titillium-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Titillium-Thin.otf"; sourceTree = "<group>"; };
+		9049C9D01D22355F0014D464 /* Titillium-LightItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Titillium-LightItalic.otf"; sourceTree = "<group>"; };
+		9049C9D11D22355F0014D464 /* Titillium-LightUpright.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Titillium-LightUpright.otf"; sourceTree = "<group>"; };
+		9049C9D21D22355F0014D464 /* Titillium-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Titillium-Regular.otf"; sourceTree = "<group>"; };
+		9049C9D31D22355F0014D464 /* Titillium-ThinItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Titillium-ThinItalic.otf"; sourceTree = "<group>"; };
+		9049C9D41D22355F0014D464 /* Titillium-ThinUpright.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Titillium-ThinUpright.otf"; sourceTree = "<group>"; };
+		9049C9E51D2250190014D464 /* FAQViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FAQViewController.swift; sourceTree = "<group>"; };
+		9049C9E71D2386CD0014D464 /* ContactUsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactUsViewController.swift; sourceTree = "<group>"; };
+		9049C9E91D23EF570014D464 /* SendProlemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendProlemViewController.swift; sourceTree = "<group>"; };
+		9095C5681D2F971400D424B4 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
+		9095C56B1D2FA93F00D424B4 /* NewPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPasswordViewController.swift; sourceTree = "<group>"; };
+		9095C56D1D2FA96000D424B4 /* ConfirmPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmPasswordViewController.swift; sourceTree = "<group>"; };
+		9095C56F1D2FCCCA00D424B4 /* SegueFromLeft.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegueFromLeft.swift; sourceTree = "<group>"; };
+		9095C5711D2FCCFA00D424B4 /* SegueFromRight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegueFromRight.swift; sourceTree = "<group>"; };
+		90D5A8821D0941A1000D2062 /* UserDetailListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDetailListViewController.swift; sourceTree = "<group>"; };
+		90EB14941D20EEDC009C55C6 /* ThaiSansNeue-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ThaiSansNeue-Black.otf"; sourceTree = "<group>"; };
+		90EB14951D20EEDC009C55C6 /* ThaiSansNeue-BlackItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ThaiSansNeue-BlackItalic.otf"; sourceTree = "<group>"; };
+		90EB14961D20EEDC009C55C6 /* ThaiSansNeue-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ThaiSansNeue-Bold.otf"; sourceTree = "<group>"; };
+		90EB14971D20EEDC009C55C6 /* ThaiSansNeue-BoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ThaiSansNeue-BoldItalic.otf"; sourceTree = "<group>"; };
+		90EB14981D20EEDC009C55C6 /* ThaiSansNeue-ExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ThaiSansNeue-ExtraBold.otf"; sourceTree = "<group>"; };
+		90EB14991D20EEDC009C55C6 /* ThaiSansNeue-ExtraBoldItali.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ThaiSansNeue-ExtraBoldItali.otf"; sourceTree = "<group>"; };
+		90EB149A1D20EEDC009C55C6 /* ThaiSansNeue-ExtraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ThaiSansNeue-ExtraLight.otf"; sourceTree = "<group>"; };
+		90EB149B1D20EEDC009C55C6 /* ThaiSansNeue-ExtraLightItal.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ThaiSansNeue-ExtraLightItal.otf"; sourceTree = "<group>"; };
+		90EB149C1D20EEDC009C55C6 /* ThaiSansNeue-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ThaiSansNeue-Italic.otf"; sourceTree = "<group>"; };
+		90EB149D1D20EEDC009C55C6 /* ThaiSansNeue-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ThaiSansNeue-Light.otf"; sourceTree = "<group>"; };
+		90EB149E1D20EEDC009C55C6 /* ThaiSansNeue-LightItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ThaiSansNeue-LightItalic.otf"; sourceTree = "<group>"; };
+		90EB149F1D20EEDC009C55C6 /* ThaiSansNeue-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ThaiSansNeue-Regular.otf"; sourceTree = "<group>"; };
+		90EB14A01D20EEDC009C55C6 /* ThaiSansNeue-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ThaiSansNeue-SemiBold.otf"; sourceTree = "<group>"; };
+		90EB14A11D20EEDC009C55C6 /* ThaiSansNeue-SemiBoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ThaiSansNeue-SemiBoldItalic.otf"; sourceTree = "<group>"; };
+		90EB14A21D20EEDC009C55C6 /* ThaiSansNeue-UltraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ThaiSansNeue-UltraBold.otf"; sourceTree = "<group>"; };
+		90EB14A31D20EEDC009C55C6 /* ThaiSansNeue-UltraBoldItali.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ThaiSansNeue-UltraBoldItali.otf"; sourceTree = "<group>"; };
+		90EB14A41D20EEDC009C55C6 /* ThaiSansNeue-UltraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ThaiSansNeue-UltraLight.otf"; sourceTree = "<group>"; };
+		90EB14A51D20EEDC009C55C6 /* ThaiSansNeue-UltraLightItal.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ThaiSansNeue-UltraLightItal.otf"; sourceTree = "<group>"; };
+		90FC1EDA1D1CE90C00B57C5B /* Transaction.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Transaction.storyboard; sourceTree = "<group>"; };
+		9BA99452800B8E83089DCDD4 /* Pods-LenkilaClubUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LenkilaClubUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LenkilaClubUITests/Pods-LenkilaClubUITests.release.xcconfig"; sourceTree = "<group>"; };
+		B76AFACF1D0F677500619815 /* LayijiMahaniyom Bao.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LayijiMahaniyom Bao.otf"; sourceTree = "<group>"; };
+		B76AFAD31D0F698100619815 /* thaisanslite_r1.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = thaisanslite_r1.otf; sourceTree = "<group>"; };
+		B77188EB1CFFF2C700A8D8FB /* Schedule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Schedule.swift; path = LenkilaSportClub/Schedule.swift; sourceTree = "<group>"; };
+		B77188ED1CFFF3E300A8D8FB /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = LenkilaSportClub/User.swift; sourceTree = "<group>"; };
+		B772FA9F1D1A506A0024F3BF /* FreqPlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FreqPlay.swift; sourceTree = "<group>"; };
+		B78899E61D13C221009B6E3F /* TransactionManagementViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionManagementViewController.swift; sourceTree = "<group>"; };
+		B7AE00921D09FCDA009DC015 /* EditUserDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditUserDetailViewController.swift; sourceTree = "<group>"; };
+		B7B0D5CF1CEDA27E00577430 /* LenkilaClub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LenkilaClub.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B7B0D5D21CEDA27E00577430 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		B7B0D5D41CEDA27E00577430 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B7B0D5DA1CEDA27E00577430 /* LenkilaSportClub.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LenkilaSportClub.xcdatamodel; sourceTree = "<group>"; };
+		B7B0D5DC1CEDA27E00577430 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B7B0D5DF1CEDA27E00577430 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B7B0D5E11CEDA27E00577430 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B7B0D5E61CEDA27F00577430 /* LenkilaClub.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LenkilaClub.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B7B0D5EA1CEDA27F00577430 /* LenkilaSportClubTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LenkilaSportClubTests.swift; sourceTree = "<group>"; };
+		B7B0D5EC1CEDA27F00577430 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B7B0D5F11CEDA27F00577430 /* LenkilaClub.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LenkilaClub.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B7B0D5F51CEDA27F00577430 /* LenkilaSportClubUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LenkilaSportClubUITests.swift; sourceTree = "<group>"; };
+		B7B0D5F71CEDA27F00577430 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B7B0D6031CEDCB2F00577430 /* ScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
+		B7B0D6051CEDCE7E00577430 /* UIImageEffects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageEffects.swift; sourceTree = "<group>"; };
+		B7C98C751D1EA3C700D6A5A0 /* Analysis.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Analysis.storyboard; sourceTree = "<group>"; };
+		B7C98C781D1EA6CC00D6A5A0 /* AnalysisViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalysisViewController.swift; sourceTree = "<group>"; };
+		B7EA92AB1CFE00E70006C673 /* AddTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTableViewController.swift; sourceTree = "<group>"; };
+		F6193FE10ED62F19717EB82C /* Pods-LenkilaClub.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LenkilaClub.release.xcconfig"; path = "Pods/Target Support Files/Pods-LenkilaClub/Pods-LenkilaClub.release.xcconfig"; sourceTree = "<group>"; };
+		F9D74B4F9719CD65D8997001 /* Pods-LenkilaClubTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LenkilaClubTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LenkilaClubTests/Pods-LenkilaClubTests.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B7B0D5CC1CEDA27E00577430 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A24694CA9F49194113B986ED /* Pods_LenkilaClub.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B7B0D5E31CEDA27F00577430 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				26C41DDC32314A242487B3E1 /* Pods_LenkilaClubTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B7B0D5EE1CEDA27F00577430 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				844DB5DD435208890AA16C57 /* Pods_LenkilaClubUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		000403D4BA48F0A90D47F7CF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				231034E43D8FA9D5F9BCC465 /* Pods_LenkilaClub.framework */,
+				8A09C0246BA32B63D693F63F /* Pods_LenkilaClubTests.framework */,
+				7F22EFD3FB526B4B7EE2DEFF /* Pods_LenkilaClubUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		90003C701D1A8139003E9375 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				90003C751D1A8B05003E9375 /* SettingViewController.swift */,
+				90003C771D1A93B2003E9375 /* SettingTableViewCell.swift */,
+				9049C9C31D211F7D0014D464 /* SettingCurrentPackageViewCell.swift */,
+				9049C9E51D2250190014D464 /* FAQViewController.swift */,
+				9049C9E71D2386CD0014D464 /* ContactUsViewController.swift */,
+				9049C9E91D23EF570014D464 /* SendProlemViewController.swift */,
+				9095C56A1D2FA87500D424B4 /* ChangePassword */,
+				902EC56C1D2528BC00E09816 /* CouponViewController.swift */,
+			);
+			name = Setting;
+			sourceTree = "<group>";
+		};
+		9095C56A1D2FA87500D424B4 /* ChangePassword */ = {
+			isa = PBXGroup;
+			children = (
+				9095C5681D2F971400D424B4 /* ChangePasswordViewController.swift */,
+				9095C56B1D2FA93F00D424B4 /* NewPasswordViewController.swift */,
+				9095C56D1D2FA96000D424B4 /* ConfirmPasswordViewController.swift */,
+			);
+			name = ChangePassword;
+			sourceTree = "<group>";
+		};
+		90D5A87F1D093D09000D2062 /* UserDetailList */ = {
+			isa = PBXGroup;
+			children = (
+				90D5A8821D0941A1000D2062 /* UserDetailListViewController.swift */,
+				B7AE00921D09FCDA009DC015 /* EditUserDetailViewController.swift */,
+			);
+			name = UserDetailList;
+			sourceTree = "<group>";
+		};
+		90FC1ED91D1CE8EE00B57C5B /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				90003C791D1A9AC4003E9375 /* Main.storyboard */,
+				90003C711D1A8349003E9375 /* Setting.storyboard */,
+				90FC1EDA1D1CE90C00B57C5B /* Transaction.storyboard */,
+				B7C98C751D1EA3C700D6A5A0 /* Analysis.storyboard */,
+			);
+			name = Storyboard;
+			sourceTree = "<group>";
+		};
+		B749890B1D09EC6E0058D874 /* Schedule */ = {
+			isa = PBXGroup;
+			children = (
+				B7B0D6031CEDCB2F00577430 /* ScheduleViewController.swift */,
+				B7EA92AB1CFE00E70006C673 /* AddTableViewController.swift */,
+			);
+			name = Schedule;
+			sourceTree = "<group>";
+		};
+		B76AFACE1D0F676000619815 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				B76AFACF1D0F677500619815 /* LayijiMahaniyom Bao.otf */,
+				B76AFAD31D0F698100619815 /* thaisanslite_r1.otf */,
+				90EB14941D20EEDC009C55C6 /* ThaiSansNeue-Black.otf */,
+				90EB14951D20EEDC009C55C6 /* ThaiSansNeue-BlackItalic.otf */,
+				90EB14961D20EEDC009C55C6 /* ThaiSansNeue-Bold.otf */,
+				90EB14971D20EEDC009C55C6 /* ThaiSansNeue-BoldItalic.otf */,
+				90EB14981D20EEDC009C55C6 /* ThaiSansNeue-ExtraBold.otf */,
+				90EB14991D20EEDC009C55C6 /* ThaiSansNeue-ExtraBoldItali.otf */,
+				90EB149A1D20EEDC009C55C6 /* ThaiSansNeue-ExtraLight.otf */,
+				90EB149B1D20EEDC009C55C6 /* ThaiSansNeue-ExtraLightItal.otf */,
+				9049C9C51D2234BE0014D464 /* Titillium-Black.otf */,
+				9049C9C61D2234BE0014D464 /* Titillium-Bold.otf */,
+				9049C9C71D2234BE0014D464 /* Titillium-BoldItalic.otf */,
+				9049C9C81D2234BE0014D464 /* Titillium-BoldUpright.otf */,
+				9049C9D01D22355F0014D464 /* Titillium-LightItalic.otf */,
+				9049C9D11D22355F0014D464 /* Titillium-LightUpright.otf */,
+				9049C9D21D22355F0014D464 /* Titillium-Regular.otf */,
+				9049C9D31D22355F0014D464 /* Titillium-ThinItalic.otf */,
+				9049C9D41D22355F0014D464 /* Titillium-ThinUpright.otf */,
+				9049C9C91D2234BE0014D464 /* Titillium-Light.otf */,
+				9049C9CA1D2234BE0014D464 /* Titillium-RegularItalic.otf */,
+				9049C9CB1D2234BE0014D464 /* Titillium-RegularUpright.otf */,
+				9049C9CC1D2234BE0014D464 /* Titillium-Semibold.otf */,
+				9049C9CD1D2234BE0014D464 /* Titillium-SemiboldItalic.otf */,
+				9049C9CE1D2234BE0014D464 /* Titillium-SemiboldUpright.otf */,
+				9049C9CF1D2234BE0014D464 /* Titillium-Thin.otf */,
+				90EB149C1D20EEDC009C55C6 /* ThaiSansNeue-Italic.otf */,
+				90EB149D1D20EEDC009C55C6 /* ThaiSansNeue-Light.otf */,
+				90EB149E1D20EEDC009C55C6 /* ThaiSansNeue-LightItalic.otf */,
+				90EB149F1D20EEDC009C55C6 /* ThaiSansNeue-Regular.otf */,
+				90EB14A01D20EEDC009C55C6 /* ThaiSansNeue-SemiBold.otf */,
+				90EB14A11D20EEDC009C55C6 /* ThaiSansNeue-SemiBoldItalic.otf */,
+				90EB14A21D20EEDC009C55C6 /* ThaiSansNeue-UltraBold.otf */,
+				90EB14A31D20EEDC009C55C6 /* ThaiSansNeue-UltraBoldItali.otf */,
+				90EB14A41D20EEDC009C55C6 /* ThaiSansNeue-UltraLight.otf */,
+				90EB14A51D20EEDC009C55C6 /* ThaiSansNeue-UltraLightItal.otf */,
+			);
+			name = Resource;
+			sourceTree = "<group>";
+		};
+		B772FA9E1D1A50270024F3BF /* RealmDB */ = {
+			isa = PBXGroup;
+			children = (
+				B77188EB1CFFF2C700A8D8FB /* Schedule.swift */,
+				B77188ED1CFFF3E300A8D8FB /* User.swift */,
+				B772FA9F1D1A506A0024F3BF /* FreqPlay.swift */,
+			);
+			name = RealmDB;
+			sourceTree = "<group>";
+		};
+		B78899E51D13C1F4009B6E3F /* Transaction */ = {
+			isa = PBXGroup;
+			children = (
+				B78899E61D13C221009B6E3F /* TransactionManagementViewController.swift */,
+			);
+			name = Transaction;
+			sourceTree = "<group>";
+		};
+		B7B0D5C61CEDA27E00577430 = {
+			isa = PBXGroup;
+			children = (
+				B772FA9E1D1A50270024F3BF /* RealmDB */,
+				B76AFACE1D0F676000619815 /* Resource */,
+				B7B0D5D11CEDA27E00577430 /* LenkilaSportClub */,
+				B7B0D5E91CEDA27F00577430 /* LenkilaSportClubTests */,
+				B7B0D5F41CEDA27F00577430 /* LenkilaSportClubUITests */,
+				B7B0D5D01CEDA27E00577430 /* Products */,
+				D0330B583D32DF57485ED4E0 /* Pods */,
+				000403D4BA48F0A90D47F7CF /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		B7B0D5D01CEDA27E00577430 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B7B0D5CF1CEDA27E00577430 /* LenkilaClub.app */,
+				B7B0D5E61CEDA27F00577430 /* LenkilaClub.xctest */,
+				B7B0D5F11CEDA27F00577430 /* LenkilaClub.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B7B0D5D11CEDA27E00577430 /* LenkilaSportClub */ = {
+			isa = PBXGroup;
+			children = (
+				B7C98C771D1EA6B700D6A5A0 /* Analysis */,
+				90FC1ED91D1CE8EE00B57C5B /* Storyboard */,
+				B78899E51D13C1F4009B6E3F /* Transaction */,
+				B749890B1D09EC6E0058D874 /* Schedule */,
+				90D5A87F1D093D09000D2062 /* UserDetailList */,
+				90003C701D1A8139003E9375 /* Setting */,
+				B7B0D5D21CEDA27E00577430 /* AppDelegate.swift */,
+				B7B0D5D41CEDA27E00577430 /* ViewController.swift */,
+				9095C56F1D2FCCCA00D424B4 /* SegueFromLeft.swift */,
+				9095C5711D2FCCFA00D424B4 /* SegueFromRight.swift */,
+				B7B0D5DC1CEDA27E00577430 /* Assets.xcassets */,
+				B7B0D5DE1CEDA27E00577430 /* LaunchScreen.storyboard */,
+				B7B0D5E11CEDA27E00577430 /* Info.plist */,
+				B7B0D5D91CEDA27E00577430 /* LenkilaSportClub.xcdatamodeld */,
+				B7B0D6051CEDCE7E00577430 /* UIImageEffects.swift */,
+			);
+			path = LenkilaSportClub;
+			sourceTree = "<group>";
+		};
+		B7B0D5E91CEDA27F00577430 /* LenkilaSportClubTests */ = {
+			isa = PBXGroup;
+			children = (
+				B7B0D5EA1CEDA27F00577430 /* LenkilaSportClubTests.swift */,
+				B7B0D5EC1CEDA27F00577430 /* Info.plist */,
+			);
+			path = LenkilaSportClubTests;
+			sourceTree = "<group>";
+		};
+		B7B0D5F41CEDA27F00577430 /* LenkilaSportClubUITests */ = {
+			isa = PBXGroup;
+			children = (
+				B7B0D5F51CEDA27F00577430 /* LenkilaSportClubUITests.swift */,
+				B7B0D5F71CEDA27F00577430 /* Info.plist */,
+			);
+			path = LenkilaSportClubUITests;
+			sourceTree = "<group>";
+		};
+		B7C98C771D1EA6B700D6A5A0 /* Analysis */ = {
+			isa = PBXGroup;
+			children = (
+				B7C98C781D1EA6CC00D6A5A0 /* AnalysisViewController.swift */,
+			);
+			name = Analysis;
+			sourceTree = "<group>";
+		};
+		D0330B583D32DF57485ED4E0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				788FC116ECABEDE302D97A5B /* Pods-LenkilaClub.debug.xcconfig */,
+				F6193FE10ED62F19717EB82C /* Pods-LenkilaClub.release.xcconfig */,
+				7A470E43F08F16F9FCBAB9AD /* Pods-LenkilaClubTests.debug.xcconfig */,
+				F9D74B4F9719CD65D8997001 /* Pods-LenkilaClubTests.release.xcconfig */,
+				2318D2B9ED00729437EC207D /* Pods-LenkilaClubUITests.debug.xcconfig */,
+				9BA99452800B8E83089DCDD4 /* Pods-LenkilaClubUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B7B0D5CE1CEDA27E00577430 /* LenkilaClub */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B7B0D5FA1CEDA27F00577430 /* Build configuration list for PBXNativeTarget "LenkilaClub" */;
+			buildPhases = (
+				EC288BD9529F9A6BF3017A6D /* [CP] Check Pods Manifest.lock */,
+				B7B0D5CB1CEDA27E00577430 /* Sources */,
+				B7B0D5CC1CEDA27E00577430 /* Frameworks */,
+				B7B0D5CD1CEDA27E00577430 /* Resources */,
+				B762638650A7B7983A74C3E5 /* [CP] Embed Pods Frameworks */,
+				2B5D5C08732118D133EF2BB9 /* [CP] Copy Pods Resources */,
+				E805521AF74F1B17E93DE83E /* Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LenkilaClub;
+			productName = LenkilaSportClub;
+			productReference = B7B0D5CF1CEDA27E00577430 /* LenkilaClub.app */;
+			productType = "com.apple.product-type.application";
+		};
+		B7B0D5E51CEDA27F00577430 /* LenkilaClubTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B7B0D5FD1CEDA27F00577430 /* Build configuration list for PBXNativeTarget "LenkilaClubTests" */;
+			buildPhases = (
+				CBCB3BB1B353AEAD4C967374 /* [CP] Check Pods Manifest.lock */,
+				B7B0D5E21CEDA27F00577430 /* Sources */,
+				B7B0D5E31CEDA27F00577430 /* Frameworks */,
+				B7B0D5E41CEDA27F00577430 /* Resources */,
+				2FA18E52978E913A63266E4F /* [CP] Embed Pods Frameworks */,
+				29397D41FC29A974601EA6EC /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B7B0D5E81CEDA27F00577430 /* PBXTargetDependency */,
+			);
+			name = LenkilaClubTests;
+			productName = LenkilaSportClubTests;
+			productReference = B7B0D5E61CEDA27F00577430 /* LenkilaClub.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		B7B0D5F01CEDA27F00577430 /* LenkilaClubUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B7B0D6001CEDA27F00577430 /* Build configuration list for PBXNativeTarget "LenkilaClubUITests" */;
+			buildPhases = (
+				F6CA62CA034A046B938DD211 /* [CP] Check Pods Manifest.lock */,
+				B7B0D5ED1CEDA27F00577430 /* Sources */,
+				B7B0D5EE1CEDA27F00577430 /* Frameworks */,
+				B7B0D5EF1CEDA27F00577430 /* Resources */,
+				828844007046CDCEFA782EE0 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B7B0D5F31CEDA27F00577430 /* PBXTargetDependency */,
+			);
+			name = LenkilaClubUITests;
+			productName = LenkilaSportClubUITests;
+			productReference = B7B0D5F11CEDA27F00577430 /* LenkilaClub.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B7B0D5C71CEDA27E00577430 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = Tanakorn;
+				TargetAttributes = {
+					B7B0D5CE1CEDA27E00577430 = {
+						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = FCA995W2V4;
+					};
+					B7B0D5E51CEDA27F00577430 = {
+						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = WYLP742538;
+						TestTargetID = B7B0D5CE1CEDA27E00577430;
+					};
+					B7B0D5F01CEDA27F00577430 = {
+						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = WYLP742538;
+						TestTargetID = B7B0D5CE1CEDA27E00577430;
+					};
+				};
+			};
+			buildConfigurationList = B7B0D5CA1CEDA27E00577430 /* Build configuration list for PBXProject "LenkilaClub" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B7B0D5C61CEDA27E00577430;
+			productRefGroup = B7B0D5D01CEDA27E00577430 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B7B0D5CE1CEDA27E00577430 /* LenkilaClub */,
+				B7B0D5E51CEDA27F00577430 /* LenkilaClubTests */,
+				B7B0D5F01CEDA27F00577430 /* LenkilaClubUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B7B0D5CD1CEDA27E00577430 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9049C9D51D223C3E0014D464 /* Titillium-Black.otf in Resources */,
+				9049C9D61D223C3E0014D464 /* Titillium-Bold.otf in Resources */,
+				9049C9D71D223C3E0014D464 /* Titillium-BoldItalic.otf in Resources */,
+				9049C9D81D223C3E0014D464 /* Titillium-BoldUpright.otf in Resources */,
+				9049C9D91D223C3E0014D464 /* Titillium-LightItalic.otf in Resources */,
+				9049C9DA1D223C3E0014D464 /* Titillium-LightUpright.otf in Resources */,
+				9049C9DB1D223C3E0014D464 /* Titillium-Regular.otf in Resources */,
+				9049C9DC1D223C3E0014D464 /* Titillium-ThinItalic.otf in Resources */,
+				9049C9DD1D223C3E0014D464 /* Titillium-ThinUpright.otf in Resources */,
+				9049C9DE1D223C3E0014D464 /* Titillium-Light.otf in Resources */,
+				9049C9DF1D223C3E0014D464 /* Titillium-RegularItalic.otf in Resources */,
+				9049C9E01D223C3E0014D464 /* Titillium-RegularUpright.otf in Resources */,
+				9049C9E11D223C3E0014D464 /* Titillium-Semibold.otf in Resources */,
+				9049C9E21D223C3E0014D464 /* Titillium-SemiboldItalic.otf in Resources */,
+				9049C9E31D223C3E0014D464 /* Titillium-SemiboldUpright.otf in Resources */,
+				9049C9E41D223C3E0014D464 /* Titillium-Thin.otf in Resources */,
+				90F7FEBC1D20F00E0054200B /* ThaiSansNeue-Black.otf in Resources */,
+				90F7FEBD1D20F00E0054200B /* ThaiSansNeue-BlackItalic.otf in Resources */,
+				90F7FEBE1D20F00E0054200B /* ThaiSansNeue-Bold.otf in Resources */,
+				90F7FEBF1D20F00E0054200B /* ThaiSansNeue-BoldItalic.otf in Resources */,
+				90F7FEC01D20F00E0054200B /* ThaiSansNeue-ExtraBold.otf in Resources */,
+				90F7FEC11D20F00E0054200B /* ThaiSansNeue-ExtraBoldItali.otf in Resources */,
+				90F7FEC21D20F00E0054200B /* ThaiSansNeue-ExtraLight.otf in Resources */,
+				90F7FEC31D20F00E0054200B /* ThaiSansNeue-ExtraLightItal.otf in Resources */,
+				90F7FEC41D20F00E0054200B /* ThaiSansNeue-Italic.otf in Resources */,
+				90F7FEC51D20F00E0054200B /* ThaiSansNeue-Light.otf in Resources */,
+				90F7FEC61D20F00E0054200B /* ThaiSansNeue-LightItalic.otf in Resources */,
+				90F7FEC71D20F00E0054200B /* ThaiSansNeue-Regular.otf in Resources */,
+				90F7FEC81D20F00E0054200B /* ThaiSansNeue-SemiBold.otf in Resources */,
+				90F7FEC91D20F00E0054200B /* ThaiSansNeue-SemiBoldItalic.otf in Resources */,
+				90F7FECA1D20F00E0054200B /* ThaiSansNeue-UltraBold.otf in Resources */,
+				90F7FECB1D20F00E0054200B /* ThaiSansNeue-UltraBoldItali.otf in Resources */,
+				90F7FECC1D20F00E0054200B /* ThaiSansNeue-UltraLight.otf in Resources */,
+				90F7FECD1D20F00E0054200B /* ThaiSansNeue-UltraLightItal.otf in Resources */,
+				B7B0D5E01CEDA27E00577430 /* LaunchScreen.storyboard in Resources */,
+				B76AFAD11D0F677500619815 /* LayijiMahaniyom Bao.otf in Resources */,
+				90FC1EDB1D1CE90C00B57C5B /* Transaction.storyboard in Resources */,
+				B76AFAD41D0F698100619815 /* thaisanslite_r1.otf in Resources */,
+				90003C7A1D1A9AC4003E9375 /* Main.storyboard in Resources */,
+				B7B0D5DD1CEDA27E00577430 /* Assets.xcassets in Resources */,
+				B7C98C761D1EA3C700D6A5A0 /* Analysis.storyboard in Resources */,
+				90003C721D1A8349003E9375 /* Setting.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B7B0D5E41CEDA27F00577430 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B7B0D5EF1CEDA27F00577430 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		29397D41FC29A974601EA6EC /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LenkilaClubTests/Pods-LenkilaClubTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2B5D5C08732118D133EF2BB9 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LenkilaClub/Pods-LenkilaClub-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2FA18E52978E913A63266E4F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LenkilaClubTests/Pods-LenkilaClubTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		828844007046CDCEFA782EE0 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LenkilaClubUITests/Pods-LenkilaClubUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B762638650A7B7983A74C3E5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LenkilaClub/Pods-LenkilaClub-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CBCB3BB1B353AEAD4C967374 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E805521AF74F1B17E93DE83E /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LenkilaClub/Pods-LenkilaClub-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EC288BD9529F9A6BF3017A6D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F6CA62CA034A046B938DD211 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B7B0D5CB1CEDA27E00577430 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B7B0D6061CEDCE7E00577430 /* UIImageEffects.swift in Sources */,
+				9049C9EA1D23EF570014D464 /* SendProlemViewController.swift in Sources */,
+				90003C761D1A8B05003E9375 /* SettingViewController.swift in Sources */,
+				B7B0D5D51CEDA27E00577430 /* ViewController.swift in Sources */,
+				B78899E71D13C221009B6E3F /* TransactionManagementViewController.swift in Sources */,
+				902EC56D1D2528BC00E09816 /* CouponViewController.swift in Sources */,
+				9095C5721D2FCCFA00D424B4 /* SegueFromRight.swift in Sources */,
+				9095C5701D2FCCCA00D424B4 /* SegueFromLeft.swift in Sources */,
+				9095C5691D2F971400D424B4 /* ChangePasswordViewController.swift in Sources */,
+				B7B0D5D31CEDA27E00577430 /* AppDelegate.swift in Sources */,
+				B7B0D5DB1CEDA27E00577430 /* LenkilaSportClub.xcdatamodeld in Sources */,
+				9049C9C41D211F7D0014D464 /* SettingCurrentPackageViewCell.swift in Sources */,
+				9049C9E61D2250190014D464 /* FAQViewController.swift in Sources */,
+				B77188EE1CFFF3E300A8D8FB /* User.swift in Sources */,
+				B7B0D6041CEDCB2F00577430 /* ScheduleViewController.swift in Sources */,
+				9095C56E1D2FA96000D424B4 /* ConfirmPasswordViewController.swift in Sources */,
+				90003C781D1A93B2003E9375 /* SettingTableViewCell.swift in Sources */,
+				B7AE00931D09FCDA009DC015 /* EditUserDetailViewController.swift in Sources */,
+				B77188EC1CFFF2C700A8D8FB /* Schedule.swift in Sources */,
+				9095C56C1D2FA93F00D424B4 /* NewPasswordViewController.swift in Sources */,
+				B7EA92AC1CFE00E70006C673 /* AddTableViewController.swift in Sources */,
+				90D5A8831D0941A1000D2062 /* UserDetailListViewController.swift in Sources */,
+				B772FAA01D1A506A0024F3BF /* FreqPlay.swift in Sources */,
+				B7C98C791D1EA6CC00D6A5A0 /* AnalysisViewController.swift in Sources */,
+				9049C9E81D2386CD0014D464 /* ContactUsViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B7B0D5E21CEDA27F00577430 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B7B0D5EB1CEDA27F00577430 /* LenkilaSportClubTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B7B0D5ED1CEDA27F00577430 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B7B0D5F61CEDA27F00577430 /* LenkilaSportClubUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B7B0D5E81CEDA27F00577430 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B7B0D5CE1CEDA27E00577430 /* LenkilaClub */;
+			targetProxy = B7B0D5E71CEDA27F00577430 /* PBXContainerItemProxy */;
+		};
+		B7B0D5F31CEDA27F00577430 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B7B0D5CE1CEDA27E00577430 /* LenkilaClub */;
+			targetProxy = B7B0D5F21CEDA27F00577430 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		B7B0D5DE1CEDA27E00577430 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B7B0D5DF1CEDA27E00577430 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B7B0D5F81CEDA27F00577430 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		B7B0D5F91CEDA27F00577430 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B7B0D5FB1CEDA27F00577430 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 788FC116ECABEDE302D97A5B /* Pods-LenkilaClub.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = LenkilaSportClub/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Jump.LenkilaSportClub;
+				PRODUCT_NAME = LenkilaClub;
+				PROVISIONING_PROFILE = "";
+			};
+			name = Debug;
+		};
+		B7B0D5FC1CEDA27F00577430 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F6193FE10ED62F19717EB82C /* Pods-LenkilaClub.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = LenkilaSportClub/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Jump.LenkilaSportClub;
+				PRODUCT_NAME = LenkilaClub;
+				PROVISIONING_PROFILE = "";
+			};
+			name = Release;
+		};
+		B7B0D5FE1CEDA27F00577430 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7A470E43F08F16F9FCBAB9AD /* Pods-LenkilaClubTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = LenkilaSportClubTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Jump.LenkilaSportClubTests;
+				PRODUCT_NAME = LenkilaClub;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LenkilaClub.app/LenkilaClub";
+			};
+			name = Debug;
+		};
+		B7B0D5FF1CEDA27F00577430 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F9D74B4F9719CD65D8997001 /* Pods-LenkilaClubTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = LenkilaSportClubTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Jump.LenkilaSportClubTests;
+				PRODUCT_NAME = LenkilaClub;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LenkilaClub.app/LenkilaClub";
+			};
+			name = Release;
+		};
+		B7B0D6011CEDA27F00577430 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2318D2B9ED00729437EC207D /* Pods-LenkilaClubUITests.debug.xcconfig */;
+			buildSettings = {
+				INFOPLIST_FILE = LenkilaSportClubUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Jump.LenkilaSportClubUITests;
+				PRODUCT_NAME = LenkilaClub;
+				TEST_TARGET_NAME = LenkilaSportClub;
+			};
+			name = Debug;
+		};
+		B7B0D6021CEDA27F00577430 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9BA99452800B8E83089DCDD4 /* Pods-LenkilaClubUITests.release.xcconfig */;
+			buildSettings = {
+				INFOPLIST_FILE = LenkilaSportClubUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Jump.LenkilaSportClubUITests;
+				PRODUCT_NAME = LenkilaClub;
+				TEST_TARGET_NAME = LenkilaSportClub;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B7B0D5CA1CEDA27E00577430 /* Build configuration list for PBXProject "LenkilaClub" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B7B0D5F81CEDA27F00577430 /* Debug */,
+				B7B0D5F91CEDA27F00577430 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B7B0D5FA1CEDA27F00577430 /* Build configuration list for PBXNativeTarget "LenkilaClub" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B7B0D5FB1CEDA27F00577430 /* Debug */,
+				B7B0D5FC1CEDA27F00577430 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B7B0D5FD1CEDA27F00577430 /* Build configuration list for PBXNativeTarget "LenkilaClubTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B7B0D5FE1CEDA27F00577430 /* Debug */,
+				B7B0D5FF1CEDA27F00577430 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B7B0D6001CEDA27F00577430 /* Build configuration list for PBXNativeTarget "LenkilaClubUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B7B0D6011CEDA27F00577430 /* Debug */,
+				B7B0D6021CEDA27F00577430 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		B7B0D5D91CEDA27E00577430 /* LenkilaSportClub.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				B7B0D5DA1CEDA27E00577430 /* LenkilaSportClub.xcdatamodel */,
+			);
+			currentVersion = B7B0D5DA1CEDA27E00577430 /* LenkilaSportClub.xcdatamodel */;
+			path = LenkilaSportClub.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = B7B0D5C71CEDA27E00577430 /* Project object */;
+}

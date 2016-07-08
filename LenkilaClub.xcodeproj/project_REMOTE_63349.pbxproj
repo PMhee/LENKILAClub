@@ -1,0 +1,897 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		26C41DDC32314A242487B3E1 /* Pods_LenkilaClubTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A09C0246BA32B63D693F63F /* Pods_LenkilaClubTests.framework */; };
+		844DB5DD435208890AA16C57 /* Pods_LenkilaClubUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F22EFD3FB526B4B7EE2DEFF /* Pods_LenkilaClubUITests.framework */; };
+		90003C721D1A8349003E9375 /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90003C711D1A8349003E9375 /* Setting.storyboard */; };
+		90003C761D1A8B05003E9375 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90003C751D1A8B05003E9375 /* SettingViewController.swift */; };
+		90003C781D1A93B2003E9375 /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90003C771D1A93B2003E9375 /* SettingTableViewCell.swift */; };
+		90003C7A1D1A9AC4003E9375 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90003C791D1A9AC4003E9375 /* Main.storyboard */; };
+		90D5A8831D0941A1000D2062 /* UserDetailListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D5A8821D0941A1000D2062 /* UserDetailListViewController.swift */; };
+		90FC1EDB1D1CE90C00B57C5B /* Transaction.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90FC1EDA1D1CE90C00B57C5B /* Transaction.storyboard */; };
+		A24694CA9F49194113B986ED /* Pods_LenkilaClub.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 231034E43D8FA9D5F9BCC465 /* Pods_LenkilaClub.framework */; };
+		B72A2F341D2698CD0015433A /* TitilliumWeb-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B72A2F291D2698CD0015433A /* TitilliumWeb-Black.ttf */; };
+		B72A2F351D2698CD0015433A /* TitilliumWeb-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B72A2F2A1D2698CD0015433A /* TitilliumWeb-Bold.ttf */; };
+		B72A2F361D2698CD0015433A /* TitilliumWeb-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B72A2F2B1D2698CD0015433A /* TitilliumWeb-BoldItalic.ttf */; };
+		B72A2F371D2698CD0015433A /* TitilliumWeb-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B72A2F2C1D2698CD0015433A /* TitilliumWeb-ExtraLight.ttf */; };
+		B72A2F381D2698CD0015433A /* TitilliumWeb-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B72A2F2D1D2698CD0015433A /* TitilliumWeb-ExtraLightItalic.ttf */; };
+		B72A2F391D2698CD0015433A /* TitilliumWeb-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B72A2F2E1D2698CD0015433A /* TitilliumWeb-Italic.ttf */; };
+		B72A2F3A1D2698CD0015433A /* TitilliumWeb-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B72A2F2F1D2698CD0015433A /* TitilliumWeb-Light.ttf */; };
+		B72A2F3B1D2698CD0015433A /* TitilliumWeb-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B72A2F301D2698CD0015433A /* TitilliumWeb-LightItalic.ttf */; };
+		B72A2F3C1D2698CD0015433A /* TitilliumWeb-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B72A2F311D2698CD0015433A /* TitilliumWeb-Regular.ttf */; };
+		B72A2F3D1D2698CD0015433A /* TitilliumWeb-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B72A2F321D2698CD0015433A /* TitilliumWeb-SemiBold.ttf */; };
+		B72A2F3E1D2698CD0015433A /* TitilliumWeb-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B72A2F331D2698CD0015433A /* TitilliumWeb-SemiBoldItalic.ttf */; };
+		B76AFAD11D0F677500619815 /* LayijiMahaniyom Bao.otf in Resources */ = {isa = PBXBuildFile; fileRef = B76AFACF1D0F677500619815 /* LayijiMahaniyom Bao.otf */; };
+		B76AFAD41D0F698100619815 /* thaisanslite_r1.otf in Resources */ = {isa = PBXBuildFile; fileRef = B76AFAD31D0F698100619815 /* thaisanslite_r1.otf */; };
+		B77188EC1CFFF2C700A8D8FB /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77188EB1CFFF2C700A8D8FB /* Schedule.swift */; };
+		B77188EE1CFFF3E300A8D8FB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77188ED1CFFF3E300A8D8FB /* User.swift */; };
+		B772FAA01D1A506A0024F3BF /* FreqPlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = B772FA9F1D1A506A0024F3BF /* FreqPlay.swift */; };
+		B78899E71D13C221009B6E3F /* TransactionManagementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78899E61D13C221009B6E3F /* TransactionManagementViewController.swift */; };
+		B7AE00931D09FCDA009DC015 /* EditUserDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AE00921D09FCDA009DC015 /* EditUserDetailViewController.swift */; };
+		B7B0D5D31CEDA27E00577430 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B0D5D21CEDA27E00577430 /* AppDelegate.swift */; };
+		B7B0D5D51CEDA27E00577430 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B0D5D41CEDA27E00577430 /* ViewController.swift */; };
+		B7B0D5DB1CEDA27E00577430 /* LenkilaSportClub.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B7B0D5D91CEDA27E00577430 /* LenkilaSportClub.xcdatamodeld */; };
+		B7B0D5DD1CEDA27E00577430 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B7B0D5DC1CEDA27E00577430 /* Assets.xcassets */; };
+		B7B0D5E01CEDA27E00577430 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7B0D5DE1CEDA27E00577430 /* LaunchScreen.storyboard */; };
+		B7B0D5EB1CEDA27F00577430 /* LenkilaSportClubTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B0D5EA1CEDA27F00577430 /* LenkilaSportClubTests.swift */; };
+		B7B0D5F61CEDA27F00577430 /* LenkilaSportClubUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B0D5F51CEDA27F00577430 /* LenkilaSportClubUITests.swift */; };
+		B7B0D6041CEDCB2F00577430 /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B0D6031CEDCB2F00577430 /* ScheduleViewController.swift */; };
+		B7B0D6061CEDCE7E00577430 /* UIImageEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B0D6051CEDCE7E00577430 /* UIImageEffects.swift */; };
+		B7C98C761D1EA3C700D6A5A0 /* Analysis.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7C98C751D1EA3C700D6A5A0 /* Analysis.storyboard */; };
+		B7C98C791D1EA6CC00D6A5A0 /* AnalysisViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C98C781D1EA6CC00D6A5A0 /* AnalysisViewController.swift */; };
+		B7EA92AC1CFE00E70006C673 /* AddTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7EA92AB1CFE00E70006C673 /* AddTableViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B7B0D5E71CEDA27F00577430 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B7B0D5C71CEDA27E00577430 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B7B0D5CE1CEDA27E00577430;
+			remoteInfo = LenkilaSportClub;
+		};
+		B7B0D5F21CEDA27F00577430 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B7B0D5C71CEDA27E00577430 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B7B0D5CE1CEDA27E00577430;
+			remoteInfo = LenkilaSportClub;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		231034E43D8FA9D5F9BCC465 /* Pods_LenkilaClub.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LenkilaClub.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2318D2B9ED00729437EC207D /* Pods-LenkilaClubUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LenkilaClubUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LenkilaClubUITests/Pods-LenkilaClubUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		788FC116ECABEDE302D97A5B /* Pods-LenkilaClub.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LenkilaClub.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LenkilaClub/Pods-LenkilaClub.debug.xcconfig"; sourceTree = "<group>"; };
+		7A470E43F08F16F9FCBAB9AD /* Pods-LenkilaClubTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LenkilaClubTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LenkilaClubTests/Pods-LenkilaClubTests.debug.xcconfig"; sourceTree = "<group>"; };
+		7F22EFD3FB526B4B7EE2DEFF /* Pods_LenkilaClubUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LenkilaClubUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8A09C0246BA32B63D693F63F /* Pods_LenkilaClubTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LenkilaClubTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		90003C711D1A8349003E9375 /* Setting.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Setting.storyboard; sourceTree = "<group>"; };
+		90003C751D1A8B05003E9375 /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		90003C771D1A93B2003E9375 /* SettingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
+		90003C791D1A9AC4003E9375 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		90D5A8821D0941A1000D2062 /* UserDetailListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDetailListViewController.swift; sourceTree = "<group>"; };
+		90FC1EDA1D1CE90C00B57C5B /* Transaction.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Transaction.storyboard; sourceTree = "<group>"; };
+		9BA99452800B8E83089DCDD4 /* Pods-LenkilaClubUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LenkilaClubUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LenkilaClubUITests/Pods-LenkilaClubUITests.release.xcconfig"; sourceTree = "<group>"; };
+		B72A2F291D2698CD0015433A /* TitilliumWeb-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TitilliumWeb-Black.ttf"; sourceTree = "<group>"; };
+		B72A2F2A1D2698CD0015433A /* TitilliumWeb-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TitilliumWeb-Bold.ttf"; sourceTree = "<group>"; };
+		B72A2F2B1D2698CD0015433A /* TitilliumWeb-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TitilliumWeb-BoldItalic.ttf"; sourceTree = "<group>"; };
+		B72A2F2C1D2698CD0015433A /* TitilliumWeb-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TitilliumWeb-ExtraLight.ttf"; sourceTree = "<group>"; };
+		B72A2F2D1D2698CD0015433A /* TitilliumWeb-ExtraLightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TitilliumWeb-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
+		B72A2F2E1D2698CD0015433A /* TitilliumWeb-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TitilliumWeb-Italic.ttf"; sourceTree = "<group>"; };
+		B72A2F2F1D2698CD0015433A /* TitilliumWeb-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TitilliumWeb-Light.ttf"; sourceTree = "<group>"; };
+		B72A2F301D2698CD0015433A /* TitilliumWeb-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TitilliumWeb-LightItalic.ttf"; sourceTree = "<group>"; };
+		B72A2F311D2698CD0015433A /* TitilliumWeb-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TitilliumWeb-Regular.ttf"; sourceTree = "<group>"; };
+		B72A2F321D2698CD0015433A /* TitilliumWeb-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TitilliumWeb-SemiBold.ttf"; sourceTree = "<group>"; };
+		B72A2F331D2698CD0015433A /* TitilliumWeb-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TitilliumWeb-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
+		B76AFACF1D0F677500619815 /* LayijiMahaniyom Bao.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LayijiMahaniyom Bao.otf"; sourceTree = "<group>"; };
+		B76AFAD31D0F698100619815 /* thaisanslite_r1.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = thaisanslite_r1.otf; sourceTree = "<group>"; };
+		B77188EB1CFFF2C700A8D8FB /* Schedule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Schedule.swift; path = LenkilaSportClub/Schedule.swift; sourceTree = "<group>"; };
+		B77188ED1CFFF3E300A8D8FB /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = LenkilaSportClub/User.swift; sourceTree = "<group>"; };
+		B772FA9F1D1A506A0024F3BF /* FreqPlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FreqPlay.swift; sourceTree = "<group>"; };
+		B78899E61D13C221009B6E3F /* TransactionManagementViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionManagementViewController.swift; sourceTree = "<group>"; };
+		B7AE00921D09FCDA009DC015 /* EditUserDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditUserDetailViewController.swift; sourceTree = "<group>"; };
+		B7B0D5CF1CEDA27E00577430 /* LenkilaClub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LenkilaClub.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B7B0D5D21CEDA27E00577430 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		B7B0D5D41CEDA27E00577430 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B7B0D5DA1CEDA27E00577430 /* LenkilaSportClub.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LenkilaSportClub.xcdatamodel; sourceTree = "<group>"; };
+		B7B0D5DC1CEDA27E00577430 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B7B0D5DF1CEDA27E00577430 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B7B0D5E11CEDA27E00577430 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B7B0D5E61CEDA27F00577430 /* LenkilaClub.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LenkilaClub.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B7B0D5EA1CEDA27F00577430 /* LenkilaSportClubTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LenkilaSportClubTests.swift; sourceTree = "<group>"; };
+		B7B0D5EC1CEDA27F00577430 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B7B0D5F11CEDA27F00577430 /* LenkilaClub.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LenkilaClub.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B7B0D5F51CEDA27F00577430 /* LenkilaSportClubUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LenkilaSportClubUITests.swift; sourceTree = "<group>"; };
+		B7B0D5F71CEDA27F00577430 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B7B0D6031CEDCB2F00577430 /* ScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
+		B7B0D6051CEDCE7E00577430 /* UIImageEffects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageEffects.swift; sourceTree = "<group>"; };
+		B7C98C751D1EA3C700D6A5A0 /* Analysis.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Analysis.storyboard; sourceTree = "<group>"; };
+		B7C98C781D1EA6CC00D6A5A0 /* AnalysisViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalysisViewController.swift; sourceTree = "<group>"; };
+		B7EA92AB1CFE00E70006C673 /* AddTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTableViewController.swift; sourceTree = "<group>"; };
+		F6193FE10ED62F19717EB82C /* Pods-LenkilaClub.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LenkilaClub.release.xcconfig"; path = "Pods/Target Support Files/Pods-LenkilaClub/Pods-LenkilaClub.release.xcconfig"; sourceTree = "<group>"; };
+		F9D74B4F9719CD65D8997001 /* Pods-LenkilaClubTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LenkilaClubTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LenkilaClubTests/Pods-LenkilaClubTests.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B7B0D5CC1CEDA27E00577430 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A24694CA9F49194113B986ED /* Pods_LenkilaClub.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B7B0D5E31CEDA27F00577430 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				26C41DDC32314A242487B3E1 /* Pods_LenkilaClubTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B7B0D5EE1CEDA27F00577430 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				844DB5DD435208890AA16C57 /* Pods_LenkilaClubUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		000403D4BA48F0A90D47F7CF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				231034E43D8FA9D5F9BCC465 /* Pods_LenkilaClub.framework */,
+				8A09C0246BA32B63D693F63F /* Pods_LenkilaClubTests.framework */,
+				7F22EFD3FB526B4B7EE2DEFF /* Pods_LenkilaClubUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		90003C701D1A8139003E9375 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				90003C751D1A8B05003E9375 /* SettingViewController.swift */,
+				90003C771D1A93B2003E9375 /* SettingTableViewCell.swift */,
+			);
+			name = Setting;
+			sourceTree = "<group>";
+		};
+		90D5A87F1D093D09000D2062 /* UserDetailList */ = {
+			isa = PBXGroup;
+			children = (
+				90D5A8821D0941A1000D2062 /* UserDetailListViewController.swift */,
+				B7AE00921D09FCDA009DC015 /* EditUserDetailViewController.swift */,
+			);
+			name = UserDetailList;
+			sourceTree = "<group>";
+		};
+		90FC1ED91D1CE8EE00B57C5B /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				90003C791D1A9AC4003E9375 /* Main.storyboard */,
+				90003C711D1A8349003E9375 /* Setting.storyboard */,
+				90FC1EDA1D1CE90C00B57C5B /* Transaction.storyboard */,
+				B7C98C751D1EA3C700D6A5A0 /* Analysis.storyboard */,
+			);
+			name = Storyboard;
+			sourceTree = "<group>";
+		};
+		B749890B1D09EC6E0058D874 /* Schedule */ = {
+			isa = PBXGroup;
+			children = (
+				B7B0D6031CEDCB2F00577430 /* ScheduleViewController.swift */,
+				B7EA92AB1CFE00E70006C673 /* AddTableViewController.swift */,
+			);
+			name = Schedule;
+			sourceTree = "<group>";
+		};
+		B76AFACE1D0F676000619815 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				B72A2F291D2698CD0015433A /* TitilliumWeb-Black.ttf */,
+				B72A2F2A1D2698CD0015433A /* TitilliumWeb-Bold.ttf */,
+				B72A2F2B1D2698CD0015433A /* TitilliumWeb-BoldItalic.ttf */,
+				B72A2F2C1D2698CD0015433A /* TitilliumWeb-ExtraLight.ttf */,
+				B72A2F2D1D2698CD0015433A /* TitilliumWeb-ExtraLightItalic.ttf */,
+				B72A2F2E1D2698CD0015433A /* TitilliumWeb-Italic.ttf */,
+				B72A2F2F1D2698CD0015433A /* TitilliumWeb-Light.ttf */,
+				B72A2F301D2698CD0015433A /* TitilliumWeb-LightItalic.ttf */,
+				B72A2F311D2698CD0015433A /* TitilliumWeb-Regular.ttf */,
+				B72A2F321D2698CD0015433A /* TitilliumWeb-SemiBold.ttf */,
+				B72A2F331D2698CD0015433A /* TitilliumWeb-SemiBoldItalic.ttf */,
+				B76AFACF1D0F677500619815 /* LayijiMahaniyom Bao.otf */,
+				B76AFAD31D0F698100619815 /* thaisanslite_r1.otf */,
+			);
+			name = Resource;
+			sourceTree = "<group>";
+		};
+		B772FA9E1D1A50270024F3BF /* RealmDB */ = {
+			isa = PBXGroup;
+			children = (
+				B77188EB1CFFF2C700A8D8FB /* Schedule.swift */,
+				B77188ED1CFFF3E300A8D8FB /* User.swift */,
+				B772FA9F1D1A506A0024F3BF /* FreqPlay.swift */,
+			);
+			name = RealmDB;
+			sourceTree = "<group>";
+		};
+		B78899E51D13C1F4009B6E3F /* Transaction */ = {
+			isa = PBXGroup;
+			children = (
+				B78899E61D13C221009B6E3F /* TransactionManagementViewController.swift */,
+			);
+			name = Transaction;
+			sourceTree = "<group>";
+		};
+		B7B0D5C61CEDA27E00577430 = {
+			isa = PBXGroup;
+			children = (
+				B772FA9E1D1A50270024F3BF /* RealmDB */,
+				B76AFACE1D0F676000619815 /* Resource */,
+				B7B0D5D11CEDA27E00577430 /* LenkilaSportClub */,
+				B7B0D5E91CEDA27F00577430 /* LenkilaSportClubTests */,
+				B7B0D5F41CEDA27F00577430 /* LenkilaSportClubUITests */,
+				B7B0D5D01CEDA27E00577430 /* Products */,
+				D0330B583D32DF57485ED4E0 /* Pods */,
+				000403D4BA48F0A90D47F7CF /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		B7B0D5D01CEDA27E00577430 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B7B0D5CF1CEDA27E00577430 /* LenkilaClub.app */,
+				B7B0D5E61CEDA27F00577430 /* LenkilaClub.xctest */,
+				B7B0D5F11CEDA27F00577430 /* LenkilaClub.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B7B0D5D11CEDA27E00577430 /* LenkilaSportClub */ = {
+			isa = PBXGroup;
+			children = (
+				B7C98C771D1EA6B700D6A5A0 /* Analysis */,
+				90FC1ED91D1CE8EE00B57C5B /* Storyboard */,
+				B78899E51D13C1F4009B6E3F /* Transaction */,
+				B749890B1D09EC6E0058D874 /* Schedule */,
+				90D5A87F1D093D09000D2062 /* UserDetailList */,
+				B7B0D5D21CEDA27E00577430 /* AppDelegate.swift */,
+				B7B0D5D41CEDA27E00577430 /* ViewController.swift */,
+				90003C701D1A8139003E9375 /* Setting */,
+				B7B0D5DC1CEDA27E00577430 /* Assets.xcassets */,
+				B7B0D5DE1CEDA27E00577430 /* LaunchScreen.storyboard */,
+				B7B0D5E11CEDA27E00577430 /* Info.plist */,
+				B7B0D5D91CEDA27E00577430 /* LenkilaSportClub.xcdatamodeld */,
+				B7B0D6051CEDCE7E00577430 /* UIImageEffects.swift */,
+			);
+			path = LenkilaSportClub;
+			sourceTree = "<group>";
+		};
+		B7B0D5E91CEDA27F00577430 /* LenkilaSportClubTests */ = {
+			isa = PBXGroup;
+			children = (
+				B7B0D5EA1CEDA27F00577430 /* LenkilaSportClubTests.swift */,
+				B7B0D5EC1CEDA27F00577430 /* Info.plist */,
+			);
+			path = LenkilaSportClubTests;
+			sourceTree = "<group>";
+		};
+		B7B0D5F41CEDA27F00577430 /* LenkilaSportClubUITests */ = {
+			isa = PBXGroup;
+			children = (
+				B7B0D5F51CEDA27F00577430 /* LenkilaSportClubUITests.swift */,
+				B7B0D5F71CEDA27F00577430 /* Info.plist */,
+			);
+			path = LenkilaSportClubUITests;
+			sourceTree = "<group>";
+		};
+		B7C98C771D1EA6B700D6A5A0 /* Analysis */ = {
+			isa = PBXGroup;
+			children = (
+				B7C98C781D1EA6CC00D6A5A0 /* AnalysisViewController.swift */,
+			);
+			name = Analysis;
+			sourceTree = "<group>";
+		};
+		D0330B583D32DF57485ED4E0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				788FC116ECABEDE302D97A5B /* Pods-LenkilaClub.debug.xcconfig */,
+				F6193FE10ED62F19717EB82C /* Pods-LenkilaClub.release.xcconfig */,
+				7A470E43F08F16F9FCBAB9AD /* Pods-LenkilaClubTests.debug.xcconfig */,
+				F9D74B4F9719CD65D8997001 /* Pods-LenkilaClubTests.release.xcconfig */,
+				2318D2B9ED00729437EC207D /* Pods-LenkilaClubUITests.debug.xcconfig */,
+				9BA99452800B8E83089DCDD4 /* Pods-LenkilaClubUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B7B0D5CE1CEDA27E00577430 /* LenkilaClub */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B7B0D5FA1CEDA27F00577430 /* Build configuration list for PBXNativeTarget "LenkilaClub" */;
+			buildPhases = (
+				EC288BD9529F9A6BF3017A6D /* [CP] Check Pods Manifest.lock */,
+				B7B0D5CB1CEDA27E00577430 /* Sources */,
+				B7B0D5CC1CEDA27E00577430 /* Frameworks */,
+				B7B0D5CD1CEDA27E00577430 /* Resources */,
+				B762638650A7B7983A74C3E5 /* [CP] Embed Pods Frameworks */,
+				2B5D5C08732118D133EF2BB9 /* [CP] Copy Pods Resources */,
+				E805521AF74F1B17E93DE83E /* Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LenkilaClub;
+			productName = LenkilaSportClub;
+			productReference = B7B0D5CF1CEDA27E00577430 /* LenkilaClub.app */;
+			productType = "com.apple.product-type.application";
+		};
+		B7B0D5E51CEDA27F00577430 /* LenkilaClubTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B7B0D5FD1CEDA27F00577430 /* Build configuration list for PBXNativeTarget "LenkilaClubTests" */;
+			buildPhases = (
+				CBCB3BB1B353AEAD4C967374 /* [CP] Check Pods Manifest.lock */,
+				B7B0D5E21CEDA27F00577430 /* Sources */,
+				B7B0D5E31CEDA27F00577430 /* Frameworks */,
+				B7B0D5E41CEDA27F00577430 /* Resources */,
+				2FA18E52978E913A63266E4F /* [CP] Embed Pods Frameworks */,
+				29397D41FC29A974601EA6EC /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B7B0D5E81CEDA27F00577430 /* PBXTargetDependency */,
+			);
+			name = LenkilaClubTests;
+			productName = LenkilaSportClubTests;
+			productReference = B7B0D5E61CEDA27F00577430 /* LenkilaClub.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		B7B0D5F01CEDA27F00577430 /* LenkilaClubUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B7B0D6001CEDA27F00577430 /* Build configuration list for PBXNativeTarget "LenkilaClubUITests" */;
+			buildPhases = (
+				F6CA62CA034A046B938DD211 /* [CP] Check Pods Manifest.lock */,
+				B7B0D5ED1CEDA27F00577430 /* Sources */,
+				B7B0D5EE1CEDA27F00577430 /* Frameworks */,
+				B7B0D5EF1CEDA27F00577430 /* Resources */,
+				828844007046CDCEFA782EE0 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B7B0D5F31CEDA27F00577430 /* PBXTargetDependency */,
+			);
+			name = LenkilaClubUITests;
+			productName = LenkilaSportClubUITests;
+			productReference = B7B0D5F11CEDA27F00577430 /* LenkilaClub.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B7B0D5C71CEDA27E00577430 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = Tanakorn;
+				TargetAttributes = {
+					B7B0D5CE1CEDA27E00577430 = {
+						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = WYLP742538;
+					};
+					B7B0D5E51CEDA27F00577430 = {
+						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = WYLP742538;
+						TestTargetID = B7B0D5CE1CEDA27E00577430;
+					};
+					B7B0D5F01CEDA27F00577430 = {
+						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = WYLP742538;
+						TestTargetID = B7B0D5CE1CEDA27E00577430;
+					};
+				};
+			};
+			buildConfigurationList = B7B0D5CA1CEDA27E00577430 /* Build configuration list for PBXProject "LenkilaClub" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B7B0D5C61CEDA27E00577430;
+			productRefGroup = B7B0D5D01CEDA27E00577430 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B7B0D5CE1CEDA27E00577430 /* LenkilaClub */,
+				B7B0D5E51CEDA27F00577430 /* LenkilaClubTests */,
+				B7B0D5F01CEDA27F00577430 /* LenkilaClubUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B7B0D5CD1CEDA27E00577430 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B72A2F351D2698CD0015433A /* TitilliumWeb-Bold.ttf in Resources */,
+				B7B0D5E01CEDA27E00577430 /* LaunchScreen.storyboard in Resources */,
+				B72A2F381D2698CD0015433A /* TitilliumWeb-ExtraLightItalic.ttf in Resources */,
+				B72A2F3A1D2698CD0015433A /* TitilliumWeb-Light.ttf in Resources */,
+				B72A2F3D1D2698CD0015433A /* TitilliumWeb-SemiBold.ttf in Resources */,
+				B72A2F361D2698CD0015433A /* TitilliumWeb-BoldItalic.ttf in Resources */,
+				B72A2F3E1D2698CD0015433A /* TitilliumWeb-SemiBoldItalic.ttf in Resources */,
+				B76AFAD11D0F677500619815 /* LayijiMahaniyom Bao.otf in Resources */,
+				B72A2F391D2698CD0015433A /* TitilliumWeb-Italic.ttf in Resources */,
+				B72A2F3C1D2698CD0015433A /* TitilliumWeb-Regular.ttf in Resources */,
+				90FC1EDB1D1CE90C00B57C5B /* Transaction.storyboard in Resources */,
+				B76AFAD41D0F698100619815 /* thaisanslite_r1.otf in Resources */,
+				90003C7A1D1A9AC4003E9375 /* Main.storyboard in Resources */,
+				B72A2F371D2698CD0015433A /* TitilliumWeb-ExtraLight.ttf in Resources */,
+				B72A2F341D2698CD0015433A /* TitilliumWeb-Black.ttf in Resources */,
+				B7B0D5DD1CEDA27E00577430 /* Assets.xcassets in Resources */,
+				B7C98C761D1EA3C700D6A5A0 /* Analysis.storyboard in Resources */,
+				B72A2F3B1D2698CD0015433A /* TitilliumWeb-LightItalic.ttf in Resources */,
+				90003C721D1A8349003E9375 /* Setting.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B7B0D5E41CEDA27F00577430 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B7B0D5EF1CEDA27F00577430 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		29397D41FC29A974601EA6EC /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LenkilaClubTests/Pods-LenkilaClubTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2B5D5C08732118D133EF2BB9 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LenkilaClub/Pods-LenkilaClub-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2FA18E52978E913A63266E4F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LenkilaClubTests/Pods-LenkilaClubTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		828844007046CDCEFA782EE0 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LenkilaClubUITests/Pods-LenkilaClubUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B762638650A7B7983A74C3E5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LenkilaClub/Pods-LenkilaClub-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CBCB3BB1B353AEAD4C967374 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E805521AF74F1B17E93DE83E /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LenkilaClub/Pods-LenkilaClub-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EC288BD9529F9A6BF3017A6D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F6CA62CA034A046B938DD211 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B7B0D5CB1CEDA27E00577430 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B7B0D6061CEDCE7E00577430 /* UIImageEffects.swift in Sources */,
+				90003C761D1A8B05003E9375 /* SettingViewController.swift in Sources */,
+				B7B0D5D51CEDA27E00577430 /* ViewController.swift in Sources */,
+				B78899E71D13C221009B6E3F /* TransactionManagementViewController.swift in Sources */,
+				B7B0D5D31CEDA27E00577430 /* AppDelegate.swift in Sources */,
+				B7B0D5DB1CEDA27E00577430 /* LenkilaSportClub.xcdatamodeld in Sources */,
+				B77188EE1CFFF3E300A8D8FB /* User.swift in Sources */,
+				B7B0D6041CEDCB2F00577430 /* ScheduleViewController.swift in Sources */,
+				90003C781D1A93B2003E9375 /* SettingTableViewCell.swift in Sources */,
+				B7AE00931D09FCDA009DC015 /* EditUserDetailViewController.swift in Sources */,
+				B77188EC1CFFF2C700A8D8FB /* Schedule.swift in Sources */,
+				B7EA92AC1CFE00E70006C673 /* AddTableViewController.swift in Sources */,
+				90D5A8831D0941A1000D2062 /* UserDetailListViewController.swift in Sources */,
+				B772FAA01D1A506A0024F3BF /* FreqPlay.swift in Sources */,
+				B7C98C791D1EA6CC00D6A5A0 /* AnalysisViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B7B0D5E21CEDA27F00577430 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B7B0D5EB1CEDA27F00577430 /* LenkilaSportClubTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B7B0D5ED1CEDA27F00577430 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B7B0D5F61CEDA27F00577430 /* LenkilaSportClubUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B7B0D5E81CEDA27F00577430 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B7B0D5CE1CEDA27E00577430 /* LenkilaClub */;
+			targetProxy = B7B0D5E71CEDA27F00577430 /* PBXContainerItemProxy */;
+		};
+		B7B0D5F31CEDA27F00577430 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B7B0D5CE1CEDA27E00577430 /* LenkilaClub */;
+			targetProxy = B7B0D5F21CEDA27F00577430 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		B7B0D5DE1CEDA27E00577430 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B7B0D5DF1CEDA27E00577430 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B7B0D5F81CEDA27F00577430 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		B7B0D5F91CEDA27F00577430 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B7B0D5FB1CEDA27F00577430 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 788FC116ECABEDE302D97A5B /* Pods-LenkilaClub.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = LenkilaSportClub/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Nont.LenkilaSportClub;
+				PRODUCT_NAME = LenkilaClub;
+				PROVISIONING_PROFILE = "";
+			};
+			name = Debug;
+		};
+		B7B0D5FC1CEDA27F00577430 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F6193FE10ED62F19717EB82C /* Pods-LenkilaClub.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = LenkilaSportClub/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Nont.LenkilaSportClub;
+				PRODUCT_NAME = LenkilaClub;
+				PROVISIONING_PROFILE = "";
+			};
+			name = Release;
+		};
+		B7B0D5FE1CEDA27F00577430 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7A470E43F08F16F9FCBAB9AD /* Pods-LenkilaClubTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = LenkilaSportClubTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Nont.LenkilaSportClubTests;
+				PRODUCT_NAME = LenkilaClub;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LenkilaClub.app/LenkilaClub";
+			};
+			name = Debug;
+		};
+		B7B0D5FF1CEDA27F00577430 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F9D74B4F9719CD65D8997001 /* Pods-LenkilaClubTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = LenkilaSportClubTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Nont.LenkilaSportClubTests;
+				PRODUCT_NAME = LenkilaClub;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LenkilaClub.app/LenkilaClub";
+			};
+			name = Release;
+		};
+		B7B0D6011CEDA27F00577430 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2318D2B9ED00729437EC207D /* Pods-LenkilaClubUITests.debug.xcconfig */;
+			buildSettings = {
+				INFOPLIST_FILE = LenkilaSportClubUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Nont.LenkilaSportClubUITests;
+				PRODUCT_NAME = LenkilaClub;
+				TEST_TARGET_NAME = LenkilaSportClub;
+			};
+			name = Debug;
+		};
+		B7B0D6021CEDA27F00577430 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9BA99452800B8E83089DCDD4 /* Pods-LenkilaClubUITests.release.xcconfig */;
+			buildSettings = {
+				INFOPLIST_FILE = LenkilaSportClubUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Nont.LenkilaSportClubUITests;
+				PRODUCT_NAME = LenkilaClub;
+				TEST_TARGET_NAME = LenkilaSportClub;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B7B0D5CA1CEDA27E00577430 /* Build configuration list for PBXProject "LenkilaClub" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B7B0D5F81CEDA27F00577430 /* Debug */,
+				B7B0D5F91CEDA27F00577430 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B7B0D5FA1CEDA27F00577430 /* Build configuration list for PBXNativeTarget "LenkilaClub" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B7B0D5FB1CEDA27F00577430 /* Debug */,
+				B7B0D5FC1CEDA27F00577430 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B7B0D5FD1CEDA27F00577430 /* Build configuration list for PBXNativeTarget "LenkilaClubTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B7B0D5FE1CEDA27F00577430 /* Debug */,
+				B7B0D5FF1CEDA27F00577430 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B7B0D6001CEDA27F00577430 /* Build configuration list for PBXNativeTarget "LenkilaClubUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B7B0D6011CEDA27F00577430 /* Debug */,
+				B7B0D6021CEDA27F00577430 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		B7B0D5D91CEDA27E00577430 /* LenkilaSportClub.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				B7B0D5DA1CEDA27E00577430 /* LenkilaSportClub.xcdatamodel */,
+			);
+			currentVersion = B7B0D5DA1CEDA27E00577430 /* LenkilaSportClub.xcdatamodel */;
+			path = LenkilaSportClub.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = B7B0D5C71CEDA27E00577430 /* Project object */;
+}

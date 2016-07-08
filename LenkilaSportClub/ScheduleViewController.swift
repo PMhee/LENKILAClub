@@ -17,6 +17,9 @@ class ScheduleViewController: UIViewController,UIScrollViewDelegate,UIGestureRec
     //    @IBOutlet weak var cons_lead_view: NSLayoutConstraint!
     //    var changeHeight : CGFloat!
     //    var changeWidth: CGFloat!
+    var del_slot:Int! = nil
+    var already_show = false
+    @IBOutlet weak var problem_view: UIView!
     var tag : Int = 0
     var temp_tag : Int = 0
     var drag_top : Bool = false
@@ -53,7 +56,63 @@ class ScheduleViewController: UIViewController,UIScrollViewDelegate,UIGestureRec
     @IBAction func btn_tab_action(sender: UIButton) {
         trigger_tab()
     }
-    func delay(delay:Double, closure:()->()) {
+    @IBAction func long_press(sender: UILongPressGestureRecognizer) {
+        switch  sender.state {
+        case .Ended:
+            print("")
+        default:
+                if findSlotPosition(self.x, y: self.y) && !already_show{
+                    
+                    let appearance = SCLAlertView.SCLAppearance(
+                        kTitleFont: UIFont(name: "ThaiSansLite", size: 20)!,
+                        kTextFont: UIFont(name: "ThaiSansLite", size: 16)!,
+                        kButtonFont: UIFont(name: "ThaiSansLite", size: 16)!,
+                        showCloseButton: false
+                    )
+                    let alert = SCLAlertView(appearance:appearance)
+                    alert.addButton("เสร็จสิ้น",action:{
+                        self.already_show = false
+                    })
+                    if !already_show{
+                    alert.showWarning("เตือน", subTitle: "ไม่พบตารางที่จะลบ",duration: 1.5)
+                    }
+                }else{
+                    let appearance = SCLAlertView.SCLAppearance(
+                        kTitleFont: UIFont(name: "ThaiSansLite", size: 20)!,
+                        kTextFont: UIFont(name: "ThaiSansLite", size: 16)!,
+                        kButtonFont: UIFont(name: "ThaiSansLite", size: 16)!,
+                        showCloseButton: false
+                    )
+                    let alert = SCLAlertView(appearance:appearance)
+                    alert.addButton("ใช่", action: {
+                        print(self.slot[self.del_slot])
+                        for i in 0..<self.schedualArray.count {
+                            if i == Int(self.slot[self.del_slot]!) {
+                                let realm = RLMRealm.defaultRealm()
+                                realm.beginWriteTransaction()
+                                realm.deleteObject(self.schedualArray[i])
+                                try! realm.commitWriteTransaction()
+                                print(i)
+                                self.schedualArray.removeAtIndex(i)
+                                self.clearTable()
+                                self.genScheduleOnTable()
+                                self.already_show = false
+                            }
+                        }
+                    })
+                    alert.addButton("ไม่", action: {
+                    self.already_show = false
+                    })
+                    if !already_show{
+                    alert.showWarning("เตือน", subTitle: "คุณต้องการจะลบตารางหรือไม่")
+                    }
+                    self.already_show = true
+            }
+
+        }
+        
+        }
+            func delay(delay:Double, closure:()->()) {
         dispatch_after(
             dispatch_time(
                 DISPATCH_TIME_NOW,
@@ -108,17 +167,26 @@ class ScheduleViewController: UIViewController,UIScrollViewDelegate,UIGestureRec
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        tapGesture.delegate = self
-        let pan = UIPanGestureRecognizer(target: self, action: #selector(ScheduleViewController.drag(_:)))
-        self.view.addGestureRecognizer(pan)
-        self.view.addGestureRecognizer(tapGesture)
-        self.genTableField()
-        btn_today.layer.cornerRadius = 15
+        
         // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
+        tapGesture.delegate = self
+        long_gesture.delegate = self
+        long_gesture = UILongPressGestureRecognizer(target: self, action: #selector(ScheduleViewController.long_press(_:)))
+        long_gesture.minimumPressDuration = 1
+        let pan = UIPanGestureRecognizer(target: self, action: #selector(ScheduleViewController.drag(_:)))
+        self.view.addGestureRecognizer(pan)
+        self.view.addGestureRecognizer(tapGesture)
+        self.view.addGestureRecognizer(long_gesture)
+        btn_today.layer.cornerRadius = 15
+        self.genScheduleOnTable()
+        self.genTableField()
+    }
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(true)
         if firstTime {
             self.label_date.text = self.date
         }else{
@@ -126,37 +194,6 @@ class ScheduleViewController: UIViewController,UIScrollViewDelegate,UIGestureRec
             format.dateStyle = NSDateFormatterStyle.FullStyle
             label_date.text = format.stringFromDate(NSDate())
         }
-        //        let realm = RLMRealm.defaultRealm()
-        //        let user = User()
-        //        user.age = 22
-        //        user.contact = "099-2850130"
-        //        let format = NSDateFormatter()
-        //        format.timeStyle = NSDateFormatterStyle.ShortStyle
-        //        user.freqPlay = format.stringFromDate(NSDate())
-        //        user.gender = "ชาย"
-        //        user.id = "1111"
-        //        user.name = "ธนากร รัตนจริยา"
-        //        user.nickName = "นนท์"
-        //        user.playCount = 4
-        //        user.price = 1000
-        //        user.workPlace = "Lenkila"
-        //        realm.beginWriteTransaction()
-        //        realm.addObject(user)
-        //        try! realm.commitWriteTransaction()
-        //        let sche = Schedule()
-        //        let formatter = NSDateFormatter()
-        //        formatter.dateStyle = NSDateFormatterStyle.FullStyle
-        //        sche.date = "Friday, June 3, 2016"
-        //        sche.time = "18.00 - 20.30"
-        //        sche.field = "1"
-        //        sche.userID = "1111"
-        //        sche.price = 1000
-        //        sche.rep = 1
-        //        sche.colorTag = "dark_blue"
-        //        sche.tag = 1
-        //        sche.type = "reserve"
-        //        let schedule = Schedule.allObjects()
-        //        schedualArray.append(sche)
         let sche = Schedule.allObjects()
         let users = User.allObjects()
         if sche.count > 0 {
@@ -213,6 +250,9 @@ class ScheduleViewController: UIViewController,UIScrollViewDelegate,UIGestureRec
                     self.keepTag.append(self.schedualArray[i].tag)
                     view.tag = self.schedualArray[i].tag
                     self.view.addSubview(view)
+                    view.layer.borderWidth = 1
+                    view.layer.masksToBounds = true
+                    view.layer.borderColor = UIColor(red: 238/255, green: 238/255, blue: 238/255, alpha: 1.0).CGColor
                     let lb = UILabel(frame:CGRectMake(0,0,width,view.frame.height/2))
                     lb.text = (self.userArray[schedualArray[i].userID]?.nickName)!
                     lb.textColor = UIColor.whiteColor()
@@ -225,6 +265,10 @@ class ScheduleViewController: UIViewController,UIScrollViewDelegate,UIGestureRec
                     lb1.font = UIFont(name:"ThaiSansLite", size: 13)
                     lb1.textAlignment = .Center
                     view.addSubview(lb1)
+                    self.view.sendSubviewToBack(self.problem_view)
+                    self.view.bringSubviewToFront(view)
+                    self.view.bringSubviewToFront(lb)
+                    self.view.bringSubviewToFront(lb1)
                     self.view.bringSubviewToFront(vw_tab)
                 }
             }
@@ -311,11 +355,14 @@ class ScheduleViewController: UIViewController,UIScrollViewDelegate,UIGestureRec
                                         if let tag = self.view.viewWithTag(i) {
                                             print(i)
                                             print("remove")
+                                            if i > self.schedualArray[schedualArray.count-1].tag{
                                             tag.removeFromSuperview()
+                                            }
                                         }
                                     }
                                 }
                                 self.tag = self.schedualArray[schedualArray.count-1].tag
+                                break
                             }
                         }
                     }
@@ -329,11 +376,13 @@ class ScheduleViewController: UIViewController,UIScrollViewDelegate,UIGestureRec
                         if var tag = self.view.viewWithTag(self.tag) {
                             temp_h = height
                             print(self.tag)
-                            if self.schedualArray[schedualArray.count-1].tag != self.tag{
+                            if self.tag > self.schedualArray[schedualArray.count-1].tag {
                             print("remove")
                             tag.removeFromSuperview()
                             }
-                            self.tag -= 1
+                            if self.tag > self.schedualArray[schedualArray.count-1].tag {
+                                    self.tag -= 1
+                            }
                             hh = transition.y
 //                            if tag.tag <= self.schedualArray[schedualArray.count-1].tag{
 //                                
@@ -437,30 +486,23 @@ class ScheduleViewController: UIViewController,UIScrollViewDelegate,UIGestureRec
             }
         }
     }
-    //    func scrollViewDidScroll(scrollView: UIScrollView) {
-    //        if scrollView.viewWithTag(1) != nil {
-    //        let scroll1 = scrollView.viewWithTag(1) as! UIScrollView
-    //        print("y "+String(scroll1.contentOffset.y))
-    //        print("x "+String(scroll1.contentOffset.x))
-    //        }
-    //        if scrollView.contentOffset.y >= 140{
-    //            cons_top_view.constant = scrollView.contentOffset.y+20
-    //            changeHeight = cons_top_view.constant
-    //        }else{
-    //            cons_top_view.constant = 160
-    //        }
-    //        if scrollView.contentOffset.x > 0 && changeHeight != nil{
-    //            cons_top_view.constant = changeHeight
-    //        }
-    ////        if scrollView.contentOffset.x == 0 && changeHeight != nil {
-    ////            cons_top_view.constant = changeHeight
-    ////        }
-    //
-    //    }
-    //    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
-    //        return UIInterfaceOrientationMask.Landscape
-    //    }
-    /*
+    func findSlotPosition(x:CGFloat,y:CGFloat) -> Bool{
+        let width = (self.view.frame.width)/CGFloat(field_num+1)
+        let h : CGFloat = CGFloat(((1.595*self.view.frame.height)/2)/17)
+        let yy = Int((y-(0.2025*(self.view.frame.height)))/h)
+        let xx = Int(x/width)
+        let find_slot = ((xx-1)*16)+yy
+        if find_slot < 0 {
+            return true
+        }
+        if slot[find_slot] == "free"{
+            return true
+        }else{
+            self.del_slot = find_slot
+            return false
+        }
+    }
+        /*
      // MARK: - Navigation
      
      // In a storyboard-based application, you will often want to do a little preparation before navigation

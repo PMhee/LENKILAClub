@@ -9,6 +9,7 @@
 import UIKit
 import Realm
 import SCLAlertView
+import Charts
 class UserDetailListViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UIPopoverPresentationControllerDelegate,UIGestureRecognizerDelegate {
     var isPortrait = UIDevice.currentDevice().orientation == .Portrait || UIDevice.currentDevice().orientation == .PortraitUpsideDown
     var tab_trigger = false
@@ -30,6 +31,7 @@ class UserDetailListViewController: UIViewController,UITableViewDelegate,UITable
         self.automaticallyAdjustsScrollViewInsets = false;
         self.tap_gesture.delegate = self
         self.UserDetailTableView.addGestureRecognizer(self.tap_gesture)
+        self.isPortrait = true
     }
     @IBAction func btn_tab_action(sender: UIButton) {
         trigger_tab()
@@ -147,7 +149,7 @@ class UserDetailListViewController: UIViewController,UITableViewDelegate,UITable
     override func didRotateFromInterfaceOrientation(fromInterfaceOrientation: UIInterfaceOrientation) {
         switch UIDevice.currentDevice().orientation{
         case .Portrait:
-            print("hello")
+            print("protrait")
             if tab_trigger {
                 trigger_tab()
             }
@@ -155,6 +157,7 @@ class UserDetailListViewController: UIViewController,UITableViewDelegate,UITable
             all_font = UIFont(name: "ThaiSansLite",size: 14)
             self.UserDetailTableView.reloadData()
         case .PortraitUpsideDown:
+            print("protrait_down")
             if tab_trigger {
                 trigger_tab()
             }
@@ -162,6 +165,7 @@ class UserDetailListViewController: UIViewController,UITableViewDelegate,UITable
             all_font = UIFont(name: "ThaiSansLite",size: 14)
             self.UserDetailTableView.reloadData()
         case .LandscapeLeft:
+            print("lanscape_left")
             if tab_trigger {
                 trigger_tab()
             }
@@ -169,6 +173,7 @@ class UserDetailListViewController: UIViewController,UITableViewDelegate,UITable
             all_font = UIFont(name: "ThaiSansLite",size: 16)
             self.UserDetailTableView.reloadData()
         case .LandscapeRight:
+            print("lanscape_right")
             if tab_trigger {
                 trigger_tab()
             }
@@ -176,6 +181,7 @@ class UserDetailListViewController: UIViewController,UITableViewDelegate,UITable
             all_font = UIFont(name: "ThaiSansLite",size: 16)
             self.UserDetailTableView.reloadData()
         default:
+            print("default")
             if tab_trigger {
                 trigger_tab()
             }

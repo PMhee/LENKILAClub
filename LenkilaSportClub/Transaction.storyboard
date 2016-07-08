@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -99,12 +99,18 @@
                                         <fontDescription key="fontDescription" name="ThaiSansLite" family="Thai Sans Lite" pointSize="20"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
+                                        <variation key="widthClass=compact" misplaced="YES">
+                                            <rect key="frame" x="82" y="11" width="77" height="24"/>
+                                        </variation>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ประวัติ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="afa-Rl-xSE">
                                         <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                         <fontDescription key="fontDescription" name="ThaiSansLite" family="Thai Sans Lite" pointSize="20"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
+                                        <variation key="widthClass=compact" misplaced="YES">
+                                            <rect key="frame" x="283" y="11" width="55" height="24"/>
+                                        </variation>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clock" translatesAutoresizingMaskIntoConstraints="NO" id="QxI-r8-tot">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
@@ -231,11 +237,11 @@
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="90" id="hN5-nR-Zwp" customClass="UserDetailListCell" customModule="LenkilaClub" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="98" id="hN5-nR-Zwp" customClass="UserDetailListCell" customModule="LenkilaClub" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hN5-nR-Zwp" id="3CY-0A-jdl">
-                                            <rect key="frame" x="0.0" y="0.0" width="240" height="89.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="97"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uxa-YI-BcL">
@@ -247,15 +253,9 @@
                                                         <rect key="frame" x="185" y="20" width="0.0" height="0.0"/>
                                                     </variation>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="คุณ พี่หมี" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nhx-5G-Nif">
-                                                    <rect key="frame" x="-42" y="-21" width="42" height="21"/>
-                                                    <fontDescription key="fontDescription" name="ThaiSansLite" family="Thai Sans Lite" pointSize="20"/>
-                                                    <color key="textColor" red="0.3294117647" green="0.43137254899999999" blue="0.47843137250000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vDa-FL-D2i">
                                                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                                    <color key="backgroundColor" red="0.3294117647" green="0.43137254899999999" blue="0.47843137250000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="backgroundColor" red="0.44705882352941173" green="0.59215686274509804" blue="0.66274509803921566" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="2" id="9tl-u0-77i">
                                                             <variation key="widthClass=compact" constant="2"/>
@@ -277,53 +277,33 @@
                                                     <fontDescription key="fontDescription" name="ThaiSansLite" family="Thai Sans Lite" pointSize="20"/>
                                                     <color key="textColor" red="0.3294117647" green="0.43137254899999999" blue="0.47843137250000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" tag="6" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thursday,September 23,2016" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D7m-af-Fud">
-                                                    <rect key="frame" x="-42" y="-21" width="42" height="21"/>
-                                                    <fontDescription key="fontDescription" name="ThaiSansLite" family="Thai Sans Lite" pointSize="20"/>
-                                                    <color key="textColor" red="0.1137254902" green="0.1137254902" blue="0.1137254902" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" tag="5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="เวลา 16.00-18.00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8iR-47-cuZ">
-                                                    <rect key="frame" x="-42" y="-21" width="42" height="21"/>
-                                                    <fontDescription key="fontDescription" name="ThaiSansLite" family="Thai Sans Lite" pointSize="17"/>
-                                                    <color key="textColor" red="0.1137254902" green="0.1137254902" blue="0.1137254902" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QB9-qD-Pv2">
-                                                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                                    <color key="backgroundColor" red="0.90588235289999997" green="0.90196078430000004" blue="0.90588235289999997" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="1" id="ioi-eT-usw"/>
-                                                    </constraints>
-                                                    <variation key="default">
-                                                        <mask key="constraints">
-                                                            <exclude reference="ioi-eT-usw"/>
-                                                        </mask>
+                                                    <variation key="widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="269" y="4" width="119" height="24"/>
                                                     </variation>
-                                                    <variation key="widthClass=compact">
-                                                        <mask key="constraints">
-                                                            <include reference="ioi-eT-usw"/>
-                                                        </mask>
-                                                    </variation>
-                                                </view>
+                                                </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yJK-OC-X37">
                                                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="จ่ายร้าน" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tJz-4C-kzp">
-                                                            <rect key="frame" x="-42" y="-21" width="42" height="21"/>
-                                                            <fontDescription key="fontDescription" name="ThaiSansLite" family="Thai Sans Lite" pointSize="23"/>
-                                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" tag="8" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2,400.00 บาท" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="umm-LZ-epA">
                                                             <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                                             <fontDescription key="fontDescription" name="ThaiSansLite" family="Thai Sans Lite" pointSize="17"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
+                                                            <variation key="widthClass=compact" misplaced="YES">
+                                                                <rect key="frame" x="-6" y="50" width="102" height="20"/>
+                                                            </variation>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="จ่ายร้าน" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tJz-4C-kzp">
+                                                            <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                                            <fontDescription key="fontDescription" name="ThaiSansLite" family="Thai Sans Lite" pointSize="23"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <nil key="highlightedColor"/>
+                                                            <variation key="widthClass=compact" misplaced="YES">
+                                                                <rect key="frame" x="8" y="17" width="75" height="27"/>
+                                                            </variation>
                                                         </label>
                                                     </subviews>
-                                                    <color key="backgroundColor" red="0.432796124637783" green="0.57172429449611173" blue="0.63880208333333333" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="backgroundColor" red="0.44705882352941173" green="0.59215686274509804" blue="0.66274509803921566" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstItem="umm-LZ-epA" firstAttribute="centerX" secondItem="yJK-OC-X37" secondAttribute="centerX" id="2GB-Ou-FWt"/>
                                                         <constraint firstItem="tJz-4C-kzp" firstAttribute="centerY" secondItem="yJK-OC-X37" secondAttribute="centerY" id="R7V-Ts-jVL">
@@ -342,8 +322,8 @@
                                                     </constraints>
                                                     <variation key="default">
                                                         <mask key="subviews">
-                                                            <exclude reference="tJz-4C-kzp"/>
                                                             <exclude reference="umm-LZ-epA"/>
+                                                            <exclude reference="tJz-4C-kzp"/>
                                                         </mask>
                                                         <mask key="constraints">
                                                             <exclude reference="eTD-dG-ELH"/>
@@ -356,8 +336,8 @@
                                                     </variation>
                                                     <variation key="widthClass=compact">
                                                         <mask key="subviews">
-                                                            <include reference="tJz-4C-kzp"/>
                                                             <include reference="umm-LZ-epA"/>
+                                                            <include reference="tJz-4C-kzp"/>
                                                         </mask>
                                                         <mask key="constraints">
                                                             <include reference="eTD-dG-ELH"/>
@@ -369,12 +349,41 @@
                                                         </mask>
                                                     </variation>
                                                 </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="คุณ พี่หมี" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nhx-5G-Nif">
+                                                    <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" name="ThaiSansLite" family="Thai Sans Lite" pointSize="20"/>
+                                                    <color key="textColor" red="0.3294117647" green="0.43137254899999999" blue="0.47843137250000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <variation key="widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="102" y="6" width="74" height="24"/>
+                                                    </variation>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="6" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thursday,September 23,2016" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D7m-af-Fud">
+                                                    <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" name="ThaiSansLite" family="Thai Sans Lite" pointSize="18"/>
+                                                    <color key="textColor" red="0.1137254902" green="0.1137254902" blue="0.1137254902" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <variation key="widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="102" y="35" width="238" height="21"/>
+                                                    </variation>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="16.00-18.00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8iR-47-cuZ">
+                                                    <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" name="ThaiSansLite" family="Thai Sans Lite" pointSize="16"/>
+                                                    <color key="textColor" red="0.1137254902" green="0.1137254902" blue="0.1137254902" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <variation key="widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="102" y="57" width="87" height="19"/>
+                                                    </variation>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="vDa-FL-D2i" firstAttribute="top" secondItem="nhx-5G-Nif" secondAttribute="bottom" constant="-2" id="0z6-kD-bfq">
-                                                    <variation key="widthClass=compact" constant="0.0"/>
+                                                    <variation key="widthClass=compact" constant="-2"/>
                                                 </constraint>
-                                                <constraint firstItem="D7m-af-Fud" firstAttribute="top" secondItem="vDa-FL-D2i" secondAttribute="bottom" constant="3" id="5P3-nO-eeU"/>
+                                                <constraint firstItem="D7m-af-Fud" firstAttribute="top" secondItem="vDa-FL-D2i" secondAttribute="bottom" constant="3" id="5P3-nO-eeU">
+                                                    <variation key="widthClass=compact" constant="5"/>
+                                                </constraint>
                                                 <constraint firstAttribute="trailingMargin" secondItem="vDa-FL-D2i" secondAttribute="trailing" id="7Pj-xu-SN1">
                                                     <variation key="widthClass=compact" constant="4"/>
                                                 </constraint>
@@ -384,20 +393,19 @@
                                                 <constraint firstItem="yJK-OC-X37" firstAttribute="top" secondItem="3CY-0A-jdl" secondAttribute="topMargin" constant="-10" id="ErL-D2-BSM">
                                                     <variation key="widthClass=compact" constant="-9"/>
                                                 </constraint>
-                                                <constraint firstItem="nhx-5G-Nif" firstAttribute="leading" secondItem="vDa-FL-D2i" secondAttribute="leading" id="NHV-Yd-Xqa"/>
-                                                <constraint firstItem="QB9-qD-Pv2" firstAttribute="leading" secondItem="yJK-OC-X37" secondAttribute="leading" id="QCj-ao-bJZ"/>
+                                                <constraint firstItem="nhx-5G-Nif" firstAttribute="leading" secondItem="vDa-FL-D2i" secondAttribute="leading" id="NHV-Yd-Xqa">
+                                                    <variation key="widthClass=compact" constant="8"/>
+                                                </constraint>
                                                 <constraint firstItem="8iR-47-cuZ" firstAttribute="top" secondItem="D7m-af-Fud" secondAttribute="bottom" constant="1" id="QEX-UK-HWr"/>
-                                                <constraint firstItem="QB9-qD-Pv2" firstAttribute="width" secondItem="3CY-0A-jdl" secondAttribute="width" id="T7S-Vx-F3x"/>
                                                 <constraint firstItem="Nb6-Xn-1uk" firstAttribute="trailing" secondItem="vDa-FL-D2i" secondAttribute="trailing" id="cXN-1d-ALz"/>
                                                 <constraint firstItem="vDa-FL-D2i" firstAttribute="top" secondItem="3CY-0A-jdl" secondAttribute="topMargin" constant="20" id="hC9-v3-0UM"/>
                                                 <constraint firstItem="vDa-FL-D2i" firstAttribute="top" secondItem="Nb6-Xn-1uk" secondAttribute="bottom" constant="-2" id="meR-hS-m0Z">
                                                     <variation key="widthClass=compact" constant="0.0"/>
                                                 </constraint>
-                                                <constraint firstItem="D7m-af-Fud" firstAttribute="leading" secondItem="vDa-FL-D2i" secondAttribute="leading" id="qhk-7S-ZD7"/>
-                                                <constraint firstItem="8iR-47-cuZ" firstAttribute="centerX" secondItem="D7m-af-Fud" secondAttribute="centerX" id="t5G-2i-9ZI"/>
-                                                <constraint firstItem="QB9-qD-Pv2" firstAttribute="top" secondItem="yJK-OC-X37" secondAttribute="bottom" constant="-6" id="wNq-vu-ScP">
-                                                    <variation key="widthClass=compact" constant="0.0"/>
+                                                <constraint firstItem="D7m-af-Fud" firstAttribute="leading" secondItem="vDa-FL-D2i" secondAttribute="leading" id="qhk-7S-ZD7">
+                                                    <variation key="widthClass=compact" constant="8"/>
                                                 </constraint>
+                                                <constraint firstItem="8iR-47-cuZ" firstAttribute="centerX" secondItem="D7m-af-Fud" secondAttribute="centerX" id="t5G-2i-9ZI"/>
                                                 <constraint firstAttribute="leadingMargin" secondItem="yJK-OC-X37" secondAttribute="leading" id="wxU-2y-o4p">
                                                     <variation key="widthClass=compact" constant="8"/>
                                                 </constraint>
@@ -407,13 +415,12 @@
                                             <variation key="default">
                                                 <mask key="subviews">
                                                     <exclude reference="Uxa-YI-BcL"/>
-                                                    <exclude reference="nhx-5G-Nif"/>
                                                     <exclude reference="vDa-FL-D2i"/>
                                                     <exclude reference="Nb6-Xn-1uk"/>
+                                                    <exclude reference="yJK-OC-X37"/>
+                                                    <exclude reference="nhx-5G-Nif"/>
                                                     <exclude reference="D7m-af-Fud"/>
                                                     <exclude reference="8iR-47-cuZ"/>
-                                                    <exclude reference="QB9-qD-Pv2"/>
-                                                    <exclude reference="yJK-OC-X37"/>
                                                 </mask>
                                                 <mask key="constraints">
                                                     <exclude reference="QEX-UK-HWr"/>
@@ -424,9 +431,6 @@
                                                     <exclude reference="yzX-1E-d7i"/>
                                                     <exclude reference="cXN-1d-ALz"/>
                                                     <exclude reference="NHV-Yd-Xqa"/>
-                                                    <exclude reference="QCj-ao-bJZ"/>
-                                                    <exclude reference="T7S-Vx-F3x"/>
-                                                    <exclude reference="wNq-vu-ScP"/>
                                                     <exclude reference="0z6-kD-bfq"/>
                                                     <exclude reference="7Pj-xu-SN1"/>
                                                     <exclude reference="BqL-tG-EEr"/>
@@ -439,13 +443,12 @@
                                             <variation key="widthClass=compact">
                                                 <mask key="subviews">
                                                     <include reference="Uxa-YI-BcL"/>
-                                                    <include reference="nhx-5G-Nif"/>
                                                     <include reference="vDa-FL-D2i"/>
                                                     <include reference="Nb6-Xn-1uk"/>
+                                                    <include reference="yJK-OC-X37"/>
+                                                    <include reference="nhx-5G-Nif"/>
                                                     <include reference="D7m-af-Fud"/>
                                                     <include reference="8iR-47-cuZ"/>
-                                                    <include reference="QB9-qD-Pv2"/>
-                                                    <include reference="yJK-OC-X37"/>
                                                 </mask>
                                                 <mask key="constraints">
                                                     <include reference="QEX-UK-HWr"/>
@@ -456,9 +459,6 @@
                                                     <exclude reference="yzX-1E-d7i"/>
                                                     <include reference="cXN-1d-ALz"/>
                                                     <include reference="NHV-Yd-Xqa"/>
-                                                    <include reference="QCj-ao-bJZ"/>
-                                                    <include reference="T7S-Vx-F3x"/>
-                                                    <include reference="wNq-vu-ScP"/>
                                                     <include reference="0z6-kD-bfq"/>
                                                     <include reference="7Pj-xu-SN1"/>
                                                     <include reference="BqL-tG-EEr"/>
@@ -469,13 +469,13 @@
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="1" colorSpace="calibratedRGB"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="90" id="Z07-1H-qOH" customClass="UserDetailListCell" customModule="LenkilaClub" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Z07-1H-qOH" id="9uQ-Z0-bxo">
-                                            <rect key="frame" x="0.0" y="0.0" width="240" height="89.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="89"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="em8-9A-x1B">
@@ -486,12 +486,6 @@
                                                     <variation key="widthClass=compact" fixedFrame="YES">
                                                         <rect key="frame" x="185" y="20" width="0.0" height="0.0"/>
                                                     </variation>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="คุณ พี่หมี" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pot-Sn-Nq1">
-                                                    <rect key="frame" x="-42" y="-21" width="42" height="21"/>
-                                                    <fontDescription key="fontDescription" name="ThaiSansLite" family="Thai Sans Lite" pointSize="20"/>
-                                                    <color key="textColor" red="0.1137254902" green="0.1137254902" blue="0.1137254902" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EBm-86-IMf">
                                                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
@@ -506,8 +500,7 @@
                                                             <exclude reference="oRc-9e-4b3"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="94" y="28" width="134" height="2"/>
+                                                    <variation key="widthClass=compact">
                                                         <mask key="constraints">
                                                             <include reference="oRc-9e-4b3"/>
                                                         </mask>
@@ -519,20 +512,8 @@
                                                     <color key="textColor" red="0.1137254902" green="0.1137254902" blue="0.1137254902" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                     <variation key="widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="109" y="4" width="119" height="24"/>
+                                                        <rect key="frame" x="269" y="4" width="119" height="24"/>
                                                     </variation>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" tag="6" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thursday,September 23,2016" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t8f-53-thi">
-                                                    <rect key="frame" x="-42" y="-21" width="42" height="21"/>
-                                                    <fontDescription key="fontDescription" name="ThaiSansLite" family="Thai Sans Lite" pointSize="20"/>
-                                                    <color key="textColor" red="0.3294117647" green="0.43137254899999999" blue="0.47843137250000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" tag="5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="เวลา 16.00-18.00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ait-0Q-y2X">
-                                                    <rect key="frame" x="-42" y="-21" width="42" height="21"/>
-                                                    <fontDescription key="fontDescription" name="ThaiSansLite" family="Thai Sans Lite" pointSize="17"/>
-                                                    <color key="textColor" red="0.3294117647" green="0.43137254899999999" blue="0.47843137250000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O2Q-df-3fn">
                                                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
@@ -545,8 +526,7 @@
                                                             <exclude reference="ZUs-vo-j5p"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="0.0" y="89" width="240" height="1"/>
+                                                    <variation key="widthClass=compact">
                                                         <mask key="constraints">
                                                             <include reference="ZUs-vo-j5p"/>
                                                         </mask>
@@ -560,12 +540,18 @@
                                                             <fontDescription key="fontDescription" name="ThaiSansLite" family="Thai Sans Lite" pointSize="23"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
+                                                            <variation key="widthClass=compact" misplaced="YES">
+                                                                <rect key="frame" x="8" y="17" width="75" height="27"/>
+                                                            </variation>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" tag="8" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2,400.00 บาท" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZF0-Og-9z4">
                                                             <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                                             <fontDescription key="fontDescription" name="ThaiSansLite" family="Thai Sans Lite" pointSize="17"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
+                                                            <variation key="widthClass=compact" misplaced="YES">
+                                                                <rect key="frame" x="-6" y="50" width="102" height="20"/>
+                                                            </variation>
                                                         </label>
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.1137254902" green="0.1137254902" blue="0.1137254902" alpha="1" colorSpace="calibratedRGB"/>
@@ -614,6 +600,33 @@
                                                         </mask>
                                                     </variation>
                                                 </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="คุณ พี่หมี" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pot-Sn-Nq1">
+                                                    <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" name="ThaiSansLite" family="Thai Sans Lite" pointSize="20"/>
+                                                    <color key="textColor" red="0.1137254902" green="0.1137254902" blue="0.1137254902" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <variation key="widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="103" y="4" width="74" height="24"/>
+                                                    </variation>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="6" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thursday,September 23,2016" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t8f-53-thi">
+                                                    <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" name="ThaiSansLite" family="Thai Sans Lite" pointSize="18"/>
+                                                    <color key="textColor" red="0.3294117647" green="0.43137254899999999" blue="0.47843137250000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <variation key="widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="103" y="33" width="238" height="21"/>
+                                                    </variation>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="เวลา 16.00-18.00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ait-0Q-y2X">
+                                                    <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" name="ThaiSansLite" family="Thai Sans Lite" pointSize="16"/>
+                                                    <color key="textColor" red="0.3294117647" green="0.43137254899999999" blue="0.47843137250000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <variation key="widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="103" y="55" width="122" height="19"/>
+                                                    </variation>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="EBm-86-IMf" firstAttribute="leading" secondItem="zqP-eF-dMt" secondAttribute="trailing" constant="8" id="JHL-b8-4ZP">
@@ -622,7 +635,9 @@
                                                 <constraint firstItem="EBm-86-IMf" firstAttribute="top" secondItem="Pot-Sn-Nq1" secondAttribute="bottom" constant="-2" id="Kbx-QJ-eiA">
                                                     <variation key="widthClass=compact" constant="0.0"/>
                                                 </constraint>
-                                                <constraint firstItem="Pot-Sn-Nq1" firstAttribute="leading" secondItem="EBm-86-IMf" secondAttribute="leading" id="Moo-hm-65w"/>
+                                                <constraint firstItem="Pot-Sn-Nq1" firstAttribute="leading" secondItem="EBm-86-IMf" secondAttribute="leading" id="Moo-hm-65w">
+                                                    <variation key="widthClass=compact" constant="9"/>
+                                                </constraint>
                                                 <constraint firstItem="ait-0Q-y2X" firstAttribute="centerX" secondItem="t8f-53-thi" secondAttribute="centerX" id="Q6E-IM-2K9"/>
                                                 <constraint firstItem="t8f-53-thi" firstAttribute="top" secondItem="EBm-86-IMf" secondAttribute="bottom" constant="3" id="Rq9-if-xCc"/>
                                                 <constraint firstItem="EBm-86-IMf" firstAttribute="top" secondItem="54b-I9-Q7J" secondAttribute="bottom" constant="-2" id="TPT-Cu-igY">
@@ -646,19 +661,21 @@
                                                     <variation key="widthClass=compact" constant="0.0"/>
                                                 </constraint>
                                                 <constraint firstItem="ait-0Q-y2X" firstAttribute="top" secondItem="t8f-53-thi" secondAttribute="bottom" constant="1" id="tK6-MJ-6nk"/>
-                                                <constraint firstItem="t8f-53-thi" firstAttribute="leading" secondItem="EBm-86-IMf" secondAttribute="leading" id="w2H-hf-LCz"/>
+                                                <constraint firstItem="t8f-53-thi" firstAttribute="leading" secondItem="EBm-86-IMf" secondAttribute="leading" id="w2H-hf-LCz">
+                                                    <variation key="widthClass=compact" constant="9"/>
+                                                </constraint>
                                                 <constraint firstItem="EBm-86-IMf" firstAttribute="top" secondItem="9uQ-Z0-bxo" secondAttribute="topMargin" constant="20" id="wtP-zN-bba"/>
                                             </constraints>
                                             <variation key="default">
                                                 <mask key="subviews">
                                                     <exclude reference="em8-9A-x1B"/>
-                                                    <exclude reference="Pot-Sn-Nq1"/>
                                                     <exclude reference="EBm-86-IMf"/>
                                                     <exclude reference="54b-I9-Q7J"/>
-                                                    <exclude reference="t8f-53-thi"/>
-                                                    <exclude reference="ait-0Q-y2X"/>
                                                     <exclude reference="O2Q-df-3fn"/>
                                                     <exclude reference="zqP-eF-dMt"/>
+                                                    <exclude reference="Pot-Sn-Nq1"/>
+                                                    <exclude reference="t8f-53-thi"/>
+                                                    <exclude reference="ait-0Q-y2X"/>
                                                 </mask>
                                                 <mask key="constraints">
                                                     <exclude reference="gqh-Ze-aCG"/>
@@ -684,13 +701,13 @@
                                             <variation key="widthClass=compact">
                                                 <mask key="subviews">
                                                     <include reference="em8-9A-x1B"/>
-                                                    <include reference="Pot-Sn-Nq1"/>
                                                     <include reference="EBm-86-IMf"/>
                                                     <include reference="54b-I9-Q7J"/>
-                                                    <include reference="t8f-53-thi"/>
-                                                    <include reference="ait-0Q-y2X"/>
                                                     <include reference="O2Q-df-3fn"/>
                                                     <include reference="zqP-eF-dMt"/>
+                                                    <include reference="Pot-Sn-Nq1"/>
+                                                    <include reference="t8f-53-thi"/>
+                                                    <include reference="ait-0Q-y2X"/>
                                                 </mask>
                                                 <mask key="constraints">
                                                     <include reference="gqh-Ze-aCG"/>
@@ -1259,8 +1276,7 @@
                                                 <exclude reference="nFj-td-q3P"/>
                                             </mask>
                                         </variation>
-                                        <variation key="widthClass=compact" misplaced="YES">
-                                            <rect key="frame" x="0.0" y="0.0" width="0.0" height="475"/>
+                                        <variation key="widthClass=compact">
                                             <mask key="subviews">
                                                 <include reference="yHQ-9r-Edl"/>
                                                 <include reference="S69-Mv-o1V"/>
@@ -1462,6 +1478,7 @@
                                 </variation>
                             </view>
                         </subviews>
+                        <color key="backgroundColor" red="0.90588235289999997" green="0.90196078430000004" blue="0.90588235289999997" alpha="1" colorSpace="calibratedRGB"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="0qs-Qf-ZsE" firstAttribute="leading" secondItem="UYN-0o-Edb" secondAttribute="leadingMargin" constant="-19" id="2he-Fd-2fk">
