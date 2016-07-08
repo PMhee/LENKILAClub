@@ -19,10 +19,9 @@ class SettingViewController: UIViewController, UITableViewDelegate, UITableViewD
     var y :CGFloat = 0
     var enable_touch : Bool = false
     var tab_trigger : Bool = false
-    var settingLabel =  [["ซื้อแพ็คเกจ","ใส่คูปอง","ติดต่อฝ่ายขาย"]
-                        ,["ข้อมูลส่วนตัว","แก้ไขสนาม","เปลี่ยนรหัสผ่าน"]
+    var settingLabel =  [["ข้อมูลส่วนตัว","แก้ไขสนาม","เปลี่ยนรหัสผ่าน"]
                         ,["แก้ไขขนาดตัวอักษร","การแจ้งเตือน","เปลี่ยนภาษา"]
-                        ,["คู่มือการใช้งาน","คำถามที่พบบ่อย","ติดต่อเรา"]]
+                        ,["คู่มือการใช้งาน","คำถามที่พบบ่อยและแจ้งปัญหา","ติดต่อเรา"]]
 
     @IBAction func btn_tab_action(sender: UIButton) {
         trigger_tab()
@@ -83,7 +82,7 @@ class SettingViewController: UIViewController, UITableViewDelegate, UITableViewD
 
     // MARK: - TableView
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 5
+        return 4
     }
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if(section==0){
@@ -95,12 +94,10 @@ class SettingViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if section == 1 {
-            return "Lenkila Shop"
-        } else if section == 2 {
             return "Profile"
-        } else if section == 3 {
+        } else if section == 2 {
             return "General"
-        } else if section == 4{
+        } else if section == 3{
             return "Help & Support"
         }else{
             return ""
@@ -137,21 +134,13 @@ class SettingViewController: UIViewController, UITableViewDelegate, UITableViewD
             self.performSegueWithIdentifier("yourPackage", sender: self)
         }else if(indexPath.section == 1){
             if(indexPath.row == 0){
-                self.performSegueWithIdentifier("buyPackage", sender: self)
-            }else if(indexPath.row == 1){
-                self.performSegueWithIdentifier("coupon", sender: self)
-            }else{
-                self.performSegueWithIdentifier("sellCenter", sender: self)
-            }
-        }else if(indexPath.section == 2){
-            if(indexPath.row == 0){
                 self.performSegueWithIdentifier("profile", sender: self)
             }else if(indexPath.row == 1){
                 self.performSegueWithIdentifier("editField", sender: self)
             }else{
                 self.performSegueWithIdentifier("changePassword", sender: self)
             }
-        }else if(indexPath.section == 3){
+        }else if(indexPath.section == 2){
             if(indexPath.row == 0){
                 let alertController = UIAlertController(title: "ขออภัย", message: "ระบบการเปลี่ยนขนาดตัวอักษรยังอยู่ในระหว่างการพัฒนา และจะถูกเพิ่มในเวอร์ชันถัดไป", preferredStyle: .Alert)
                 let doneAction = UIAlertAction(title: "รับทราบ", style: .Default, handler: nil)

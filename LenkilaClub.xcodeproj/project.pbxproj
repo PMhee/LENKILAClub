@@ -13,6 +13,7 @@
 		90003C761D1A8B05003E9375 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90003C751D1A8B05003E9375 /* SettingViewController.swift */; };
 		90003C781D1A93B2003E9375 /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90003C771D1A93B2003E9375 /* SettingTableViewCell.swift */; };
 		90003C7A1D1A9AC4003E9375 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90003C791D1A9AC4003E9375 /* Main.storyboard */; };
+		902EC56D1D2528BC00E09816 /* CouponViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 902EC56C1D2528BC00E09816 /* CouponViewController.swift */; };
 		9049C9C41D211F7D0014D464 /* SettingCurrentPackageViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9049C9C31D211F7D0014D464 /* SettingCurrentPackageViewCell.swift */; };
 		9049C9D51D223C3E0014D464 /* Titillium-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9049C9C51D2234BE0014D464 /* Titillium-Black.otf */; };
 		9049C9D61D223C3E0014D464 /* Titillium-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9049C9C61D2234BE0014D464 /* Titillium-Bold.otf */; };
@@ -30,6 +31,14 @@
 		9049C9E21D223C3E0014D464 /* Titillium-SemiboldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9049C9CD1D2234BE0014D464 /* Titillium-SemiboldItalic.otf */; };
 		9049C9E31D223C3E0014D464 /* Titillium-SemiboldUpright.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9049C9CE1D2234BE0014D464 /* Titillium-SemiboldUpright.otf */; };
 		9049C9E41D223C3E0014D464 /* Titillium-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9049C9CF1D2234BE0014D464 /* Titillium-Thin.otf */; };
+		9049C9E61D2250190014D464 /* FAQViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9049C9E51D2250190014D464 /* FAQViewController.swift */; };
+		9049C9E81D2386CD0014D464 /* ContactUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9049C9E71D2386CD0014D464 /* ContactUsViewController.swift */; };
+		9049C9EA1D23EF570014D464 /* SendProlemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9049C9E91D23EF570014D464 /* SendProlemViewController.swift */; };
+		9095C5691D2F971400D424B4 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9095C5681D2F971400D424B4 /* ChangePasswordViewController.swift */; };
+		9095C56C1D2FA93F00D424B4 /* NewPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9095C56B1D2FA93F00D424B4 /* NewPasswordViewController.swift */; };
+		9095C56E1D2FA96000D424B4 /* ConfirmPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9095C56D1D2FA96000D424B4 /* ConfirmPasswordViewController.swift */; };
+		9095C5701D2FCCCA00D424B4 /* SegueFromLeft.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9095C56F1D2FCCCA00D424B4 /* SegueFromLeft.swift */; };
+		9095C5721D2FCCFA00D424B4 /* SegueFromRight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9095C5711D2FCCFA00D424B4 /* SegueFromRight.swift */; };
 		90D5A8831D0941A1000D2062 /* UserDetailListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D5A8821D0941A1000D2062 /* UserDetailListViewController.swift */; };
 		90F7FEBC1D20F00E0054200B /* ThaiSansNeue-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 90EB14941D20EEDC009C55C6 /* ThaiSansNeue-Black.otf */; };
 		90F7FEBD1D20F00E0054200B /* ThaiSansNeue-BlackItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 90EB14951D20EEDC009C55C6 /* ThaiSansNeue-BlackItalic.otf */; };
@@ -100,6 +109,7 @@
 		90003C751D1A8B05003E9375 /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		90003C771D1A93B2003E9375 /* SettingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
 		90003C791D1A9AC4003E9375 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		902EC56C1D2528BC00E09816 /* CouponViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CouponViewController.swift; sourceTree = "<group>"; };
 		9049C9C31D211F7D0014D464 /* SettingCurrentPackageViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingCurrentPackageViewCell.swift; sourceTree = "<group>"; };
 		9049C9C51D2234BE0014D464 /* Titillium-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Titillium-Black.otf"; sourceTree = "<group>"; };
 		9049C9C61D2234BE0014D464 /* Titillium-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Titillium-Bold.otf"; sourceTree = "<group>"; };
@@ -117,6 +127,14 @@
 		9049C9D21D22355F0014D464 /* Titillium-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Titillium-Regular.otf"; sourceTree = "<group>"; };
 		9049C9D31D22355F0014D464 /* Titillium-ThinItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Titillium-ThinItalic.otf"; sourceTree = "<group>"; };
 		9049C9D41D22355F0014D464 /* Titillium-ThinUpright.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Titillium-ThinUpright.otf"; sourceTree = "<group>"; };
+		9049C9E51D2250190014D464 /* FAQViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FAQViewController.swift; sourceTree = "<group>"; };
+		9049C9E71D2386CD0014D464 /* ContactUsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactUsViewController.swift; sourceTree = "<group>"; };
+		9049C9E91D23EF570014D464 /* SendProlemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendProlemViewController.swift; sourceTree = "<group>"; };
+		9095C5681D2F971400D424B4 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
+		9095C56B1D2FA93F00D424B4 /* NewPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPasswordViewController.swift; sourceTree = "<group>"; };
+		9095C56D1D2FA96000D424B4 /* ConfirmPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmPasswordViewController.swift; sourceTree = "<group>"; };
+		9095C56F1D2FCCCA00D424B4 /* SegueFromLeft.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegueFromLeft.swift; sourceTree = "<group>"; };
+		9095C5711D2FCCFA00D424B4 /* SegueFromRight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegueFromRight.swift; sourceTree = "<group>"; };
 		90D5A8821D0941A1000D2062 /* UserDetailListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDetailListViewController.swift; sourceTree = "<group>"; };
 		90EB14941D20EEDC009C55C6 /* ThaiSansNeue-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ThaiSansNeue-Black.otf"; sourceTree = "<group>"; };
 		90EB14951D20EEDC009C55C6 /* ThaiSansNeue-BlackItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ThaiSansNeue-BlackItalic.otf"; sourceTree = "<group>"; };
@@ -211,8 +229,23 @@
 				90003C751D1A8B05003E9375 /* SettingViewController.swift */,
 				90003C771D1A93B2003E9375 /* SettingTableViewCell.swift */,
 				9049C9C31D211F7D0014D464 /* SettingCurrentPackageViewCell.swift */,
+				9049C9E51D2250190014D464 /* FAQViewController.swift */,
+				9049C9E71D2386CD0014D464 /* ContactUsViewController.swift */,
+				9049C9E91D23EF570014D464 /* SendProlemViewController.swift */,
+				9095C56A1D2FA87500D424B4 /* ChangePassword */,
+				902EC56C1D2528BC00E09816 /* CouponViewController.swift */,
 			);
 			name = Setting;
+			sourceTree = "<group>";
+		};
+		9095C56A1D2FA87500D424B4 /* ChangePassword */ = {
+			isa = PBXGroup;
+			children = (
+				9095C5681D2F971400D424B4 /* ChangePasswordViewController.swift */,
+				9095C56B1D2FA93F00D424B4 /* NewPasswordViewController.swift */,
+				9095C56D1D2FA96000D424B4 /* ConfirmPasswordViewController.swift */,
+			);
+			name = ChangePassword;
 			sourceTree = "<group>";
 		};
 		90D5A87F1D093D09000D2062 /* UserDetailList */ = {
@@ -337,9 +370,11 @@
 				B78899E51D13C1F4009B6E3F /* Transaction */,
 				B749890B1D09EC6E0058D874 /* Schedule */,
 				90D5A87F1D093D09000D2062 /* UserDetailList */,
+				90003C701D1A8139003E9375 /* Setting */,
 				B7B0D5D21CEDA27E00577430 /* AppDelegate.swift */,
 				B7B0D5D41CEDA27E00577430 /* ViewController.swift */,
-				90003C701D1A8139003E9375 /* Setting */,
+				9095C56F1D2FCCCA00D424B4 /* SegueFromLeft.swift */,
+				9095C5711D2FCCFA00D424B4 /* SegueFromRight.swift */,
 				B7B0D5DC1CEDA27E00577430 /* Assets.xcassets */,
 				B7B0D5DE1CEDA27E00577430 /* LaunchScreen.storyboard */,
 				B7B0D5E11CEDA27E00577430 /* Info.plist */,
@@ -465,7 +500,7 @@
 				TargetAttributes = {
 					B7B0D5CE1CEDA27E00577430 = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = WYLP742538;
+						DevelopmentTeam = FCA995W2V4;
 					};
 					B7B0D5E51CEDA27F00577430 = {
 						CreatedOnToolsVersion = 7.3;
@@ -709,21 +744,30 @@
 			buildActionMask = 2147483647;
 			files = (
 				B7B0D6061CEDCE7E00577430 /* UIImageEffects.swift in Sources */,
+				9049C9EA1D23EF570014D464 /* SendProlemViewController.swift in Sources */,
 				90003C761D1A8B05003E9375 /* SettingViewController.swift in Sources */,
 				B7B0D5D51CEDA27E00577430 /* ViewController.swift in Sources */,
 				B78899E71D13C221009B6E3F /* TransactionManagementViewController.swift in Sources */,
+				902EC56D1D2528BC00E09816 /* CouponViewController.swift in Sources */,
+				9095C5721D2FCCFA00D424B4 /* SegueFromRight.swift in Sources */,
+				9095C5701D2FCCCA00D424B4 /* SegueFromLeft.swift in Sources */,
+				9095C5691D2F971400D424B4 /* ChangePasswordViewController.swift in Sources */,
 				B7B0D5D31CEDA27E00577430 /* AppDelegate.swift in Sources */,
 				B7B0D5DB1CEDA27E00577430 /* LenkilaSportClub.xcdatamodeld in Sources */,
 				9049C9C41D211F7D0014D464 /* SettingCurrentPackageViewCell.swift in Sources */,
+				9049C9E61D2250190014D464 /* FAQViewController.swift in Sources */,
 				B77188EE1CFFF3E300A8D8FB /* User.swift in Sources */,
 				B7B0D6041CEDCB2F00577430 /* ScheduleViewController.swift in Sources */,
+				9095C56E1D2FA96000D424B4 /* ConfirmPasswordViewController.swift in Sources */,
 				90003C781D1A93B2003E9375 /* SettingTableViewCell.swift in Sources */,
 				B7AE00931D09FCDA009DC015 /* EditUserDetailViewController.swift in Sources */,
 				B77188EC1CFFF2C700A8D8FB /* Schedule.swift in Sources */,
+				9095C56C1D2FA93F00D424B4 /* NewPasswordViewController.swift in Sources */,
 				B7EA92AC1CFE00E70006C673 /* AddTableViewController.swift in Sources */,
 				90D5A8831D0941A1000D2062 /* UserDetailListViewController.swift in Sources */,
 				B772FAA01D1A506A0024F3BF /* FreqPlay.swift in Sources */,
 				B7C98C791D1EA6CC00D6A5A0 /* AnalysisViewController.swift in Sources */,
+				9049C9E81D2386CD0014D464 /* ContactUsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -863,7 +907,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = LenkilaSportClub/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Nont.LenkilaSportClub;
+				PRODUCT_BUNDLE_IDENTIFIER = Jump.LenkilaSportClub;
 				PRODUCT_NAME = LenkilaClub;
 				PROVISIONING_PROFILE = "";
 			};
@@ -879,7 +923,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = LenkilaSportClub/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Nont.LenkilaSportClub;
+				PRODUCT_BUNDLE_IDENTIFIER = Jump.LenkilaSportClub;
 				PRODUCT_NAME = LenkilaClub;
 				PROVISIONING_PROFILE = "";
 			};
@@ -892,7 +936,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = LenkilaSportClubTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Nont.LenkilaSportClubTests;
+				PRODUCT_BUNDLE_IDENTIFIER = Jump.LenkilaSportClubTests;
 				PRODUCT_NAME = LenkilaClub;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LenkilaClub.app/LenkilaClub";
 			};
@@ -905,7 +949,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = LenkilaSportClubTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Nont.LenkilaSportClubTests;
+				PRODUCT_BUNDLE_IDENTIFIER = Jump.LenkilaSportClubTests;
 				PRODUCT_NAME = LenkilaClub;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LenkilaClub.app/LenkilaClub";
 			};
@@ -917,7 +961,7 @@
 			buildSettings = {
 				INFOPLIST_FILE = LenkilaSportClubUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Nont.LenkilaSportClubUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = Jump.LenkilaSportClubUITests;
 				PRODUCT_NAME = LenkilaClub;
 				TEST_TARGET_NAME = LenkilaSportClub;
 			};
@@ -929,7 +973,7 @@
 			buildSettings = {
 				INFOPLIST_FILE = LenkilaSportClubUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Nont.LenkilaSportClubUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = Jump.LenkilaSportClubUITests;
 				PRODUCT_NAME = LenkilaClub;
 				TEST_TARGET_NAME = LenkilaSportClub;
 			};
