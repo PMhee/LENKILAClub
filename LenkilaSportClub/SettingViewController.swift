@@ -82,65 +82,55 @@ class SettingViewController: UIViewController, UITableViewDelegate, UITableViewD
 
     // MARK: - TableView
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 4
+        return 3
     }
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if(section==0){
-            return 1
-        }else{
-            return 3
-        }
-        
+        return 3
     }
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if section == 1 {
+        if section == 0 {
             return "Profile"
-        } else if section == 2 {
+        } else if section == 1 {
             return "General"
-        } else if section == 3{
+        } else {
             return "Help & Support"
-        }else{
-            return ""
         }
     }
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        if(indexPath.section==0){
-            let cell = tableView.dequeueReusableCellWithIdentifier("currentPackage", forIndexPath: indexPath) as! SettingCurrentPackageViewCell
-
-            return cell
-
-        }else{
-            let cell = tableView.dequeueReusableCellWithIdentifier("row", forIndexPath: indexPath) as! SettingTableViewCell
-            cell.label.font = UIFont(name: "ThaiSansLite",size: 24)
-            cell.label.text = self.settingLabel[indexPath.section-1][indexPath.row]
-            cell.icon.frame = CGRectMake(0, 0, 64, 64)
-            cell.icon.image = UIImage(named: "settingIcon" + String(indexPath.section-1) + String(indexPath.row))
-            
-            cell.icon.contentMode = .ScaleAspectFit
-            return cell
-
-        }
+        
+        let cell = tableView.dequeueReusableCellWithIdentifier("row", forIndexPath: indexPath) as! SettingTableViewCell
+        cell.label.font = UIFont(name: "ThaiSansLite",size: 24)
+        cell.label.text = self.settingLabel[indexPath.section][indexPath.row]
+        cell.icon.frame = CGRectMake(0, 0, 64, 64)
+        cell.icon.image = UIImage(named: "settingIcon" + String(indexPath.section) + String(indexPath.row))
+        
+        cell.icon.contentMode = .ScaleAspectFit
+        return cell
     }
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        if(indexPath.section == 0){
-            return 120
-        }else{
-            return 60
-        }
+        
+        return 60
+        
     }
 
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if(indexPath.section == 0){
-            self.performSegueWithIdentifier("yourPackage", sender: self)
-        }else if(indexPath.section == 1){
             if(indexPath.row == 0){
-                self.performSegueWithIdentifier("profile", sender: self)
+                let alertController = UIAlertController(title: "ขออภัย", message: "ระบบการแก้ไขข้อมูลส่วนตัวยังอยู่ในระหว่างการพัฒนา และจะถูกเพิ่มในเวอร์ชันถัดไป", preferredStyle: .Alert)
+                let doneAction = UIAlertAction(title: "รับทราบ", style: .Default, handler: nil)
+                alertController.addAction(doneAction)
+                self.presentViewController(alertController, animated: true, completion: nil)
+                //self.performSegueWithIdentifier("profile", sender: self)
             }else if(indexPath.row == 1){
-                self.performSegueWithIdentifier("editField", sender: self)
+                let alertController = UIAlertController(title: "ขออภัย", message: "ระบบการแก้ไขสนามยังอยู่ในระหว่างการพัฒนา และจะถูกเพิ่มในเวอร์ชันถัดไป", preferredStyle: .Alert)
+                let doneAction = UIAlertAction(title: "รับทราบ", style: .Default, handler: nil)
+                alertController.addAction(doneAction)
+                self.presentViewController(alertController, animated: true, completion: nil)
+                //self.performSegueWithIdentifier("editField", sender: self)
             }else{
                 self.performSegueWithIdentifier("changePassword", sender: self)
             }
-        }else if(indexPath.section == 2){
+        }else if(indexPath.section == 1){
             if(indexPath.row == 0){
                 let alertController = UIAlertController(title: "ขออภัย", message: "ระบบการเปลี่ยนขนาดตัวอักษรยังอยู่ในระหว่างการพัฒนา และจะถูกเพิ่มในเวอร์ชันถัดไป", preferredStyle: .Alert)
                 let doneAction = UIAlertAction(title: "รับทราบ", style: .Default, handler: nil)
@@ -157,7 +147,11 @@ class SettingViewController: UIViewController, UITableViewDelegate, UITableViewD
             
         }else{
             if(indexPath.row == 0){
-                self.performSegueWithIdentifier("tutorial", sender: self)
+                let alertController = UIAlertController(title: "ขออภัย", message: "คู่มือการใช้งานยังอยู่ในระหว่างการพัฒนา และจะถูกเพิ่มในเวอร์ชันถัดไป", preferredStyle: .Alert)
+                let doneAction = UIAlertAction(title: "รับทราบ", style: .Default, handler: nil)
+                alertController.addAction(doneAction)
+                self.presentViewController(alertController, animated: true, completion: nil)
+                //self.performSegueWithIdentifier("tutorial", sender: self)
             }else if(indexPath.row == 1){
                 self.performSegueWithIdentifier("faq", sender: self)
             }else{
@@ -166,12 +160,7 @@ class SettingViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
     }
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        if(section==0){
-            return 1
-        }else{
-            return 30
-
-        }
+        return 30
     }
     func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 0.00001
