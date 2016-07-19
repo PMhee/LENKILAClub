@@ -6,10 +6,11 @@
 //  Copyright © 2559 Tanakorn. All rights reserved.
 //
 
-import UIKit
 import Foundation
+import UIKit
+import MessageUI
 
-class FAQViewController: UIViewController, UITableViewDelegate {
+class FAQViewController: UIViewController, UITableViewDelegate,MFMailComposeViewControllerDelegate {
     
     @IBOutlet var faqTableView: UITableView!
     
@@ -52,9 +53,17 @@ class FAQViewController: UIViewController, UITableViewDelegate {
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if(indexPath.section == questions.count) {
-//            faqTableView.deselectRowAtIndexPath(indexPath, animated: false);
-//            return;
-            self.performSegueWithIdentifier("sendProblem", sender: self)
+
+            //self.performSegueWithIdentifier("sendProblem", sender: self)
+            let mailComposeViewController = configuredMailComposeViewController()
+            if MFMailComposeViewController.canSendMail() {
+                self.presentViewController(mailComposeViewController, animated: true, completion: nil)
+                
+            } else {
+                self.showSendMailErrorAlert()
+                
+            }
+
             faqTableView.reloadData()
         }else if(indexPath.row == 0) {
             setVisible[indexPath.section] = !setVisible[indexPath.section];
@@ -107,6 +116,28 @@ class FAQViewController: UIViewController, UITableViewDelegate {
                 return cell
             }
         }
+    }
+    func configuredMailComposeViewController() -> MFMailComposeViewController {
+        let mailComposerVC = MFMailComposeViewController()
+        mailComposerVC.mailComposeDelegate = self // Extremely important to set the --mailComposeDelegate-- property, NOT the --delegate-- property
+        
+        mailComposerVC.setToRecipients(["ggeeksquad.d@gmail.com"])
+        mailComposerVC.setSubject("Sending problems")
+        mailComposerVC.setMessageBody("Sending e-mail in-app is not so bad!", isHTML: false)
+        
+        return mailComposerVC
+    }
+    
+    func showSendMailErrorAlert() {
+        let sendMailErrorAlert = UIAlertView(title: "Could Not Send Email", message: "Your device could not send e-mail.  Please check e-mail configuration and try again.", delegate: self, cancelButtonTitle: "OK")
+        sendMailErrorAlert.show()
+    }
+    
+    // MARK: MFMailComposeViewControllerDelegate
+    
+    func mailComposeController(controller: MFMailComposeViewController!, didFinishWithResult result: MFMailComposeResult, error: NSError!) {
+        controller.dismissViewControllerAnimated(true, completion: nil)
+        
     }
 
 }
