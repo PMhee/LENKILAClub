@@ -77,6 +77,13 @@ class AnalysisViewController: UIViewController,UIGestureRecognizerDelegate,UIScr
             lb_description.text = "สถิติจำนวนครั้งที่ถูกจองแต่ละวันใน 1 เดือน"
         }
     }
+    @IBAction func btn_more_detail(sender: UIButton) {
+        self.performSegueWithIdentifier("more_detail", sender: self)
+    }
+    @IBAction func btn_more_details(sender: UIButton) {
+        self.performSegueWithIdentifier("more_detail", sender: self)
+    }
+    
     @IBOutlet weak var btn_graph_date: UIButton!
     @IBOutlet weak var btn_graph_time: UIButton!
     @IBOutlet weak var lb_show_play_count: UILabel!
@@ -549,6 +556,12 @@ class AnalysisViewController: UIViewController,UIGestureRecognizerDelegate,UIScr
             day = "0"+day
         }
         var year = d.substringWithRange(Range<String.Index>(start: d.startIndex.advancedBy(index+1), end: d.endIndex.advancedBy(0)))
+        if year.characters.count > 4 {
+            var range: Range<String.Index> = year.rangeOfString(" ")!
+            var index: Int = year.startIndex.distanceTo(range.startIndex)
+            year = year.substringWithRange(Range<String.Index>(start: year.startIndex.advancedBy(0), end: year.startIndex.advancedBy(index)))
+        }
+
         return Int(year+month+day)!
     }
     func findBestCustomer(){

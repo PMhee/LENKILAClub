@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="7jf-tz-zUQ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="7jf-tz-zUQ">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -488,9 +488,6 @@
                                         <fontDescription key="fontDescription" name="ThaiSansLite" family="Thai Sans Lite" pointSize="16"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
-                                        <variation key="widthClass=compact" misplaced="YES">
-                                            <rect key="frame" x="79" y="40" width="155" height="19"/>
-                                        </variation>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NaK-IB-LqS">
                                         <rect key="frame" x="-23" y="-15" width="46" height="30"/>
@@ -2332,63 +2329,42 @@
                                 <fontDescription key="fontDescription" name="ThaiSansLite" family="Thai Sans Lite" pointSize="17"/>
                                 <color key="textColor" red="0.47843137250000001" green="0.46274509800000002" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="29" y="191" width="20" height="20"/>
-                                </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="เวลา" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f66-5k-Yax">
                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                 <fontDescription key="fontDescription" name="ThaiSansLite" family="Thai Sans Lite" pointSize="17"/>
                                 <color key="textColor" red="0.47843137250000001" green="0.46274509800000002" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="29" y="236" width="33" height="20"/>
-                                </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="สนาม" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FbE-Es-Zhn">
                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                 <fontDescription key="fontDescription" name="ThaiSansLite" family="Thai Sans Lite" pointSize="17"/>
                                 <color key="textColor" red="0.47843137250000001" green="0.46274509800000002" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="29" y="146" width="40" height="20"/>
-                                </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ชื่อคนจอง" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HdZ-ea-CR9">
                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                 <fontDescription key="fontDescription" name="ThaiSansLite" family="Thai Sans Lite" pointSize="17"/>
                                 <color key="textColor" red="0.47843137250000001" green="0.46274509800000002" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="29" y="281" width="69" height="20"/>
-                                </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ราคา" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BhE-sc-oHh">
                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                 <fontDescription key="fontDescription" name="ThaiSansLite" family="Thai Sans Lite" pointSize="17"/>
                                 <color key="textColor" red="0.47843137250000001" green="0.46274509800000002" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="29" y="326" width="37" height="20"/>
-                                </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="จองประจำ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eCY-6C-nWC">
                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                 <fontDescription key="fontDescription" name="ThaiSansLite" family="Thai Sans Lite" pointSize="17"/>
                                 <color key="textColor" red="0.47843137250000001" green="0.46274509800000002" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="29" y="371" width="72" height="20"/>
-                                </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="สีพื้นหลัง" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kkA-B7-Ry4">
                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                 <fontDescription key="fontDescription" name="ThaiSansLite" family="Thai Sans Lite" pointSize="18"/>
                                 <color key="textColor" red="0.47843137250000001" green="0.46274509800000002" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="168" y="413" width="65" height="21"/>
-                                </variation>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="teH-FT-T6g">
                                 <rect key="frame" x="-25" y="-30" width="97" height="30"/>
@@ -2444,8 +2420,7 @@
                                         <exclude reference="uJ4-g6-IAZ"/>
                                     </mask>
                                 </variation>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="110" y="188" width="240" height="30"/>
+                                <variation key="widthClass=compact">
                                     <mask key="constraints">
                                         <include reference="uJ4-g6-IAZ"/>
                                     </mask>
@@ -2465,8 +2440,7 @@
                                         <exclude reference="t1J-Y4-EgR"/>
                                     </mask>
                                 </variation>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="110" y="214" width="240" height="1"/>
+                                <variation key="widthClass=compact">
                                     <mask key="constraints">
                                         <include reference="t1J-Y4-EgR"/>
                                     </mask>
@@ -2486,8 +2460,7 @@
                                         <exclude reference="fKW-nA-GNC"/>
                                     </mask>
                                 </variation>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="110" y="233" width="180" height="30"/>
+                                <variation key="widthClass=compact">
                                     <mask key="constraints">
                                         <include reference="fKW-nA-GNC"/>
                                     </mask>
@@ -2507,8 +2480,7 @@
                                         <exclude reference="c8a-Sk-lzJ"/>
                                     </mask>
                                 </variation>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="110" y="259" width="180" height="1"/>
+                                <variation key="widthClass=compact">
                                     <mask key="constraints">
                                         <include reference="c8a-Sk-lzJ"/>
                                     </mask>
@@ -2528,8 +2500,7 @@
                                         <exclude reference="sa6-0T-hdT"/>
                                     </mask>
                                 </variation>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="110" y="278" width="180" height="30"/>
+                                <variation key="widthClass=compact">
                                     <mask key="constraints">
                                         <include reference="sa6-0T-hdT"/>
                                     </mask>
@@ -2549,8 +2520,7 @@
                                         <exclude reference="xeZ-mU-aBp"/>
                                     </mask>
                                 </variation>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="110" y="304" width="180" height="1"/>
+                                <variation key="widthClass=compact">
                                     <mask key="constraints">
                                         <include reference="xeZ-mU-aBp"/>
                                     </mask>
@@ -2567,8 +2537,7 @@
                                         <exclude reference="Zo6-9E-JWM"/>
                                     </mask>
                                 </variation>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="110" y="349" width="180" height="1"/>
+                                <variation key="widthClass=compact">
                                     <mask key="constraints">
                                         <include reference="Zo6-9E-JWM"/>
                                     </mask>
@@ -2588,8 +2557,7 @@
                                         <exclude reference="EO6-oM-I1z"/>
                                     </mask>
                                 </variation>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="110" y="323" width="180" height="30"/>
+                                <variation key="widthClass=compact">
                                     <mask key="constraints">
                                         <include reference="EO6-oM-I1z"/>
                                     </mask>
@@ -2613,8 +2581,7 @@
                                         <exclude reference="lim-HB-9ei"/>
                                     </mask>
                                 </variation>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="110" y="368" width="180" height="30"/>
+                                <variation key="widthClass=compact">
                                     <mask key="constraints">
                                         <include reference="lim-HB-9ei"/>
                                     </mask>
@@ -2635,8 +2602,7 @@
                                         <exclude reference="436-C3-0lN"/>
                                     </mask>
                                 </variation>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="110" y="394" width="180" height="1"/>
+                                <variation key="widthClass=compact">
                                     <mask key="constraints">
                                         <include reference="436-C3-0lN"/>
                                     </mask>
@@ -2659,8 +2625,7 @@
                                         <exclude reference="eSk-Fs-T8p"/>
                                     </mask>
                                 </variation>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="304" y="233" width="30" height="30"/>
+                                <variation key="widthClass=compact">
                                     <mask key="constraints">
                                         <include reference="Ewz-r0-woK"/>
                                         <include reference="eSk-Fs-T8p"/>
@@ -2677,9 +2642,6 @@
                                 <state key="normal" title="30">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="342" y="233" width="30" height="30"/>
-                                </variation>
                                 <connections>
                                     <action selector="btn_dec_30_action:" destination="1w7-Bw-Xhv" eventType="touchUpInside" id="Kli-il-1de"/>
                                 </connections>
@@ -2699,8 +2661,7 @@
                                         <exclude reference="pEQ-Q8-01x"/>
                                     </mask>
                                 </variation>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="10" y="449" width="30" height="30"/>
+                                <variation key="widthClass=compact">
                                     <mask key="constraints">
                                         <include reference="DsP-Lb-MoN"/>
                                         <exclude reference="Sx2-Jw-J01"/>
@@ -2724,8 +2685,7 @@
                                         <exclude reference="8ho-sG-erV"/>
                                     </mask>
                                 </variation>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="210" y="449" width="30" height="30"/>
+                                <variation key="widthClass=compact">
                                     <mask key="constraints">
                                         <include reference="2l8-zo-Y8q"/>
                                         <include reference="8ho-sG-erV"/>
@@ -2748,8 +2708,7 @@
                                         <exclude reference="tDz-cg-uYS"/>
                                     </mask>
                                 </variation>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="310" y="449" width="30" height="30"/>
+                                <variation key="widthClass=compact">
                                     <mask key="constraints">
                                         <include reference="QGv-fH-ioT"/>
                                         <include reference="tDz-cg-uYS"/>
@@ -2772,8 +2731,7 @@
                                         <exclude reference="MDQ-Je-Apd"/>
                                     </mask>
                                 </variation>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="160" y="449" width="30" height="30"/>
+                                <variation key="widthClass=compact">
                                     <mask key="constraints">
                                         <include reference="IgC-Ri-Frw"/>
                                         <include reference="MDQ-Je-Apd"/>
@@ -2796,8 +2754,7 @@
                                         <exclude reference="XOb-Z5-bFr"/>
                                     </mask>
                                 </variation>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="60" y="449" width="30" height="30"/>
+                                <variation key="widthClass=compact">
                                     <mask key="constraints">
                                         <include reference="D7j-29-cRO"/>
                                         <include reference="XOb-Z5-bFr"/>
@@ -2820,8 +2777,7 @@
                                         <exclude reference="zzR-Uh-Pb1"/>
                                     </mask>
                                 </variation>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="360" y="449" width="30" height="30"/>
+                                <variation key="widthClass=compact">
                                     <mask key="constraints">
                                         <include reference="rTc-0c-pzY"/>
                                         <include reference="zzR-Uh-Pb1"/>
@@ -2844,8 +2800,7 @@
                                         <exclude reference="fmO-k5-qG2"/>
                                     </mask>
                                 </variation>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="110" y="449" width="30" height="30"/>
+                                <variation key="widthClass=compact">
                                     <mask key="constraints">
                                         <include reference="Otj-CX-ALG"/>
                                         <include reference="fmO-k5-qG2"/>
@@ -2868,8 +2823,7 @@
                                         <exclude reference="uQy-pd-PDA"/>
                                     </mask>
                                 </variation>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="260" y="449" width="30" height="30"/>
+                                <variation key="widthClass=compact">
                                     <mask key="constraints">
                                         <include reference="IHl-Lg-G3A"/>
                                         <include reference="uQy-pd-PDA"/>
@@ -2919,8 +2873,7 @@
                                         <exclude reference="zCi-zc-FhK"/>
                                     </mask>
                                 </variation>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="18" y="457" width="15" height="15"/>
+                                <variation key="widthClass=compact">
                                     <mask key="constraints">
                                         <include reference="DNQ-Te-d0e"/>
                                         <include reference="zCi-zc-FhK"/>
@@ -2939,8 +2892,7 @@
                                         <exclude reference="pml-IO-Skp"/>
                                     </mask>
                                 </variation>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="68" y="457" width="15" height="15"/>
+                                <variation key="widthClass=compact">
                                     <mask key="constraints">
                                         <include reference="oI4-HE-bCm"/>
                                         <include reference="pml-IO-Skp"/>
@@ -2959,8 +2911,7 @@
                                         <exclude reference="4bo-jz-Iib"/>
                                     </mask>
                                 </variation>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="118" y="457" width="15" height="15"/>
+                                <variation key="widthClass=compact">
                                     <mask key="constraints">
                                         <include reference="4Ye-cl-SbG"/>
                                         <include reference="4bo-jz-Iib"/>
@@ -2979,8 +2930,7 @@
                                         <exclude reference="Wcf-cQ-Rof"/>
                                     </mask>
                                 </variation>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="168" y="457" width="15" height="15"/>
+                                <variation key="widthClass=compact">
                                     <mask key="constraints">
                                         <include reference="AkQ-Zv-uSK"/>
                                         <include reference="Wcf-cQ-Rof"/>
@@ -2999,8 +2949,7 @@
                                         <exclude reference="lRx-T6-Ya3"/>
                                     </mask>
                                 </variation>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="218" y="457" width="15" height="15"/>
+                                <variation key="widthClass=compact">
                                     <mask key="constraints">
                                         <include reference="Ocl-74-0gs"/>
                                         <include reference="lRx-T6-Ya3"/>
@@ -3019,8 +2968,7 @@
                                         <exclude reference="rSl-4N-k05"/>
                                     </mask>
                                 </variation>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="268" y="457" width="15" height="15"/>
+                                <variation key="widthClass=compact">
                                     <mask key="constraints">
                                         <include reference="nXj-kV-d0z"/>
                                         <include reference="rSl-4N-k05"/>
@@ -3039,8 +2987,7 @@
                                         <exclude reference="dK1-tb-wzr"/>
                                     </mask>
                                 </variation>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="318" y="457" width="15" height="15"/>
+                                <variation key="widthClass=compact">
                                     <mask key="constraints">
                                         <include reference="X04-9a-b9d"/>
                                         <include reference="dK1-tb-wzr"/>
@@ -3059,8 +3006,7 @@
                                         <exclude reference="y4S-Kg-tcH"/>
                                     </mask>
                                 </variation>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="368" y="457" width="15" height="15"/>
+                                <variation key="widthClass=compact">
                                     <mask key="constraints">
                                         <include reference="Ewl-9h-ltV"/>
                                         <include reference="y4S-Kg-tcH"/>
@@ -4513,7 +4459,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LUT-nm-JDK" id="Fju-q2-fNP">
-                                            <rect key="frame" x="0.0" y="0.0" width="240" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="8" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="16.00-18.00 Sat" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vab-lO-wqL">
@@ -4521,90 +4467,60 @@
                                                     <fontDescription key="fontDescription" name="ThaiSansLite" family="Thai Sans Lite" pointSize="14"/>
                                                     <color key="textColor" red="0.44705882349999998" green="0.45882352939999999" blue="0.47843137250000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
-                                                    <variation key="widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="151" y="13" width="45" height="17"/>
-                                                    </variation>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ธนากร รัตนจริยา" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D6N-eh-3OS">
                                                     <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" name="ThaiSansLite" family="Thai Sans Lite" pointSize="14"/>
                                                     <color key="textColor" red="0.44705882349999998" green="0.45882352939999999" blue="0.47843137250000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
-                                                    <variation key="widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="12" y="13" width="36" height="17"/>
-                                                    </variation>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="6" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="สวนกุหลาบ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0zR-PT-XBg">
                                                     <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" name="ThaiSansLite" family="Thai Sans Lite" pointSize="14"/>
                                                     <color key="textColor" red="0.44705882349999998" green="0.45882352939999999" blue="0.47843137250000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
-                                                    <variation key="widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="100" y="13" width="34" height="17"/>
-                                                    </variation>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VSK-O4-xRC">
                                                     <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" name="ThaiSansLite" family="Thai Sans Lite" pointSize="14"/>
                                                     <color key="textColor" red="0.44705882349999998" green="0.45882352939999999" blue="0.47843137250000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
-                                                    <variation key="widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="90" y="13" width="9" height="17"/>
-                                                    </variation>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="7" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="13" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gxR-M9-NtH">
                                                     <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" name="ThaiSansLite" family="Thai Sans Lite" pointSize="14"/>
                                                     <color key="textColor" red="0.44705882349999998" green="0.45882352939999999" blue="0.47843137250000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
-                                                    <variation key="widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="134" y="13" width="17" height="17"/>
-                                                    </variation>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CXh-tV-Odu">
                                                     <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" name="ThaiSansLite" family="Thai Sans Lite" pointSize="14"/>
                                                     <color key="textColor" red="0.44705882349999998" green="0.45882352939999999" blue="0.47843137250000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
-                                                    <variation key="widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="0.0" y="13" width="12" height="17"/>
-                                                    </variation>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="4" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ช" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0m8-x6-at3">
                                                     <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" name="ThaiSansLite" family="Thai Sans Lite" pointSize="14"/>
                                                     <color key="textColor" red="0.44705882349999998" green="0.45882352939999999" blue="0.47843137250000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
-                                                    <variation key="widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="76" y="13" width="8" height="17"/>
-                                                    </variation>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="9" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="099-2850130" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GUF-gy-YOu">
                                                     <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" name="ThaiSansLite" family="Thai Sans Lite" pointSize="14"/>
                                                     <color key="textColor" red="0.44705882349999998" green="0.45882352939999999" blue="0.47843137250000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
-                                                    <variation key="widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="196" y="13" width="31" height="17"/>
-                                                    </variation>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="10" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1200" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G5C-2J-Wd2">
                                                     <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" name="ThaiSansLite" family="Thai Sans Lite" pointSize="14"/>
                                                     <color key="textColor" red="0.44705882349999998" green="0.45882352939999999" blue="0.47843137250000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
-                                                    <variation key="widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="227" y="13" width="17" height="17"/>
-                                                    </variation>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="นนท์ สูง" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vGF-Yh-nBO">
                                                     <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" name="ThaiSansLite" family="Thai Sans Lite" pointSize="14"/>
                                                     <color key="textColor" red="0.44705882349999998" green="0.45882352939999999" blue="0.47843137250000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
-                                                    <variation key="widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="48" y="13" width="28" height="17"/>
-                                                    </variation>
                                                 </label>
                                             </subviews>
                                             <constraints>
@@ -4759,7 +4675,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9Jw-cz-afZ" id="62B-GV-j7K">
-                                            <rect key="frame" x="0.0" y="0.0" width="240" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="4" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="16.00-18.00 Sat" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2W1-Uv-HWD">
@@ -4767,45 +4683,30 @@
                                                     <fontDescription key="fontDescription" name="ThaiSansLite" family="Thai Sans Lite" pointSize="14"/>
                                                     <color key="textColor" red="0.44705882349999998" green="0.45882352939999999" blue="0.47843137250000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
-                                                    <variation key="widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="95" y="13" width="89" height="17"/>
-                                                    </variation>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HRe-U9-giL">
                                                     <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" name="ThaiSansLite" family="Thai Sans Lite" pointSize="14"/>
                                                     <color key="textColor" red="0.44705882349999998" green="0.45882352939999999" blue="0.47843137250000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
-                                                    <variation key="widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="81" y="13" width="14" height="17"/>
-                                                    </variation>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nmZ-Ix-gwI">
                                                     <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" name="ThaiSansLite" family="Thai Sans Lite" pointSize="14"/>
                                                     <color key="textColor" red="0.44705882349999998" green="0.45882352939999999" blue="0.47843137250000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
-                                                    <variation key="widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="0.0" y="13" width="22" height="17"/>
-                                                    </variation>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="099-2850130" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0b6-mz-oIF">
                                                     <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" name="ThaiSansLite" family="Thai Sans Lite" pointSize="14"/>
                                                     <color key="textColor" red="0.44705882349999998" green="0.45882352939999999" blue="0.47843137250000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
-                                                    <variation key="widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="184" y="13" width="62" height="17"/>
-                                                    </variation>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="นนท์ สูง" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HLp-DA-4nh">
                                                     <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" name="ThaiSansLite" family="Thai Sans Lite" pointSize="14"/>
                                                     <color key="textColor" red="0.44705882349999998" green="0.45882352939999999" blue="0.47843137250000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
-                                                    <variation key="widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="22" y="13" width="54" height="17"/>
-                                                    </variation>
                                                 </label>
                                             </subviews>
                                             <constraints>
@@ -5339,8 +5240,7 @@
                                                 <exclude reference="TT8-Xx-KDX"/>
                                             </mask>
                                         </variation>
-                                        <variation key="widthClass=compact" misplaced="YES">
-                                            <rect key="frame" x="0.0" y="0.0" width="0.0" height="347"/>
+                                        <variation key="widthClass=compact">
                                             <mask key="subviews">
                                                 <include reference="yh5-P7-hQl"/>
                                                 <include reference="eRp-Ti-Y7E"/>
@@ -7029,9 +6929,9 @@
         <image name="user" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="gQt-sg-ifv"/>
-        <segue reference="qly-p2-sCg"/>
         <segue reference="fZ1-2Q-0La"/>
-        <segue reference="REe-cY-fxJ"/>
+        <segue reference="qly-p2-sCg"/>
+        <segue reference="gQt-sg-ifv"/>
+        <segue reference="3AK-Zc-tky"/>
     </inferredMetricsTieBreakers>
 </document>
