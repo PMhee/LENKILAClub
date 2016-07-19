@@ -55,6 +55,7 @@ class ScheduleViewController: UIViewController,UIScrollViewDelegate,UIGestureRec
     @IBOutlet var tapGesture: UITapGestureRecognizer!
     @IBAction func btn_tab_action(sender: UIButton) {
         trigger_tab()
+        enable_touch = true
     }
     @IBAction func long_press(sender: UILongPressGestureRecognizer) {
         switch  sender.state {
@@ -92,7 +93,6 @@ class ScheduleViewController: UIViewController,UIScrollViewDelegate,UIGestureRec
                                 realm.beginWriteTransaction()
                                 realm.deleteObject(self.schedualArray[i])
                                 try! realm.commitWriteTransaction()
-                                print(i)
                                 self.schedualArray.removeAtIndex(i)
                                 self.clearTable()
                                 self.genScheduleOnTable()
@@ -145,6 +145,7 @@ class ScheduleViewController: UIViewController,UIScrollViewDelegate,UIGestureRec
     @IBAction func btn_left_action(sender: UIButton) {
         let format = NSDateFormatter()
         format.dateStyle = NSDateFormatterStyle.FullStyle
+        
         label_date.text = format.stringFromDate(format.dateFromString(label_date.text!)!.dateByAddingTimeInterval(-60*60*24))
         //today = today.dateByAddingTimeInterval(-60*60*24)
         clearTable()
@@ -184,9 +185,6 @@ class ScheduleViewController: UIViewController,UIScrollViewDelegate,UIGestureRec
         btn_today.layer.cornerRadius = 15
         self.genScheduleOnTable()
         self.genTableField()
-    }
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(true)
         if firstTime {
             self.label_date.text = self.date
         }else{
@@ -194,6 +192,9 @@ class ScheduleViewController: UIViewController,UIScrollViewDelegate,UIGestureRec
             format.dateStyle = NSDateFormatterStyle.FullStyle
             label_date.text = format.stringFromDate(NSDate())
         }
+    }
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(true)
         let sche = Schedule.allObjects()
         let users = User.allObjects()
         if sche.count > 0 {
@@ -288,6 +289,7 @@ class ScheduleViewController: UIViewController,UIScrollViewDelegate,UIGestureRec
     
     func gestureRecognizerShouldBegin(gestureRecognizer: UIGestureRecognizer) -> Bool {
         if enable_touch {
+            print("hello")
             self.trigger_tab()
             enable_touch = !enable_touch
             return true

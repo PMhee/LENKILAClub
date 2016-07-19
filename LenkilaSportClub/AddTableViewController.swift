@@ -608,6 +608,11 @@ class AddTableViewController: UIViewController,UITextFieldDelegate,UIGestureReco
             day = "0"+day
         }
         var year = d.substringWithRange(Range<String.Index>(start: d.startIndex.advancedBy(index+1), end: d.endIndex.advancedBy(0)))
+        if year.characters.count > 4 {
+            var range: Range<String.Index> = year.rangeOfString(" ")!
+            var index: Int = year.startIndex.distanceTo(range.startIndex)
+            year = year.substringWithRange(Range<String.Index>(start: year.startIndex.advancedBy(0), end: year.startIndex.advancedBy(index)))
+        }
         range = time.rangeOfString(".")!
         index = time.startIndex.distanceTo(range.startIndex)
         var startHour = time.substringWithRange(Range<String.Index>(start: time.startIndex.advancedBy(0), end: time.startIndex.advancedBy(index)))
