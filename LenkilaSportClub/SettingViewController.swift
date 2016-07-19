@@ -20,7 +20,7 @@ class SettingViewController: UIViewController, UITableViewDelegate, UITableViewD
     var enable_touch : Bool = false
     var tab_trigger : Bool = false
     var settingLabel =  [["ข้อมูลส่วนตัว","แก้ไขสนาม","เปลี่ยนรหัสผ่าน"]
-                        ,["แก้ไขขนาดตัวอักษร","การแจ้งเตือน","เปลี่ยนภาษา"]
+                        ,["แก้ไขขนาดตัวอักษร","เปลี่ยนภาษา"]
                         ,["คู่มือการใช้งาน","คำถามที่พบบ่อยและแจ้งปัญหา","ติดต่อเรา"]]
 
     @IBAction func btn_tab_action(sender: UIButton) {
@@ -85,7 +85,11 @@ class SettingViewController: UIViewController, UITableViewDelegate, UITableViewD
         return 3
     }
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        if(section == 1){
+            return 2
+        }else{
+            return 3
+        }
     }
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if section == 0 {
@@ -136,8 +140,7 @@ class SettingViewController: UIViewController, UITableViewDelegate, UITableViewD
                 let doneAction = UIAlertAction(title: "รับทราบ", style: .Default, handler: nil)
                 alertController.addAction(doneAction)
                 self.presentViewController(alertController, animated: true, completion: nil)
-            }else if(indexPath.row == 1){
-                self.performSegueWithIdentifier("notification", sender: self)
+            
             }else{
                 let alertController = UIAlertController(title: "ขออภัย", message: "ระบบการเปลี่ยนภาษายังอยู่ในระหว่างการพัฒนา และจะถูกเพิ่มในเวอร์ชันถัดไป", preferredStyle: .Alert)
                 let doneAction = UIAlertAction(title: "รับทราบ", style: .Default, handler: nil)
