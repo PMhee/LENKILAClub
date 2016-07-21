@@ -14,8 +14,8 @@ class UserDetailListViewController: UIViewController,UITableViewDelegate,UITable
     var isPortrait = UIDevice.currentDevice().orientation == .Portrait || UIDevice.currentDevice().orientation == .PortraitUpsideDown
     var tab_trigger = false
     var add_trigger = false
-    @IBOutlet weak var cons_vw_tab_width: NSLayoutConstraint!
     @IBOutlet weak var cons_vw_tab_height: NSLayoutConstraint!
+    @IBOutlet weak var cons_vw_tab_width: NSLayoutConstraint!
     @IBOutlet weak var vw_tab: UIView!
     @IBOutlet var UserDetailTableView: UITableView!
     @IBOutlet var tap_gesture: UITapGestureRecognizer!
