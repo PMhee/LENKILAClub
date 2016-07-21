@@ -58,6 +58,7 @@
 		90F7FECC1D20F00E0054200B /* ThaiSansNeue-UltraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 90EB14A41D20EEDC009C55C6 /* ThaiSansNeue-UltraLight.otf */; };
 		90F7FECD1D20F00E0054200B /* ThaiSansNeue-UltraLightItal.otf in Resources */ = {isa = PBXBuildFile; fileRef = 90EB14A51D20EEDC009C55C6 /* ThaiSansNeue-UltraLightItal.otf */; };
 		90FC1EDB1D1CE90C00B57C5B /* Transaction.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90FC1EDA1D1CE90C00B57C5B /* Transaction.storyboard */; };
+		B727AA4F1D3F958D00A5A6FA /* User.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B727AA4E1D3F958D00A5A6FA /* User.storyboard */; };
 		B76AFAD11D0F677500619815 /* LayijiMahaniyom Bao.otf in Resources */ = {isa = PBXBuildFile; fileRef = B76AFACF1D0F677500619815 /* LayijiMahaniyom Bao.otf */; };
 		B76AFAD41D0F698100619815 /* thaisanslite_r1.otf in Resources */ = {isa = PBXBuildFile; fileRef = B76AFAD31D0F698100619815 /* thaisanslite_r1.otf */; };
 		B77188EC1CFFF2C700A8D8FB /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77188EB1CFFF2C700A8D8FB /* Schedule.swift */; };
@@ -76,6 +77,7 @@
 		B7B0D6061CEDCE7E00577430 /* UIImageEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B0D6051CEDCE7E00577430 /* UIImageEffects.swift */; };
 		B7C98C761D1EA3C700D6A5A0 /* Analysis.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7C98C751D1EA3C700D6A5A0 /* Analysis.storyboard */; };
 		B7C98C791D1EA6CC00D6A5A0 /* AnalysisViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C98C781D1EA6CC00D6A5A0 /* AnalysisViewController.swift */; };
+		B7E5CFCF1D3F91CE005FEB23 /* Schedule.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7E5CFCE1D3F91CE005FEB23 /* Schedule.storyboard */; };
 		B7EA92AC1CFE00E70006C673 /* AddTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7EA92AB1CFE00E70006C673 /* AddTableViewController.swift */; };
 		E8A8C972F0654D92D6B8BFC7 /* Pods_LenkilaClubUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB180504507C4F570EAA532F /* Pods_LenkilaClubUITests.framework */; };
 /* End PBXBuildFile section */
@@ -151,6 +153,7 @@
 		90EB14A41D20EEDC009C55C6 /* ThaiSansNeue-UltraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ThaiSansNeue-UltraLight.otf"; sourceTree = "<group>"; };
 		90EB14A51D20EEDC009C55C6 /* ThaiSansNeue-UltraLightItal.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ThaiSansNeue-UltraLightItal.otf"; sourceTree = "<group>"; };
 		90FC1EDA1D1CE90C00B57C5B /* Transaction.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Transaction.storyboard; sourceTree = "<group>"; };
+		B727AA4E1D3F958D00A5A6FA /* User.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = User.storyboard; sourceTree = "<group>"; };
 		B76AFACF1D0F677500619815 /* LayijiMahaniyom Bao.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LayijiMahaniyom Bao.otf"; sourceTree = "<group>"; };
 		B76AFAD31D0F698100619815 /* thaisanslite_r1.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = thaisanslite_r1.otf; sourceTree = "<group>"; };
 		B77188EB1CFFF2C700A8D8FB /* Schedule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Schedule.swift; path = LenkilaSportClub/Schedule.swift; sourceTree = "<group>"; };
@@ -175,6 +178,7 @@
 		B7B0D6051CEDCE7E00577430 /* UIImageEffects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageEffects.swift; sourceTree = "<group>"; };
 		B7C98C751D1EA3C700D6A5A0 /* Analysis.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Analysis.storyboard; sourceTree = "<group>"; };
 		B7C98C781D1EA6CC00D6A5A0 /* AnalysisViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalysisViewController.swift; sourceTree = "<group>"; };
+		B7E5CFCE1D3F91CE005FEB23 /* Schedule.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Schedule.storyboard; sourceTree = "<group>"; };
 		B7EA92AB1CFE00E70006C673 /* AddTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTableViewController.swift; sourceTree = "<group>"; };
 		CD02616BE64FC7F40525CCEB /* Pods-LenkilaClub.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LenkilaClub.release.xcconfig"; path = "Pods/Target Support Files/Pods-LenkilaClub/Pods-LenkilaClub.release.xcconfig"; sourceTree = "<group>"; };
 		D8DDF3E1D0B0C476BD7A75EE /* Pods-LenkilaClub.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LenkilaClub.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LenkilaClub/Pods-LenkilaClub.debug.xcconfig"; sourceTree = "<group>"; };
@@ -274,6 +278,8 @@
 				90003C711D1A8349003E9375 /* Setting.storyboard */,
 				90FC1EDA1D1CE90C00B57C5B /* Transaction.storyboard */,
 				B7C98C751D1EA3C700D6A5A0 /* Analysis.storyboard */,
+				B7E5CFCE1D3F91CE005FEB23 /* Schedule.storyboard */,
+				B727AA4E1D3F958D00A5A6FA /* User.storyboard */,
 			);
 			name = Storyboard;
 			sourceTree = "<group>";
@@ -433,6 +439,7 @@
 				B7B0D5CD1CEDA27E00577430 /* Resources */,
 				B762638650A7B7983A74C3E5 /* [CP] Embed Pods Frameworks */,
 				2B5D5C08732118D133EF2BB9 /* [CP] Copy Pods Resources */,
+				08158BEF721D16C91EA8AC3F /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -541,8 +548,10 @@
 				9049C9D81D223C3E0014D464 /* Titillium-BoldUpright.otf in Resources */,
 				9049C9D91D223C3E0014D464 /* Titillium-LightItalic.otf in Resources */,
 				9049C9DA1D223C3E0014D464 /* Titillium-LightUpright.otf in Resources */,
+				B7E5CFCF1D3F91CE005FEB23 /* Schedule.storyboard in Resources */,
 				9049C9DB1D223C3E0014D464 /* Titillium-Regular.otf in Resources */,
 				9049C9DC1D223C3E0014D464 /* Titillium-ThinItalic.otf in Resources */,
+				B727AA4F1D3F958D00A5A6FA /* User.storyboard in Resources */,
 				9049C9DD1D223C3E0014D464 /* Titillium-ThinUpright.otf in Resources */,
 				9049C9DE1D223C3E0014D464 /* Titillium-Light.otf in Resources */,
 				9049C9DF1D223C3E0014D464 /* Titillium-RegularItalic.otf in Resources */,
@@ -597,6 +606,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		08158BEF721D16C91EA8AC3F /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LenkilaClub/Pods-LenkilaClub-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		29397D41FC29A974601EA6EC /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -887,7 +911,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = LenkilaSportClub/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Jump.LenkilaSportClub;
+				PRODUCT_BUNDLE_IDENTIFIER = GeekSquadConsulting.LenkilaSportClub;
 				PRODUCT_NAME = LenkilaClub;
 				PROVISIONING_PROFILE = "";
 			};
@@ -903,7 +927,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = LenkilaSportClub/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Jump.LenkilaSportClub;
+				PRODUCT_BUNDLE_IDENTIFIER = GeekSquadConsulting.LenkilaSportClub;
 				PRODUCT_NAME = LenkilaClub;
 				PROVISIONING_PROFILE = "";
 			};
@@ -916,7 +940,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = LenkilaSportClubTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Jump.LenkilaSportClubTests;
+				PRODUCT_BUNDLE_IDENTIFIER = GeekSquadConsulting.LenkilaSportClubTests;
 				PRODUCT_NAME = LenkilaClub;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LenkilaClub.app/LenkilaClub";
 			};
@@ -929,7 +953,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = LenkilaSportClubTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Jump.LenkilaSportClubTests;
+				PRODUCT_BUNDLE_IDENTIFIER = GeekSquadConsulting.LenkilaSportClubTests;
 				PRODUCT_NAME = LenkilaClub;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LenkilaClub.app/LenkilaClub";
 			};
@@ -941,7 +965,7 @@
 			buildSettings = {
 				INFOPLIST_FILE = LenkilaSportClubUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Jump.LenkilaSportClubUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = GeekSquadConsulting.LenkilaSportClubUITests;
 				PRODUCT_NAME = LenkilaClub;
 				TEST_TARGET_NAME = LenkilaSportClub;
 			};
@@ -953,7 +977,7 @@
 			buildSettings = {
 				INFOPLIST_FILE = LenkilaSportClubUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Jump.LenkilaSportClubUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = GeekSquadConsulting.LenkilaSportClubUITests;
 				PRODUCT_NAME = LenkilaClub;
 				TEST_TARGET_NAME = LenkilaSportClub;
 			};
