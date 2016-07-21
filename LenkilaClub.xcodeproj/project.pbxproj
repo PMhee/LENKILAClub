@@ -915,7 +915,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = LenkilaSportClub/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Nont.LenkilaSportClub;
+				PRODUCT_BUNDLE_IDENTIFIER = GeekSquadConsulting.LenkilaSportClub;
 				PRODUCT_NAME = LenkilaClub;
 				PROVISIONING_PROFILE = "";
 			};
@@ -931,7 +931,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = LenkilaSportClub/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Nont.LenkilaSportClub;
+				PRODUCT_BUNDLE_IDENTIFIER = GeekSquadConsulting.LenkilaSportClub;
 				PRODUCT_NAME = LenkilaClub;
 				PROVISIONING_PROFILE = "";
 			};
@@ -944,7 +944,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = LenkilaSportClubTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Nont.LenkilaSportClubTests;
+				PRODUCT_BUNDLE_IDENTIFIER = GeekSquadConsulting.LenkilaSportClubTests;
 				PRODUCT_NAME = LenkilaClub;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LenkilaClub.app/LenkilaClub";
 			};
@@ -957,7 +957,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = LenkilaSportClubTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Nont.LenkilaSportClubTests;
+				PRODUCT_BUNDLE_IDENTIFIER = GeekSquadConsulting.LenkilaSportClubTests;
 				PRODUCT_NAME = LenkilaClub;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LenkilaClub.app/LenkilaClub";
 			};
@@ -969,7 +969,7 @@
 			buildSettings = {
 				INFOPLIST_FILE = LenkilaSportClubUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Nont.LenkilaSportClubUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = GeekSquadConsulting.LenkilaSportClubUITests;
 				PRODUCT_NAME = LenkilaClub;
 				TEST_TARGET_NAME = LenkilaSportClub;
 			};
@@ -981,7 +981,7 @@
 			buildSettings = {
 				INFOPLIST_FILE = LenkilaSportClubUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Nont.LenkilaSportClubUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = GeekSquadConsulting.LenkilaSportClubUITests;
 				PRODUCT_NAME = LenkilaClub;
 				TEST_TARGET_NAME = LenkilaSportClub;
 			};
