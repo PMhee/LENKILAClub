@@ -25,6 +25,13 @@ class EditUserDetailViewController: UIViewController,UITextFieldDelegate,UIGestu
     var x : CGFloat! = nil
     var y : CGFloat! = nil
     var enable_touch = false
+    @IBOutlet weak var cons_buttom: NSLayoutConstraint!
+    @IBOutlet weak var cons_buttom1: NSLayoutConstraint!
+    @IBOutlet weak var cons_buttom2: NSLayoutConstraint!
+    @IBOutlet weak var cons_buttom3: NSLayoutConstraint!
+    @IBOutlet weak var cons_buttom4: NSLayoutConstraint!
+    @IBOutlet weak var cons_buttom5: NSLayoutConstraint!
+    @IBOutlet weak var cons_buttom6: NSLayoutConstraint!
     @IBOutlet weak var cons_width_vw_tab: NSLayoutConstraint!
     @IBOutlet weak var tf_firstname: UITextField!
     @IBOutlet weak var tf_lastname: UITextField!
@@ -45,6 +52,24 @@ class EditUserDetailViewController: UIViewController,UITextFieldDelegate,UIGestu
     @IBOutlet var tap_gesture: UITapGestureRecognizer!
     @IBAction func btn_tab_action(sender: UIButton) {
         trigger_tab()
+    }
+    @IBAction func edit_tel(sender: UITextField) {
+        cons_buttom.constant -= 200
+        cons_buttom1.constant -= 200
+        cons_buttom2.constant -= 200
+        cons_buttom3.constant -= 200
+        cons_buttom4.constant -= 250
+        cons_buttom5.constant -= 250
+        cons_buttom6.constant -= 250
+    }
+    @IBAction func edit_tel_end(sender: UITextField) {
+        cons_buttom.constant += 200
+        cons_buttom1.constant += 200
+        cons_buttom2.constant += 200
+        cons_buttom3.constant += 200
+        cons_buttom4.constant += 250
+        cons_buttom5.constant += 250
+        cons_buttom6.constant += 250
     }
     func delay(delay:Double, closure:()->()) {
         dispatch_after(

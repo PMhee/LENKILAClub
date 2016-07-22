@@ -9,7 +9,7 @@
 import UIKit
 import Realm
 import SCLAlertView
-class ScheduleViewController: UIViewController,UIScrollViewDelegate,UIGestureRecognizerDelegate {
+class ScheduleViewController: UIViewController,UIScrollViewDelegate,UIGestureRecognizerDelegate,UIPopoverControllerDelegate,UIPopoverPresentationControllerDelegate {
     //    @IBOutlet weak var view_time: UIView!
     //    @IBOutlet weak var scrollView_table: UIScrollView!
     //    @IBOutlet weak var scrollView_page: UIScrollView!
@@ -28,7 +28,7 @@ class ScheduleViewController: UIViewController,UIScrollViewDelegate,UIGestureRec
     @IBOutlet var long_gesture: UILongPressGestureRecognizer!
     @IBOutlet weak var vw_tab: UIView!
     @IBOutlet weak var cons_vw_tab_width: NSLayoutConstraint!
-    @IBOutlet weak var label_date: UILabel!
+    @IBOutlet weak var btn_date: UIButton!
     var enable_create_table : Bool = false
     var create_table : Bool = false
     var schedualArray = [Schedule]()
@@ -56,6 +56,9 @@ class ScheduleViewController: UIViewController,UIScrollViewDelegate,UIGestureRec
     @IBAction func btn_tab_action(sender: UIButton) {
         trigger_tab()
         enable_touch = true
+    }
+    @IBAction func btn_date_action(sender: UIButton) {
+        self.performSegueWithIdentifier("popOver", sender: self)
     }
     @IBAction func long_press(sender: UILongPressGestureRecognizer) {
         switch  sender.state {
@@ -86,7 +89,12 @@ class ScheduleViewController: UIViewController,UIScrollViewDelegate,UIGestureRec
                     )
                     let alert = SCLAlertView(appearance:appearance)
                     alert.addButton("ใช่", action: {
-                        print(self.slot[self.del_slot])
+                        self.performSegueWithIdentifier("edit_table", sender: self)
+                    })
+                    alert.addButton("ไม่", action: {
+                    self.already_show = false
+                    })
+                    alert.addButton("ลบตาราง", action: {
                         for i in 0..<self.schedualArray.count {
                             if i == Int(self.slot[self.del_slot]!) {
                                 let realm = RLMRealm.defaultRealm()
@@ -100,11 +108,8 @@ class ScheduleViewController: UIViewController,UIScrollViewDelegate,UIGestureRec
                             }
                         }
                     })
-                    alert.addButton("ไม่", action: {
-                    self.already_show = false
-                    })
                     if !already_show{
-                    alert.showWarning("เตือน", subTitle: "คุณต้องการจะลบตารางหรือไม่")
+                    alert.showWarning("เตือน", subTitle: "ต้องการจะแก้ไขหรือไม่")
                     }
                     self.already_show = true
             }
@@ -146,7 +151,7 @@ class ScheduleViewController: UIViewController,UIScrollViewDelegate,UIGestureRec
         let format = NSDateFormatter()
         format.dateStyle = NSDateFormatterStyle.FullStyle
         
-        label_date.text = format.stringFromDate(format.dateFromString(label_date.text!)!.dateByAddingTimeInterval(-60*60*24))
+        btn_date.setTitle(format.stringFromDate(format.dateFromString((btn_date.titleLabel?.text)!)!.dateByAddingTimeInterval(-60*60*24)), forState: .Normal)
         //today = today.dateByAddingTimeInterval(-60*60*24)
         clearTable()
         self.genScheduleOnTable()
@@ -154,14 +159,14 @@ class ScheduleViewController: UIViewController,UIScrollViewDelegate,UIGestureRec
     @IBAction func btn_today_action(sender: UIButton) {
         let format = NSDateFormatter()
         format.dateStyle = NSDateFormatterStyle.FullStyle
-        label_date.text = format.stringFromDate(NSDate())
+        btn_date.setTitle(format.stringFromDate(NSDate()), forState: .Normal)
         clearTable()
         self.genScheduleOnTable()
     }
     @IBAction func btn_right_action(sender: UIButton) {
         let format = NSDateFormatter()
         format.dateStyle = NSDateFormatterStyle.FullStyle
-        label_date.text = format.stringFromDate(format.dateFromString(label_date.text!)!.dateByAddingTimeInterval(60*60*24))
+        btn_date.setTitle(format.stringFromDate(format.dateFromString((btn_date.titleLabel?.text)!)!.dateByAddingTimeInterval(60*60*24)), forState: .Normal)
         //today = today.dateByAddingTimeInterval(60*60*24)
         clearTable()
         self.genScheduleOnTable()
@@ -174,6 +179,13 @@ class ScheduleViewController: UIViewController,UIScrollViewDelegate,UIGestureRec
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
+        if self.date != nil {
+            btn_date.setTitle(self.date, forState: .Normal)
+        }else{
+            let format = NSDateFormatter()
+            format.dateStyle = NSDateFormatterStyle.FullStyle
+            btn_date.setTitle(format.stringFromDate(NSDate()), forState: .Normal)
+        }
         tapGesture.delegate = self
         long_gesture.delegate = self
         long_gesture = UILongPressGestureRecognizer(target: self, action: #selector(ScheduleViewController.long_press(_:)))
@@ -185,13 +197,6 @@ class ScheduleViewController: UIViewController,UIScrollViewDelegate,UIGestureRec
         btn_today.layer.cornerRadius = 15
         self.genScheduleOnTable()
         self.genTableField()
-        if firstTime {
-            self.label_date.text = self.date
-        }else{
-            let format = NSDateFormatter()
-            format.dateStyle = NSDateFormatterStyle.FullStyle
-            label_date.text = format.stringFromDate(NSDate())
-        }
     }
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(true)
@@ -220,7 +225,7 @@ class ScheduleViewController: UIViewController,UIScrollViewDelegate,UIGestureRec
         let width = (self.view.frame.width)/CGFloat(field_num+1)
         if schedualArray.count > 0 {
             for i in 0...self.schedualArray.count-1{
-                if schedualArray[i].date == self.label_date.text! {
+                if schedualArray[i].date == self.btn_date.titleLabel?.text! {
                     var a : String = self.schedualArray[i].time
                     var range: Range<String.Index> = a.rangeOfString(".")!
                     var index: Int = a.startIndex.distanceTo(range.startIndex)
@@ -233,19 +238,11 @@ class ScheduleViewController: UIViewController,UIScrollViewDelegate,UIGestureRec
                     let index2 = a.startIndex.distanceTo(range.startIndex)
                     let endHour = a.substringWithRange(Range<String.Index>(start: a.startIndex.advancedBy(0), end: (a.startIndex.advancedBy(index2))))
                     var endMin = a.substringWithRange(Range<String.Index>(start: a.startIndex.advancedBy(index2+1), end: (a.endIndex.advancedBy(0))))
-                    if Int(startMin) == 30 {
-                        startMin = "0.5"
-                    }else{
-                        startMin = "0"
-                    }
-                    if Int(endMin) == 30 {
-                        endMin = "0.5"
-                    }else{
-                        endMin = "0"
-                    }
-                    if Double(startMin) == 0.5 && Double(endMin) == 0.5 {
-                        endMin = "0.5"
-                    }
+                    startMin = String(Double(startMin)!/60)
+                    endMin = String(Double(endMin)!/60)
+//                    if Double(startMin) == 0.5 && Double(endMin) == 0.5 {
+//                        endMin = "0.5"
+//                    }
                     let view = UIView(frame: CGRectMake(CGFloat(Int(self.schedualArray[i].field)!)*width,((CGFloat(Int(startHour)!)-CGFloat(4))*h)+CGFloat(7)+CGFloat(Double(startMin)!)*h,width,((CGFloat(Int(endHour)!)-CGFloat(Int(startHour)!)-CGFloat(Double(startMin)!))*h)+CGFloat(Double(endMin)!)*h))
                     view.backgroundColor = self.tableColor.valueForKey(self.schedualArray[i].colorTag)! as! UIColor
                     self.keepTag.append(self.schedualArray[i].tag)
@@ -289,7 +286,6 @@ class ScheduleViewController: UIViewController,UIScrollViewDelegate,UIGestureRec
     
     func gestureRecognizerShouldBegin(gestureRecognizer: UIGestureRecognizer) -> Bool {
         if enable_touch {
-            print("hello")
             self.trigger_tab()
             enable_touch = !enable_touch
             return true
@@ -377,7 +373,6 @@ class ScheduleViewController: UIViewController,UIScrollViewDelegate,UIGestureRec
                     if temp_h > height {
                         if var tag = self.view.viewWithTag(self.tag) {
                             temp_h = height
-                            print(self.tag)
                             if self.tag > self.schedualArray[schedualArray.count-1].tag {
                             print("remove")
                             tag.removeFromSuperview()
@@ -452,11 +447,38 @@ class ScheduleViewController: UIViewController,UIScrollViewDelegate,UIGestureRec
                 des.field = self.field
                 let format = NSDateFormatter()
                 format.dateStyle = NSDateFormatterStyle.FullStyle
-                des.date = format.dateFromString(self.label_date.text!)!
+                des.date = format.dateFromString((self.btn_date.titleLabel?.text!)!)!
                 des.time = self.time
                 des.price = "1000 บาท"
                 des.rep = "1 สัปดาห์"
             }
+        }
+        if segue.identifier == "edit_table" {
+            if let des = segue.destinationViewController as? AddTableViewController {
+                let format = NSDateFormatter()
+                format.dateStyle = NSDateFormatterStyle.FullStyle
+                des.date = format.dateFromString((self.btn_date.titleLabel?.text!)!)!
+                for i in 0..<self.schedualArray.count {
+                    if i == Int(self.slot[self.del_slot]!) {
+                        des.time = self.schedualArray[i].time
+                        des.price = String(self.schedualArray[i].price)+" บาท"
+                        des.rep = "1 สัปดาห์"
+                        des.edit = true
+                        des.name = userArray[schedualArray[i].userID]?.nickName
+                        des.edit = true
+                        des.field = schedualArray[i].field
+                        des.id = schedualArray[i].id
+                    }
+                }
+            }
+        }
+        if segue.identifier == "popOver"{
+            let vc = segue.destinationViewController
+            let controller = vc.popoverPresentationController
+            if controller != nil {
+                controller?.delegate = self
+            }
+            let des = segue.destinationViewController as! PopOverViewController
         }
     }
     func genSlot(){
@@ -466,7 +488,7 @@ class ScheduleViewController: UIViewController,UIScrollViewDelegate,UIGestureRec
         }
         if schedualArray.count > 0 {
             for i in 0...schedualArray.count-1 {
-                if schedualArray[i].date == self.label_date.text! {
+                if schedualArray[i].date == self.btn_date.titleLabel?.text! {
                     var a : String = self.schedualArray[i].time
                     var range: Range<String.Index> = a.rangeOfString(".")!
                     var index: Int = a.startIndex.distanceTo(range.startIndex)
@@ -503,6 +525,9 @@ class ScheduleViewController: UIViewController,UIScrollViewDelegate,UIGestureRec
             self.del_slot = find_slot
             return false
         }
+    }
+    func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
+        return .None
     }
         /*
      // MARK: - Navigation
