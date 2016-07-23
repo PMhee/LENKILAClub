@@ -33,6 +33,7 @@
 		9049C9E41D223C3E0014D464 /* Titillium-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9049C9CF1D2234BE0014D464 /* Titillium-Thin.otf */; };
 		9049C9E61D2250190014D464 /* FAQViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9049C9E51D2250190014D464 /* FAQViewController.swift */; };
 		9049C9E81D2386CD0014D464 /* ContactUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9049C9E71D2386CD0014D464 /* ContactUsViewController.swift */; };
+		9049C9EA1D23EF570014D464 /* SendProlemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9049C9E91D23EF570014D464 /* SendProlemViewController.swift */; };
 		9095C5691D2F971400D424B4 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9095C5681D2F971400D424B4 /* ChangePasswordViewController.swift */; };
 		9095C56C1D2FA93F00D424B4 /* NewPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9095C56B1D2FA93F00D424B4 /* NewPasswordViewController.swift */; };
 		9095C56E1D2FA96000D424B4 /* ConfirmPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9095C56D1D2FA96000D424B4 /* ConfirmPasswordViewController.swift */; };
@@ -65,6 +66,8 @@
 		B77188EE1CFFF3E300A8D8FB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77188ED1CFFF3E300A8D8FB /* User.swift */; };
 		B772FAA01D1A506A0024F3BF /* FreqPlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = B772FA9F1D1A506A0024F3BF /* FreqPlay.swift */; };
 		B78899E71D13C221009B6E3F /* TransactionManagementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78899E61D13C221009B6E3F /* TransactionManagementViewController.swift */; };
+		B790F7721D413E9B009C3167 /* Setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = B790F7711D413E9B009C3167 /* Setting.swift */; };
+		B790F7741D415C90009C3167 /* PopOverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B790F7731D415C90009C3167 /* PopOverViewController.swift */; };
 		B7AE00931D09FCDA009DC015 /* EditUserDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AE00921D09FCDA009DC015 /* EditUserDetailViewController.swift */; };
 		B7B0D5D31CEDA27E00577430 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B0D5D21CEDA27E00577430 /* AppDelegate.swift */; };
 		B7B0D5D51CEDA27E00577430 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B0D5D41CEDA27E00577430 /* ViewController.swift */; };
@@ -128,6 +131,7 @@
 		9049C9D41D22355F0014D464 /* Titillium-ThinUpright.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Titillium-ThinUpright.otf"; sourceTree = "<group>"; };
 		9049C9E51D2250190014D464 /* FAQViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FAQViewController.swift; sourceTree = "<group>"; };
 		9049C9E71D2386CD0014D464 /* ContactUsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactUsViewController.swift; sourceTree = "<group>"; };
+		9049C9E91D23EF570014D464 /* SendProlemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendProlemViewController.swift; sourceTree = "<group>"; };
 		9095C5681D2F971400D424B4 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
 		9095C56B1D2FA93F00D424B4 /* NewPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPasswordViewController.swift; sourceTree = "<group>"; };
 		9095C56D1D2FA96000D424B4 /* ConfirmPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmPasswordViewController.swift; sourceTree = "<group>"; };
@@ -160,6 +164,8 @@
 		B77188ED1CFFF3E300A8D8FB /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = LenkilaSportClub/User.swift; sourceTree = "<group>"; };
 		B772FA9F1D1A506A0024F3BF /* FreqPlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FreqPlay.swift; sourceTree = "<group>"; };
 		B78899E61D13C221009B6E3F /* TransactionManagementViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionManagementViewController.swift; sourceTree = "<group>"; };
+		B790F7711D413E9B009C3167 /* Setting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Setting.swift; sourceTree = "<group>"; };
+		B790F7731D415C90009C3167 /* PopOverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopOverViewController.swift; sourceTree = "<group>"; };
 		B7AE00921D09FCDA009DC015 /* EditUserDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditUserDetailViewController.swift; sourceTree = "<group>"; };
 		B7B0D5CF1CEDA27E00577430 /* LenkilaClub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LenkilaClub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7B0D5D21CEDA27E00577430 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -246,6 +252,7 @@
 				9049C9C31D211F7D0014D464 /* SettingCurrentPackageViewCell.swift */,
 				9049C9E51D2250190014D464 /* FAQViewController.swift */,
 				9049C9E71D2386CD0014D464 /* ContactUsViewController.swift */,
+				9049C9E91D23EF570014D464 /* SendProlemViewController.swift */,
 				9095C56A1D2FA87500D424B4 /* ChangePassword */,
 				902EC56C1D2528BC00E09816 /* CouponViewController.swift */,
 			);
@@ -289,6 +296,7 @@
 			children = (
 				B7B0D6031CEDCB2F00577430 /* ScheduleViewController.swift */,
 				B7EA92AB1CFE00E70006C673 /* AddTableViewController.swift */,
+				B790F7731D415C90009C3167 /* PopOverViewController.swift */,
 			);
 			name = Schedule;
 			sourceTree = "<group>";
@@ -342,6 +350,7 @@
 				B77188EB1CFFF2C700A8D8FB /* Schedule.swift */,
 				B77188ED1CFFF3E300A8D8FB /* User.swift */,
 				B772FA9F1D1A506A0024F3BF /* FreqPlay.swift */,
+				B790F7711D413E9B009C3167 /* Setting.swift */,
 			);
 			name = RealmDB;
 			sourceTree = "<group>";
@@ -749,8 +758,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				B7B0D6061CEDCE7E00577430 /* UIImageEffects.swift in Sources */,
+				9049C9EA1D23EF570014D464 /* SendProlemViewController.swift in Sources */,
+				B790F7741D415C90009C3167 /* PopOverViewController.swift in Sources */,
 				90003C761D1A8B05003E9375 /* SettingViewController.swift in Sources */,
 				B7B0D5D51CEDA27E00577430 /* ViewController.swift in Sources */,
+				B790F7721D413E9B009C3167 /* Setting.swift in Sources */,
 				B78899E71D13C221009B6E3F /* TransactionManagementViewController.swift in Sources */,
 				902EC56D1D2528BC00E09816 /* CouponViewController.swift in Sources */,
 				9095C5721D2FCCFA00D424B4 /* SegueFromRight.swift in Sources */,

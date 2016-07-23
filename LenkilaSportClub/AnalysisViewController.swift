@@ -10,6 +10,9 @@ import UIKit
 import Charts
 class AnalysisViewController: UIViewController,UIGestureRecognizerDelegate,UIScrollViewDelegate,ChartViewDelegate {
     
+    
+    @IBOutlet weak var play_count_month: UILabel!
+    @IBOutlet weak var income_month: UILabel!
     var graph_date_enable = false
     @IBOutlet weak var lb_description: UILabel!
     var slot = [Double?]()
@@ -103,7 +106,6 @@ class AnalysisViewController: UIViewController,UIGestureRecognizerDelegate,UIScr
     @IBOutlet weak var vw_show_reserve: UIView!
     @IBOutlet weak var vw_show_graph: UIView!
     @IBOutlet weak var sv_main: UIScrollView!
-    @IBOutlet weak var btn_contact: UIButton!
     @IBOutlet weak var btn_today: UIButton!
     var userArray = [User]()
     var scheduleArray = [Schedule]()
@@ -241,8 +243,6 @@ class AnalysisViewController: UIViewController,UIGestureRecognizerDelegate,UIScr
         sv_main.delegate = self
         img_best_customer.layer.cornerRadius = 70
         img_best_customer.layer.masksToBounds = true
-        btn_contact.layer.cornerRadius = 10
-        btn_contact.layer.masksToBounds = true
         vw_show_graph.layer.cornerRadius = 5
         vw_show_graph.layer.masksToBounds = true
         vw_show_money.layer.cornerRadius  = 5
@@ -396,10 +396,16 @@ class AnalysisViewController: UIViewController,UIGestureRecognizerDelegate,UIScr
         dateComponents.year = year
         dateComponents.month = month
         dateComponents.day = day
-        let dat = calendar.dateFromComponents(dateComponents)!
+        var dat = calendar.dateFromComponents(dateComponents)!
         let rge = calendar.rangeOfUnit(.Day, inUnit: .Month, forDate: dat)
-        let numDays = rge.length
-        sum = sum/Double(numDays)
+        income_month.text = numberFormatter.stringFromNumber(sum as NSNumber)! + " บาท"
+        play_count_month.text = String(sumCount)+" ครั้ง"
+        sum = sum/Double(day)
+        dateComponents.day = 1
+        dateComponents.month = 1
+        dat = calendar.dateFromComponents(dateComponents)!
+        var diff_year = dat.timeIntervalSinceDate(dateFormat.dateFromString(lb_date.text!)!)
+        
         if sum > calDayMoneyIncome(self.lb_date.text!) {
             lb_income_month.textColor = UIColor(red: 232/255, green: 81/255, blue: 83/255, alpha: 1.0)
         }else{
@@ -413,7 +419,8 @@ class AnalysisViewController: UIViewController,UIGestureRecognizerDelegate,UIScr
         }else{
             date_in_year = 355
         }
-        sumy = sumy/Double(date_in_year)
+        diff_year = -diff_year
+        sumy = sumy/(Double(diff_year)/86400)
         if sumy > calDayMoneyIncome(self.lb_date.text!) {
             lb_income_year.textColor = UIColor(red: 232/255, green: 81/255, blue: 83/255, alpha: 1.0)
         }else{

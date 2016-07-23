@@ -283,7 +283,7 @@
                                                     <color key="textColor" red="0.44705882349999998" green="0.45882352939999999" blue="0.47843137250000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                     <variation key="widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="428" y="13" width="130" height="17"/>
+                                                        <rect key="frame" x="151" y="13" width="45" height="17"/>
                                                     </variation>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ธนากร รัตนจริยา" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xV5-Vo-eMw">
@@ -292,7 +292,7 @@
                                                     <color key="textColor" red="0.44705882349999998" green="0.45882352939999999" blue="0.47843137250000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                     <variation key="widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="36" y="13" width="105" height="17"/>
+                                                        <rect key="frame" x="12" y="13" width="36" height="17"/>
                                                     </variation>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="6" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="สวนกุหลาบ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bLs-ha-5fL">
@@ -301,7 +301,7 @@
                                                     <color key="textColor" red="0.44705882349999998" green="0.45882352939999999" blue="0.47843137250000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                     <variation key="widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="277" y="13" width="100" height="17"/>
+                                                        <rect key="frame" x="100" y="13" width="34" height="17"/>
                                                     </variation>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2F3-il-Qyd">
@@ -310,7 +310,7 @@
                                                     <color key="textColor" red="0.44705882349999998" green="0.45882352939999999" blue="0.47843137250000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                     <variation key="widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="251" y="13" width="25" height="17"/>
+                                                        <rect key="frame" x="90" y="13" width="9" height="17"/>
                                                     </variation>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="7" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="13" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dqT-0z-W2b">
@@ -319,7 +319,7 @@
                                                     <color key="textColor" red="0.44705882349999998" green="0.45882352939999999" blue="0.47843137250000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                     <variation key="widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="377" y="13" width="51" height="17"/>
+                                                        <rect key="frame" x="134" y="13" width="17" height="17"/>
                                                     </variation>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zLc-fC-X8u">
@@ -328,7 +328,7 @@
                                                     <color key="textColor" red="0.44705882349999998" green="0.45882352939999999" blue="0.47843137250000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                     <variation key="widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="0.0" y="13" width="36" height="17"/>
+                                                        <rect key="frame" x="0.0" y="13" width="12" height="17"/>
                                                     </variation>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="4" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ช" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="22f-gf-nDD">
@@ -337,7 +337,7 @@
                                                     <color key="textColor" red="0.44705882349999998" green="0.45882352939999999" blue="0.47843137250000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                     <variation key="widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="221" y="13" width="24" height="17"/>
+                                                        <rect key="frame" x="76" y="13" width="8" height="17"/>
                                                     </variation>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="9" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="099-2850130" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cny-tN-zex">
@@ -346,7 +346,7 @@
                                                     <color key="textColor" red="0.44705882349999998" green="0.45882352939999999" blue="0.47843137250000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                     <variation key="widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="558" y="13" width="91" height="17"/>
+                                                        <rect key="frame" x="196" y="13" width="31" height="17"/>
                                                     </variation>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="10" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1200" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="veY-1W-PIb">
@@ -355,7 +355,7 @@
                                                     <color key="textColor" red="0.44705882349999998" green="0.45882352939999999" blue="0.47843137250000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                     <variation key="widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="649" y="13" width="50" height="17"/>
+                                                        <rect key="frame" x="227" y="13" width="17" height="17"/>
                                                     </variation>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="นนท์ สูง" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Keg-pw-xoE">
@@ -364,7 +364,7 @@
                                                     <color key="textColor" red="0.44705882349999998" green="0.45882352939999999" blue="0.47843137250000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                     <variation key="widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="141" y="13" width="80" height="17"/>
+                                                        <rect key="frame" x="48" y="13" width="28" height="17"/>
                                                     </variation>
                                                 </label>
                                             </subviews>
@@ -1920,6 +1920,8 @@
                                     </mask>
                                 </variation>
                                 <connections>
+                                    <action selector="edit_tel:" destination="yas-a9-1Pz" eventType="editingDidBegin" id="nDv-5i-wIg"/>
+                                    <action selector="edit_tel_end:" destination="yas-a9-1Pz" eventType="editingDidEnd" id="5bU-A7-e3e"/>
                                     <action selector="tf_contact_action:" destination="yas-a9-1Pz" eventType="editingDidBegin" id="lEH-AO-FOn"/>
                                 </connections>
                             </textField>
@@ -2992,6 +2994,13 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="400" height="600"/>
                     <connections>
+                        <outlet property="cons_buttom" destination="cHu-qB-Uwo" id="rGK-vF-tvj"/>
+                        <outlet property="cons_buttom1" destination="fHe-4w-XzF" id="HpA-qA-83X"/>
+                        <outlet property="cons_buttom2" destination="Zaf-GG-LB9" id="keH-Yf-guF"/>
+                        <outlet property="cons_buttom3" destination="gUM-n6-RF3" id="9pN-xT-X7X"/>
+                        <outlet property="cons_buttom4" destination="LPP-g9-d3m" id="dX9-ze-wAs"/>
+                        <outlet property="cons_buttom5" destination="urL-8N-qX1" id="X2X-Fu-yIG"/>
+                        <outlet property="cons_buttom6" destination="Njq-Hp-pFv" id="emJ-xe-85c"/>
                         <outlet property="cons_width_vw_tab" destination="MRu-vf-mTi" id="iVv-y4-sUM"/>
                         <outlet property="lb_freq_play" destination="oap-X5-Guf" id="v9s-QJ-78X"/>
                         <outlet property="lb_play_count" destination="AqF-r0-T3j" id="g0I-gg-7Li"/>
@@ -3033,11 +3042,11 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="EHd-jR-S9B"/>
-        <segue reference="nQM-Yi-zZK"/>
-        <segue reference="bMn-pk-gg9"/>
-        <segue reference="QR5-06-hby"/>
+        <segue reference="QBW-5w-urA"/>
+        <segue reference="0fc-VO-0iw"/>
         <segue reference="DDt-E3-Bff"/>
-        <segue reference="n2Q-jt-8em"/>
         <segue reference="3GV-aK-nQG"/>
+        <segue reference="n2Q-jt-8em"/>
+        <segue reference="QR5-06-hby"/>
     </inferredMetricsTieBreakers>
 </document>

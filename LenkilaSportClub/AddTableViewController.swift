@@ -28,6 +28,8 @@ class AddTableViewController: UIViewController,UITextFieldDelegate,UIGestureReco
     var edit_price : Bool = false
     var diff_hour : Double = 0.0
     var scheduleArray = [Schedule]()
+    var edit : Bool = false
+    var id : String = ""
     @IBOutlet weak var cons_vw_tab_width: NSLayoutConstraint!
     @IBOutlet var tab_gesture: UITapGestureRecognizer!
     var checkedArray = [UIImageView]()
@@ -44,8 +46,6 @@ class AddTableViewController: UIViewController,UITextFieldDelegate,UIGestureReco
     @IBOutlet weak var line_name: UIView!
     @IBOutlet weak var line_repeat: UIView!
     @IBOutlet weak var line_price: UIView!
-    @IBOutlet weak var btn_inc_30: UIButton!
-    @IBOutlet weak var btn_dec_30: UIButton!
     @IBOutlet weak var btn_green: UIButton!
     @IBOutlet weak var btn_gray: UIButton!
     @IBOutlet weak var btn_dark_blue: UIButton!
@@ -63,12 +63,6 @@ class AddTableViewController: UIViewController,UITextFieldDelegate,UIGestureReco
     @IBOutlet weak var img_checked_pink: UIImageView!
     @IBOutlet weak var img_checked_red: UIImageView!
     var tab_trigger : Bool = false
-    @IBAction func btn_inc_30_action(sender: UIButton) {
-        calculateTime(true)
-    }
-    @IBAction func btn_dec_30_action(sender: UIButton) {
-        calculateTime(false)
-    }
     @IBOutlet weak var top_space: NSLayoutConstraint!
     @IBAction func tf_field_action(sender: UITextField) {
         line_field.backgroundColor = UIColor(red: 16/255, green: 118/255, blue: 152/255, alpha: 1.0)
@@ -226,18 +220,31 @@ class AddTableViewController: UIViewController,UITextFieldDelegate,UIGestureReco
     }
     @IBAction func btn_add_action(sender: AnyObject) {
         findDiffHour()
+        print(diff_hour)
         let realm = RLMRealm.defaultRealm()
-        let schedule = Schedule()
+        var schedule = Schedule()
         let sche = Schedule.allObjects()
+        if edit{
+        for i in 0..<sche.count{
+            let s = sche[i] as! Schedule
+            if s.id == self.id{
+                schedule = s
+                break
+            }
+            }
+            realm.beginWriteTransaction()
+        }
         schedule.field = self.field
         let format = NSDateFormatter()
         format.dateStyle = NSDateFormatterStyle.FullStyle
-        schedule.date = format.stringFromDate(self.date)
-        schedule.time = self.time
+        schedule.date = self.tf_date.text!
+        schedule.time = self.tf_time.text!
+        if !edit{
         if edit_price{
             schedule.price = Double(self.tf_price.text!)! * diff_hour
         }else{
         schedule.price = self.realPrice * diff_hour
+        }
         }
         if self.scheduleArray.count == 0 {
             schedule.tag = 1
@@ -246,7 +253,9 @@ class AddTableViewController: UIViewController,UITextFieldDelegate,UIGestureReco
         }
         schedule.colorTag = self.pickedColor
         schedule.type = self.type
+        if !edit{
         schedule.id = String(sche.count)
+        }
         schedule.paid_type = "cash"
         schedule.sort_date = createSortDate(schedule.date, time: schedule.time)
         let range = self.rep.rangeOfString(" ")!
@@ -256,8 +265,18 @@ class AddTableViewController: UIViewController,UITextFieldDelegate,UIGestureReco
         if self.realRep >= 2 {
             self.realRep = self.realRep - 1
             for i in 0...self.realRep {
-                let schedules = Schedule()
+                var schedules = Schedule()
                 let sche = Schedule.allObjects()
+                if edit{
+                    for i in 0..<sche.count{
+                        let s = sche[i] as! Schedule
+                        if s.id == self.id{
+                            schedules = s
+                            break
+                        }
+                    }
+                    realm.beginWriteTransaction()
+                }
                 schedules.field = self.field
                 let format = NSDateFormatter()
                 format.dateStyle = NSDateFormatterStyle.FullStyle
@@ -269,11 +288,13 @@ class AddTableViewController: UIViewController,UITextFieldDelegate,UIGestureReco
                 let nextDay = format.dateFromString(schedules.date)?.dateByAddingTimeInterval(60*60*24*7)
                 schedules.date = format.stringFromDate(nextDay!)
                 }
-                schedules.time = self.time
+                schedules.time = self.tf_time.text!
+                if !edit{
                 if edit_price {
                 schedules.price = Double(self.tf_price.text!)! * diff_hour
                 }else{
                 schedules.price = self.realPrice * diff_hour
+                }
                 }
                 if self.scheduleArray.count == 0 {
                     schedule.tag = 1
@@ -282,7 +303,9 @@ class AddTableViewController: UIViewController,UITextFieldDelegate,UIGestureReco
                 }
                 schedules.colorTag = self.pickedColor
                 schedules.type = self.type
+                if !edit{
                 schedules.id = String(sche.count)
+                }
                 schedules.paid_type = "cash"
                 schedules.sort_date = createSortDate(schedules.date, time: schedules.time)
                 let users = User.allObjects()
@@ -298,10 +321,15 @@ class AddTableViewController: UIViewController,UITextFieldDelegate,UIGestureReco
                 }
                 }
                 if found {
+                    
+                    if !edit{
                     temp = schedules.date
                     realm.beginWriteTransaction()
                     realm.addObject(schedules)
                     try! realm.commitWriteTransaction()
+                    }else{
+                        try! realm.commitWriteTransaction()
+                    }
                 }else{
                     not_found = true
                     continue
@@ -319,22 +347,38 @@ class AddTableViewController: UIViewController,UITextFieldDelegate,UIGestureReco
                     let realm = RLMRealm.defaultRealm()
                     let users = User.allObjects()
                     let user = User()
+                    if !self.edit{
                     user.id = String(users.count)
+                    }
                     user.nickName = self.tf_name.text!
                     realm.beginWriteTransaction()
+                    if self.edit{}else{
                     realm.addObject(user)
+                    }
                     try! realm.commitWriteTransaction()
-                    let schedule = Schedule()
+                    var schedule = Schedule()
                     let sche = Schedule.allObjects()
+                    if self.edit{
+                        for i in 0..<sche.count{
+                            let s = sche[i] as! Schedule
+                            if s.id == self.id{
+                                schedule = s
+                                break
+                            }
+                        }
+                        realm.beginWriteTransaction()
+                    }
                     schedule.field = self.field
                     let format = NSDateFormatter()
                     format.dateStyle = NSDateFormatterStyle.FullStyle
-                    schedule.date = format.stringFromDate(self.date)
-                    schedule.time = self.time
+                    schedule.date = self.tf_date.text!
+                    schedule.time = self.tf_time.text!
+                    if !self.edit{
                     if self.edit_price{
                         schedule.price = Double(self.tf_price.text!)! * self.diff_hour
                     }else{
                     schedule.price = self.realPrice * self.diff_hour
+                    }
                     }
                     if self.scheduleArray.count == 0 {
                         schedule.tag = 1
@@ -345,7 +389,9 @@ class AddTableViewController: UIViewController,UITextFieldDelegate,UIGestureReco
                     schedule.type = self.type
                     schedule.paid_type = "cash"
                     schedule.sort_date = self.createSortDate(schedule.date, time: schedule.time)
+                    if !self.edit{
                     schedule.id = String(sche.count)
+                    }
                     let range = self.rep.rangeOfString(" ")!
                     let index = self.rep.startIndex.distanceTo(range.startIndex)
                     self.realRep = Int(self.tf_repeat.text!.substringWithRange(Range<String.Index>(start:self.tf_repeat.text!.startIndex.advancedBy(0), end: self.tf_repeat.text!.startIndex.advancedBy(index))))
@@ -353,8 +399,18 @@ class AddTableViewController: UIViewController,UITextFieldDelegate,UIGestureReco
                     if self.realRep >= 2 {
                         self.realRep = self.realRep - 1
                         for i in 0...self.realRep {
-                            let schedules = Schedule()
+                            var schedules = Schedule()
                             let sche = Schedule.allObjects()
+                            if self.edit{
+                                for i in 0..<sche.count{
+                                    let s = sche[i] as! Schedule
+                                    if s.id == self.id{
+                                        schedules = s
+                                        break
+                                    }
+                                }
+                                realm.beginWriteTransaction()
+                            }
                             schedules.field = self.field
                             let format = NSDateFormatter()
                             format.dateStyle = NSDateFormatterStyle.FullStyle
@@ -366,11 +422,13 @@ class AddTableViewController: UIViewController,UITextFieldDelegate,UIGestureReco
                                 let nextDay = format.dateFromString(schedules.date)?.dateByAddingTimeInterval(60*60*24*7)
                                 schedules.date = format.stringFromDate(nextDay!)
                             }
-                            schedules.time = self.time
+                            schedules.time = self.tf_time.text!
+                            if !self.edit{
                             if self.edit_price{
                                 schedules.price = Double(self.tf_price.text!)! * self.diff_hour
                             }else{
                             schedules.price = self.realPrice * self.diff_hour
+                            }
                             }
                             if self.scheduleArray.count == 0 {
                                 schedule.tag = 1
@@ -382,10 +440,17 @@ class AddTableViewController: UIViewController,UITextFieldDelegate,UIGestureReco
                             schedules.userID = user.id
                             schedules.paid_type = "cash"
                             schedules.sort_date = self.createSortDate(schedules.date, time: schedules.time)
+                            if !self.edit{
                             schedules.id = String(sche.count)
+                            }
                             temp = schedules.date
+                            if self.edit{
+                                try! realm.commitWriteTransaction()
+                            }
                             realm.beginWriteTransaction()
+                            if self.edit{}else{
                             realm.addObject(schedules)
+                            }
                             try! realm.commitWriteTransaction()
                         }
                         self.performSegueWithIdentifier("back_to_schedule", sender: self)
@@ -413,9 +478,13 @@ class AddTableViewController: UIViewController,UITextFieldDelegate,UIGestureReco
             }
             }
             if found {
-                print("hello"+self.tf_price.text!)
+                if edit{
+                    try! realm.commitWriteTransaction()
+                }
                 realm.beginWriteTransaction()
+                if edit{}else{
                 realm.addObject(schedule)
+                }
                 try! realm.commitWriteTransaction()
                 self.performSegueWithIdentifier("back_to_schedule", sender: self)
             }else{
@@ -430,10 +499,17 @@ class AddTableViewController: UIViewController,UITextFieldDelegate,UIGestureReco
                     let user = User()
                     user.id = String(users.count)
                     user.nickName = self.tf_name.text!
+                    if self.edit{
+                       try! realm.commitWriteTransaction()
+                    }
                     realm.beginWriteTransaction()
+                    if self.edit{}else{
                     realm.addObject(user)
+                    }
                     schedule.userID = user.id
+                    if self.edit{}else{
                     realm.addObject(schedule)
+                    }
                     try! realm.commitWriteTransaction()
                     self.performSegueWithIdentifier("back_to_schedule", sender: self)
                 })
@@ -466,10 +542,17 @@ class AddTableViewController: UIViewController,UITextFieldDelegate,UIGestureReco
         self.view.addGestureRecognizer(tab_gesture)
         let attr = NSDictionary(object: UIFont(name: "ThaiSansLite", size: 17.0)!, forKey: NSFontAttributeName)
         self.segment.setTitleTextAttributes(attr as [NSObject: AnyObject], forState: .Normal)
+        if edit{
+        tf_name.text = self.name
+        }else{
         tf_name.becomeFirstResponder()
+        }
         let schedule = Schedule.allObjects()
         for i in 0..<schedule.count{
             scheduleArray.append(schedule[i] as! Schedule)
+        }
+        if edit{
+            tf_name.enabled = false
         }
         // Do any additional setup after loading the view.
     }
@@ -522,8 +605,6 @@ class AddTableViewController: UIViewController,UITextFieldDelegate,UIGestureReco
         self.realRep = Int(self.tf_repeat.text!.substringWithRange(Range<String.Index>(start:self.tf_repeat.text!.startIndex.advancedBy(0), end: self.tf_repeat.text!.startIndex.advancedBy(index))))
     }
     func genButton(){
-        btn_dec_30.layer.cornerRadius = 15
-        btn_inc_30.layer.cornerRadius = 15
         btn_red.layer.cornerRadius = 5
         btn_blue.layer.cornerRadius = 5
         btn_gray.layer.cornerRadius = 5
@@ -567,23 +648,17 @@ class AddTableViewController: UIViewController,UITextFieldDelegate,UIGestureReco
         let startHour = a.substringWithRange(Range<String.Index>(a.startIndex.advancedBy(0)..<a.startIndex.advancedBy(index)))
         range = a.rangeOfString(" ")!
         let index1 = a.startIndex.distanceTo(range.startIndex)
-        let startMin = a.substringWithRange(Range<String.Index>(start: a.startIndex.advancedBy(index+1), end: (a.startIndex.advancedBy(index1))))
+        var startMin = a.substringWithRange(Range<String.Index>(start: a.startIndex.advancedBy(index+1), end: (a.startIndex.advancedBy(index1))))
         a = a.substringWithRange(Range<String.Index>(start: a.startIndex.advancedBy(index1+3), end: (a.endIndex.advancedBy(0))))
         range = a.rangeOfString(".")!
         let index2 = a.startIndex.distanceTo(range.startIndex)
         let endHour = a.substringWithRange(Range<String.Index>(start: a.startIndex.advancedBy(0), end: (a.startIndex.advancedBy(index2))))
-        let endMin = a.substringWithRange(Range<String.Index>(start: a.startIndex.advancedBy(index2+1), end: (a.endIndex.advancedBy(0))))
+        var endMin = a.substringWithRange(Range<String.Index>(start: a.startIndex.advancedBy(index2+1), end: (a.endIndex.advancedBy(0))))
         //let hour_count = cell.viewWithTag(7) as! UILabel
+        startMin = String(Double(startMin)!)
+        endMin = String(Double(endMin)!)
         var diff_hour = Double(endHour)! - Double(startHour)!
-        if Int(startMin)>Int(endMin){
-            //hour_count.text = String(Int(endHour)!-Int(startHour)!)+" ชั่วโมง"+" "+"30 นาที"
-            diff_hour += 0.5
-        }else if Int(startMin)<Int(endMin){
-            //hour_count.text = String(Int(endHour)!-Int(startHour)!-1)+" ชั่วโมง"+" "+"30 นาที"
-            diff_hour -= 0.5
-        }else{
-            //hour_count.text = String(Int(endHour)!-Int(startHour)!)+" ชั่วโมง"+" "+"00 นาที"
-        }
+        diff_hour += (Double(endMin)!-Double(startMin)!)/60
         self.diff_hour = diff_hour
         
     }

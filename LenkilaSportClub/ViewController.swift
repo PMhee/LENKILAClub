@@ -8,15 +8,44 @@
 
 import UIKit
 import SCLAlertView
+import Realm
 class ViewController: UIViewController,UITextFieldDelegate {
 
     
+    @IBAction func request_code_action(sender: UIButton) {
+        let alertController = UIAlertController(title: "Confirm Action", message: nil, preferredStyle: .ActionSheet)
+        let callActionHandler = { (action:UIAlertAction!) -> Void in
+            UIApplication.sharedApplication().openURL(NSURL(string: "tel://0992850130")!)
+        }
+        let callAction = UIAlertAction(title: "Call 0992850130", style: .Default, handler:callActionHandler)
+        alertController.addAction(callAction)
+        
+        let copyActionHandler = { (action:UIAlertAction!) -> Void in
+            UIPasteboard.generalPasteboard().string = "0992850130"
+        }
+        let copyAction = UIAlertAction(title: "Copy", style: .Default, handler:copyActionHandler)
+        alertController.addAction(copyAction)
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Default, handler: nil)
+        alertController.addAction(cancelAction)
+        
+        presentViewController(alertController, animated: true, completion: nil)
+    }
     @IBOutlet weak var placeholder: UILabel!
     @IBOutlet weak var username_textfield: UITextField!
     @IBOutlet weak var cons_verticle: NSLayoutConstraint!
     
     @IBAction func sign_in_action(sender: UIButton) {
-        if username_textfield.text! == "Geeksquadconsulting"{
+        let setting = Setting.allObjects()
+        if setting.count == 0 {
+            let realm = RLMRealm.defaultRealm()
+            realm.beginWriteTransaction()
+            let s = Setting()
+            s.passCode = "Geeksquadconsulting"
+            realm.addObject(s)
+            try! realm.commitWriteTransaction()
+        }
+        if username_textfield.text! == (setting[0] as! Setting).passCode{
         performSegueWithIdentifier("signIn", sender: self)
         }else{
             let appearance = SCLAlertView.SCLAppearance(
