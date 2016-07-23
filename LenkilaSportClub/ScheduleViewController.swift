@@ -373,12 +373,16 @@ class ScheduleViewController: UIViewController,UIScrollViewDelegate,UIGestureRec
                     if temp_h > height {
                         if var tag = self.view.viewWithTag(self.tag) {
                             temp_h = height
+                            if self.schedualArray.count > 0 {
                             if self.tag > self.schedualArray[schedualArray.count-1].tag {
                             print("remove")
                             tag.removeFromSuperview()
                             }
+                            }
+                            if schedualArray.count > 0 {
                             if self.tag > self.schedualArray[schedualArray.count-1].tag {
                                     self.tag -= 1
+                            }
                             }
                             hh = transition.y
 //                            if tag.tag <= self.schedualArray[schedualArray.count-1].tag{
