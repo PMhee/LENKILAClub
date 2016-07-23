@@ -7,10 +7,12 @@
 //
 
 import UIKit
-
+import SCLAlertView
 class ChangePasswordViewController: UIViewController {
     
     @IBOutlet var uiView: UIView!
+    @IBOutlet weak var password_text: UITextField!
+    let setting = Setting.allObjects()
     @IBAction func next(sender: AnyObject) {
         var container: UIView = UIView()
         container.frame = uiView.frame
@@ -38,7 +40,18 @@ class ChangePasswordViewController: UIViewController {
         delay(1){
             loading.stopAnimating()
             container.removeFromSuperview()
+            if self.password_text.text! == (self.setting[0] as! Setting).passCode{
             self.performSegueWithIdentifier("newPassword", sender: self)
+            }else{
+                let appearance = SCLAlertView.SCLAppearance(
+                    kTitleFont: UIFont(name: "ThaiSansLite", size: 20)!,
+                    kTextFont: UIFont(name: "ThaiSansLite", size: 16)!,
+                    kButtonFont: UIFont(name: "ThaiSansLite", size: 16)!,
+                    showCloseButton: true
+                )
+                let alert = SCLAlertView(appearance: appearance)
+                alert.showError("Error", subTitle: "The code does not exist please contact us")
+            }
             
             
         }

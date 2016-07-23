@@ -2880,6 +2880,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Contact Us" id="GAe-JR-voI"/>
                     <connections>
+                        <outlet property="password_text" destination="dTp-Dg-5ok" id="8Gw-Qb-mIc"/>
                         <outlet property="uiView" destination="6Ti-kL-FUu" id="2vl-MO-6Qx"/>
                         <segue destination="7s1-eA-xDe" kind="custom" identifier="newPassword" customClass="SegueFromRight" customModule="LenkilaClub" customModuleProvider="target" id="kBn-oA-tXy"/>
                     </connections>
@@ -3569,7 +3570,7 @@
         <image name="table" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="HYv-S6-xWs"/>
+        <segue reference="iy7-uX-d6W"/>
         <segue reference="onY-9k-hCM"/>
     </inferredMetricsTieBreakers>
 </document>

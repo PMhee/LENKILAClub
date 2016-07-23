@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import Realm
 class ConfirmPasswordViewController: UIViewController {
     
     var newPassword = String()
@@ -22,6 +22,13 @@ class ConfirmPasswordViewController: UIViewController {
     @IBOutlet var confirmPass: UITextField!
     @IBAction func save(sender: AnyObject) {
         if(confirmPass.text == newPassword){
+            let realm = RLMRealm.defaultRealm()
+            realm.beginWriteTransaction()
+            var setting = Setting()
+            let set = Setting.allObjects()
+            setting = set[0] as! Setting
+            setting.passCode = confirmPass.text!
+            try! realm.commitWriteTransaction()
             self.performSegueWithIdentifier("savePassword", sender: self)
         }
     }
