@@ -25,6 +25,7 @@ class ScheduleViewController: UIViewController,UIScrollViewDelegate,UIGestureRec
     var drag_top : Bool = false
     var cut_slot = [CGFloat]()
     var temp_h : Int = 0
+    var real_date : String = ""
     @IBOutlet var long_gesture: UILongPressGestureRecognizer!
     @IBOutlet weak var vw_tab: UIView!
     @IBOutlet weak var cons_vw_tab_width: NSLayoutConstraint!
@@ -40,7 +41,7 @@ class ScheduleViewController: UIViewController,UIScrollViewDelegate,UIGestureRec
     var f : UIView! = nil
     var x : CGFloat! = nil
     var y : CGFloat! = nil
-    let field_num = 4
+    var field_num = 4
     var hh  :CGFloat = 0.0
     var field : String!
     var date : String!
@@ -150,9 +151,9 @@ class ScheduleViewController: UIViewController,UIScrollViewDelegate,UIGestureRec
     @IBAction func btn_left_action(sender: UIButton) {
         let format = NSDateFormatter()
         format.dateStyle = NSDateFormatterStyle.FullStyle
-        
         btn_date.setTitle(format.stringFromDate(format.dateFromString((btn_date.titleLabel?.text)!)!.dateByAddingTimeInterval(-60*60*24)), forState: .Normal)
-        //today = today.dateByAddingTimeInterval(-60*60*24)
+        real_date = format.stringFromDate((format.dateFromString(real_date)?.dateByAddingTimeInterval(-60*60*24))!)
+        //today = today.dateByAddingTimeInterval(60*60*24)
         clearTable()
         self.genScheduleOnTable()
     }
@@ -160,6 +161,7 @@ class ScheduleViewController: UIViewController,UIScrollViewDelegate,UIGestureRec
         let format = NSDateFormatter()
         format.dateStyle = NSDateFormatterStyle.FullStyle
         btn_date.setTitle(format.stringFromDate(NSDate()), forState: .Normal)
+        real_date = format.stringFromDate(NSDate())
         clearTable()
         self.genScheduleOnTable()
     }
@@ -167,6 +169,7 @@ class ScheduleViewController: UIViewController,UIScrollViewDelegate,UIGestureRec
         let format = NSDateFormatter()
         format.dateStyle = NSDateFormatterStyle.FullStyle
         btn_date.setTitle(format.stringFromDate(format.dateFromString((btn_date.titleLabel?.text)!)!.dateByAddingTimeInterval(60*60*24)), forState: .Normal)
+        real_date = format.stringFromDate((format.dateFromString(real_date)?.dateByAddingTimeInterval(60*60*24))!)
         //today = today.dateByAddingTimeInterval(60*60*24)
         clearTable()
         self.genScheduleOnTable()
@@ -179,12 +182,24 @@ class ScheduleViewController: UIViewController,UIScrollViewDelegate,UIGestureRec
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
+        let setting = Setting.allObjects()
+        let s = setting[0] as! Setting
+        if s.num_field == 0 {
+            let realm = RLMRealm.defaultRealm()
+            realm.beginWriteTransaction()
+            s.num_field = 4
+            try! realm.commitWriteTransaction()
+        }
+        print(s.num_field)
+        self.field_num = s.num_field
         if self.date != nil {
             btn_date.setTitle(self.date, forState: .Normal)
+            real_date = date
         }else{
             let format = NSDateFormatter()
             format.dateStyle = NSDateFormatterStyle.FullStyle
             btn_date.setTitle(format.stringFromDate(NSDate()), forState: .Normal)
+            real_date = (btn_date.titleLabel?.text!)!
         }
         tapGesture.delegate = self
         long_gesture.delegate = self
@@ -225,7 +240,7 @@ class ScheduleViewController: UIViewController,UIScrollViewDelegate,UIGestureRec
         let width = (self.view.frame.width)/CGFloat(field_num+1)
         if schedualArray.count > 0 {
             for i in 0...self.schedualArray.count-1{
-                if schedualArray[i].date == self.btn_date.titleLabel?.text! {
+                if schedualArray[i].date == real_date {
                     var a : String = self.schedualArray[i].time
                     var range: Range<String.Index> = a.rangeOfString(".")!
                     var index: Int = a.startIndex.distanceTo(range.startIndex)
@@ -451,7 +466,7 @@ class ScheduleViewController: UIViewController,UIScrollViewDelegate,UIGestureRec
                 des.field = self.field
                 let format = NSDateFormatter()
                 format.dateStyle = NSDateFormatterStyle.FullStyle
-                des.date = format.dateFromString((self.btn_date.titleLabel?.text!)!)!
+                des.date = format.dateFromString(self.real_date)
                 des.time = self.time
                 des.price = "1000 บาท"
                 des.rep = "1 สัปดาห์"
@@ -461,7 +476,7 @@ class ScheduleViewController: UIViewController,UIScrollViewDelegate,UIGestureRec
             if let des = segue.destinationViewController as? AddTableViewController {
                 let format = NSDateFormatter()
                 format.dateStyle = NSDateFormatterStyle.FullStyle
-                des.date = format.dateFromString((self.btn_date.titleLabel?.text!)!)!
+                des.date = format.dateFromString(self.real_date)
                 for i in 0..<self.schedualArray.count {
                     if i == Int(self.slot[self.del_slot]!) {
                         des.time = self.schedualArray[i].time
@@ -492,7 +507,7 @@ class ScheduleViewController: UIViewController,UIScrollViewDelegate,UIGestureRec
         }
         if schedualArray.count > 0 {
             for i in 0...schedualArray.count-1 {
-                if schedualArray[i].date == self.btn_date.titleLabel?.text! {
+                if schedualArray[i].date == self.real_date {
                     var a : String = self.schedualArray[i].time
                     var range: Range<String.Index> = a.rangeOfString(".")!
                     var index: Int = a.startIndex.distanceTo(range.startIndex)
@@ -532,6 +547,9 @@ class ScheduleViewController: UIViewController,UIScrollViewDelegate,UIGestureRec
     }
     func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
         return .None
+    }
+    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+        return [UIInterfaceOrientationMask.Portrait]
     }
         /*
      // MARK: - Navigation

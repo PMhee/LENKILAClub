@@ -37,12 +37,12 @@ class ViewController: UIViewController,UITextFieldDelegate {
     
     @IBAction func sign_in_action(sender: UIButton) {
         let setting = Setting.allObjects()
-        if setting.count == 0 {
+        if setting.count > 0 {
             let realm = RLMRealm.defaultRealm()
             realm.beginWriteTransaction()
-            let s = Setting()
-            s.passCode = "Geeksquadconsulting"
-            realm.addObject(s)
+            var s = Setting()
+            s = setting[0] as! Setting
+            s.already_login = true
             try! realm.commitWriteTransaction()
         }
         if username_textfield.text! == (setting[0] as! Setting).passCode{
@@ -60,10 +60,32 @@ class ViewController: UIViewController,UITextFieldDelegate {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        username_textfield.delegate = self
+        let setting = Setting.allObjects()
+        print(setting.count)
+        if setting.count == 0 {
+            let realm = RLMRealm.defaultRealm()
+            realm.beginWriteTransaction()
+            let s = Setting()
+            s.passCode = "Geeksquadconsulting"
+            s.already_login = false
+            s.num_field = 0
+            realm.addObject(s)
+            try! realm.commitWriteTransaction()
+        }
+                username_textfield.delegate = self
         // Do any additional setup after loading the view, typically from a nib.
     }
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(true)
+        let setting = Setting.allObjects()
+        print(setting.count)
+        let s = setting[0] as! Setting
+        print(s.already_login)
+        if s.already_login{
+            performSegueWithIdentifier("signIn", sender: self)
+        }
 
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -82,7 +104,9 @@ class ViewController: UIViewController,UITextFieldDelegate {
         }
         return true
     }
-
+    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+        return [UIInterfaceOrientationMask.Portrait]
+    }
 }
 
 

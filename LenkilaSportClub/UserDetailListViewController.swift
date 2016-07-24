@@ -194,7 +194,7 @@ class UserDetailListViewController: UIViewController,UITableViewDelegate,UITable
         if(isPortrait){
             let v = UIView()
             v.backgroundColor = UIColor(red: 231/255, green: 230/255, blue: 231/255, alpha: 1.0)
-            let no = UILabel(frame: CGRectMake(0,18, tableView.frame.width*0.09, 14))
+            let no = UILabel(frame: CGRectMake(2,18, tableView.frame.width*0.09, 14))
             no.text = "ลำดับ"
             no.font = all_font
             no.textAlignment = .Center

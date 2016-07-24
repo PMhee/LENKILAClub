@@ -700,6 +700,9 @@ class AddTableViewController: UIViewController,UITextFieldDelegate,UIGestureReco
         var startMin = time.substringWithRange(Range<String.Index>(start: time.startIndex.advancedBy(0), end: time.startIndex.advancedBy(index)))
         return Int(year+month+day+startHour+startMin)!
     }
+    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+        return [UIInterfaceOrientationMask.Portrait]
+    }
     /*
      // MARK: - Navigation
      

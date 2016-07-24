@@ -1999,6 +1999,9 @@
                                 <fontDescription key="fontDescription" name="ThaiSansNeue-Regular" family="ThaiSans Neue" pointSize="25"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="-97" y="-15" width="194" height="30"/>
+                                </variation>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pGX-za-soH">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
@@ -2006,6 +2009,9 @@
                                 <state key="normal" title="ตกลง">
                                     <color key="titleColor" red="0.1137254902" green="0.1137254902" blue="0.1137254902" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="-27" y="-20" width="54" height="40"/>
+                                </variation>
                                 <connections>
                                     <action selector="btn_confitm_action:" destination="QM7-OQ-oz3" eventType="touchUpInside" id="Kkn-rl-VTx"/>
                                 </connections>
@@ -2015,6 +2021,9 @@
                                 <fontDescription key="fontDescription" name="ThaiSansNeue-Regular" family="ThaiSans Neue" pointSize="25"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="-51" y="-86" width="102" height="30"/>
+                                </variation>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2038,16 +2047,16 @@
                                 <exclude reference="TnO-8I-OBO"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="W5F-Rz-sZS"/>
+                                <exclude reference="WIK-gO-0nK"/>
                                 <exclude reference="6h4-CJ-Sjx"/>
                                 <exclude reference="OLM-du-HFF"/>
                                 <exclude reference="sIV-Kc-J6y"/>
+                                <exclude reference="K8O-4R-tbc"/>
                                 <exclude reference="FI2-PH-K24"/>
                                 <exclude reference="ixf-pl-BQu"/>
                                 <exclude reference="sxh-WH-uEl"/>
                                 <exclude reference="zX3-4d-ibL"/>
-                                <exclude reference="K8O-4R-tbc"/>
-                                <exclude reference="W5F-Rz-sZS"/>
-                                <exclude reference="WIK-gO-0nK"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -2058,16 +2067,16 @@
                                 <include reference="TnO-8I-OBO"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="W5F-Rz-sZS"/>
+                                <include reference="WIK-gO-0nK"/>
                                 <include reference="6h4-CJ-Sjx"/>
                                 <exclude reference="OLM-du-HFF"/>
                                 <include reference="sIV-Kc-J6y"/>
+                                <include reference="K8O-4R-tbc"/>
                                 <include reference="FI2-PH-K24"/>
                                 <include reference="ixf-pl-BQu"/>
                                 <include reference="sxh-WH-uEl"/>
                                 <include reference="zX3-4d-ibL"/>
-                                <include reference="K8O-4R-tbc"/>
-                                <include reference="W5F-Rz-sZS"/>
-                                <include reference="WIK-gO-0nK"/>
                             </mask>
                         </variation>
                     </view>

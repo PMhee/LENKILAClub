@@ -126,11 +126,11 @@ class SettingViewController: UIViewController, UITableViewDelegate, UITableViewD
                 self.presentViewController(alertController, animated: true, completion: nil)
                 //self.performSegueWithIdentifier("profile", sender: self)
             }else if(indexPath.row == 1){
-                let alertController = UIAlertController(title: "ขออภัย", message: "ระบบการแก้ไขสนามยังอยู่ในระหว่างการพัฒนา และจะถูกเพิ่มในเวอร์ชันถัดไป", preferredStyle: .Alert)
-                let doneAction = UIAlertAction(title: "รับทราบ", style: .Default, handler: nil)
-                alertController.addAction(doneAction)
-                self.presentViewController(alertController, animated: true, completion: nil)
-                //self.performSegueWithIdentifier("editField", sender: self)
+//                let alertController = UIAlertController(title: "ขออภัย", message: "ระบบการแก้ไขสนามยังอยู่ในระหว่างการพัฒนา และจะถูกเพิ่มในเวอร์ชันถัดไป", preferredStyle: .Alert)
+//                let doneAction = UIAlertAction(title: "รับทราบ", style: .Default, handler: nil)
+//                alertController.addAction(doneAction)
+//                self.presentViewController(alertController, animated: true, completion: nil)
+                self.performSegueWithIdentifier("editField", sender: self)
             }else{
                 self.performSegueWithIdentifier("changePassword", sender: self)
             }

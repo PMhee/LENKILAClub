@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NewPasswordViewController: UIViewController {
+class NewPasswordViewController: UIViewController,UITextFieldDelegate {
     @IBAction func next(sender: AnyObject) {
         self.performSegueWithIdentifier("confirmPassword", sender: self)
     }
@@ -23,7 +23,7 @@ class NewPasswordViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        newPass.delegate = self
         // Do any additional setup after loading the view.
     }
 
@@ -31,7 +31,10 @@ class NewPasswordViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "confirmPassword" {
             if let des = segue.destinationViewController as? ConfirmPasswordViewController {

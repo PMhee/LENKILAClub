@@ -8,7 +8,7 @@
 
 import UIKit
 import SCLAlertView
-class ChangePasswordViewController: UIViewController {
+class ChangePasswordViewController: UIViewController,UITextFieldDelegate {
     
     @IBOutlet var uiView: UIView!
     @IBOutlet weak var password_text: UITextField!
@@ -71,7 +71,7 @@ class ChangePasswordViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.password_text.delegate = self
         // Do any additional setup after loading the view.
     }
 
@@ -79,7 +79,10 @@ class ChangePasswordViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
 
     /*
     // MARK: - Navigation

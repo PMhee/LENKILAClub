@@ -416,6 +416,9 @@ class TransactionManagementViewController: UIViewController,UIGestureRecognizerD
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 88
     }
+    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+        return [UIInterfaceOrientationMask.Portrait]
+    }
     /*
      // MARK: - Navigation
      

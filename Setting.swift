@@ -10,4 +10,6 @@ import Foundation
 import Realm
 class Setting:RLMObject{
     dynamic var passCode : String = "Geeksquadconsulting"
+    dynamic var already_login : Bool = false
+    dynamic var num_field : Int = 0
 }

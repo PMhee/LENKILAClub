@@ -310,6 +310,9 @@ class EditUserDetailViewController: UIViewController,UITextFieldDelegate,UIGestu
             lb_price.text = numberFormatter.stringFromNumber(price as NSNumber)! + " บาท"
         }
     }
+    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+        return [UIInterfaceOrientationMask.Portrait]
+    }
     /*
      // MARK: - Navigation
      

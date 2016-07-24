@@ -8,7 +8,7 @@
 
 import UIKit
 import Realm
-class ConfirmPasswordViewController: UIViewController {
+class ConfirmPasswordViewController: UIViewController,UITextFieldDelegate {
     
     var newPassword = String()
 
@@ -34,8 +34,12 @@ class ConfirmPasswordViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        confirmPass.delegate = self
         // Do any additional setup after loading the view.
+    }
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 
     override func didReceiveMemoryWarning() {
