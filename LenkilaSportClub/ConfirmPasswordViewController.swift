@@ -8,6 +8,7 @@
 
 import UIKit
 import Realm
+import SCLAlertView
 class ConfirmPasswordViewController: UIViewController,UITextFieldDelegate {
     
     var newPassword = String()
@@ -30,6 +31,15 @@ class ConfirmPasswordViewController: UIViewController,UITextFieldDelegate {
             setting.passCode = confirmPass.text!
             try! realm.commitWriteTransaction()
             self.performSegueWithIdentifier("savePassword", sender: self)
+        }else{
+            let appearance = SCLAlertView.SCLAppearance(
+                kTitleFont: UIFont(name: "ThaiSansLite", size: 20)!,
+                kTextFont: UIFont(name: "ThaiSansLite", size: 16)!,
+                kButtonFont: UIFont(name: "ThaiSansLite", size: 16)!,
+                showCloseButton: true
+            )
+            let alert = SCLAlertView(appearance: appearance)
+            alert.showError("ผิดพลาด", subTitle: "รหัสผ่านไม่ครงกัน กรุณากรอกใหม่อีกครั้ง")
         }
     }
     override func viewDidLoad() {
