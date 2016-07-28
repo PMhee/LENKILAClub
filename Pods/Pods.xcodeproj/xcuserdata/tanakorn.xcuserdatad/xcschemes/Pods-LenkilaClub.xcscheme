@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'A7ED68CF519C8B3CAA672B76'
+               BlueprintIdentifier = 'D116B617C2AF5375000BF00C'
                BlueprintName = 'Pods-LenkilaClub'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'Pods_LenkilaClub.framework'>

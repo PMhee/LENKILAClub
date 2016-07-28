@@ -9,6 +9,8 @@
 import UIKit
 import Realm
 import SCLAlertView
+import Alamofire
+import SystemConfiguration
 class ScheduleViewController: UIViewController,UIScrollViewDelegate,UIGestureRecognizerDelegate,UIPopoverControllerDelegate,UIPopoverPresentationControllerDelegate {
     //    @IBOutlet weak var view_time: UIView!
     //    @IBOutlet weak var scrollView_table: UIScrollView!
@@ -38,6 +40,7 @@ class ScheduleViewController: UIViewController,UIScrollViewDelegate,UIGestureRec
     var slot = [String?]()
     var firstTime : Bool = false
     let tableColor : NSDictionary = ["green":UIColor(red:122/255,green:190/255,blue:139/255,alpha:1.0),"gray":UIColor(red:122/255,green:118/255,blue:119/255,alpha:1.0),"dark_blue":UIColor(red:84/255,green:110/255,blue:122/255,alpha:1.0),"blue":UIColor(red:16/255,green:118/255,blue:152/255,alpha:1.0),"yellow":UIColor(red:252/255,green:221/255,blue:121/255,alpha:1.0),"orange":UIColor(red:231/255,green:158/255,blue:63/255,alpha:1.0),"pink":UIColor(red:205/255,green:122/255,blue:121/255,alpha:1.0),"red":UIColor(red:232/255,green:81/255,blue:83/255,alpha:1.0)]
+
     var f : UIView! = nil
     var x : CGFloat! = nil
     var y : CGFloat! = nil
@@ -176,8 +179,13 @@ class ScheduleViewController: UIViewController,UIScrollViewDelegate,UIGestureRec
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Do any additional setup after loading the view.
+        Alamofire.request(.POST, "http://192.168.1.44:8000/addSchedule?id=2&type=2&date=2&time=2&price=2&field=2&tag=2&userID=2&colorTag=2&paidType=2&alreadyPaid=true&sortDate=2")
+            .validate()
+            .responseString { response in
+                print("Success: \(response.result.isSuccess)")
+                print("Response String: \(response.result.value)")
+        }
+        print("connect"+String(isConnectedToNetwork()))
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -550,6 +558,21 @@ class ScheduleViewController: UIViewController,UIScrollViewDelegate,UIGestureRec
     }
     override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
         return [UIInterfaceOrientationMask.Portrait]
+    }
+    func isConnectedToNetwork() -> Bool {
+        var zeroAddress = sockaddr_in()
+        zeroAddress.sin_len = UInt8(sizeofValue(zeroAddress))
+        zeroAddress.sin_family = sa_family_t(AF_INET)
+        let defaultRouteReachability = withUnsafePointer(&zeroAddress) {
+            SCNetworkReachabilityCreateWithAddress(nil, UnsafePointer($0))
+        }
+        var flags = SCNetworkReachabilityFlags()
+        if !SCNetworkReachabilityGetFlags(defaultRouteReachability!, &flags) {
+            return false
+        }
+        let isReachable = (flags.rawValue & UInt32(kSCNetworkFlagsReachable)) != 0
+        let needsConnection = (flags.rawValue & UInt32(kSCNetworkFlagsConnectionRequired)) != 0
+        return (isReachable && !needsConnection)
     }
         /*
      // MARK: - Navigation

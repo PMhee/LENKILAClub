@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Alamofire.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>CVCalendar.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -37,22 +42,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>45FD1062B7CB04B7D42FEB61973E04D3</key>
+		<key>6F29B021D02FBB1D6DFEAB4F8324FAAF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>50F200693CD77C99FC22700D8261F95F</key>
+		<key>797C70415C9C810761C3F24B884667AC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8E07823D9BE14D6138DEC2D9F703F760</key>
+		<key>79C040AFDDCE1BCBF6D8B5EB0B85887F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>96032FBB6AA167DAA62A70D5205D892D</key>
+		<key>982E709F045614D3551AE2B9921A449F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -63,6 +68,11 @@
 			<true/>
 		</dict>
 		<key>C6828C2508515BC0428D6BDAA1292DC9</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E74590382B05BCDC3E88AAF69D707BC5</key>
 		<dict>
 			<key>primary</key>
 			<true/>

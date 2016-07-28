@@ -12,4 +12,8 @@ class Setting:RLMObject{
     dynamic var passCode : String = "Geeksquadconsulting"
     dynamic var already_login : Bool = false
     dynamic var num_field : Int = 0
+    dynamic var field_id : String = ""
+    dynamic var field_name : String = ""
+    dynamic var language : String = ""
+    dynamic var font_size : Int = 0
 }

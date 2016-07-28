@@ -78,9 +78,7 @@ class ViewController: UIViewController,UITextFieldDelegate {
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(true)
         let setting = Setting.allObjects()
-        print(setting.count)
         let s = setting[0] as! Setting
-        print(s.already_login)
         if s.already_login{
             performSegueWithIdentifier("signIn", sender: self)
         }
