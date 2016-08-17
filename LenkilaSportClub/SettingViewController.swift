@@ -19,7 +19,7 @@ class SettingViewController: UIViewController, UITableViewDelegate, UITableViewD
     var y :CGFloat = 0
     var enable_touch : Bool = false
     var tab_trigger : Bool = false
-    var settingLabel =  [["ข้อมูลส่วนตัว","แก้ไขสนาม","เปลี่ยนรหัสผ่าน"]
+    var settingLabel =  [["ข้อมูลส่วนตัว","โปรโมชั่น","เปลี่ยนรหัสผ่าน"]
                         ,["แก้ไขขนาดตัวอักษร","เปลี่ยนภาษา"]
                         ,["คู่มือการใช้งาน","คำถามที่พบบ่อยและแจ้งปัญหา","ติดต่อเรา"]]
 
@@ -129,7 +129,7 @@ class SettingViewController: UIViewController, UITableViewDelegate, UITableViewD
 //                let alertController = UIAlertController(title: "ขออภัย", message: "ระบบการแก้ไขสนามยังอยู่ในระหว่างการพัฒนา และจะถูกเพิ่มในเวอร์ชันถัดไป", preferredStyle: .Alert)
 //                let doneAction = UIAlertAction(title: "รับทราบ", style: .Default, handler: nil)
 //                alertController.addAction(doneAction)
-//                self.presentViewController(alertController, animated: true, completion: nil)
+            //self.presentViewController(alertController, animated: true, completion: nil)
                 self.performSegueWithIdentifier("editField", sender: self)
             }else{
                 self.performSegueWithIdentifier("changePassword", sender: self)

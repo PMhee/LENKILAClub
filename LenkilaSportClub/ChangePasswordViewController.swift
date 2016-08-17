@@ -40,18 +40,18 @@ class ChangePasswordViewController: UIViewController,UITextFieldDelegate {
         delay(1){
             loading.stopAnimating()
             container.removeFromSuperview()
-            if self.password_text.text! == (self.setting[0] as! Setting).passCode{
-            self.performSegueWithIdentifier("newPassword", sender: self)
-            }else{
-                let appearance = SCLAlertView.SCLAppearance(
-                    kTitleFont: UIFont(name: "ThaiSansLite", size: 20)!,
-                    kTextFont: UIFont(name: "ThaiSansLite", size: 16)!,
-                    kButtonFont: UIFont(name: "ThaiSansLite", size: 16)!,
-                    showCloseButton: true
-                )
-                let alert = SCLAlertView(appearance: appearance)
-                alert.showError("Error", subTitle: "The code does not exist please contact us")
-            }
+//            if self.password_text.text! == (self.setting[0] as! Setting).passCode{
+//            self.performSegueWithIdentifier("newPassword", sender: self)
+//            }else{
+//                let appearance = SCLAlertView.SCLAppearance(
+//                    kTitleFont: UIFont(name: "ThaiSansLite", size: 20)!,
+//                    kTextFont: UIFont(name: "ThaiSansLite", size: 16)!,
+//                    kButtonFont: UIFont(name: "ThaiSansLite", size: 16)!,
+//                    showCloseButton: true
+//                )
+//                let alert = SCLAlertView(appearance: appearance)
+//                alert.showError("Error", subTitle: "The code does not exist please contact us")
+//            }
             
             
         }

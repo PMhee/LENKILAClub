@@ -9,7 +9,6 @@
 import UIKit
 import Realm
 class TransactionManagementViewController: UIViewController,UIGestureRecognizerDelegate,UITableViewDelegate,UITableViewDataSource {
-
     var state_present : Bool = true
     @IBOutlet weak var btn_present_transaction: UIButton!
     @IBOutlet weak var btn_history_transaction: UIButton!
@@ -58,14 +57,14 @@ class TransactionManagementViewController: UIViewController,UIGestureRecognizerD
             dispatch_get_main_queue(), closure)
     }
     @IBAction func btn_present_transaction_action(sender: UIButton) {
-        self.btn_history_transaction.backgroundColor = UIColor(red: 29/255, green: 29/255, blue: 29/255, alpha: 1.0)
-        self.btn_present_transaction.backgroundColor = UIColor(red: 84/255, green: 110/255, blue: 122/255, alpha: 1.0)
+        self.btn_history_transaction.backgroundColor = UIColor(red: 48/255, green: 91/255, blue: 112/255, alpha: 1.0)
+        self.btn_present_transaction.backgroundColor = UIColor(red: 46/255, green: 177/255, blue: 135/255, alpha: 1.0)
         state_present = !state_present
         gatherAllData()
     }
     @IBAction func btn_history_transaction_action(sender: UIButton) {
-        self.btn_present_transaction.backgroundColor = UIColor(red: 29/255, green: 29/255, blue: 29/255, alpha: 1.0)
-        self.btn_history_transaction.backgroundColor = UIColor(red: 84/255, green: 110/255, blue: 122/255, alpha: 1.0)
+        self.btn_present_transaction.backgroundColor = UIColor(red: 48/255, green: 91/255, blue: 112/255, alpha: 1.0)
+        self.btn_history_transaction.backgroundColor = UIColor(red: 46/255, green: 177/255, blue: 135/255, alpha: 1.0)
         state_present = !state_present
         gatherAllData()
     }
@@ -202,16 +201,16 @@ class TransactionManagementViewController: UIViewController,UIGestureRecognizerD
             cell.userInteractionEnabled = false
         }
         cell.textLabel?.font = UIFont(name: "ThaiSansLite",size: 16)
-        let paid_type = cell.viewWithTag(1) as! UILabel
+        let paid_type = cell.viewWithTag(1)
         switch  scheduleArray[indexPath.row].paid_type {
         case "cash" :
-            paid_type.text = "จ่ายร้าน"
+            paid_type?.backgroundColor = UIColor(red: 251/255, green: 199/255, blue: 0/255, alpha: 1.0)
         case "credit" :
-            paid_type.text = "เครดิต"
+            paid_type?.backgroundColor = UIColor(red: 172/255, green: 40/255, blue: 28/255, alpha: 1.0)
         case "debit" :
-            paid_type.text = "บัตรเงินสด"
+            paid_type?.backgroundColor = UIColor(red: 152/255, green: 191/255, blue: 0/255, alpha: 1.0)
         default:
-            paid_type.text = ""
+            paid_type?.backgroundColor = UIColor.blueColor()
         }
         let name = cell.viewWithTag(2) as! UILabel
         name.text  = "คุณ "+userArray[Int(scheduleArray[indexPath.row].userID)!].nickName
@@ -235,6 +234,9 @@ class TransactionManagementViewController: UIViewController,UIGestureRecognizerD
         let index2 = a.startIndex.distanceTo(range.startIndex)
         let endHour = a.substringWithRange(Range<String.Index>(start: a.startIndex.advancedBy(0), end: (a.startIndex.advancedBy(index2))))
         let endMin = a.substringWithRange(Range<String.Index>(start: a.startIndex.advancedBy(index2+1), end: (a.endIndex.advancedBy(0))))
+        let profile_pic = cell.viewWithTag(7) as! UIImageView
+        profile_pic.layer.cornerRadius = 15
+        profile_pic.layer.masksToBounds = true
         //let hour_count = cell.viewWithTag(7) as! UILabel
         var diff_hour = Double(endHour)! - Double(startHour)!
         if Int(startMin)>Int(endMin){
@@ -251,6 +253,8 @@ class TransactionManagementViewController: UIViewController,UIGestureRecognizerD
         numberFormatter.internationalCurrencySymbol = ""
         numberFormatter.numberStyle = NSNumberFormatterStyle.CurrencyISOCodeStyle
         price.text = numberFormatter.stringFromNumber((Double(scheduleArray[indexPath.row].price)) as NSNumber)! + " บาท"
+        let promotion = cell.viewWithTag(9) as! UILabel
+        promotion.text = scheduleArray[indexPath.row].promotion
         return cell
     }
     func createSortDate(date:String,var time:String)->Int{
@@ -414,10 +418,20 @@ class TransactionManagementViewController: UIViewController,UIGestureRecognizerD
         }
     }
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 88
+        return 171
     }
     override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
         return [UIInterfaceOrientationMask.Portrait]
+    }
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if segue.identifier == "edit"{
+            var indexPath = self.transactionTableView.indexPathForSelectedRow!
+            if let des = segue.destinationViewController as? EditTransactionViewController{
+                des.schedule = scheduleArray[indexPath.row]
+                des.user_name = userArray[Int(scheduleArray[indexPath.row].userID)!].nickName
+            }
+        }
     }
     /*
      // MARK: - Navigation

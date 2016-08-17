@@ -21,4 +21,7 @@ class Schedule:RLMObject{
     dynamic var paid_type : String = ""
     dynamic var already_paid : Bool = false
     dynamic var sort_date : Int = 0
+    dynamic var sportClubID : String = ""
+    dynamic var staffID : String = ""
+    dynamic var promotion : String = ""
 }

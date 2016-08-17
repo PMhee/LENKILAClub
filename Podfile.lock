@@ -4,6 +4,7 @@ PODS:
     - Charts/Core (= 2.2.5)
   - Charts/Core (2.2.5)
   - CVCalendar (1.2.9)
+  - PDTSimpleCalendar (0.9.1)
   - Realm (1.0.2):
     - Realm/Headers (= 1.0.2)
   - Realm/Headers (1.0.2)
@@ -15,6 +16,7 @@ DEPENDENCIES:
   - Alamofire (~> 3.4)
   - Charts
   - CVCalendar (~> 1.2.9)
+  - PDTSimpleCalendar (~> 0.9.1)
   - RealmSwift
   - SCLAlertView
 
@@ -22,6 +24,7 @@ SPEC CHECKSUMS:
   Alamofire: 01a82e2f6c0f860ade35534c8dd88be61bdef40c
   Charts: b48fcc8d7190de910ff9e9748f5360c8ea7856e5
   CVCalendar: 0799256e0bc3b43e83b7e86c0729ce9ff0624cb6
+  PDTSimpleCalendar: d1c03387678422715dc021aa1a85d70f4d1014f2
   Realm: 9d5c46a4d7d27958530a8dfc58f63a99e5c2cba3
   RealmSwift: 82f3ac5e24530143dddfde2033acc0d308f27d96
   SCLAlertView: d7c6a48c7d340e60206d4ed0e8ebcbff3b9d2a44

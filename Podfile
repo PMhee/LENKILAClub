@@ -8,7 +8,8 @@ target 'LenkilaClub' do
     pod 'Charts'
     pod 'CVCalendar', '~> 1.2.9'
     pod 'SCLAlertView'
-    pod 'Alamofire', '~> 3.4'
+    pod 'Alamofire', '~> 3.4’
+    pod 'PDTSimpleCalendar', '~> 0.9.1'
 end
 
 target 'LenkilaClubTests' do

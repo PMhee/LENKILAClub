@@ -50,9 +50,6 @@ class EditUserDetailViewController: UIViewController,UITextFieldDelegate,UIGestu
     @IBOutlet weak var lb_show_age: UILabel!
     @IBOutlet weak var lb_price: UILabel!
     @IBOutlet var tap_gesture: UITapGestureRecognizer!
-    @IBAction func btn_tab_action(sender: UIButton) {
-        trigger_tab()
-    }
     @IBAction func edit_tel(sender: UITextField) {
         cons_buttom.constant -= 200
         cons_buttom1.constant -= 200
@@ -279,13 +276,18 @@ class EditUserDetailViewController: UIViewController,UITextFieldDelegate,UIGestu
     //    }
     func genUserData(){
         if add_user == nil {
-            if name != "ไม่มี" {
-                let range = name.rangeOfString(" ")!
-                let index = name.startIndex.distanceTo(range.startIndex)
+            if name != "" || name != "ไม่มี" || name != nil || name != " "{
+                let range = name.rangeOfString(" ")
+                if range != nil {
+                let index = name.startIndex.distanceTo(range!.startIndex)
                 let firstName = name.substringWithRange(Range<String.Index>(start: name.startIndex.advancedBy(0), end: (name.startIndex.advancedBy(index))))
                 let lastName = name.substringWithRange(Range<String.Index>(start: name.startIndex.advancedBy(index+1), end: (name.endIndex.advancedBy(0))))
                 self.tf_firstname.text = firstName
                 self.tf_lastname.text = lastName
+                }else{
+                    self.tf_firstname.text = ""
+                    self.tf_lastname.text = ""
+                }
             }else{
                 self.tf_firstname.text = ""
                 self.tf_lastname.text = ""

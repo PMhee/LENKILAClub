@@ -28,7 +28,7 @@ class ConfirmPasswordViewController: UIViewController,UITextFieldDelegate {
             var setting = Setting()
             let set = Setting.allObjects()
             setting = set[0] as! Setting
-            setting.passCode = confirmPass.text!
+            //setting.passCode = confirmPass.text!
             try! realm.commitWriteTransaction()
             self.performSegueWithIdentifier("savePassword", sender: self)
         }else{

@@ -19,6 +19,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>PDTSimpleCalendar.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-LenkilaClub.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -42,12 +47,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>6F29B021D02FBB1D6DFEAB4F8324FAAF</key>
+		<key>2DBA55787AD29184E435FC23FD733BF8</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>797C70415C9C810761C3F24B884667AC</key>
+		<key>6F2A692FF888AA7405A828E7E154F498</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>77AB16E71967928775ACD2706514E867</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -57,7 +67,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>982E709F045614D3551AE2B9921A449F</key>
+		<key>96DAD946FCE709E59DD86AD1AE521A6D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -72,7 +82,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E74590382B05BCDC3E88AAF69D707BC5</key>
+		<key>FA22D16CD5F5D698BF87C3F1958A841B</key>
 		<dict>
 			<key>primary</key>
 			<true/>

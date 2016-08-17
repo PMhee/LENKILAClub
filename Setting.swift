@@ -9,11 +9,15 @@
 import Foundation
 import Realm
 class Setting:RLMObject{
-    dynamic var passCode : String = "Geeksquadconsulting"
+    dynamic var username : String = ""
+    dynamic var password : String = ""
     dynamic var already_login : Bool = false
     dynamic var num_field : Int = 0
-    dynamic var field_id : String = ""
-    dynamic var field_name : String = ""
+    dynamic var sportClub_id : String = ""
+    dynamic var sportClub_name : String = ""
     dynamic var language : String = ""
     dynamic var font_size : Int = 0
+    dynamic var user_id : String = ""
+    dynamic var time_stamp : String = ""
+    dynamic var staff_id : String = ""
 }

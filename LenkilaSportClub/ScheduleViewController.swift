@@ -22,12 +22,18 @@ class ScheduleViewController: UIViewController,UIScrollViewDelegate,UIGestureRec
     var del_slot:Int! = nil
     var already_show = false
     @IBOutlet weak var problem_view: UIView!
+    @IBOutlet weak var vw_peak: UIView!
+    
     var tag : Int = 0
     var temp_tag : Int = 0
     var drag_top : Bool = false
     var cut_slot = [CGFloat]()
     var temp_h : Int = 0
     var real_date : String = ""
+    var download_done = false
+    var schedule_update = false
+    var user_update = false
+    let ip_address = "http://192.168.43.189:8000/"
     @IBOutlet var long_gesture: UILongPressGestureRecognizer!
     @IBOutlet weak var vw_tab: UIView!
     @IBOutlet weak var cons_vw_tab_width: NSLayoutConstraint!
@@ -36,11 +42,12 @@ class ScheduleViewController: UIViewController,UIScrollViewDelegate,UIGestureRec
     var create_table : Bool = false
     var schedualArray = [Schedule]()
     var userArray = [String:User]()
+    var user_array = [User]()
     var keepTag = [Int]()
     var slot = [String?]()
     var firstTime : Bool = false
     let tableColor : NSDictionary = ["green":UIColor(red:122/255,green:190/255,blue:139/255,alpha:1.0),"gray":UIColor(red:122/255,green:118/255,blue:119/255,alpha:1.0),"dark_blue":UIColor(red:84/255,green:110/255,blue:122/255,alpha:1.0),"blue":UIColor(red:16/255,green:118/255,blue:152/255,alpha:1.0),"yellow":UIColor(red:252/255,green:221/255,blue:121/255,alpha:1.0),"orange":UIColor(red:231/255,green:158/255,blue:63/255,alpha:1.0),"pink":UIColor(red:205/255,green:122/255,blue:121/255,alpha:1.0),"red":UIColor(red:232/255,green:81/255,blue:83/255,alpha:1.0)]
-
+    
     var f : UIView! = nil
     var x : CGFloat! = nil
     var y : CGFloat! = nil
@@ -69,59 +76,59 @@ class ScheduleViewController: UIViewController,UIScrollViewDelegate,UIGestureRec
         case .Ended:
             print("")
         default:
-                if findSlotPosition(self.x, y: self.y) && !already_show{
-                    
-                    let appearance = SCLAlertView.SCLAppearance(
-                        kTitleFont: UIFont(name: "ThaiSansLite", size: 20)!,
-                        kTextFont: UIFont(name: "ThaiSansLite", size: 16)!,
-                        kButtonFont: UIFont(name: "ThaiSansLite", size: 16)!,
-                        showCloseButton: false
-                    )
-                    let alert = SCLAlertView(appearance:appearance)
-                    alert.addButton("เสร็จสิ้น",action:{
-                        self.already_show = false
-                    })
-                    if !already_show{
-                    alert.showWarning("เตือน", subTitle: "ไม่พบตารางที่จะลบ",duration: 1.5)
-                    }
-                }else{
-                    let appearance = SCLAlertView.SCLAppearance(
-                        kTitleFont: UIFont(name: "ThaiSansLite", size: 20)!,
-                        kTextFont: UIFont(name: "ThaiSansLite", size: 16)!,
-                        kButtonFont: UIFont(name: "ThaiSansLite", size: 16)!,
-                        showCloseButton: false
-                    )
-                    let alert = SCLAlertView(appearance:appearance)
-                    alert.addButton("ใช่", action: {
-                        self.performSegueWithIdentifier("edit_table", sender: self)
-                    })
-                    alert.addButton("ไม่", action: {
+            if findSlotPosition(self.x, y: self.y) && !already_show{
+                
+                let appearance = SCLAlertView.SCLAppearance(
+                    kTitleFont: UIFont(name: "ThaiSansLite", size: 20)!,
+                    kTextFont: UIFont(name: "ThaiSansLite", size: 16)!,
+                    kButtonFont: UIFont(name: "ThaiSansLite", size: 16)!,
+                    showCloseButton: false
+                )
+                let alert = SCLAlertView(appearance:appearance)
+                alert.addButton("เสร็จสิ้น",action:{
                     self.already_show = false
-                    })
-                    alert.addButton("ลบตาราง", action: {
-                        for i in 0..<self.schedualArray.count {
-                            if i == Int(self.slot[self.del_slot]!) {
-                                let realm = RLMRealm.defaultRealm()
-                                realm.beginWriteTransaction()
-                                realm.deleteObject(self.schedualArray[i])
-                                try! realm.commitWriteTransaction()
-                                self.schedualArray.removeAtIndex(i)
-                                self.clearTable()
-                                self.genScheduleOnTable()
-                                self.already_show = false
-                            }
+                })
+                if !already_show{
+                    alert.showWarning("เตือน", subTitle: "ไม่พบตารางที่จะลบ",duration: 1.5)
+                }
+            }else{
+                let appearance = SCLAlertView.SCLAppearance(
+                    kTitleFont: UIFont(name: "ThaiSansLite", size: 20)!,
+                    kTextFont: UIFont(name: "ThaiSansLite", size: 16)!,
+                    kButtonFont: UIFont(name: "ThaiSansLite", size: 16)!,
+                    showCloseButton: false
+                )
+                let alert = SCLAlertView(appearance:appearance)
+                alert.addButton("ใช่", action: {
+                    self.performSegueWithIdentifier("edit_table", sender: self)
+                })
+                alert.addButton("ไม่", action: {
+                    self.already_show = false
+                })
+                alert.addButton("ลบตาราง", action: {
+                    for i in 0..<self.schedualArray.count {
+                        if i == Int(self.slot[self.del_slot]!) {
+                            let realm = RLMRealm.defaultRealm()
+                            realm.beginWriteTransaction()
+                            realm.deleteObject(self.schedualArray[i])
+                            try! realm.commitWriteTransaction()
+                            self.schedualArray.removeAtIndex(i)
+                            self.clearTable()
+                            self.genScheduleOnTable()
+                            self.already_show = false
                         }
-                    })
-                    if !already_show{
-                    alert.showWarning("เตือน", subTitle: "ต้องการจะแก้ไขหรือไม่")
                     }
-                    self.already_show = true
+                })
+                if !already_show{
+                    alert.showWarning("เตือน", subTitle: "ต้องการจะแก้ไขหรือไม่")
+                }
+                self.already_show = true
             }
-
+            
         }
         
-        }
-            func delay(delay:Double, closure:()->()) {
+    }
+    func delay(delay:Double, closure:()->()) {
         dispatch_after(
             dispatch_time(
                 DISPATCH_TIME_NOW,
@@ -179,13 +186,155 @@ class ScheduleViewController: UIViewController,UIScrollViewDelegate,UIGestureRec
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        Alamofire.request(.POST, "http://192.168.1.44:8000/addSchedule?id=2&type=2&date=2&time=2&price=2&field=2&tag=2&userID=2&colorTag=2&paidType=2&alreadyPaid=true&sortDate=2")
-            .validate()
-            .responseString { response in
-                print("Success: \(response.result.isSuccess)")
-                print("Response String: \(response.result.value)")
+        if self.isConnectedToNetwork(){
+            var json = NSArray()
+            var json_user = NSArray()
+            let setting = Setting.allObjects()
+            var set = Setting()
+            let tt = (setting[0] as! Setting).time_stamp
+            var encode = "\((setting[0] as! Setting).sportClub_id)/\(tt)".stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet())
+            Alamofire.request(.GET, "http://192.168.1.35:8000/Schedule/lastUpdate/"+encode!)
+                .validate()
+                .responseString { response in
+                    print("Success: \(response.result.isSuccess)")
+                    print("Response String: \(response.result.value)")
+                }.responseJSON { response in
+                    debugPrint(response.result.value)
+                    if response.result.value == nil {
+                        
+                    }else{
+                        json = response.result.value as! NSArray
+                    }
+            }
+            Alamofire.request(.GET, "http://192.168.1.35:8000/User/lastUpdate/"+encode!)
+                .validate()
+                .responseString { response in
+                    print("Success: \(response.result.isSuccess)")
+                    print("Response String: \(response.result.value)")
+                }.responseJSON { response in
+                    debugPrint(response.result.value)
+                    if response.result.value == nil {
+                        
+                    }else{
+                        json_user = response.result.value as! NSArray
+                        print(json_user)
+                    }
+            }
+            let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
+            dispatch_async(dispatch_get_global_queue(priority, 0)) {
+                // do some task
+                self.delay(2){
+                    if json.count > 0 {
+                        self.schedule_update = true
+                        for i in 0..<json.count{
+                            let realm = RLMRealm.defaultRealm()
+                            realm.beginWriteTransaction()
+                            let schedule = Schedule()
+                            schedule.id = (json[i].valueForKey("scheduleID") as! NSNumber).stringValue
+                            schedule.type = json[i].valueForKey("type") as! String
+                            schedule.date = json[i].valueForKey("date") as! String
+                            schedule.time = json[i].valueForKey("time") as! String
+                            schedule.price = (json[i].valueForKey("price") as! NSNumber).doubleValue
+                            schedule.field = (json[i].valueForKey("fieldID") as! NSNumber).stringValue
+                            schedule.tag = (json[i].valueForKey("tag") as! NSNumber).integerValue
+                            schedule.userID = (json[i].valueForKey("userID") as! NSNumber).stringValue
+                            schedule.colorTag = json[i].valueForKey("colorTag") as! String
+                            schedule.paid_type = json[i].valueForKey("paidType") as! String
+                            schedule.already_paid = json[i].valueForKey("alreadyPaid") as! Bool
+                            schedule.sort_date = (json[i].valueForKey("sortDate") as! NSNumber).integerValue
+                            schedule.sportClubID = (json[i].valueForKey("sportClubID") as! NSNumber).stringValue
+                            schedule.staffID = (json[i].valueForKey("staffID") as! NSNumber).stringValue
+                            realm.addObject(schedule)
+                            set = setting[0] as! Setting
+                            set.time_stamp = json[i].valueForKey("updated_at") as! String
+                            try! realm.commitWriteTransaction()
+                        }
+                        let appearance = SCLAlertView.SCLAppearance(
+                            kTitleFont: UIFont(name: "ThaiSansLite", size: 20)!,
+                            kTextFont: UIFont(name: "ThaiSansLite", size: 16)!,
+                            kButtonFont: UIFont(name: "ThaiSansLite", size: 16)!,
+                            showCloseButton: false
+                        )
+                        let alert = SCLAlertView(appearance:appearance)
+                        alert.showInfo("อัพเดทข้อมูล", subTitle: "อัพเดทข้อมูลเรียบร้อยแล้ว",duration:2.0)
+
+                    }
+                    if json_user.count > 0 {
+                        self.user_update = true
+                        for i in 0..<json_user.count{
+                            let realm = RLMRealm.defaultRealm()
+                            realm.beginWriteTransaction()
+                            let user =  User()
+                            user.id = (json_user[i].valueForKey("userID") as! NSNumber).stringValue
+                            user.name = json_user[i].valueForKey("username") as! String
+                            user.nickName = json_user[i].valueForKey("nickName") as! String
+                            user.gender = json_user[i].valueForKey("gender") as! String
+                            user.age = (json_user[i].valueForKey("age") as! NSNumber).integerValue
+                            user.workPlace = json_user[i].valueForKey("workplace") as! String
+                            user.playCount = (json_user[i].valueForKey("playCount") as! NSNumber).integerValue
+                            user.contact = json_user[i].valueForKey("telephone") as! String
+                            user.price = (json_user[i].valueForKey("discontPercent") as! NSNumber).integerValue
+                            user.freqPlay = json_user[i].valueForKey("freqPlay") as! String
+                            set = setting[0] as! Setting
+                            set.time_stamp = json_user[i].valueForKey("updated_at") as! String
+                            realm.addObject(user)
+                            try! realm.commitWriteTransaction()
+                        }
+                    }
+                
+                }
+                let tmp = Temp.allObjects()
+                if tmp.count > 0 {
+                    for i in 0..<tmp.count{
+                        let t = tmp[i] as! Temp
+                        if t.type_of_table == "schedule"{
+                            if t.type == "create"{
+                                let encode = "\((setting[0] as! Setting).sportClub_id)&scheduleID=\(self.schedualArray[Int(t.schedule_id)!].id)&type=reserve&date=\(self.schedualArray[Int(t.schedule_id)!].date)&time=\(self.schedualArray[Int(t.schedule_id)!].time)&price=\(self.schedualArray[Int(t.schedule_id)!].price)&tag=\(self.schedualArray[Int(t.schedule_id)!].tag)&userID=\(self.schedualArray[Int(t.schedule_id)!].userID)&colorTag=\(self.schedualArray[Int(t.schedule_id)!].colorTag)&paidType=\(self.schedualArray[Int(t.schedule_id)!].paid_type)&alreadyPaid=\(self.schedualArray[Int(t.schedule_id)!].already_paid)&sortDate=\(self.schedualArray[Int(t.schedule_id)!].sort_date)&fieldID=\(self.schedualArray[Int(t.schedule_id)!].field)&staffID=\((setting[0] as! Setting).staff_id)".stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet())
+                                Alamofire.request(.POST, "\(self.ip_address)Schedule/create?sportClubID=\(encode!)")
+                            }else{
+                                let encode = "\((setting[0] as! Setting).sportClub_id)&scheduleID=\(self.schedualArray[Int(t.schedule_id)!].id)&type=reserve&date=\(self.schedualArray[Int(t.schedule_id)!].date)&time=\(self.schedualArray[Int(t.schedule_id)!].time)&price=\(self.schedualArray[Int(t.schedule_id)!].price)&tag=\(self.schedualArray[Int(t.schedule_id)!].tag)&userID=\(self.schedualArray[Int(t.schedule_id)!].userID)&colorTag=\(self.schedualArray[Int(t.schedule_id)!].colorTag)&paidType=\(self.schedualArray[Int(t.schedule_id)!].paid_type)&alreadyPaid=\(self.schedualArray[Int(t.schedule_id)!].already_paid)&sortDate=\(self.schedualArray[Int(t.schedule_id)!].sort_date)&fieldID=\(self.schedualArray[Int(t.schedule_id)!].field)&staffID=\((setting[0] as! Setting).staff_id)".stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet())
+                                Alamofire.request(.POST, "\(self.ip_address)Schedule/update?sportClubID=\(encode!)")
+                            }
+                        }else{
+                            if t.type == "create"{
+                                let ec = "\((setting[0] as! Setting).sportClub_id)&userID=\(self.user_array[Int(t.user_id)!].id)&nickName=\(self.user_array[Int(t.user_id)!].nickName)&telephone=\(self.user_array[Int(t.user_id)!].contact)".stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet())
+                                Alamofire.request(.POST, "\(self.ip_address)User/create?sportClubID=\(ec!)")
+                            }else{
+                                let ec = "\((setting[0] as! Setting).sportClub_id)&userID=\(self.user_array[Int(t.user_id)!].id)&nickName=\(self.user_array[Int(t.user_id)!].nickName)&telephone=\(self.user_array[Int(t.user_id)!].contact)".stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet())
+                                Alamofire.request(.POST, "\(self.ip_address)User/update?sportClubID=\(ec!)")
+                            }
+                        }
+                    }
+                }
+                dispatch_async(dispatch_get_main_queue()) {
+                    // update some UI
+                }
+            }
+            //        Alamofire.request(.POST, "http://192.168.1.35:8000/Schedule/delete/1/1/2")
+            //            .validate()
+            //            .responseString { response in
+            //                print("Success: \(response.result.isSuccess)")
+            //                print("Response String: \(response.result.value)")
+            //        }
+            //        Alamofire.request(.GET, "http://192.168.1.35:8000/Schedule/get/1/1/2")
+            //            .validate()
+            //            .responseString { response in
+            //                print("Success: \(response.result.isSuccess)")
+            //                print("Response String: \(response.result.value)")
+            //        }
+            //        Alamofire.request(.POST, "http://192.168.1.35:8000/Field/create?sportClubID=1&fieldID=6&fieldType=football&name=footballArena&height=13&width=13")
+            //                    .validate()
+            //                    .responseString { response in
+            //                        print("Success: \(response.result.isSuccess)")
+            //                        print("Response String: \(response.result.value)")
+            //                }
+            //        Alamofire.request(.POST, "http://192.168.1.35:8000/Setting/update?sportClubID=1&numField=4&language=en&fontSize=25&staffID=1")
+            //            .validate()
+            //            .responseString { response in
+            //                print("Success: \(response.result.isSuccess)")
+            //                print("Response String: \(response.result.value)")
+            //        }
         }
-        print("connect"+String(isConnectedToNetwork()))
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -198,7 +347,6 @@ class ScheduleViewController: UIViewController,UIScrollViewDelegate,UIGestureRec
             s.num_field = 4
             try! realm.commitWriteTransaction()
         }
-        print(s.num_field)
         self.field_num = s.num_field
         if self.date != nil {
             btn_date.setTitle(self.date, forState: .Normal)
@@ -233,15 +381,43 @@ class ScheduleViewController: UIViewController,UIScrollViewDelegate,UIGestureRec
         if users.count > 0 {
             for i in 0...users.count-1{
                 self.userArray[users[i].valueForKey("id") as! String] = users[i] as! User
+                self.user_array.append(users[i] as! User)
             }
         }
-        print(schedualArray)
-        clearTable()
+        self.clearTable()
         self.genScheduleOnTable()
-        if schedualArray.count > 0 {
-            self.tag = schedualArray[schedualArray.count-1].tag
+        if self.schedualArray.count > 0 {
+            self.tag = self.schedualArray[self.schedualArray.count-1].tag
         }
-        self.view.bringSubviewToFront(vw_tab)
+        self.view.sendSubviewToBack(self.vw_peak)
+        self.view.bringSubviewToFront(self.vw_tab)
+        delay(2){
+            if self.schedule_update{
+                let sche = Schedule.allObjects()
+                
+                
+                if sche.count > 0 {
+                    for i in 0...sche.count-1{
+                        self.schedualArray.append(sche[i] as! Schedule)
+                    }
+                }
+            }
+            if self.user_update{
+               let users = User.allObjects()
+                if users.count > 0 {
+                    for i in 0...users.count-1{
+                        self.userArray[users[i].valueForKey("id") as! String] = users[i] as! User
+                    }
+                }
+            }
+            self.clearTable()
+            self.genScheduleOnTable()
+            if self.schedualArray.count > 0 {
+                self.tag = self.schedualArray[self.schedualArray.count-1].tag
+            }
+            self.view.bringSubviewToFront(self.vw_tab)
+            self.view.sendSubviewToBack(self.vw_peak)
+        }
     }
     func genScheduleOnTable(){
         let h : CGFloat = CGFloat(((1.595*self.view.frame.height)/2)/17)
@@ -263,9 +439,9 @@ class ScheduleViewController: UIViewController,UIScrollViewDelegate,UIGestureRec
                     var endMin = a.substringWithRange(Range<String.Index>(start: a.startIndex.advancedBy(index2+1), end: (a.endIndex.advancedBy(0))))
                     startMin = String(Double(startMin)!/60)
                     endMin = String(Double(endMin)!/60)
-//                    if Double(startMin) == 0.5 && Double(endMin) == 0.5 {
-//                        endMin = "0.5"
-//                    }
+                    //                    if Double(startMin) == 0.5 && Double(endMin) == 0.5 {
+                    //                        endMin = "0.5"
+                    //                    }
                     let view = UIView(frame: CGRectMake(CGFloat(Int(self.schedualArray[i].field)!)*width,((CGFloat(Int(startHour)!)-CGFloat(4))*h)+CGFloat(7)+CGFloat(Double(startMin)!)*h,width,((CGFloat(Int(endHour)!)-CGFloat(Int(startHour)!)-CGFloat(Double(startMin)!))*h)+CGFloat(Double(endMin)!)*h))
                     view.backgroundColor = self.tableColor.valueForKey(self.schedualArray[i].colorTag)! as! UIColor
                     self.keepTag.append(self.schedualArray[i].tag)
@@ -287,6 +463,7 @@ class ScheduleViewController: UIViewController,UIScrollViewDelegate,UIGestureRec
                     lb1.textAlignment = .Center
                     view.addSubview(lb1)
                     self.view.sendSubviewToBack(self.problem_view)
+                    self.view.sendSubviewToBack(self.vw_peak)
                     self.view.bringSubviewToFront(view)
                     self.view.bringSubviewToFront(lb)
                     self.view.bringSubviewToFront(lb1)
@@ -374,10 +551,8 @@ class ScheduleViewController: UIViewController,UIScrollViewDelegate,UIGestureRec
                                 if begin < self.tag{
                                     for i in begin...self.tag{
                                         if let tag = self.view.viewWithTag(i) {
-                                            print(i)
-                                            print("remove")
                                             if i > self.schedualArray[schedualArray.count-1].tag{
-                                            tag.removeFromSuperview()
+                                                tag.removeFromSuperview()
                                             }
                                         }
                                     }
@@ -397,22 +572,21 @@ class ScheduleViewController: UIViewController,UIScrollViewDelegate,UIGestureRec
                         if var tag = self.view.viewWithTag(self.tag) {
                             temp_h = height
                             if self.schedualArray.count > 0 {
-                            if self.tag > self.schedualArray[schedualArray.count-1].tag {
-                            print("remove")
-                            tag.removeFromSuperview()
-                            }
+                                if self.tag > self.schedualArray[schedualArray.count-1].tag {
+                                    tag.removeFromSuperview()
+                                }
                             }
                             if schedualArray.count > 0 {
-                            if self.tag > self.schedualArray[schedualArray.count-1].tag {
+                                if self.tag > self.schedualArray[schedualArray.count-1].tag {
                                     self.tag -= 1
-                            }
+                                }
                             }
                             hh = transition.y
-//                            if tag.tag <= self.schedualArray[schedualArray.count-1].tag{
-//                                
-//                            }else{
-//                            tag.removeFromSuperview()
-//                            }
+                            //                            if tag.tag <= self.schedualArray[schedualArray.count-1].tag{
+                            //
+                            //                            }else{
+                            //                            tag.removeFromSuperview()
+                            //                            }
                         }
                     }
                     
@@ -495,6 +669,7 @@ class ScheduleViewController: UIViewController,UIScrollViewDelegate,UIGestureRec
                         des.edit = true
                         des.field = schedualArray[i].field
                         des.id = schedualArray[i].id
+                        des.tel = userArray[schedualArray[i].userID]?.contact
                     }
                 }
             }
@@ -506,6 +681,9 @@ class ScheduleViewController: UIViewController,UIScrollViewDelegate,UIGestureRec
                 controller?.delegate = self
             }
             let des = segue.destinationViewController as! PopOverViewController
+            let dateformat = NSDateFormatter()
+            dateformat.dateStyle = NSDateFormatterStyle.FullStyle
+            des.hidden_date = dateformat.stringFromDate(NSDate())
         }
     }
     func genSlot(){
@@ -574,7 +752,7 @@ class ScheduleViewController: UIViewController,UIScrollViewDelegate,UIGestureRec
         let needsConnection = (flags.rawValue & UInt32(kSCNetworkFlagsConnectionRequired)) != 0
         return (isReachable && !needsConnection)
     }
-        /*
+    /*
      // MARK: - Navigation
      
      // In a storyboard-based application, you will often want to do a little preparation before navigation

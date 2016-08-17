@@ -358,7 +358,7 @@ class AnalysisViewController: UIViewController,UIGestureRecognizerDelegate,UIScr
         if calDayMoneyIncome(today_last_year) > calDayMoneyIncome(self.lb_date.text!) {
             lb_income_today_lastyear.textColor = UIColor(red: 232/255, green: 81/255, blue: 83/255, alpha: 1.0)
         }else{
-            lb_income_today_lastyear.textColor = UIColor(red: 112/255, green: 181/255, blue: 69/255, alpha: 1.0)
+            lb_income_today_lastyear.textColor = UIColor(red: 49/255, green: 163/255, blue: 67/255, alpha: 1.0)
         }
         lb_income_today_lastyear.text = numberFormatter.stringFromNumber(calDayMoneyIncome(today_last_year) as NSNumber)
         lb_customer_today_lastyear.text = String(sum_count)
@@ -409,7 +409,7 @@ class AnalysisViewController: UIViewController,UIGestureRecognizerDelegate,UIScr
         if sum > calDayMoneyIncome(self.lb_date.text!) {
             lb_income_month.textColor = UIColor(red: 232/255, green: 81/255, blue: 83/255, alpha: 1.0)
         }else{
-            lb_income_month.textColor = UIColor(red: 112/255, green: 181/255, blue: 69/255, alpha: 1.0)
+            lb_income_month.textColor = UIColor(red: 49/255, green: 163/255, blue: 67/255, alpha: 1.0)
         }
         lb_income_month.text = numberFormatter.stringFromNumber(sum as NSNumber)
         lb_customer_month.text = String(sumCount)
@@ -424,7 +424,7 @@ class AnalysisViewController: UIViewController,UIGestureRecognizerDelegate,UIScr
         if sumy > calDayMoneyIncome(self.lb_date.text!) {
             lb_income_year.textColor = UIColor(red: 232/255, green: 81/255, blue: 83/255, alpha: 1.0)
         }else{
-            lb_income_year.textColor = UIColor(red: 112/255, green: 181/255, blue: 69/255, alpha: 1.0)
+            lb_income_year.textColor = UIColor(red: 49/255, green: 163/255, blue: 67/255, alpha: 1.0)
         }
         lb_income_year.text = numberFormatter.stringFromNumber(sumy as NSNumber)
         lb_customer_year.text = String(sumCounty)
@@ -671,7 +671,12 @@ class AnalysisViewController: UIViewController,UIGestureRecognizerDelegate,UIScr
                     var endMin = a.substringWithRange(Range<String.Index>(start: a.startIndex.advancedBy(index2+1), end: (a.endIndex.advancedBy(0))))
                     let first = ((Int(startHour)!-8))
                     let second = (Int(endHour)!-9)
-                    for j in first...second {
+                    print(first)
+                    print(second)
+                    for var j in first...second {
+                        if j == 16 {
+                            j = 1
+                        }
                         slot[j]! += 1
                     }
                     wd -= 2
