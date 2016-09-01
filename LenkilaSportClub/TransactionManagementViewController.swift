@@ -8,6 +8,8 @@
 
 import UIKit
 import Realm
+import Alamofire
+import SystemConfiguration
 class TransactionManagementViewController: UIViewController,UIGestureRecognizerDelegate,UITableViewDelegate,UITableViewDataSource {
     var state_present : Bool = true
     @IBOutlet weak var btn_present_transaction: UIButton!
@@ -26,6 +28,7 @@ class TransactionManagementViewController: UIViewController,UIGestureRecognizerD
     @IBAction func btn_tab_action(sender: UIButton) {
         trigger_tab()
     }
+    let ip_address = "http://192.168.1.48:8000/"
     func trigger_tab(){
         var count = 0.0
         if !tab_trigger{
@@ -216,8 +219,8 @@ class TransactionManagementViewController: UIViewController,UIGestureRecognizerD
         name.text  = "คุณ "+userArray[Int(scheduleArray[indexPath.row].userID)!].nickName
         let contact = cell.viewWithTag(3) as! UILabel
         contact.text = userArray[Int(scheduleArray[indexPath.row].userID)!].contact
-//        let num_field = cell.viewWithTag(4) as! UILabel
-//        num_field.text = "สนาม "+scheduleArray[indexPath.row].field
+        //        let num_field = cell.viewWithTag(4) as! UILabel
+        //        num_field.text = "สนาม "+scheduleArray[indexPath.row].field
         let time = cell.viewWithTag(5) as! UILabel
         time.text = scheduleArray[indexPath.row].time
         let day = cell.viewWithTag(6) as! UILabel
@@ -283,7 +286,7 @@ class TransactionManagementViewController: UIViewController,UIGestureRecognizerD
             var index: Int = year.startIndex.distanceTo(range.startIndex)
             year = year.substringWithRange(Range<String.Index>(start: year.startIndex.advancedBy(0), end: year.startIndex.advancedBy(index)))
         }
-
+        
         range = time.rangeOfString(".")!
         index = time.startIndex.distanceTo(range.startIndex)
         var startHour = time.substringWithRange(Range<String.Index>(start: time.startIndex.advancedBy(0), end: time.startIndex.advancedBy(index)))
@@ -376,24 +379,65 @@ class TransactionManagementViewController: UIViewController,UIGestureRecognizerD
                 let s = schedule[i] as! Schedule
                 if s.id == self.scheduleArray[indexPath.row].id {
                     s.already_paid = true
-                    let user = User.allObjects()
-                    let freq_play = FreqPlay()
-                    if user.count > 0 {
-                        for j in 0...user.count-1 {
-                            let u = user[j] as! User
-                            if u.id == s.userID{
-                                id = u.id
-                                u.playCount += 1
-                                time = s.time
-                                freq_play.userID = id
-                                freq_play.freq_play = time
-                                let range = s.date.rangeOfString(",")!
-                                let index = s.date.startIndex.distanceTo(range.startIndex)
-                                freq_play.day = s.date.substringWithRange(Range<String.Index>(start: s.date.startIndex.advancedBy(0), end: s.date.startIndex.advancedBy(index)))
-                                realm.addObject(freq_play)
+                    try! realm.commitWriteTransaction()
+                    if self.isConnectedToNetwork(){
+                        let setting = Setting.allObjects()
+                        let encode = "\((setting[0] as! Setting).sportClub_id)&scheduleID=\(s.id)&alreadyPaid=\(s.already_paid)&staffID=\((setting[0] as! Setting).staff_id)".stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet())
+                        Alamofire.request(.PUT, "\(self.ip_address)Schedule/update?sportClubID=\(encode!)")
+                            .responseString { response in
+                                print("Success: \(response.result.isSuccess)")
+                                print("Response String: \(response.result.value)")
+                                if !response.result.isSuccess{
+                                    let temp = Temp()
+                                    realm.beginWriteTransaction()
+                                    temp.type = "update"
+                                    temp.type_of_table = "schedule"
+                                    temp.schedule_id = s.id
+                                    realm.addObject(temp)
+                                    try! realm.commitWriteTransaction()
+                                }
+                        }
+                            .responseJSON { response in
+                                debugPrint(response.result.value)
+                                if response.result.value == nil {
+                                    
+                                }else{
+                                    let json = response.result.value as! NSDictionary
+                                    var set = Setting()
+                                    realm.beginWriteTransaction()
+                                    set = setting[0] as! Setting
+                                    set.time_stamp = json.valueForKey("updated_at") as! String
+                                    try! realm.commitWriteTransaction()
+                                }
+                        }
+                    }else{
+                        let temp = Temp()
+                        realm.beginWriteTransaction()
+                        temp.type = "update"
+                        temp.type_of_table = "schedule"
+                        temp.schedule_id = s.id
+                        realm.addObject(temp)
+                        try! realm.commitWriteTransaction()
+                    }
+                    realm.beginWriteTransaction()
+                        let user = User.allObjects()
+                        let freq_play = FreqPlay()
+                        if user.count > 0 {
+                            for j in 0...user.count-1 {
+                                let u = user[j] as! User
+                                if u.id == s.userID{
+                                    id = u.id
+                                    u.playCount += 1
+                                    time = s.time
+                                    freq_play.userID = id
+                                    freq_play.freq_play = time
+                                    let range = s.date.rangeOfString(",")!
+                                    let index = s.date.startIndex.distanceTo(range.startIndex)
+                                    freq_play.day = s.date.substringWithRange(Range<String.Index>(start: s.date.startIndex.advancedBy(0), end: s.date.startIndex.advancedBy(index)))
+                                    realm.addObject(freq_play)
+                                }
                             }
                         }
-                    }
                 }
             }
             try! realm.commitWriteTransaction()
@@ -432,6 +476,21 @@ class TransactionManagementViewController: UIViewController,UIGestureRecognizerD
                 des.user_name = userArray[Int(scheduleArray[indexPath.row].userID)!].nickName
             }
         }
+    }
+    func isConnectedToNetwork() -> Bool {
+        var zeroAddress = sockaddr_in()
+        zeroAddress.sin_len = UInt8(sizeofValue(zeroAddress))
+        zeroAddress.sin_family = sa_family_t(AF_INET)
+        let defaultRouteReachability = withUnsafePointer(&zeroAddress) {
+            SCNetworkReachabilityCreateWithAddress(nil, UnsafePointer($0))
+        }
+        var flags = SCNetworkReachabilityFlags()
+        if !SCNetworkReachabilityGetFlags(defaultRouteReachability!, &flags) {
+            return false
+        }
+        let isReachable = (flags.rawValue & UInt32(kSCNetworkFlagsReachable)) != 0
+        let needsConnection = (flags.rawValue & UInt32(kSCNetworkFlagsConnectionRequired)) != 0
+        return (isReachable && !needsConnection)
     }
     /*
      // MARK: - Navigation

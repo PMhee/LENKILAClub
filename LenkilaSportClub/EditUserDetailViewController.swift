@@ -9,6 +9,8 @@
 import UIKit
 import Realm
 import SCLAlertView
+import SystemConfiguration
+import Alamofire
 class EditUserDetailViewController: UIViewController,UITextFieldDelegate,UIGestureRecognizerDelegate {
     var name : String! = nil
     var nickName : String! = nil
@@ -25,6 +27,7 @@ class EditUserDetailViewController: UIViewController,UITextFieldDelegate,UIGestu
     var x : CGFloat! = nil
     var y : CGFloat! = nil
     var enable_touch = false
+    let ip_address = "http://192.168.1.48:8000/"
     @IBOutlet weak var cons_buttom: NSLayoutConstraint!
     @IBOutlet weak var cons_buttom1: NSLayoutConstraint!
     @IBOutlet weak var cons_buttom2: NSLayoutConstraint!
@@ -132,6 +135,7 @@ class EditUserDetailViewController: UIViewController,UITextFieldDelegate,UIGestu
             if Int(self.id)! <= Int(user.count){
                 let realm = RLMRealm.defaultRealm()
                 realm.beginWriteTransaction()
+                print(self.id)
                 let u = user[UInt(self.id)!] as! User
                 u.name = self.tf_firstname.text! + " " + self.tf_lastname.text!
                 u.nickName = self.tf_nickname.text!
@@ -147,6 +151,46 @@ class EditUserDetailViewController: UIViewController,UITextFieldDelegate,UIGestu
                 u.workPlace = self.tf_work_place.text!
                 u.contact = self.tf_contact.text!
                 try! realm.commitWriteTransaction()
+                if isConnectedToNetwork(){
+                    let setting = Setting.allObjects()
+                    let encode = "\((setting[0] as! Setting).sportClub_id)&staffID=\((setting[0] as! Setting).staff_id)&telephone=\(u.contact)&nickName=\(u.nickName)&gender=\(u.gender)&playCount=\(u.playCount)&firstName=\(tf_firstname.text!)&lastName=\(tf_lastname.text!)&workPlace=\(u.workPlace)&freqPlay=\(u.freqPlay)&age=\(u.age)".stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet())
+                    Alamofire.request(.PUT, "\(ip_address)User/update?sportClubID=\(encode!)")
+                        .validate()
+                        .responseString { response in
+                            print("Success: \(response.result.isSuccess)")
+                            print("Response String: \(response.result.value)")
+                            if !response.result.isSuccess{
+                                
+                            }
+                        }.responseJSON { response in
+                            debugPrint(response.result.value)
+                            if response.result.value == nil {
+                                let temp = Temp()
+                                realm.beginWriteTransaction()
+                                temp.type = "update"
+                                temp.type_of_table = "user"
+                                temp.schedule_id = u.id
+                                realm.addObject(temp)
+                                try! realm.commitWriteTransaction()
+                            }else{
+                                let json = response.result.value as! NSDictionary
+                                var set = Setting()
+                                realm.beginWriteTransaction()
+                                set = setting[0] as! Setting
+                                set.time_stamp = json.valueForKey("updated_at") as! String
+                                try! realm.commitWriteTransaction()
+                            }
+                    }
+                    
+                }else{
+                    let temp = Temp()
+                    realm.beginWriteTransaction()
+                    temp.type = "update"
+                    temp.type_of_table = "user"
+                    temp.schedule_id = u.id
+                    realm.addObject(temp)
+                    try! realm.commitWriteTransaction()
+                }
                 self.performSegueWithIdentifier("send_back_to_user", sender: self)
                 // continue save existing user by id
             }
@@ -204,15 +248,17 @@ class EditUserDetailViewController: UIViewController,UITextFieldDelegate,UIGestu
                     alert.showError("ผิดพลาด", subTitle: "ชื่อผู้เล่นซ้ำ")
                 }else{
             realm.addObject(u)
+                    try! realm.commitWriteTransaction()
+                    
+                    
+                    
+                }
             self.performSegueWithIdentifier("send_back_to_user", sender: self)
                 }
             }
-            try! realm.commitWriteTransaction()
             
-            
-        }
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tap_gesture.delegate = self
@@ -315,9 +361,24 @@ class EditUserDetailViewController: UIViewController,UITextFieldDelegate,UIGestu
     override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
         return [UIInterfaceOrientationMask.Portrait]
     }
+func isConnectedToNetwork() -> Bool {
+    var zeroAddress = sockaddr_in()
+    zeroAddress.sin_len = UInt8(sizeofValue(zeroAddress))
+    zeroAddress.sin_family = sa_family_t(AF_INET)
+    let defaultRouteReachability = withUnsafePointer(&zeroAddress) {
+        SCNetworkReachabilityCreateWithAddress(nil, UnsafePointer($0))
+    }
+    var flags = SCNetworkReachabilityFlags()
+    if !SCNetworkReachabilityGetFlags(defaultRouteReachability!, &flags) {
+        return false
+    }
+    let isReachable = (flags.rawValue & UInt32(kSCNetworkFlagsReachable)) != 0
+    let needsConnection = (flags.rawValue & UInt32(kSCNetworkFlagsConnectionRequired)) != 0
+    return (isReachable && !needsConnection)
+}
     /*
      // MARK: - Navigation
-     
+ 
      // In a storyboard-based application, you will often want to do a little preparation before navigation
      override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
      // Get the new view controller using segue.destinationViewController.

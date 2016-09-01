@@ -41,7 +41,7 @@ class ViewController: UIViewController,UITextFieldDelegate {
     @IBAction func sign_in_action(sender: UIButton) {
         var json = NSDictionary()
         let setting = Setting.allObjects()
-        Alamofire.request(.POST, "http://192.168.43.189:8000/Staff/login/"+tf_username.text!+"&"+username_textfield.text!)
+        Alamofire.request(.POST, "http://192.168.1.48:8000/Staff/login/"+tf_username.text!+"&"+username_textfield.text!)
             .validate()
             .responseString { response in
                 print("Success: \(response.result.isSuccess)")
@@ -132,7 +132,7 @@ class ViewController: UIViewController,UITextFieldDelegate {
         super.viewDidAppear(true)
         let setting = Setting.allObjects()
         let s = setting[0] as! Setting
-        performSegueWithIdentifier("signIn", sender: self)
+        //performSegueWithIdentifier("signIn", sender: self)
         if s.already_login{
             performSegueWithIdentifier("signIn", sender: self)
         }

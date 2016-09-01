@@ -35,7 +35,7 @@ class AddTableViewController: UIViewController,UITextFieldDelegate,UIGestureReco
     var id : String = ""
     var in_keyboard : Bool = false
     var userArray = [User]()
-    var ip_address : String = "http://192.168.43.189:8000/"
+    let ip_address = "http://192.168.1.48:8000/"
     @IBOutlet weak var cons_vw_tab_width: NSLayoutConstraint!
     @IBOutlet var tab_gesture: UITapGestureRecognizer!
     var checkedArray = [UIImageView]()
@@ -267,6 +267,7 @@ class AddTableViewController: UIViewController,UITextFieldDelegate,UIGestureReco
     }
     @IBAction func btn_add_action(sender: AnyObject) {
         findDiffHour()
+        print(self.isConnectedToNetwork())
         var json = NSDictionary()
         let realm = RLMRealm.defaultRealm()
         var schedule = Schedule()
@@ -307,8 +308,6 @@ class AddTableViewController: UIViewController,UITextFieldDelegate,UIGestureReco
         schedule.sportClubID = (setting[0] as! Setting).sportClub_id
         schedule.staffID = (setting[0] as! Setting).staff_id
         schedule.sort_date = createSortDate(schedule.date, time: schedule.time)
-        let encode = "\((setting[0] as! Setting).sportClub_id)&scheduleID=\(schedule.id)&type=reserve&date=\(schedule.date)&time=\(schedule.time)&price=\(schedule.price)&tag=\(schedule.tag)&userID=\(schedule.userID)&colorTag=\(schedule.colorTag)&paidType=\(schedule.paid_type)&alreadyPaid=\(schedule.already_paid)&sortDate=\(schedule.sort_date)&fieldID=\(schedule.field)&staffID=\((setting[0] as! Setting).staff_id)".stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet())
-        print("\(ip_address)Schedule/create?sportClubID=\(encode!)")
         let range = self.rep.rangeOfString(" ")!
         let index = self.rep.startIndex.distanceTo(range.startIndex)
         self.realRep = Int(self.tf_repeat.text!.substringWithRange(Range<String.Index>(start:self.tf_repeat.text!.startIndex.advancedBy(0), end: self.tf_repeat.text!.startIndex.advancedBy(index))))
@@ -388,7 +387,13 @@ class AddTableViewController: UIViewController,UITextFieldDelegate,UIGestureReco
                                     realm.beginWriteTransaction()
                                     
                                     if !response.result.isSuccess{
-                                        
+                                        let temp = Temp()
+                                        realm.beginWriteTransaction()
+                                        temp.type = "create"
+                                        temp.schedule_id = schedules.id
+                                        temp.type_of_table = "schedule"
+                                        realm.addObject(temp)
+                                        try! realm.commitWriteTransaction()
                                     }
                                 }.responseJSON { response in
                                     debugPrint(response.result.value)
@@ -421,7 +426,12 @@ class AddTableViewController: UIViewController,UITextFieldDelegate,UIGestureReco
                                     print("Success: \(response.result.isSuccess)")
                                     print("Response String: \(response.result.value)")
                                     if !response.result.isSuccess{
-                                        
+                                        let temp = Temp()
+                                        realm.beginWriteTransaction()
+                                        temp.type = "update"
+                                        temp.type_of_table = "schedule"
+                                        temp.schedule_id = schedules.id
+                                        try! realm.commitWriteTransaction()
                                     }
                                 }.responseJSON { response in
                                     debugPrint(response.result.value)
@@ -481,7 +491,13 @@ class AddTableViewController: UIViewController,UITextFieldDelegate,UIGestureReco
                                 print("Success: \(response.result.isSuccess)")
                                 print("Response String: \(response.result.value)")
                                 if !response.result.isSuccess{
-                                    
+                                    let temp = Temp()
+                                    realm.beginWriteTransaction()
+                                    temp.type = "create"
+                                    temp.type_of_table = "user"
+                                    temp.user_id = user.id
+                                    realm.addObject(temp)
+                                    try! realm.commitWriteTransaction()
                                 }
                             }.responseJSON { response in
                                 debugPrint(response.result.value)
@@ -610,7 +626,13 @@ class AddTableViewController: UIViewController,UITextFieldDelegate,UIGestureReco
                                             print("Success: \(response.result.isSuccess)")
                                             print("Response String: \(response.result.value)")
                                             if !response.result.isSuccess{
-                                                
+                                                let temp = Temp()
+                                                realm.beginWriteTransaction()
+                                                temp.type = "update"
+                                                temp.type_of_table = "schedule"
+                                                temp.schedule_id = schedules.id
+                                                realm.addObject(temp)
+                                                try! realm.commitWriteTransaction()
                                             }
                                         }.responseJSON { response in
                                             debugPrint(response.result.value)
@@ -648,7 +670,13 @@ class AddTableViewController: UIViewController,UITextFieldDelegate,UIGestureReco
                                         print("Success: \(response.result.isSuccess)")
                                         print("Response String: \(response.result.value)")
                                         if !response.result.isSuccess{
-                                            
+                                            let temp = Temp()
+                                            realm.beginWriteTransaction()
+                                            temp.type = "create"
+                                            temp.type_of_table = "schedule"
+                                            temp.schedule_id = schedules.id
+                                            realm.addObject(temp)
+                                            try! realm.commitWriteTransaction()
                                         }
                                     }.responseJSON { response in
                                         debugPrint(response.result.value)
@@ -712,7 +740,13 @@ class AddTableViewController: UIViewController,UITextFieldDelegate,UIGestureReco
                             }.responseJSON { response in
                                 debugPrint(response.result.value)
                                 if response.result.value == nil {
-                                    
+                                    let temp = Temp()
+                                    realm.beginWriteTransaction()
+                                    temp.type = "update"
+                                    temp.type_of_table = "schedule"
+                                    temp.schedule_id = schedule.id
+                                    realm.addObject(temp)
+                                    try! realm.commitWriteTransaction()
                                 }else{
                                     json = response.result.value as! NSDictionary
                                     var set = Setting()
@@ -751,7 +785,14 @@ class AddTableViewController: UIViewController,UITextFieldDelegate,UIGestureReco
                         }.responseJSON { response in
                             debugPrint(response.result.value)
                             if response.result.value == nil {
-                                
+                                let temp = Temp()
+                                realm.beginWriteTransaction()
+                                temp.type = "create"
+                                temp.type_of_table = "schedule"
+                                temp.schedule_id = schedule.id
+                                realm.addObject(temp)
+                                try! realm.commitWriteTransaction()
+
                             }else{
                                 json = response.result.value as! NSDictionary
                                 var set = Setting()
@@ -796,7 +837,13 @@ class AddTableViewController: UIViewController,UITextFieldDelegate,UIGestureReco
                                     print("Success: \(response.result.isSuccess)")
                                     print("Response String: \(response.result.value)")
                                     if !response.result.isSuccess{
-                                        
+                                        let temp = Temp()
+                                        realm.beginWriteTransaction()
+                                        temp.type = "update"
+                                        temp.type_of_table = "schedule"
+                                        temp.schedule_id = schedule.id
+                                        realm.addObject(temp)
+                                        try! realm.commitWriteTransaction()
                                     }
                                 }.responseJSON { response in
                                     debugPrint(response.result.value)
@@ -843,6 +890,17 @@ class AddTableViewController: UIViewController,UITextFieldDelegate,UIGestureReco
                             }.responseJSON { response in
                                 debugPrint(response.result.value)
                                 if response.result.value == nil {
+                                    let temp = Temp()
+                                    realm.beginWriteTransaction()
+                                    temp.type = "create"
+                                    temp.type_of_table = "schedule"
+                                    temp.schedule_id = schedule.id
+                                    realm.addObject(temp)
+                                    temp.type = "create"
+                                    temp.type_of_table = "user"
+                                    temp.user_id = user.id
+                                    realm.addObject(temp)
+                                    try! realm.commitWriteTransaction()
                                     
                                 }else{
                                     json = response.result.value as! NSDictionary
@@ -861,7 +919,13 @@ class AddTableViewController: UIViewController,UITextFieldDelegate,UIGestureReco
                                 print("Success: \(response.result.isSuccess)")
                                 print("Response String: \(response.result.value)")
                                 if !response.result.isSuccess{
-                                    
+                                    let temp = Temp()
+                                    realm.beginWriteTransaction()
+                                    temp.type = "create"
+                                    temp.type_of_table = "user"
+                                    temp.user_id = user.id
+                                    realm.addObject(temp)
+                                    try! realm.commitWriteTransaction()
                                 }
                             }.responseJSON { response in
                                 debugPrint(response.result.value)

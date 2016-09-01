@@ -8,9 +8,12 @@
 
 import UIKit
 import Realm
+import Alamofire
+import SystemConfiguration
 class EditTransactionViewController: UIViewController,UITextFieldDelegate,UIGestureRecognizerDelegate {
     var user_name:String!
     var schedule = Schedule()
+    var ip_address : String = "http://192.168.1.48:8000/"
     @IBOutlet weak var cons_top: NSLayoutConstraint!
     @IBOutlet weak var profile_pic: UIImageView!
     @IBOutlet weak var tf_money: UITextField!
@@ -21,6 +24,7 @@ class EditTransactionViewController: UIViewController,UITextFieldDelegate,UIGest
     @IBOutlet weak var gesture: UITapGestureRecognizer!
     @IBOutlet weak var lb_date: UILabel!
     @IBOutlet weak var lb_time: UILabel!
+    var freq_play_array = [FreqPlay]()
     var inEdit = false
     @IBAction func tf_money_begin(sender: UITextField) {
         inEdit = true
@@ -61,6 +65,57 @@ class EditTransactionViewController: UIViewController,UITextFieldDelegate,UIGest
             }
         }
         try! realm.commitWriteTransaction()
+        realm.beginWriteTransaction()
+        let users = User.allObjects()
+        if users.count > 0 {
+            for i in 0...user.count-1{
+                let u = users[i] as! User
+                if u.id == id {
+                    u.freqPlay = self.updateFreqPlay(u.id)
+                }
+            }
+        }
+        try! realm.commitWriteTransaction()
+        if self.isConnectedToNetwork(){
+            let setting = Setting.allObjects()
+            let encode = "\((setting[0] as! Setting).sportClub_id)&scheduleID=\(schedule.id)&alreadyPaid=\(schedule.already_paid)&price=\(schedule.price)&staffID=\((setting[0] as! Setting).staff_id)".stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet())
+            Alamofire.request(.PUT, "\(self.ip_address)Schedule/update?sportClubID=\(encode!)")
+                .responseString { response in
+                    print("Success: \(response.result.isSuccess)")
+                    print("Response String: \(response.result.value)")
+                    if !response.result.isSuccess{
+                        let temp = Temp()
+                        realm.beginWriteTransaction()
+                        temp.type = "update"
+                        temp.type_of_table = "schedule"
+                        temp.schedule_id = self.schedule.id
+                        realm.addObject(temp)
+                        try! realm.commitWriteTransaction()
+                    }
+            }
+                .responseJSON { response in
+                    debugPrint(response.result.value)
+                    if response.result.value == nil {
+                        
+                    }else{
+                        let json = response.result.value as! NSDictionary
+                        var set = Setting()
+                        realm.beginWriteTransaction()
+                        set = setting[0] as! Setting
+                        set.time_stamp = json.valueForKey("updated_at") as! String
+                        try! realm.commitWriteTransaction()
+                    }
+            }
+
+        }else{
+            let temp = Temp()
+            realm.beginWriteTransaction()
+            temp.type = "update"
+            temp.type_of_table = "schedule"
+            temp.schedule_id = schedule.id
+            realm.addObject(temp)
+            try! realm.commitWriteTransaction()
+        }
         self.performSegueWithIdentifier("confirm", sender: self)
     }
     var realPrice:Double!
@@ -97,9 +152,20 @@ class EditTransactionViewController: UIViewController,UITextFieldDelegate,UIGest
         lb_money.text = String(self.realPrice-Double(tf_promotion.text!)!)+" บาท"
         gesture.delegate = self
         self.view.addGestureRecognizer(gesture)
+        freq_play_array = [FreqPlay]()
+        let freq_play = FreqPlay.allObjects()
+        if freq_play.count > 0 {
+            for i in 0...freq_play.count-1{
+                let freq = freq_play[i] as! FreqPlay
+                freq_play_array.append(freq)
+            }
+        }
+        let realm = RLMRealm.defaultRealm()
+        realm.beginWriteTransaction()
+        sortFreqPlay()
+        try! realm.commitWriteTransaction()
         // Do any additional setup after loading the view.
     }
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -117,6 +183,89 @@ class EditTransactionViewController: UIViewController,UITextFieldDelegate,UIGest
         }else{
             return false
         }
+    }
+    func sortFreqPlay(){
+        freq_play_array.sortInPlace({$0.userID < $1.userID})
+    }
+    func updateFreqPlay(user_id:String) -> String{
+        var freqArray = [Int]()
+        var keepFreq = [String:Int]()
+        if freq_play_array.count > 0 {
+            for i in 0...freq_play_array.count-1 {
+                freqArray.append(Int(freq_play_array[i].userID)!)
+            }
+            let idx = binarySearch(freqArray, searchItem: Int(user_id)!)
+            for j in idx...freq_play_array.count-1{
+                if user_id != freq_play_array[j].userID{
+                    continue
+                }
+                if keepFreq[freq_play_array[j].freq_play+" "+freq_play_array[j].day] == nil {
+                    keepFreq[freq_play_array[j].freq_play+" "+freq_play_array[j].day] = 1
+                }else{
+                    keepFreq[freq_play_array[j].freq_play+" "+freq_play_array[j].day]! += 1
+                }
+                
+            }
+        }
+        print(keepFreq)
+        return findMaxFreq(keepFreq)
+        
+    }
+    func findMaxFreq(freq_play:[String:Int]) -> String{
+        var freq_time = ""
+        if freq_play.count > 0 {
+            var max = 0
+            for i in 0...freq_play.count-1{
+                let index = freq_play.startIndex.advancedBy(i)
+                if max < freq_play[freq_play.keys[index]]!{
+                    max = freq_play[freq_play.keys[index]]!
+                    freq_time = freq_play.keys[index]
+                }
+            }
+        }
+        return freq_time
+    }
+    func binarySearch<T:Comparable>(inputArr:Array<T>, searchItem: T)->Int{
+        var lowerIndex = 0;
+        var upperIndex = inputArr.count - 1
+        while (true) {
+            let currentIndex = (lowerIndex + upperIndex)/2
+            if(inputArr[currentIndex] == searchItem) {
+                if currentIndex != 0 {
+                    if inputArr[currentIndex-1] == searchItem{
+                        upperIndex = currentIndex - 1
+                    }else{
+                        return currentIndex
+                    }
+                }else{
+                    return 0
+                }
+            } else if (lowerIndex > upperIndex) {
+                return -1
+            } else {
+                if (inputArr[currentIndex] > searchItem) {
+                    upperIndex = currentIndex - 1
+                } else {
+                    lowerIndex = currentIndex + 1
+                }
+            }
+        }
+    }
+
+    func isConnectedToNetwork() -> Bool {
+        var zeroAddress = sockaddr_in()
+        zeroAddress.sin_len = UInt8(sizeofValue(zeroAddress))
+        zeroAddress.sin_family = sa_family_t(AF_INET)
+        let defaultRouteReachability = withUnsafePointer(&zeroAddress) {
+            SCNetworkReachabilityCreateWithAddress(nil, UnsafePointer($0))
+        }
+        var flags = SCNetworkReachabilityFlags()
+        if !SCNetworkReachabilityGetFlags(defaultRouteReachability!, &flags) {
+            return false
+        }
+        let isReachable = (flags.rawValue & UInt32(kSCNetworkFlagsReachable)) != 0
+        let needsConnection = (flags.rawValue & UInt32(kSCNetworkFlagsConnectionRequired)) != 0
+        return (isReachable && !needsConnection)
     }
     /*
      // MARK: - Navigation

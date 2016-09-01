@@ -14,9 +14,7 @@ class UserDetailListViewController: UIViewController,UITableViewDelegate,UITable
     var isPortrait = UIDevice.currentDevice().orientation == .Portrait || UIDevice.currentDevice().orientation == .PortraitUpsideDown
     var tab_trigger = false
     var add_trigger = false
-    @IBOutlet weak var cons_vw_tab_height: NSLayoutConstraint!
     @IBOutlet weak var cons_vw_tab_width: NSLayoutConstraint!
-    @IBOutlet weak var vw_tab: UIView!
     @IBOutlet var UserDetailTableView: UITableView!
     @IBOutlet var tap_gesture: UITapGestureRecognizer!
     var alert : SCLAlertView! = nil
@@ -65,41 +63,6 @@ class UserDetailListViewController: UIViewController,UITableViewDelegate,UITable
         }else{
             return false
         }
-    }
-    @IBAction func btn_add_user_action(sender: UIButton) {
-        performSegueWithIdentifier("add_user", sender: self)
-        //        add_trigger = true
-        //        let appearance = SCLAlertView.SCLAppearance(
-        //            showCloseButton: false
-        //        )
-        //        alert = SCLAlertView(appearance: appearance)
-        //        let nickName = alert.addTextField("ใส่ชื่อเล่น")
-        //        let contact = alert.addTextField("ใส่เบอร์โทรศัพท์")
-        //        alert.addButton("เพิ่ม", action: {
-        //            let realm = RLMRealm.defaultRealm()
-        //            let user = User()
-        //            user.id = String(self.userArray.count)
-        //            user.nickName = nickName.text!
-        //            let c = contact.text!
-        //            if nickName.text!.characters.count == 0 {
-        //                let warn = SCLAlertView()
-        //                warn.showError("ข้อมูลไม่ครบ", subTitle:"กรุณาใส่ชื่อเล่น",duration:3.0)
-        //            }else
-        //            if c.characters.count != 10 {
-        //                let warn = SCLAlertView()
-        //                warn.showError("ใส่เบอร์โทรศัพท์ผิดพลาด", subTitle:"เบอร์โทรศัพท์ไม่ถึง 10 หลัก",duration:3.0)
-        //            }else{
-        //                let cf = c.substringWithRange(Range<String.Index>(start: c.startIndex.advancedBy(0), end: (c.startIndex.advancedBy(3))))
-        //                let ce = c.substringWithRange(Range<String.Index>(start: c.startIndex.advancedBy(3), end: (c.endIndex.advancedBy(0))))
-        //                user.contact = cf+"-"+ce
-        //                realm.beginWriteTransaction()
-        //                realm.addObject(user)
-        //                try! realm.commitWriteTransaction()
-        //                self.userArray.removeAll()
-        //                self.gatherUser()
-        //            }
-        //        })
-        //        alert.showEdit("เพิ่มข้อมูลผู้เล่น", subTitle: "")
     }
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
