@@ -13,7 +13,7 @@ import SystemConfiguration
 class EditTransactionViewController: UIViewController,UITextFieldDelegate,UIGestureRecognizerDelegate {
     var user_name:String!
     var schedule = Schedule()
-    var ip_address : String = "http://192.168.1.48:8000/"
+    var ip_address : String = "http://128.199.227.19/"
     @IBOutlet weak var cons_top: NSLayoutConstraint!
     @IBOutlet weak var profile_pic: UIImageView!
     @IBOutlet weak var tf_money: UITextField!
@@ -26,24 +26,24 @@ class EditTransactionViewController: UIViewController,UITextFieldDelegate,UIGest
     @IBOutlet weak var lb_time: UILabel!
     var freq_play_array = [FreqPlay]()
     var inEdit = false
-    @IBAction func tf_money_begin(sender: UITextField) {
+    @IBAction func tf_money_begin(_ sender: UITextField) {
         inEdit = true
-        var range: Range<String.Index> = self.tf_money.text!.rangeOfString(" ")!
-        var index: Int = self.tf_money.text!.startIndex.distanceTo(range.startIndex)
-        sender.text = self.tf_money.text!.substringWithRange(Range<String.Index>(start:self.tf_money.text!.startIndex.advancedBy(0), end: self.tf_money.text!.startIndex.advancedBy(index)))
+        let range: Range<String.Index> = self.tf_money.text!.range(of: " ")!
+        let index: Int = self.tf_money.text!.characters.distance(from: self.tf_money.text!.startIndex, to: range.lowerBound)
+        sender.text = self.tf_money.text!.substring(with: (self.tf_money.text!.characters.index(self.tf_money.text!.startIndex, offsetBy: 0) ..< self.tf_money.text!.characters.index(self.tf_money.text!.startIndex, offsetBy: index)))
     }
-    @IBAction func tf_money_end(sender: UITextField) {
+    @IBAction func tf_money_end(_ sender: UITextField) {
         lb_money.text = String(self.realPrice-Double(tf_promotion.text!)!)+" บาท"
         sender.text = sender.text!+" บาท"
     }
-    @IBAction func btn_confirm(sender: UIButton) {
-        let realm = RLMRealm.defaultRealm()
+    @IBAction func btn_confirm(_ sender: UIButton) {
+        let realm = RLMRealm.default()
         var id = ""
         var time = ""
         realm.beginWriteTransaction()
-        var range: Range<String.Index> = self.lb_money.text!.rangeOfString(" ")!
-        var index: Int = self.lb_money.text!.startIndex.distanceTo(range.startIndex)
-        self.realPrice = Double(self.lb_money.text!.substringWithRange(Range<String.Index>(start:self.lb_money.text!.startIndex.advancedBy(0), end: self.lb_money.text!.startIndex.advancedBy(index))))
+        var range: Range<String.Index> = self.lb_money.text!.range(of: " ")!
+        var index: Int = self.lb_money.text!.characters.distance(from: self.lb_money.text!.startIndex, to: range.lowerBound)
+        self.realPrice = Double(self.lb_money.text!.substring(with: (self.lb_money.text!.characters.index(self.lb_money.text!.startIndex, offsetBy: 0) ..< self.lb_money.text!.characters.index(self.lb_money.text!.startIndex, offsetBy: index))))
         schedule.price = realPrice
         schedule.already_paid = true
         let user = User.allObjects()
@@ -57,10 +57,10 @@ class EditTransactionViewController: UIViewController,UITextFieldDelegate,UIGest
                     time = schedule.time
                     freq_play.userID = id
                     freq_play.freq_play = time
-                    let range = schedule.date.rangeOfString(",")!
-                    let index = schedule.date.startIndex.distanceTo(range.startIndex)
-                    freq_play.day = schedule.date.substringWithRange(Range<String.Index>(start: schedule.date.startIndex.advancedBy(0), end: schedule.date.startIndex.advancedBy(index)))
-                    realm.addObject(freq_play)
+                    let range = schedule.date.range(of: ",")!
+                    let index = schedule.date.characters.distance(from: schedule.date.startIndex, to: range.lowerBound)
+                    freq_play.day = schedule.date.substring(with: (schedule.date.characters.index(schedule.date.startIndex, offsetBy: 0) ..< schedule.date.characters.index(schedule.date.startIndex, offsetBy: index)))
+                    realm.add(freq_play)
                 }
             }
         }
@@ -78,7 +78,7 @@ class EditTransactionViewController: UIViewController,UITextFieldDelegate,UIGest
         try! realm.commitWriteTransaction()
         if self.isConnectedToNetwork(){
             let setting = Setting.allObjects()
-            let encode = "\((setting[0] as! Setting).sportClub_id)&scheduleID=\(schedule.id)&alreadyPaid=\(schedule.already_paid)&price=\(schedule.price)&staffID=\((setting[0] as! Setting).staff_id)".stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet())
+            let encode = "\((setting[0] as! Setting).sportClub_id)&scheduleID=\(schedule.id)&alreadyPaid=\(schedule.already_paid)&price=\(schedule.price)&staffID=\((setting[0] as! Setting).staff_id)".addingPercentEncoding(withAllowedCharacters: .urlHostAllowed())
             Alamofire.request(.PUT, "\(self.ip_address)Schedule/update?sportClubID=\(encode!)")
                 .responseString { response in
                     print("Success: \(response.result.isSuccess)")
@@ -89,7 +89,7 @@ class EditTransactionViewController: UIViewController,UITextFieldDelegate,UIGest
                         temp.type = "update"
                         temp.type_of_table = "schedule"
                         temp.schedule_id = self.schedule.id
-                        realm.addObject(temp)
+                        realm.add(temp)
                         try! realm.commitWriteTransaction()
                     }
             }
@@ -99,10 +99,13 @@ class EditTransactionViewController: UIViewController,UITextFieldDelegate,UIGest
                         
                     }else{
                         let json = response.result.value as! NSDictionary
-                        var set = Setting()
+                        let df = DateFormatter()
+                        df.dateFormat = "yyyy-MM-dd HH:mm:ss"
                         realm.beginWriteTransaction()
-                        set = setting[0] as! Setting
-                        set.time_stamp = json.valueForKey("updated_at") as! String
+                        self.schedule.updated_at = df.date(from: json.value(forKey: "updated_at") as! String)!
+                        let setting = Setting.allObjects()
+                        let s = setting[0] as! Setting
+                        s.sche_time_stamp = json.value(forKey: "updated_at") as! String
                         try! realm.commitWriteTransaction()
                     }
             }
@@ -113,22 +116,22 @@ class EditTransactionViewController: UIViewController,UITextFieldDelegate,UIGest
             temp.type = "update"
             temp.type_of_table = "schedule"
             temp.schedule_id = schedule.id
-            realm.addObject(temp)
+            realm.add(temp)
             try! realm.commitWriteTransaction()
         }
-        self.performSegueWithIdentifier("confirm", sender: self)
+        self.performSegue(withIdentifier: "confirm", sender: self)
     }
     var realPrice:Double!
     var editPromotion = false
-    @IBAction func tf_promotion_edit(sender: UITextField) {
+    @IBAction func tf_promotion_edit(_ sender: UITextField) {
         cons_top.constant -= 120
         inEdit = true
         tf_promotion.text = ""
-        var range: Range<String.Index> = self.tf_money.text!.rangeOfString(" ")!
-        var index: Int = self.tf_money.text!.startIndex.distanceTo(range.startIndex)
-        self.realPrice = Double(self.tf_money.text!.substringWithRange(Range<String.Index>(start:self.tf_money.text!.startIndex.advancedBy(0), end: self.tf_money.text!.startIndex.advancedBy(index))))
+        let range: Range<String.Index> = self.tf_money.text!.range(of: " ")!
+        let index: Int = self.tf_money.text!.characters.distance(from: self.tf_money.text!.startIndex, to: range.lowerBound)
+        self.realPrice = Double(self.tf_money.text!.substring(with: (self.tf_money.text!.characters.index(self.tf_money.text!.startIndex, offsetBy: 0) ..< self.tf_money.text!.characters.index(self.tf_money.text!.startIndex, offsetBy: index))))
     }
-    @IBAction func tf_promotion_end(sender: UITextField) {
+    @IBAction func tf_promotion_end(_ sender: UITextField) {
         cons_top.constant += 120
         lb_money.text = String(self.realPrice-Double(tf_promotion.text!)!)+" บาท"
         editPromotion = true
@@ -142,11 +145,11 @@ class EditTransactionViewController: UIViewController,UITextFieldDelegate,UIGest
         tf_money.text = String(schedule.price)+" บาท"
         lb_promotion.text = schedule.promotion
         name.text = user_name
-        tf_money.keyboardType = UIKeyboardType.NumberPad
-        tf_promotion.keyboardType = UIKeyboardType.NumberPad
-        var range: Range<String.Index> = self.tf_money.text!.rangeOfString(" ")!
-        var index: Int = self.tf_money.text!.startIndex.distanceTo(range.startIndex)
-        self.realPrice = Double(self.tf_money.text!.substringWithRange(Range<String.Index>(start:self.tf_money.text!.startIndex.advancedBy(0), end: self.tf_money.text!.startIndex.advancedBy(index))))
+        tf_money.keyboardType = UIKeyboardType.numberPad
+        tf_promotion.keyboardType = UIKeyboardType.numberPad
+        let range: Range<String.Index> = self.tf_money.text!.range(of: " ")!
+        let index: Int = self.tf_money.text!.characters.distance(from: self.tf_money.text!.startIndex, to: range.lowerBound)
+        self.realPrice = Double(self.tf_money.text!.substring(with: (self.tf_money.text!.characters.index(self.tf_money.text!.startIndex, offsetBy: 0) ..< self.tf_money.text!.characters.index(self.tf_money.text!.startIndex, offsetBy: index))))
         lb_date.text = schedule.date
         lb_time.text = "เวลา "+schedule.time
         lb_money.text = String(self.realPrice-Double(tf_promotion.text!)!)+" บาท"
@@ -160,7 +163,7 @@ class EditTransactionViewController: UIViewController,UITextFieldDelegate,UIGest
                 freq_play_array.append(freq)
             }
         }
-        let realm = RLMRealm.defaultRealm()
+        let realm = RLMRealm.default()
         realm.beginWriteTransaction()
         sortFreqPlay()
         try! realm.commitWriteTransaction()
@@ -170,11 +173,11 @@ class EditTransactionViewController: UIViewController,UITextFieldDelegate,UIGest
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
     }
-    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldReceiveTouch touch: UITouch) -> Bool {
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
         if inEdit{
             inEdit = false
             tf_promotion.resignFirstResponder()
@@ -185,9 +188,9 @@ class EditTransactionViewController: UIViewController,UITextFieldDelegate,UIGest
         }
     }
     func sortFreqPlay(){
-        freq_play_array.sortInPlace({$0.userID < $1.userID})
+        freq_play_array.sort(by: {$0.userID < $1.userID})
     }
-    func updateFreqPlay(user_id:String) -> String{
+    func updateFreqPlay(_ user_id:String) -> String{
         var freqArray = [Int]()
         var keepFreq = [String:Int]()
         if freq_play_array.count > 0 {
@@ -211,12 +214,12 @@ class EditTransactionViewController: UIViewController,UITextFieldDelegate,UIGest
         return findMaxFreq(keepFreq)
         
     }
-    func findMaxFreq(freq_play:[String:Int]) -> String{
+    func findMaxFreq(_ freq_play:[String:Int]) -> String{
         var freq_time = ""
         if freq_play.count > 0 {
             var max = 0
             for i in 0...freq_play.count-1{
-                let index = freq_play.startIndex.advancedBy(i)
+                let index = freq_play.index(freq_play.startIndex, offsetBy: i)
                 if max < freq_play[freq_play.keys[index]]!{
                     max = freq_play[freq_play.keys[index]]!
                     freq_time = freq_play.keys[index]
@@ -225,7 +228,7 @@ class EditTransactionViewController: UIViewController,UITextFieldDelegate,UIGest
         }
         return freq_time
     }
-    func binarySearch<T:Comparable>(inputArr:Array<T>, searchItem: T)->Int{
+    func binarySearch<T:Comparable>(_ inputArr:Array<T>, searchItem: T)->Int{
         var lowerIndex = 0;
         var upperIndex = inputArr.count - 1
         while (true) {
@@ -254,9 +257,9 @@ class EditTransactionViewController: UIViewController,UITextFieldDelegate,UIGest
 
     func isConnectedToNetwork() -> Bool {
         var zeroAddress = sockaddr_in()
-        zeroAddress.sin_len = UInt8(sizeofValue(zeroAddress))
+        zeroAddress.sin_len = UInt8(MemoryLayout.size(ofValue: zeroAddress))
         zeroAddress.sin_family = sa_family_t(AF_INET)
-        let defaultRouteReachability = withUnsafePointer(&zeroAddress) {
+        let defaultRouteReachability = withUnsafePointer(to: &zeroAddress) {
             SCNetworkReachabilityCreateWithAddress(nil, UnsafePointer($0))
         }
         var flags = SCNetworkReachabilityFlags()

@@ -1,18 +1,15 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <mutableArray key="ThaiSansNeue-Regular.otf">
+        <array key="ThaiSansNeue-Regular.otf">
             <string>ThaiSansNeue-Regular</string>
-            <string>ThaiSansNeue-Regular</string>
-            <string>ThaiSansNeue-Regular</string>
-            <string>ThaiSansNeue-Regular</string>
-            <string>ThaiSansNeue-Regular</string>
-        </mutableArray>
+        </array>
     </customFonts>
     <scenes>
         <!--View Controller-->
@@ -24,54 +21,47 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="MAT-kd-llm">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="MAT-kd-llm"/>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ecf-8S-vna">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <color key="backgroundColor" red="0.85043728351593018" green="0.21816034615039825" blue="0.15920260548591614" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.85043728351593018" green="0.21816034615039825" blue="0.15920260548591614" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="18"/>
                                 <state key="normal" title="SIGN IN">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="sign_in_action:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ct4-Vg-YkL"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LENKILA" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ejQ-Mt-pDh">
-                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="60"/>
-                                <color key="textColor" red="0.1137254902" green="0.1137254902" blue="0.1137254902" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.1137254902" green="0.1137254902" blue="0.1137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CLUB" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7aQ-hr-lqx">
-                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="30"/>
-                                <color key="textColor" red="0.85043728351593018" green="0.21816034615039825" blue="0.15920260548591614" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.85043728351593018" green="0.21816034615039825" blue="0.15920260548591614" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O2o-br-6WL">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <fontDescription key="fontDescription" name="ThaiSansNeue-Regular" family="ThaiSans Neue" pointSize="20"/>
                                 <state key="normal" title="Request for Code?">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="request_code_action:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qmu-JZ-9Ji"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="YT1-FV-I7h">
-                                <rect key="frame" x="-25" y="-30" width="97" height="30"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="320" id="TvV-wK-diN">
                                         <variation key="widthClass=compact" constant="230"/>
                                     </constraint>
                                 </constraints>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="ThaiSansNeue-Regular" family="ThaiSans Neue" pointSize="25"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                 <variation key="default">
@@ -90,14 +80,12 @@
                                 </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BOQ-tM-UzI">
-                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                 <fontDescription key="fontDescription" name="ThaiSansNeue-Regular" family="ThaiSans Neue" pointSize="23"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view alpha="0.59999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TjG-I2-XaP">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="9wL-wz-Vpd"/>
                                 </constraints>
@@ -113,14 +101,13 @@
                                 </variation>
                             </view>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="1EM-ZV-KHq">
-                                <rect key="frame" x="-25" y="-30" width="97" height="30"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="320" id="QHt-mp-Khh">
                                         <variation key="widthClass=compact" constant="230"/>
                                     </constraint>
                                 </constraints>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="ThaiSansNeue-Regular" family="ThaiSans Neue" pointSize="25"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <variation key="default">
@@ -139,8 +126,7 @@
                                 </connections>
                             </textField>
                             <view alpha="0.60000002384185791" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V67-Qp-8sA">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="Emq-oQ-dDX"/>
                                 </constraints>
@@ -156,13 +142,12 @@
                                 </variation>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.69999998807907104" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="riW-uC-vmf">
-                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                 <fontDescription key="fontDescription" name="ThaiSansNeue-Regular" family="ThaiSans Neue" pointSize="23"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="riW-uC-vmf" firstAttribute="centerX" secondItem="1EM-ZV-KHq" secondAttribute="centerX" id="6Mb-cq-rin"/>
                             <constraint firstItem="ejQ-Mt-pDh" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="7FO-bs-Q50"/>
@@ -246,7 +231,6 @@
                                 <exclude reference="ksF-aC-TjR"/>
                                 <exclude reference="sqU-Ug-b8R"/>
                                 <exclude reference="xqf-I7-i3o"/>
-                                <exclude reference="tiK-zc-S4K"/>
                                 <exclude reference="8GG-c2-SKg"/>
                                 <exclude reference="IW2-Z4-LZW"/>
                                 <exclude reference="OTB-fX-Z8J"/>
@@ -255,13 +239,8 @@
                                 <exclude reference="jNm-PE-9wq"/>
                                 <exclude reference="HKz-Bd-xtN"/>
                                 <exclude reference="qHJ-9g-BSu"/>
-                                <exclude reference="QbN-Vo-vx5"/>
-                                <exclude reference="gxT-Td-4ia"/>
                                 <exclude reference="7FO-bs-Q50"/>
                                 <exclude reference="PHX-SU-7hz"/>
-                                <exclude reference="6Mb-cq-rin"/>
-                                <exclude reference="JCY-Dp-Zqg"/>
-                                <exclude reference="W2L-76-VdF"/>
                                 <exclude reference="A8z-JX-3nM"/>
                                 <exclude reference="qdW-AB-MA7"/>
                                 <exclude reference="v1l-QA-Nk9"/>
@@ -272,6 +251,12 @@
                                 <exclude reference="GyT-KR-UrF"/>
                                 <exclude reference="PPA-iG-wHH"/>
                                 <exclude reference="kIY-FO-jWZ"/>
+                                <exclude reference="6Mb-cq-rin"/>
+                                <exclude reference="JCY-Dp-Zqg"/>
+                                <exclude reference="W2L-76-VdF"/>
+                                <exclude reference="QbN-Vo-vx5"/>
+                                <exclude reference="gxT-Td-4ia"/>
+                                <exclude reference="tiK-zc-S4K"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -299,7 +284,6 @@
                                 <include reference="ksF-aC-TjR"/>
                                 <include reference="sqU-Ug-b8R"/>
                                 <exclude reference="xqf-I7-i3o"/>
-                                <include reference="tiK-zc-S4K"/>
                                 <include reference="8GG-c2-SKg"/>
                                 <include reference="IW2-Z4-LZW"/>
                                 <include reference="OTB-fX-Z8J"/>
@@ -308,13 +292,8 @@
                                 <include reference="jNm-PE-9wq"/>
                                 <include reference="HKz-Bd-xtN"/>
                                 <include reference="qHJ-9g-BSu"/>
-                                <include reference="QbN-Vo-vx5"/>
-                                <include reference="gxT-Td-4ia"/>
                                 <include reference="7FO-bs-Q50"/>
                                 <include reference="PHX-SU-7hz"/>
-                                <include reference="6Mb-cq-rin"/>
-                                <exclude reference="JCY-Dp-Zqg"/>
-                                <include reference="W2L-76-VdF"/>
                                 <include reference="A8z-JX-3nM"/>
                                 <include reference="qdW-AB-MA7"/>
                                 <include reference="v1l-QA-Nk9"/>
@@ -325,6 +304,12 @@
                                 <include reference="GyT-KR-UrF"/>
                                 <include reference="PPA-iG-wHH"/>
                                 <include reference="kIY-FO-jWZ"/>
+                                <include reference="6Mb-cq-rin"/>
+                                <exclude reference="JCY-Dp-Zqg"/>
+                                <include reference="W2L-76-VdF"/>
+                                <include reference="QbN-Vo-vx5"/>
+                                <include reference="gxT-Td-4ia"/>
+                                <include reference="tiK-zc-S4K"/>
                             </mask>
                         </variation>
                     </view>

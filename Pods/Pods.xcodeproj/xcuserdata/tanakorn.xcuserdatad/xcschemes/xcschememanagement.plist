@@ -9,17 +9,7 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>CVCalendar.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Charts.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>PDTSimpleCalendar.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -47,17 +37,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>2DBA55787AD29184E435FC23FD733BF8</key>
+		<key>5D1FAD543B2E95B1CEA65F0C0EA3F7CF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6F2A692FF888AA7405A828E7E154F498</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>77AB16E71967928775ACD2706514E867</key>
+		<key>6198172C00261903CE7EB3629B41C68B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -67,22 +52,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>96DAD946FCE709E59DD86AD1AE521A6D</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>BA14B622689766F6B8A4F42FD9DE552F</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>C6828C2508515BC0428D6BDAA1292DC9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>FA22D16CD5F5D698BF87C3F1958A841B</key>
+		<key>EB0F5C774EC4DB6655C34E9900DACD45</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>ED8B9811722FF0DB112C85FDAF796823</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -9,16 +9,16 @@
 import UIKit
 
 class NewPasswordViewController: UIViewController,UITextFieldDelegate {
-    @IBAction func next(sender: AnyObject) {
-        self.performSegueWithIdentifier("confirmPassword", sender: self)
+    @IBAction func next(_ sender: AnyObject) {
+        self.performSegue(withIdentifier: "confirmPassword", sender: self)
     }
     @IBOutlet var newPass: UITextField!
 
-    @IBAction func backIcon(sender: AnyObject) {
-        self.performSegueWithIdentifier("cancelChangePassword", sender: self)
+    @IBAction func backIcon(_ sender: AnyObject) {
+        self.performSegue(withIdentifier: "cancelChangePassword", sender: self)
     }
-    @IBAction func backText(sender: AnyObject) {
-        self.performSegueWithIdentifier("cancelChangePassword", sender: self)
+    @IBAction func backText(_ sender: AnyObject) {
+        self.performSegue(withIdentifier: "cancelChangePassword", sender: self)
     }
     
     override func viewDidLoad() {
@@ -31,13 +31,13 @@ class NewPasswordViewController: UIViewController,UITextFieldDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
     }
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "confirmPassword" {
-            if let des = segue.destinationViewController as? ConfirmPasswordViewController {
+            if let des = segue.destination as? ConfirmPasswordViewController {
                 des.newPassword = newPass.text!
             }
         }

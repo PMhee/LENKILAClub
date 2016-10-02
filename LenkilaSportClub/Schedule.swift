@@ -24,4 +24,6 @@ class Schedule:RLMObject{
     dynamic var sportClubID : String = ""
     dynamic var staffID : String = ""
     dynamic var promotion : String = ""
+    dynamic var updated_at : Foundation.Date = Foundation.Date()
+    dynamic var created_at : Foundation.Date = Foundation.Date()
 }

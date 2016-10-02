@@ -13,24 +13,24 @@ class ConfirmPasswordViewController: UIViewController,UITextFieldDelegate {
     
     var newPassword = String()
 
-    @IBAction func backText(sender: AnyObject) {
-        self.performSegueWithIdentifier("editNewPassword", sender: self)
+    @IBAction func backText(_ sender: AnyObject) {
+        self.performSegue(withIdentifier: "editNewPassword", sender: self)
     }
-    @IBAction func backIcon(sender: AnyObject) {
-        self.performSegueWithIdentifier("editNewPassword", sender: self)
+    @IBAction func backIcon(_ sender: AnyObject) {
+        self.performSegue(withIdentifier: "editNewPassword", sender: self)
     }
     
     @IBOutlet var confirmPass: UITextField!
-    @IBAction func save(sender: AnyObject) {
+    @IBAction func save(_ sender: AnyObject) {
         if(confirmPass.text == newPassword){
-            let realm = RLMRealm.defaultRealm()
+            let realm = RLMRealm.default()
             realm.beginWriteTransaction()
             var setting = Setting()
             let set = Setting.allObjects()
             setting = set[0] as! Setting
             //setting.passCode = confirmPass.text!
             try! realm.commitWriteTransaction()
-            self.performSegueWithIdentifier("savePassword", sender: self)
+            self.performSegue(withIdentifier: "savePassword", sender: self)
         }else{
             let appearance = SCLAlertView.SCLAppearance(
                 kTitleFont: UIFont(name: "ThaiSansLite", size: 20)!,
@@ -47,7 +47,7 @@ class ConfirmPasswordViewController: UIViewController,UITextFieldDelegate {
         confirmPass.delegate = self
         // Do any additional setup after loading the view.
     }
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
     }

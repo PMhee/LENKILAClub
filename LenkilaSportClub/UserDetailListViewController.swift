@@ -11,7 +11,7 @@ import Realm
 import SCLAlertView
 import Charts
 class UserDetailListViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UIPopoverPresentationControllerDelegate,UIGestureRecognizerDelegate {
-    var isPortrait = UIDevice.currentDevice().orientation == .Portrait || UIDevice.currentDevice().orientation == .PortraitUpsideDown
+    var isPortrait = UIDevice.current.orientation == .portrait || UIDevice.current.orientation == .portraitUpsideDown
     var tab_trigger = false
     var add_trigger = false
     @IBOutlet weak var cons_vw_tab_width: NSLayoutConstraint!
@@ -24,14 +24,14 @@ class UserDetailListViewController: UIViewController,UITableViewDelegate,UITable
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         //Table Setting
-        UserDetailTableView.separatorInset = UIEdgeInsetsZero
+        UserDetailTableView.separatorInset = UIEdgeInsets.zero
         UserDetailTableView.separatorInset.right = UserDetailTableView.separatorInset.left
         self.automaticallyAdjustsScrollViewInsets = false;
         self.tap_gesture.delegate = self
         self.UserDetailTableView.addGestureRecognizer(self.tap_gesture)
         self.isPortrait = true
     }
-    @IBAction func btn_tab_action(sender: UIButton) {
+    @IBAction func btn_tab_action(_ sender: UIButton) {
         trigger_tab()
     }
     func trigger_tab(){
@@ -56,7 +56,7 @@ class UserDetailListViewController: UIViewController,UITableViewDelegate,UITable
         }
         tab_trigger = !tab_trigger
     }
-    func gestureRecognizerShouldBegin(gestureRecognizer: UIGestureRecognizer) -> Bool {
+    func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
         if tab_trigger{
             trigger_tab()
             return true
@@ -64,7 +64,7 @@ class UserDetailListViewController: UIViewController,UITableViewDelegate,UITable
             return false
         }
     }
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         gatherUser()
     }
@@ -80,19 +80,15 @@ class UserDetailListViewController: UIViewController,UITableViewDelegate,UITable
     //            return UIInterfaceOrientationMask.Portrait
     //        }
     //    }
-    func delay(delay:Double, closure:()->()) {
-        dispatch_after(
-            dispatch_time(
-                DISPATCH_TIME_NOW,
-                Int64(delay * Double(NSEC_PER_SEC))
-            ),
-            dispatch_get_main_queue(), closure)
+    func delay(_ delay:Double, closure:@escaping ()->()) {
+        DispatchQueue.main.asyncAfter(
+            deadline: DispatchTime.now() + Double(Int64(delay * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC), execute: closure)
     }
     // MARK: - TableView
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return userArray.count
     }
     func gatherUser(){
@@ -106,12 +102,12 @@ class UserDetailListViewController: UIViewController,UITableViewDelegate,UITable
         UserDetailTableView.reloadData()
         
     }
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
-    override func didRotateFromInterfaceOrientation(fromInterfaceOrientation: UIInterfaceOrientation) {
-        switch UIDevice.currentDevice().orientation{
-        case .Portrait:
+    override func didRotate(from fromInterfaceOrientation: UIInterfaceOrientation) {
+        switch UIDevice.current.orientation{
+        case .portrait:
             print("protrait")
             if tab_trigger {
                 trigger_tab()
@@ -119,7 +115,7 @@ class UserDetailListViewController: UIViewController,UITableViewDelegate,UITable
             isPortrait = true
             all_font = UIFont(name: "ThaiSansLite",size: 14)
             self.UserDetailTableView.reloadData()
-        case .PortraitUpsideDown:
+        case .portraitUpsideDown:
             print("protrait_down")
             if tab_trigger {
                 trigger_tab()
@@ -127,7 +123,7 @@ class UserDetailListViewController: UIViewController,UITableViewDelegate,UITable
             isPortrait = true
             all_font = UIFont(name: "ThaiSansLite",size: 14)
             self.UserDetailTableView.reloadData()
-        case .LandscapeLeft:
+        case .landscapeLeft:
             print("lanscape_left")
             if tab_trigger {
                 trigger_tab()
@@ -135,7 +131,7 @@ class UserDetailListViewController: UIViewController,UITableViewDelegate,UITable
             isPortrait = false
             all_font = UIFont(name: "ThaiSansLite",size: 16)
             self.UserDetailTableView.reloadData()
-        case .LandscapeRight:
+        case .landscapeRight:
             print("lanscape_right")
             if tab_trigger {
                 trigger_tab()
@@ -148,36 +144,36 @@ class UserDetailListViewController: UIViewController,UITableViewDelegate,UITable
             if tab_trigger {
                 trigger_tab()
             }
-            isPortrait = UIDevice.currentDevice().orientation == .Portrait || UIDevice.currentDevice().orientation == .PortraitUpsideDown
+            isPortrait = UIDevice.current.orientation == .portrait || UIDevice.current.orientation == .portraitUpsideDown
             all_font = UIFont(name: "ThaiSansLite",size: 16)
             self.UserDetailTableView.reloadData()
         }
     }
-    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if(isPortrait){
             let v = UIView()
             v.backgroundColor = UIColor(red: 231/255, green: 230/255, blue: 231/255, alpha: 1.0)
-            let no = UILabel(frame: CGRectMake(2,18, tableView.frame.width*0.09, 14))
+            let no = UILabel(frame: CGRect(x: 2,y: 18, width: tableView.frame.width*0.09, height: 14))
             no.text = "ลำดับ"
             no.font = all_font
-            no.textAlignment = .Center
+            no.textAlignment = .center
             
-            let nickName = UILabel(frame: CGRectMake(no.frame.origin.x+tableView.frame.width*0.09,18, tableView.frame.width*0.226, 14))
+            let nickName = UILabel(frame: CGRect(x: no.frame.origin.x+tableView.frame.width*0.09,y: 18, width: tableView.frame.width*0.226, height: 14))
             nickName.text = "ชื่อเล่น"
-            nickName.textAlignment = .Center
+            nickName.textAlignment = .center
             nickName.font = all_font
             
-            let age = UILabel(frame: CGRectMake((nickName.frame.origin.x+tableView.frame.width*0.226)+5,18, tableView.frame.width*0.06, 14))
+            let age = UILabel(frame: CGRect(x: (nickName.frame.origin.x+tableView.frame.width*0.226)+5,y: 18, width: tableView.frame.width*0.06, height: 14))
             age.text = "อายุ"
-            age.textAlignment = .Center
+            age.textAlignment = .center
             age.font = all_font
-            let freq = UILabel(frame: CGRectMake(age.frame.origin.x+tableView.frame.width*0.06,18, tableView.frame.width*0.370, 14))
-            freq.textAlignment = .Center
+            let freq = UILabel(frame: CGRect(x: age.frame.origin.x+tableView.frame.width*0.06,y: 18, width: tableView.frame.width*0.370, height: 14))
+            freq.textAlignment = .center
             freq.text = "ช่วงที่มา"
             freq.font = all_font
-            let contact = UILabel(frame: CGRectMake(freq.frame.origin.x+tableView.frame.width*0.370,18, tableView.frame.width*0.260, 14))
+            let contact = UILabel(frame: CGRect(x: freq.frame.origin.x+tableView.frame.width*0.370,y: 18, width: tableView.frame.width*0.260, height: 14))
             contact.text = "ติดต่อ"
-            contact.textAlignment = .Center
+            contact.textAlignment = .center
             contact.font = all_font
             
             v.addSubview(contact)
@@ -191,45 +187,45 @@ class UserDetailListViewController: UIViewController,UITableViewDelegate,UITable
         }else{
             let v = UIView()
             v.backgroundColor = UIColor(red: 231/255, green: 230/255, blue: 231/255, alpha: 1.0)
-            let no = UILabel(frame: CGRectMake(0,18, tableView.frame.width*0.051, 14))
+            let no = UILabel(frame: CGRect(x: 0,y: 18, width: tableView.frame.width*0.051, height: 14))
             no.text = "ลำดับ"
             no.font = all_font
-            no.textAlignment = .Center
-            let name = UILabel(frame: CGRectMake(no.frame.origin.x+tableView.frame.width*0.051,18, tableView.frame.width*0.151, 14))
-            name.textAlignment = .Center
+            no.textAlignment = .center
+            let name = UILabel(frame: CGRect(x: no.frame.origin.x+tableView.frame.width*0.051,y: 18, width: tableView.frame.width*0.151, height: 14))
+            name.textAlignment = .center
             name.text = "ชื่อ-สกุล"
             name.font =  all_font
-            let nickName = UILabel(frame: CGRectMake(name.frame.origin.x+tableView.frame.width*0.151,18, tableView.frame.width*0.113, 14))
+            let nickName = UILabel(frame: CGRect(x: name.frame.origin.x+tableView.frame.width*0.151,y: 18, width: tableView.frame.width*0.113, height: 14))
             nickName.text = "ชื่อเล่น"
-            nickName.textAlignment = .Center
+            nickName.textAlignment = .center
             nickName.font = all_font
-            let gender = UILabel(frame: CGRectMake(nickName.frame.origin.x+tableView.frame.width*0.113,18, tableView.frame.width*0.035, 14))
+            let gender = UILabel(frame: CGRect(x: nickName.frame.origin.x+tableView.frame.width*0.113,y: 18, width: tableView.frame.width*0.035, height: 14))
             gender.text = "เพศ"
-            gender.textAlignment = .Center
+            gender.textAlignment = .center
             gender.font = all_font
-            let age = UILabel(frame: CGRectMake((gender.frame.origin.x+tableView.frame.width*0.035)+5,18, tableView.frame.width*0.038, 14))
+            let age = UILabel(frame: CGRect(x: (gender.frame.origin.x+tableView.frame.width*0.035)+5,y: 18, width: tableView.frame.width*0.038, height: 14))
             age.text = "อายุ"
-            age.textAlignment = .Center
+            age.textAlignment = .center
             age.font = all_font
-            let work = UILabel(frame: CGRectMake(age.frame.origin.x+tableView.frame.width*0.038,18, tableView.frame.width*0.142, 14))
+            let work = UILabel(frame: CGRect(x: age.frame.origin.x+tableView.frame.width*0.038,y: 18, width: tableView.frame.width*0.142, height: 14))
             work.text = "ที่ทำงาน"
-            work.textAlignment = .Center
+            work.textAlignment = .center
             work.font = all_font
-            let seq = UILabel(frame: CGRectMake(work.frame.origin.x+tableView.frame.width*0.142,18, tableView.frame.width*0.074, 14))
+            let seq = UILabel(frame: CGRect(x: work.frame.origin.x+tableView.frame.width*0.142,y: 18, width: tableView.frame.width*0.074, height: 14))
             seq.text = "ครั้งที่มา"
-            seq.textAlignment = .Center
+            seq.textAlignment = .center
             seq.font = all_font
-            let freq = UILabel(frame: CGRectMake(seq.frame.origin.x+tableView.frame.width*0.074,18, tableView.frame.width*0.185, 14))
-            freq.textAlignment = .Center
+            let freq = UILabel(frame: CGRect(x: seq.frame.origin.x+tableView.frame.width*0.074,y: 18, width: tableView.frame.width*0.185, height: 14))
+            freq.textAlignment = .center
             freq.text = "ช่วงที่มา"
             freq.font = all_font
-            let contact = UILabel(frame: CGRectMake(freq.frame.origin.x+tableView.frame.width*0.185,18, tableView.frame.width*0.13, 14))
+            let contact = UILabel(frame: CGRect(x: freq.frame.origin.x+tableView.frame.width*0.185,y: 18, width: tableView.frame.width*0.13, height: 14))
             contact.text = "ติดต่อ"
-            contact.textAlignment = .Center
+            contact.textAlignment = .center
             contact.font = all_font
-            let price = UILabel(frame: CGRectMake(contact.frame.origin.x+tableView.frame.width*0.13,18, tableView.frame.width*0.07, 14))
+            let price = UILabel(frame: CGRect(x: contact.frame.origin.x+tableView.frame.width*0.13,y: 18, width: tableView.frame.width*0.07, height: 14))
             price.text = "ราคา"
-            price.textAlignment = .Center
+            price.textAlignment = .center
             price.font = all_font
             v.addSubview(price)
             v.addSubview(contact)
@@ -245,14 +241,14 @@ class UserDetailListViewController: UIViewController,UITableViewDelegate,UITable
             
         }
     }
-    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 50
     }
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if(isPortrait){
             let cellIdentifier = "UserListPortrait"
-            let currentIndex = indexPath.row
-            let userList = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath)
+            let currentIndex = (indexPath as NSIndexPath).row
+            let userList = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
             let no = userList.viewWithTag(1) as! UILabel
             no.text = String(currentIndex+1)
             let nickName = userList.viewWithTag(2) as! UILabel
@@ -263,17 +259,17 @@ class UserDetailListViewController: UIViewController,UITableViewDelegate,UITable
             freqPlay.text = userArray[currentIndex].freqPlay
             let contact = userList.viewWithTag(5) as! UILabel
             contact.text = userArray[currentIndex].contact
-            if indexPath.row % 2 == 1 {
+            if (indexPath as NSIndexPath).row % 2 == 1 {
                 userList.backgroundColor = UIColor(red:232/255,green:233/255,blue:232/255,alpha:1.0)
             }else{
-                userList.backgroundColor = UIColor.whiteColor()
+                userList.backgroundColor = UIColor.white
             }
             return userList
             
         }else{
             let cellIdentifier = "UserList"
-            let currentIndex = indexPath.row
-            let userList = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath)
+            let currentIndex = (indexPath as NSIndexPath).row
+            let userList = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
             let no = userList.viewWithTag(1) as! UILabel
             no.text = String(currentIndex+1)
             let name = userList.viewWithTag(2) as! UILabel
@@ -294,36 +290,36 @@ class UserDetailListViewController: UIViewController,UITableViewDelegate,UITable
             contact.text = userArray[currentIndex].contact
             let price = userList.viewWithTag(10) as! UILabel
             price.text = String(userArray[currentIndex].price)
-            if indexPath.row % 2 == 1 {
+            if (indexPath as NSIndexPath).row % 2 == 1 {
                 userList.backgroundColor = UIColor(red:232/255,green:233/255,blue:232/255,alpha:1.0)
             }else{
-                userList.backgroundColor = UIColor.whiteColor()
+                userList.backgroundColor = UIColor.white
             }
             return userList
         }
     }
-    func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
-        return .None
+    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
+        return .none
     }
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "add_user" {
-            if let des = segue.destinationViewController as? EditUserDetailViewController {
+            if let des = segue.destination as? EditUserDetailViewController {
                 des.add_user = true
             }
         }else{
-            if let des = segue.destinationViewController as? EditUserDetailViewController {
+            if let des = segue.destination as? EditUserDetailViewController {
                 let cell : UITableViewCell = sender as! UITableViewCell
-                let indexPath = self.UserDetailTableView.indexPathForCell(cell)
-                des.name = self.userArray[(indexPath?.row)!].name
-                des.nickName = self.userArray[(indexPath?.row)!].nickName
-                des.gender = self.userArray[(indexPath?.row)!].gender
-                des.age = Float(self.userArray[(indexPath?.row)!].age)
-                des.workPlace = self.userArray[(indexPath?.row)!].workPlace
-                des.playCount = self.userArray[(indexPath?.row)!].playCount
-                des.freqPlay = userArray[(indexPath?.row)!].freqPlay
-                des.contact = self.userArray[(indexPath?.row)!].contact
-                des.price = self.userArray[(indexPath?.row)!].price
-                des.id = self.userArray[(indexPath?.row)!].id
+                let indexPath = self.UserDetailTableView.indexPath(for: cell)
+                des.name = self.userArray[((indexPath as NSIndexPath?)?.row)!].name
+                des.nickName = self.userArray[((indexPath as NSIndexPath?)?.row)!].nickName
+                des.gender = self.userArray[((indexPath as NSIndexPath?)?.row)!].gender
+                des.age = Float(self.userArray[((indexPath as NSIndexPath?)?.row)!].age)
+                des.workPlace = self.userArray[((indexPath as NSIndexPath?)?.row)!].workPlace
+                des.playCount = self.userArray[((indexPath as NSIndexPath?)?.row)!].playCount
+                des.freqPlay = userArray[((indexPath as NSIndexPath?)?.row)!].freqPlay
+                des.contact = self.userArray[((indexPath as NSIndexPath?)?.row)!].contact
+                des.price = self.userArray[((indexPath as NSIndexPath?)?.row)!].price
+                des.id = self.userArray[((indexPath as NSIndexPath?)?.row)!].id
             }
         }
     }

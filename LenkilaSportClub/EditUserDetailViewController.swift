@@ -11,6 +11,26 @@ import Realm
 import SCLAlertView
 import SystemConfiguration
 import Alamofire
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
+
+fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l > r
+  default:
+    return rhs < lhs
+  }
+}
+
 class EditUserDetailViewController: UIViewController,UITextFieldDelegate,UIGestureRecognizerDelegate {
     var name : String! = nil
     var nickName : String! = nil
@@ -27,7 +47,7 @@ class EditUserDetailViewController: UIViewController,UITextFieldDelegate,UIGestu
     var x : CGFloat! = nil
     var y : CGFloat! = nil
     var enable_touch = false
-    let ip_address = "http://192.168.1.48:8000/"
+    let ip_address = "http://128.199.227.19/"
     @IBOutlet weak var cons_buttom: NSLayoutConstraint!
     @IBOutlet weak var cons_buttom1: NSLayoutConstraint!
     @IBOutlet weak var cons_buttom2: NSLayoutConstraint!
@@ -53,7 +73,7 @@ class EditUserDetailViewController: UIViewController,UITextFieldDelegate,UIGestu
     @IBOutlet weak var lb_show_age: UILabel!
     @IBOutlet weak var lb_price: UILabel!
     @IBOutlet var tap_gesture: UITapGestureRecognizer!
-    @IBAction func edit_tel(sender: UITextField) {
+    @IBAction func edit_tel(_ sender: UITextField) {
         cons_buttom.constant -= 200
         cons_buttom1.constant -= 200
         cons_buttom2.constant -= 200
@@ -62,7 +82,7 @@ class EditUserDetailViewController: UIViewController,UITextFieldDelegate,UIGestu
         cons_buttom5.constant -= 250
         cons_buttom6.constant -= 250
     }
-    @IBAction func edit_tel_end(sender: UITextField) {
+    @IBAction func edit_tel_end(_ sender: UITextField) {
         cons_buttom.constant += 200
         cons_buttom1.constant += 200
         cons_buttom2.constant += 200
@@ -71,13 +91,9 @@ class EditUserDetailViewController: UIViewController,UITextFieldDelegate,UIGestu
         cons_buttom5.constant += 250
         cons_buttom6.constant += 250
     }
-    func delay(delay:Double, closure:()->()) {
-        dispatch_after(
-            dispatch_time(
-                DISPATCH_TIME_NOW,
-                Int64(delay * Double(NSEC_PER_SEC))
-            ),
-            dispatch_get_main_queue(), closure)
+    func delay(_ delay:Double, closure:@escaping ()->()) {
+        DispatchQueue.main.asyncAfter(
+            deadline: DispatchTime.now() + Double(Int64(delay * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC), execute: closure)
     }
     func trigger_tab(){
         var count = 0.0
@@ -101,22 +117,22 @@ class EditUserDetailViewController: UIViewController,UITextFieldDelegate,UIGestu
         }
         tab_trigger = !tab_trigger
     }
-    @IBAction func tf_first_name_action(sender: UITextField) {
+    @IBAction func tf_first_name_action(_ sender: UITextField) {
         vw_underline_fisrt_name.backgroundColor = UIColor(red: 232/255, green: 81/255, blue: 83/255, alpha: 1.0)
     }
-    @IBAction func tf_last_name_action(sender: UITextField) {
+    @IBAction func tf_last_name_action(_ sender: UITextField) {
         vw_underline_lastname.backgroundColor = UIColor(red: 232/255, green: 81/255, blue: 83/255, alpha: 1.0)
     }
-    @IBAction func tf_nick_name_action(sender: UITextField) {
+    @IBAction func tf_nick_name_action(_ sender: UITextField) {
         vw_underline_nick_name.backgroundColor = UIColor(red: 232/255, green: 81/255, blue: 83/255, alpha: 1.0)
     }
-    @IBAction func tf_work_place_action(sender: UITextField) {
+    @IBAction func tf_work_place_action(_ sender: UITextField) {
         vw_underline_work_place.backgroundColor = UIColor(red: 232/255, green: 81/255, blue: 83/255, alpha: 1.0)
     }
-    @IBAction func tf_contact_action(sender: UITextField) {
+    @IBAction func tf_contact_action(_ sender: UITextField) {
         vw_underline_contact.backgroundColor = UIColor(red: 232/255, green: 81/255, blue: 83/255, alpha: 1.0)
     }
-    @IBAction func sm_gender_action(sender: UISegmentedControl) {
+    @IBAction func sm_gender_action(_ sender: UISegmentedControl) {
         if sender.selectedSegmentIndex == 0 {
             self.gender = "ช"
         }else if sender.selectedSegmentIndex == 1{
@@ -125,15 +141,15 @@ class EditUserDetailViewController: UIViewController,UITextFieldDelegate,UIGestu
             self.gender = "ช"
         }
     }
-    @IBAction func sd_age_action(sender: UISlider) {
+    @IBAction func sd_age_action(_ sender: UISlider) {
         self.age = Float(Int(sender.value) * 100)
         self.lb_show_age.text = String(Int(sender.value*100)) + " ปี"
     }
-    @IBAction func edit_user_action(sender: UIButton) {
+    @IBAction func edit_user_action(_ sender: UIButton) {
         let user = User.allObjects()
         if add_user == nil {
             if Int(self.id)! <= Int(user.count){
-                let realm = RLMRealm.defaultRealm()
+                let realm = RLMRealm.default()
                 realm.beginWriteTransaction()
                 print(self.id)
                 let u = user[UInt(self.id)!] as! User
@@ -144,16 +160,16 @@ class EditUserDetailViewController: UIViewController,UITextFieldDelegate,UIGestu
                 }else{
                     u.gender = "ญ"
                 }
-                let range = self.lb_show_age.text!.rangeOfString(" ")!
-                let index = self.lb_show_age.text!.startIndex.distanceTo(range.startIndex)
-                let age = self.lb_show_age.text!.substringWithRange(Range<String.Index>(start: lb_show_age.text!.startIndex.advancedBy(0), end: (lb_show_age.text!.startIndex.advancedBy(index))))
+                let range = self.lb_show_age.text!.range(of: " ")!
+                let index = self.lb_show_age.text!.characters.distance(from: self.lb_show_age.text!.startIndex, to: range.lowerBound)
+                let age = self.lb_show_age.text!.substring(with: (lb_show_age.text!.characters.index(lb_show_age.text!.startIndex, offsetBy: 0) ..< (lb_show_age.text!.characters.index(lb_show_age.text!.startIndex, offsetBy: index))))
                 u.age = Int(age)!
                 u.workPlace = self.tf_work_place.text!
                 u.contact = self.tf_contact.text!
                 try! realm.commitWriteTransaction()
                 if isConnectedToNetwork(){
                     let setting = Setting.allObjects()
-                    let encode = "\((setting[0] as! Setting).sportClub_id)&staffID=\((setting[0] as! Setting).staff_id)&telephone=\(u.contact)&nickName=\(u.nickName)&gender=\(u.gender)&playCount=\(u.playCount)&firstName=\(tf_firstname.text!)&lastName=\(tf_lastname.text!)&workPlace=\(u.workPlace)&freqPlay=\(u.freqPlay)&age=\(u.age)".stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet())
+                    let encode = "\((setting[0] as! Setting).sportClub_id)&staffID=\((setting[0] as! Setting).staff_id)&telephone=\(u.contact)&nickName=\(u.nickName)&gender=\(u.gender)&playCount=\(u.playCount)&firstName=\(tf_firstname.text!)&lastName=\(tf_lastname.text!)&workplace=\(u.workPlace)&freqPlay=\(u.freqPlay)&age=\(u.age)".addingPercentEncoding(withAllowedCharacters: .urlHostAllowed())
                     Alamofire.request(.PUT, "\(ip_address)User/update?sportClubID=\(encode!)")
                         .validate()
                         .responseString { response in
@@ -170,14 +186,17 @@ class EditUserDetailViewController: UIViewController,UITextFieldDelegate,UIGestu
                                 temp.type = "update"
                                 temp.type_of_table = "user"
                                 temp.schedule_id = u.id
-                                realm.addObject(temp)
+                                realm.add(temp)
                                 try! realm.commitWriteTransaction()
                             }else{
                                 let json = response.result.value as! NSDictionary
-                                var set = Setting()
+                                let df = DateFormatter()
+                                df.dateFormat = "yyyy-MM-dd HH:mm:ss"
                                 realm.beginWriteTransaction()
-                                set = setting[0] as! Setting
-                                set.time_stamp = json.valueForKey("updated_at") as! String
+                                u.updated_at = df.date(from: json.value(forKey: "updated_at") as! String)!
+                                let setting = Setting.allObjects()
+                                let s = setting[0] as! Setting
+                                s.user_time_stamp = json.value(forKey: "updated_at") as! String
                                 try! realm.commitWriteTransaction()
                             }
                     }
@@ -188,14 +207,14 @@ class EditUserDetailViewController: UIViewController,UITextFieldDelegate,UIGestu
                     temp.type = "update"
                     temp.type_of_table = "user"
                     temp.schedule_id = u.id
-                    realm.addObject(temp)
+                    realm.add(temp)
                     try! realm.commitWriteTransaction()
                 }
-                self.performSegueWithIdentifier("send_back_to_user", sender: self)
+                self.performSegue(withIdentifier: "send_back_to_user", sender: self)
                 // continue save existing user by id
             }
         }else{
-            let realm = RLMRealm.defaultRealm()
+            let realm = RLMRealm.default()
             let u = User()
             u.name = self.tf_firstname.text! + " " + self.tf_lastname.text!
             u.nickName = self.tf_nickname.text!
@@ -205,9 +224,9 @@ class EditUserDetailViewController: UIViewController,UITextFieldDelegate,UIGestu
             }else{
                 u.gender = "ญ"
             }
-            let range = self.lb_show_age.text!.rangeOfString(" ")!
-            let index = self.lb_show_age.text!.startIndex.distanceTo(range.startIndex)
-            let age = self.lb_show_age.text!.substringWithRange(Range<String.Index>(start: lb_show_age.text!.startIndex.advancedBy(0), end: (lb_show_age.text!.startIndex.advancedBy(index))))
+            let range = self.lb_show_age.text!.range(of: " ")!
+            let index = self.lb_show_age.text!.characters.distance(from: self.lb_show_age.text!.startIndex, to: range.lowerBound)
+            let age = self.lb_show_age.text!.substring(with: (lb_show_age.text!.characters.index(lb_show_age.text!.startIndex, offsetBy: 0) ..< (lb_show_age.text!.characters.index(lb_show_age.text!.startIndex, offsetBy: index))))
             u.age = Int(age)!
             u.workPlace = self.tf_work_place.text!
             u.contact = self.tf_contact.text!
@@ -247,13 +266,13 @@ class EditUserDetailViewController: UIViewController,UITextFieldDelegate,UIGestu
                     })
                     alert.showError("ผิดพลาด", subTitle: "ชื่อผู้เล่นซ้ำ")
                 }else{
-            realm.addObject(u)
+            realm.add(u)
                     try! realm.commitWriteTransaction()
                     
                     
                     
                 }
-            self.performSegueWithIdentifier("send_back_to_user", sender: self)
+            self.performSegue(withIdentifier: "send_back_to_user", sender: self)
                 }
             }
             
@@ -265,10 +284,10 @@ class EditUserDetailViewController: UIViewController,UITextFieldDelegate,UIGestu
         self.view.addGestureRecognizer(tap_gesture)
         // Do any additional setup after loading the view.
     }
-    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldReceiveTouch touch: UITouch) -> Bool {
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
         if tab_trigger {
-        x = touch.locationInView(self.view).x
-        y = touch.locationInView(self.view).y
+        x = touch.location(in: self.view).x
+        y = touch.location(in: self.view).y
             if x > self.view.frame.width * 11 / 13 {
                 enable_touch = !enable_touch
             }
@@ -277,7 +296,7 @@ class EditUserDetailViewController: UIViewController,UITextFieldDelegate,UIGestu
             return false
         }
     }
-    func gestureRecognizerShouldBegin(gestureRecognizer: UIGestureRecognizer) -> Bool {
+    func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
         if enable_touch {
         self.trigger_tab()
         enable_touch = !enable_touch
@@ -286,12 +305,12 @@ class EditUserDetailViewController: UIViewController,UITextFieldDelegate,UIGestu
             return false
         }
     }
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         genUserData()
         delegateAll()
-        let attr = NSDictionary(object: UIFont(name: "ThaiSansLite", size: 14.0)!, forKey: NSFontAttributeName)
-        self.sm_gender.setTitleTextAttributes(attr as [NSObject: AnyObject], forState: .Normal)
+        let attr = NSDictionary(object: UIFont(name: "ThaiSansLite", size: 14.0)!, forKey: NSFontAttributeName as NSCopying)
+        self.sm_gender.setTitleTextAttributes(attr as! [AnyHashable: Any], for: UIControlState())
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -304,7 +323,7 @@ class EditUserDetailViewController: UIViewController,UITextFieldDelegate,UIGestu
         self.tf_lastname.delegate = self
         self.tf_firstname.delegate = self
     }
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         vw_underline_fisrt_name.backgroundColor = UIColor(red: 231/255, green: 230/255, blue: 231/255, alpha: 1.0)
         vw_underline_lastname.backgroundColor = UIColor(red: 231/255, green: 230/255, blue: 231/255, alpha: 1.0)
         vw_underline_contact.backgroundColor = UIColor(red: 231/255, green: 230/255, blue: 231/255, alpha: 1.0)
@@ -323,11 +342,11 @@ class EditUserDetailViewController: UIViewController,UITextFieldDelegate,UIGestu
     func genUserData(){
         if add_user == nil {
             if name != "" || name != "ไม่มี" || name != nil || name != " "{
-                let range = name.rangeOfString(" ")
+                let range = name.range(of: " ")
                 if range != nil {
-                let index = name.startIndex.distanceTo(range!.startIndex)
-                let firstName = name.substringWithRange(Range<String.Index>(start: name.startIndex.advancedBy(0), end: (name.startIndex.advancedBy(index))))
-                let lastName = name.substringWithRange(Range<String.Index>(start: name.startIndex.advancedBy(index+1), end: (name.endIndex.advancedBy(0))))
+                let index = name.distance(from: name.startIndex, to: range!.lowerBound)
+                let firstName = name.substring(with: (name.index(name.startIndex, offsetBy: 0) ..< (name.index(name.startIndex, offsetBy: index))))
+                let lastName = name.substring(with: (name.index(name.startIndex, offsetBy: index+1) ..< (name.index(name.endIndex, offsetBy: 0))))
                 self.tf_firstname.text = firstName
                 self.tf_lastname.text = lastName
                 }else{
@@ -352,20 +371,20 @@ class EditUserDetailViewController: UIViewController,UITextFieldDelegate,UIGestu
             lb_play_count.text = String(playCount)
             lb_freq_play.text = freqPlay
             tf_contact.text = contact
-            let numberFormatter = NSNumberFormatter()
+            let numberFormatter = NumberFormatter()
             numberFormatter.internationalCurrencySymbol = ""
-            numberFormatter.numberStyle = NSNumberFormatterStyle.CurrencyISOCodeStyle
-            lb_price.text = numberFormatter.stringFromNumber(price as NSNumber)! + " บาท"
+            numberFormatter.numberStyle = NumberFormatter.Style.currencyISOCode
+            lb_price.text = numberFormatter.string(from: price as NSNumber)! + " บาท"
         }
     }
-    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
-        return [UIInterfaceOrientationMask.Portrait]
+    override var supportedInterfaceOrientations : UIInterfaceOrientationMask {
+        return [UIInterfaceOrientationMask.portrait]
     }
 func isConnectedToNetwork() -> Bool {
     var zeroAddress = sockaddr_in()
-    zeroAddress.sin_len = UInt8(sizeofValue(zeroAddress))
+    zeroAddress.sin_len = UInt8(MemoryLayout.size(ofValue: zeroAddress))
     zeroAddress.sin_family = sa_family_t(AF_INET)
-    let defaultRouteReachability = withUnsafePointer(&zeroAddress) {
+    let defaultRouteReachability = withUnsafePointer(to: &zeroAddress) {
         SCNetworkReachabilityCreateWithAddress(nil, UnsafePointer($0))
     }
     var flags = SCNetworkReachabilityFlags()

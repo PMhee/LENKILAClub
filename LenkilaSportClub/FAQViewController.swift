@@ -26,7 +26,7 @@ class FAQViewController: UIViewController, UITableViewDelegate,MFMailComposeView
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        self.setVisible = [Bool](count: questions.count, repeatedValue: false)
+        self.setVisible = [Bool](repeating: false, count: questions.count)
         
     }
 
@@ -34,11 +34,11 @@ class FAQViewController: UIViewController, UITableViewDelegate,MFMailComposeView
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int{
+    func numberOfSectionsInTableView(_ tableView: UITableView) -> Int{
         return questions.count+1;
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if(section == questions.count){
             return 1
         } else {
@@ -51,13 +51,13 @@ class FAQViewController: UIViewController, UITableViewDelegate,MFMailComposeView
         }
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        if(indexPath.section == questions.count) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if((indexPath as NSIndexPath).section == questions.count) {
 
             //self.performSegueWithIdentifier("sendProblem", sender: self)
             let mailComposeViewController = configuredMailComposeViewController()
             if MFMailComposeViewController.canSendMail() {
-                self.presentViewController(mailComposeViewController, animated: true, completion: nil)
+                self.present(mailComposeViewController, animated: true, completion: nil)
                 
             } else {
                 self.showSendMailErrorAlert()
@@ -65,54 +65,54 @@ class FAQViewController: UIViewController, UITableViewDelegate,MFMailComposeView
             }
 
             faqTableView.reloadData()
-        }else if(indexPath.row == 0) {
-            setVisible[indexPath.section] = !setVisible[indexPath.section];
-            faqTableView.reloadSections(NSIndexSet(index: indexPath.section), withRowAnimation: UITableViewRowAnimation.Fade)
+        }else if((indexPath as NSIndexPath).row == 0) {
+            setVisible[(indexPath as NSIndexPath).section] = !setVisible[(indexPath as NSIndexPath).section];
+            faqTableView.reloadSections(IndexSet(integer: (indexPath as NSIndexPath).section), with: UITableViewRowAnimation.fade)
         } else {
 //            faqTableView.deselectRowAtIndexPath(indexPath, animated: false);
-            setVisible[indexPath.section] = !setVisible[indexPath.section];
-            faqTableView.reloadSections(NSIndexSet(index: indexPath.section), withRowAnimation: UITableViewRowAnimation.Fade)
+            setVisible[(indexPath as NSIndexPath).section] = !setVisible[(indexPath as NSIndexPath).section];
+            faqTableView.reloadSections(IndexSet(integer: (indexPath as NSIndexPath).section), with: UITableViewRowAnimation.fade)
 
         }
     }
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        if(indexPath.section == questions.count){
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if((indexPath as NSIndexPath).section == questions.count){
             return 80
         }else{
             return 60
         }
     }
-    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 1
     }
-    func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 0.00001
     }
 
 
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        if(indexPath.section == questions.count){
-            let cell = faqTableView.dequeueReusableCellWithIdentifier("ask", forIndexPath: indexPath)
+    func tableView(_ tableView: UITableView, cellForRowAtIndexPath indexPath: IndexPath) -> UITableViewCell {
+        if((indexPath as NSIndexPath).section == questions.count){
+            let cell = faqTableView.dequeueReusableCell(withIdentifier: "ask", for: indexPath)
             cell.textLabel?.font = UIFont(name: "ThaiSansNeue-Bold", size: 32)
             cell.textLabel?.text = "แจ้งปัญหาการใช้งาน"
-            cell.textLabel?.textColor=UIColor.whiteColor()
-            cell.textLabel?.textAlignment = .Center
+            cell.textLabel?.textColor=UIColor.white
+            cell.textLabel?.textAlignment = .center
             
             //cell.selectionStyle = UITableViewCellSelectionStyle.None
             
             return cell
         } else {
-            let cell = tableView.dequeueReusableCellWithIdentifier("question", forIndexPath: indexPath)
+            let cell = tableView.dequeueReusableCell(withIdentifier: "question", for: indexPath)
             cell.textLabel!.font = UIFont(name: "ThaiSansLite",size: 24)
-            if (setVisible[indexPath.section] && indexPath.row != 0) {
+            if (setVisible[(indexPath as NSIndexPath).section] && (indexPath as NSIndexPath).row != 0) {
                 cell.backgroundColor = UIColor(red:0.922,green:0.922,blue:0.922,alpha:1.00)
                 
 //                cell.textLabel?.textColor = UIColor.lightGrayColor()
-                cell.textLabel!.text = answers[indexPath.section]
+                cell.textLabel!.text = answers[(indexPath as NSIndexPath).section]
                 return cell
             } else {
-                cell.backgroundColor = UIColor.whiteColor()
-                cell.textLabel!.text = questions[indexPath.section]
+                cell.backgroundColor = UIColor.white
+                cell.textLabel!.text = questions[(indexPath as NSIndexPath).section]
                 return cell
             }
         }
@@ -135,8 +135,8 @@ class FAQViewController: UIViewController, UITableViewDelegate,MFMailComposeView
     
     // MARK: MFMailComposeViewControllerDelegate
     
-    func mailComposeController(controller: MFMailComposeViewController!, didFinishWithResult result: MFMailComposeResult, error: NSError!) {
-        controller.dismissViewControllerAnimated(true, completion: nil)
+    func mailComposeController(_ controller: MFMailComposeViewController!, didFinishWith result: MFMailComposeResult, error: Error!) {
+        controller.dismiss(animated: true, completion: nil)
         
     }
 

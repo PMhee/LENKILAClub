@@ -20,4 +20,6 @@ class User:RLMObject{
     dynamic var contact : String = ""
     dynamic var price : Int = 0
     dynamic var freqPlay : String = ""
+    dynamic var updated_at : Foundation.Date = Foundation.Date()
+    dynamic var created_at : Foundation.Date = Foundation.Date()
 }

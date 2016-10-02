@@ -23,7 +23,7 @@ class SettingViewController: UIViewController, UITableViewDelegate, UITableViewD
                         ,["แก้ไขขนาดตัวอักษร","เปลี่ยนภาษา"]
                         ,["คู่มือการใช้งาน","คำถามที่พบบ่อยและแจ้งปัญหา","ติดต่อเรา"]]
 
-    @IBAction func btn_tab_action(sender: UIButton) {
+    @IBAction func btn_tab_action(_ sender: UIButton) {
         trigger_tab()
     }
     func trigger_tab(){
@@ -48,13 +48,9 @@ class SettingViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
         tab_trigger = !tab_trigger
     }
-    func delay(delay:Double, closure:()->()) {
-        dispatch_after(
-            dispatch_time(
-                DISPATCH_TIME_NOW,
-                Int64(delay * Double(NSEC_PER_SEC))
-            ),
-            dispatch_get_main_queue(), closure)
+    func delay(_ delay:Double, closure:@escaping ()->()) {
+        DispatchQueue.main.asyncAfter(
+            deadline: DispatchTime.now() + Double(Int64(delay * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC), execute: closure)
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -81,17 +77,17 @@ class SettingViewController: UIViewController, UITableViewDelegate, UITableViewD
     
 
     // MARK: - TableView
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 3
     }
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if(section == 1){
             return 2
         }else{
             return 3
         }
     }
-    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if section == 0 {
             return "Profile"
         } else if section == 1 {
@@ -100,78 +96,78 @@ class SettingViewController: UIViewController, UITableViewDelegate, UITableViewD
             return "Help & Support"
         }
     }
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("row", forIndexPath: indexPath) as! SettingTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "row", for: indexPath) as! SettingTableViewCell
         cell.label.font = UIFont(name: "ThaiSansLite",size: 24)
-        cell.label.text = self.settingLabel[indexPath.section][indexPath.row]
-        cell.icon.frame = CGRectMake(0, 0, 64, 64)
-        cell.icon.image = UIImage(named: "settingIcon" + String(indexPath.section) + String(indexPath.row))
+        cell.label.text = self.settingLabel[(indexPath as NSIndexPath).section][(indexPath as NSIndexPath).row]
+        cell.icon.frame = CGRect(x: 0, y: 0, width: 64, height: 64)
+        cell.icon.image = UIImage(named: "settingIcon" + String((indexPath as NSIndexPath).section) + String((indexPath as NSIndexPath).row))
         
-        cell.icon.contentMode = .ScaleAspectFit
+        cell.icon.contentMode = .scaleAspectFit
         return cell
     }
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         return 60
         
     }
 
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        if(indexPath.section == 0){
-            if(indexPath.row == 0){
-                let alertController = UIAlertController(title: "ขออภัย", message: "ระบบการแก้ไขข้อมูลส่วนตัวยังอยู่ในระหว่างการพัฒนา และจะถูกเพิ่มในเวอร์ชันถัดไป", preferredStyle: .Alert)
-                let doneAction = UIAlertAction(title: "รับทราบ", style: .Default, handler: nil)
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if((indexPath as NSIndexPath).section == 0){
+            if((indexPath as NSIndexPath).row == 0){
+                let alertController = UIAlertController(title: "ขออภัย", message: "ระบบการแก้ไขข้อมูลส่วนตัวยังอยู่ในระหว่างการพัฒนา และจะถูกเพิ่มในเวอร์ชันถัดไป", preferredStyle: .alert)
+                let doneAction = UIAlertAction(title: "รับทราบ", style: .default, handler: nil)
                 alertController.addAction(doneAction)
-                self.presentViewController(alertController, animated: true, completion: nil)
+                self.present(alertController, animated: true, completion: nil)
                 //self.performSegueWithIdentifier("profile", sender: self)
-            }else if(indexPath.row == 1){
+            }else if((indexPath as NSIndexPath).row == 1){
 //                let alertController = UIAlertController(title: "ขออภัย", message: "ระบบการแก้ไขสนามยังอยู่ในระหว่างการพัฒนา และจะถูกเพิ่มในเวอร์ชันถัดไป", preferredStyle: .Alert)
 //                let doneAction = UIAlertAction(title: "รับทราบ", style: .Default, handler: nil)
 //                alertController.addAction(doneAction)
             //self.presentViewController(alertController, animated: true, completion: nil)
-                self.performSegueWithIdentifier("editField", sender: self)
+                self.performSegue(withIdentifier: "editField", sender: self)
             }else{
-                self.performSegueWithIdentifier("changePassword", sender: self)
+                self.performSegue(withIdentifier: "changePassword", sender: self)
             }
-        }else if(indexPath.section == 1){
-            if(indexPath.row == 0){
-                let alertController = UIAlertController(title: "ขออภัย", message: "ระบบการเปลี่ยนขนาดตัวอักษรยังอยู่ในระหว่างการพัฒนา และจะถูกเพิ่มในเวอร์ชันถัดไป", preferredStyle: .Alert)
-                let doneAction = UIAlertAction(title: "รับทราบ", style: .Default, handler: nil)
+        }else if((indexPath as NSIndexPath).section == 1){
+            if((indexPath as NSIndexPath).row == 0){
+                let alertController = UIAlertController(title: "ขออภัย", message: "ระบบการเปลี่ยนขนาดตัวอักษรยังอยู่ในระหว่างการพัฒนา และจะถูกเพิ่มในเวอร์ชันถัดไป", preferredStyle: .alert)
+                let doneAction = UIAlertAction(title: "รับทราบ", style: .default, handler: nil)
                 alertController.addAction(doneAction)
-                self.presentViewController(alertController, animated: true, completion: nil)
+                self.present(alertController, animated: true, completion: nil)
             
             }else{
-                let alertController = UIAlertController(title: "ขออภัย", message: "ระบบการเปลี่ยนภาษายังอยู่ในระหว่างการพัฒนา และจะถูกเพิ่มในเวอร์ชันถัดไป", preferredStyle: .Alert)
-                let doneAction = UIAlertAction(title: "รับทราบ", style: .Default, handler: nil)
+                let alertController = UIAlertController(title: "ขออภัย", message: "ระบบการเปลี่ยนภาษายังอยู่ในระหว่างการพัฒนา และจะถูกเพิ่มในเวอร์ชันถัดไป", preferredStyle: .alert)
+                let doneAction = UIAlertAction(title: "รับทราบ", style: .default, handler: nil)
                 alertController.addAction(doneAction)
-                self.presentViewController(alertController, animated: true, completion: nil)
+                self.present(alertController, animated: true, completion: nil)
             }
             
         }else{
-            if(indexPath.row == 0){
-                let alertController = UIAlertController(title: "ขออภัย", message: "คู่มือการใช้งานยังอยู่ในระหว่างการพัฒนา และจะถูกเพิ่มในเวอร์ชันถัดไป", preferredStyle: .Alert)
-                let doneAction = UIAlertAction(title: "รับทราบ", style: .Default, handler: nil)
+            if((indexPath as NSIndexPath).row == 0){
+                let alertController = UIAlertController(title: "ขออภัย", message: "คู่มือการใช้งานยังอยู่ในระหว่างการพัฒนา และจะถูกเพิ่มในเวอร์ชันถัดไป", preferredStyle: .alert)
+                let doneAction = UIAlertAction(title: "รับทราบ", style: .default, handler: nil)
                 alertController.addAction(doneAction)
-                self.presentViewController(alertController, animated: true, completion: nil)
+                self.present(alertController, animated: true, completion: nil)
                 //self.performSegueWithIdentifier("tutorial", sender: self)
-            }else if(indexPath.row == 1){
-                self.performSegueWithIdentifier("faq", sender: self)
+            }else if((indexPath as NSIndexPath).row == 1){
+                self.performSegue(withIdentifier: "faq", sender: self)
             }else{
-                self.performSegueWithIdentifier("contactUs", sender: self)
+                self.performSegue(withIdentifier: "contactUs", sender: self)
             }
         }
     }
-    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 30
     }
-    func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 0.00001
     }
-    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldReceiveTouch touch: UITouch) -> Bool {
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
         if tab_trigger {
-            x = touch.locationInView(self.view).x
-            y = touch.locationInView(self.view).y
+            x = touch.location(in: self.view).x
+            y = touch.location(in: self.view).y
             if x > self.view.frame.width * 11 / 13 {
                 enable_touch = !enable_touch
             }
@@ -180,7 +176,7 @@ class SettingViewController: UIViewController, UITableViewDelegate, UITableViewD
             return false
         }
     }
-    func gestureRecognizerShouldBegin(gestureRecognizer: UIGestureRecognizer) -> Bool {
+    func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
         if enable_touch {
             self.trigger_tab()
             enable_touch = !enable_touch

@@ -6,10 +6,9 @@ use_frameworks!
 target 'LenkilaClub' do
     pod 'RealmSwift'
     pod 'Charts'
-    pod 'CVCalendar', '~> 1.2.9'
+    #pod 'CVCalendar', '~> 1.4.0'
     pod 'SCLAlertView'
-    pod 'Alamofire', '~> 3.4’
-    pod 'PDTSimpleCalendar', '~> 0.9.1'
+    pod 'Alamofire', '~> 4.0'
 end
 
 target 'LenkilaClubTests' do
@@ -20,3 +19,10 @@ target 'LenkilaClubUITests' do
 
 end
 
+post_install do |installer|
+  installer.pods_project.targets.each do |target|
+    target.build_configurations.each do |config|
+      config.build_settings['SWIFT_VERSION'] = '2.3' # or '3.0'
+    end
+  end
+end

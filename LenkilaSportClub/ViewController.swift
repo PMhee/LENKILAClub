@@ -13,24 +13,24 @@ import Alamofire
 class ViewController: UIViewController,UITextFieldDelegate {
     
     
-    @IBAction func request_code_action(sender: UIButton) {
-        let alertController = UIAlertController(title: "Confirm Action", message: nil, preferredStyle: .ActionSheet)
+    @IBAction func request_code_action(_ sender: UIButton) {
+        let alertController = UIAlertController(title: "Confirm Action", message: nil, preferredStyle: .actionSheet)
         let callActionHandler = { (action:UIAlertAction!) -> Void in
-            UIApplication.sharedApplication().openURL(NSURL(string: "tel://0992850130")!)
+            UIApplication.shared.openURL(URL(string: "tel://0992850130")!)
         }
-        let callAction = UIAlertAction(title: "Call 0992850130", style: .Default, handler:callActionHandler)
+        let callAction = UIAlertAction(title: "Call 0992850130", style: .default, handler:callActionHandler)
         alertController.addAction(callAction)
         
         let copyActionHandler = { (action:UIAlertAction!) -> Void in
-            UIPasteboard.generalPasteboard().string = "0992850130"
+            UIPasteboard.general.string = "0992850130"
         }
-        let copyAction = UIAlertAction(title: "Copy", style: .Default, handler:copyActionHandler)
+        let copyAction = UIAlertAction(title: "Copy", style: .default, handler:copyActionHandler)
         alertController.addAction(copyAction)
         
-        let cancelAction = UIAlertAction(title: "Cancel", style: .Default, handler: nil)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: nil)
         alertController.addAction(cancelAction)
         
-        presentViewController(alertController, animated: true, completion: nil)
+        present(alertController, animated: true, completion: nil)
     }
     @IBOutlet weak var placeholder: UILabel!
     @IBOutlet weak var username_textfield: UITextField!
@@ -38,10 +38,10 @@ class ViewController: UIViewController,UITextFieldDelegate {
     @IBOutlet weak var user_name_placeholder: UILabel!
     @IBOutlet weak var tf_username: UITextField!
     
-    @IBAction func sign_in_action(sender: UIButton) {
+    @IBAction func sign_in_action(_ sender: UIButton) {
         var json = NSDictionary()
         let setting = Setting.allObjects()
-        Alamofire.request(.POST, "http://192.168.1.48:8000/Staff/login/"+tf_username.text!+"&"+username_textfield.text!)
+        Alamofire.request(.POST, "http://128.199.227.19/Staff/login/"+tf_username.text!+"&"+username_textfield.text!)
             .validate()
             .responseString { response in
                 print("Success: \(response.result.isSuccess)")
@@ -56,9 +56,9 @@ class ViewController: UIViewController,UITextFieldDelegate {
                 }
         }
         delay(2){
-            if json.valueForKey("auth") == nil{
+            if json.value(forKey: "auth") == nil{
                 self.delay(2){
-                    if json.valueForKey("auth") == nil{
+                    if json.value(forKey: "auth") == nil{
                         let appearance = SCLAlertView.SCLAppearance(
                             kTitleFont: UIFont(name: "ThaiSansLite", size: 20)!,
                             kTextFont: UIFont(name: "ThaiSansLite", size: 16)!,
@@ -69,31 +69,31 @@ class ViewController: UIViewController,UITextFieldDelegate {
                         alert.showError("ผิดพลาด", subTitle: "เชื่อมต่อล้มเหลว")
                     }else{
                         if setting.count > 0 {
-                            let realm = RLMRealm.defaultRealm()
+                            let realm = RLMRealm.default()
                             realm.beginWriteTransaction()
                             var s = Setting()
                             s = setting[0] as! Setting
                             s.already_login = true
-                            s.sportClub_id = (json.valueForKey("sportClubID") as! NSNumber).stringValue
-                            s.staff_id = (json.valueForKey("staffID") as! NSNumber).stringValue
+                            s.sportClub_id = (json.value(forKey: "sportClubID") as! NSNumber).stringValue
+                            s.staff_id = (json.value(forKey: "staffID") as! NSNumber).stringValue
                             try! realm.commitWriteTransaction()
                         }
-                        self.performSegueWithIdentifier("signIn", sender: self)
+                        self.performSegue(withIdentifier: "signIn", sender: self)
                     }
                 }
-            }else if json.valueForKey("auth")! as! String == "true"{
+            }else if json.value(forKey: "auth")! as! String == "true"{
                 if setting.count > 0 {
-                    let realm = RLMRealm.defaultRealm()
+                    let realm = RLMRealm.default()
                     realm.beginWriteTransaction()
                     var s = Setting()
                     s = setting[0] as! Setting
                     s.already_login = true
-                    s.sportClub_id = (json.valueForKey("sportClubID") as! NSNumber).stringValue
-                    s.staff_id = (json.valueForKey("staffID") as! NSNumber).stringValue
+                    s.sportClub_id = (json.value(forKey: "sportClubID") as! NSNumber).stringValue
+                    s.staff_id = (json.value(forKey: "staffID") as! NSNumber).stringValue
                     try! realm.commitWriteTransaction()
                 }
-                self.performSegueWithIdentifier("signIn", sender: self)
-            }else if json.valueForKey("auth")! as! String == "false"{
+                self.performSegue(withIdentifier: "signIn", sender: self)
+            }else if json.value(forKey: "auth")! as! String == "false"{
                 let appearance = SCLAlertView.SCLAppearance(
                     kTitleFont: UIFont(name: "ThaiSansLite", size: 20)!,
                     kTextFont: UIFont(name: "ThaiSansLite", size: 16)!,
@@ -109,69 +109,68 @@ class ViewController: UIViewController,UITextFieldDelegate {
         super.viewDidLoad()
         let setting = Setting.allObjects()
         if setting.count == 0 {
-            let realm = RLMRealm.defaultRealm()
+            let realm = RLMRealm.default()
             realm.beginWriteTransaction()
             let s = Setting()
             s.already_login = false
             s.num_field = 0
-            s.time_stamp = "2014-08-05%2013:34:25"
+            s.sche_time_stamp = "2014-08-05%2013:34:25"
+            s.user_time_stamp = "2014-08-05%2013:34:25"
             s.language = "th"
-            realm.addObject(s)
+            s.sche_inc_id = 0
+            s.user_inc_id = 0
+            realm.add(s)
             let p = Promotion()
             p.promotion_name = "ปกติ"
             p.promotion_type = "price"
             p.promotion_discount_price = 0.0
-            realm.addObject(p)
+            realm.add(p)
             try! realm.commitWriteTransaction()
         }
         username_textfield.delegate = self
         tf_username.delegate = self
         // Do any additional setup after loading the view, typically from a nib.
     }
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         let setting = Setting.allObjects()
         let s = setting[0] as! Setting
         //performSegueWithIdentifier("signIn", sender: self)
         if s.already_login{
-            performSegueWithIdentifier("signIn", sender: self)
+            performSegue(withIdentifier: "signIn", sender: self)
         }
         
     }
-    func delay(delay:Double, closure:()->()) {
-        dispatch_after(
-            dispatch_time(
-                DISPATCH_TIME_NOW,
-                Int64(delay * Double(NSEC_PER_SEC))
-            ),
-            dispatch_get_main_queue(), closure)
+    func delay(_ delay:Double, closure:@escaping ()->()) {
+        DispatchQueue.main.asyncAfter(
+            deadline: DispatchTime.now() + Double(Int64(delay * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC), execute: closure)
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    @IBAction func tf_user_begin(sender: UITextField) {
+    @IBAction func tf_user_begin(_ sender: UITextField) {
         user_name_placeholder.text = ""
     }
-    @IBAction func tf_pass_begin(sender: UITextField) {
+    @IBAction func tf_pass_begin(_ sender: UITextField) {
         placeholder.text = ""
     }
-    @IBAction func tf_user_end(sender: UITextField) {
+    @IBAction func tf_user_end(_ sender: UITextField) {
         if tf_username.text! == ""{
         user_name_placeholder.text = "username"
         }
     }
-    @IBAction func tf_pass_end(sender: UITextField) {
+    @IBAction func tf_pass_end(_ sender: UITextField) {
         if username_textfield.text! == ""{
             placeholder.text = "password"
         }
     }
-    func textFieldDidBeginEditing(textField: UITextField) {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
         textField.attributedPlaceholder = NSAttributedString(string:"")
         textField.text = ""
         //cons_verticle.constant += 50
     }
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         //cons_verticle.constant -= 50
         if textField.text! == ""{
@@ -179,8 +178,8 @@ class ViewController: UIViewController,UITextFieldDelegate {
         }
         return true
     }
-    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
-        return [UIInterfaceOrientationMask.Portrait]
+    override var supportedInterfaceOrientations : UIInterfaceOrientationMask {
+        return [UIInterfaceOrientationMask.portrait]
     }
 }
 

@@ -16,7 +16,7 @@ class SetFieldViewController: UIViewController,UITableViewDelegate,UITableViewDa
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         gatherAllPromotion()
         self.tableview.reloadData()
@@ -31,18 +31,18 @@ class SetFieldViewController: UIViewController,UITableViewDelegate,UITableViewDa
             promotion_all.append(promotion[i] as! Promotion)
         }
     }
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return promotion_all.count
     }
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         let name = cell.viewWithTag(1) as! UILabel
-        name.text = promotion_all[indexPath.row].promotion_name
+        name.text = promotion_all[(indexPath as NSIndexPath).row].promotion_name
         let price  = cell.viewWithTag(2) as! UILabel
-        if promotion_all[indexPath.row].promotion_type == "price"{
-            price.text = "ลด \(promotion_all[indexPath.row].promotion_discount_price) บาท"
+        if promotion_all[(indexPath as NSIndexPath).row].promotion_type == "price"{
+            price.text = "ลด \(promotion_all[(indexPath as NSIndexPath).row].promotion_discount_price) บาท"
         }else{
-            price.text = "ลด \(promotion_all[indexPath.row].promotion_diccount_percent) %"
+            price.text = "ลด \(promotion_all[(indexPath as NSIndexPath).row].promotion_diccount_percent) %"
         }
         return cell
     }

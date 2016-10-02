@@ -9,82 +9,82 @@
 import UIKit
 
 class ContactUsViewController: UIViewController {
-    @IBAction func callNon(sender: AnyObject) {
-        let alertController = UIAlertController(title: "Confirm Action", message: nil, preferredStyle: .ActionSheet)
+    @IBAction func callNon(_ sender: AnyObject) {
+        let alertController = UIAlertController(title: "Confirm Action", message: nil, preferredStyle: .actionSheet)
         let callActionHandler = { (action:UIAlertAction!) -> Void in
-            UIApplication.sharedApplication().openURL(NSURL(string: "tel://0992850130")!)
+            UIApplication.shared.openURL(URL(string: "tel://0992850130")!)
         }
-        let callAction = UIAlertAction(title: "Call 0992850130", style: .Default, handler:callActionHandler)
+        let callAction = UIAlertAction(title: "Call 0992850130", style: .default, handler:callActionHandler)
         alertController.addAction(callAction)
         
         let copyActionHandler = { (action:UIAlertAction!) -> Void in
-            UIPasteboard.generalPasteboard().string = "0992850130"
+            UIPasteboard.general.string = "0992850130"
         }
-        let copyAction = UIAlertAction(title: "Copy", style: .Default, handler:copyActionHandler)
+        let copyAction = UIAlertAction(title: "Copy", style: .default, handler:copyActionHandler)
         alertController.addAction(copyAction)
         
-        let cancelAction = UIAlertAction(title: "Cancel", style: .Default, handler: nil)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: nil)
         alertController.addAction(cancelAction)
         
-        presentViewController(alertController, animated: true, completion: nil)
+        present(alertController, animated: true, completion: nil)
     }
-    @IBAction func callNonPic(sender: AnyObject) {
-        let alertController = UIAlertController(title: "Confirm Action", message: nil, preferredStyle: .ActionSheet)
+    @IBAction func callNonPic(_ sender: AnyObject) {
+        let alertController = UIAlertController(title: "Confirm Action", message: nil, preferredStyle: .actionSheet)
         let callActionHandler = { (action:UIAlertAction!) -> Void in
-            UIApplication.sharedApplication().openURL(NSURL(string: "tel://0992850130")!)
+            UIApplication.shared.openURL(URL(string: "tel://0992850130")!)
         }
-        let callAction = UIAlertAction(title: "Call 0992850130", style: .Default, handler:callActionHandler)
+        let callAction = UIAlertAction(title: "Call 0992850130", style: .default, handler:callActionHandler)
         alertController.addAction(callAction)
         
         let copyActionHandler = { (action:UIAlertAction!) -> Void in
-            UIPasteboard.generalPasteboard().string = "0992850130"
+            UIPasteboard.general.string = "0992850130"
         }
-        let copyAction = UIAlertAction(title: "Copy", style: .Default, handler:copyActionHandler)
+        let copyAction = UIAlertAction(title: "Copy", style: .default, handler:copyActionHandler)
         alertController.addAction(copyAction)
         
-        let cancelAction = UIAlertAction(title: "Cancel", style: .Default, handler: nil)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: nil)
         alertController.addAction(cancelAction)
         
-        presentViewController(alertController, animated: true, completion: nil)
+        present(alertController, animated: true, completion: nil)
     }
     
-    @IBAction func callJump(sender: AnyObject) {
-        let alertController = UIAlertController(title: "Confirm Action", message: nil, preferredStyle: .ActionSheet)
+    @IBAction func callJump(_ sender: AnyObject) {
+        let alertController = UIAlertController(title: "Confirm Action", message: nil, preferredStyle: .actionSheet)
         let callActionHandler = { (action:UIAlertAction!) -> Void in
-            UIApplication.sharedApplication().openURL(NSURL(string: "tel://0837570982")!)
+            UIApplication.shared.openURL(URL(string: "tel://0837570982")!)
         }
-        let callAction = UIAlertAction(title: "Call 0837570982", style: .Default, handler:callActionHandler)
+        let callAction = UIAlertAction(title: "Call 0837570982", style: .default, handler:callActionHandler)
         alertController.addAction(callAction)
         
         let copyActionHandler = { (action:UIAlertAction!) -> Void in
-            UIPasteboard.generalPasteboard().string = "0837570982"
+            UIPasteboard.general.string = "0837570982"
         }
-        let copyAction = UIAlertAction(title: "Copy", style: .Default, handler:copyActionHandler)
+        let copyAction = UIAlertAction(title: "Copy", style: .default, handler:copyActionHandler)
         alertController.addAction(copyAction)
         
-        let cancelAction = UIAlertAction(title: "Cancel", style: .Default, handler: nil)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: nil)
         alertController.addAction(cancelAction)
         
-        presentViewController(alertController, animated: true, completion: nil)
+        present(alertController, animated: true, completion: nil)
     }
-    @IBAction func callJumpPic(sender: AnyObject) {
-        let alertController = UIAlertController(title: "Confirm Action", message: nil, preferredStyle: .ActionSheet)
+    @IBAction func callJumpPic(_ sender: AnyObject) {
+        let alertController = UIAlertController(title: "Confirm Action", message: nil, preferredStyle: .actionSheet)
         let callActionHandler = { (action:UIAlertAction!) -> Void in
-            UIApplication.sharedApplication().openURL(NSURL(string: "tel://0837570982")!)
+            UIApplication.shared.openURL(URL(string: "tel://0837570982")!)
         }
-        let callAction = UIAlertAction(title: "Call 0837570982", style: .Default, handler:callActionHandler)
+        let callAction = UIAlertAction(title: "Call 0837570982", style: .default, handler:callActionHandler)
         alertController.addAction(callAction)
         
         let copyActionHandler = { (action:UIAlertAction!) -> Void in
-            UIPasteboard.generalPasteboard().string = "0837570982"
+            UIPasteboard.general.string = "0837570982"
         }
-        let copyAction = UIAlertAction(title: "Copy", style: .Default, handler:copyActionHandler)
+        let copyAction = UIAlertAction(title: "Copy", style: .default, handler:copyActionHandler)
         alertController.addAction(copyAction)
         
-        let cancelAction = UIAlertAction(title: "Cancel", style: .Default, handler: nil)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: nil)
         alertController.addAction(cancelAction)
         
-        presentViewController(alertController, animated: true, completion: nil)
+        present(alertController, animated: true, completion: nil)
     }
 
     override func viewDidLoad() {

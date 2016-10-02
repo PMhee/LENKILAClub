@@ -18,6 +18,9 @@ class Setting:RLMObject{
     dynamic var language : String = ""
     dynamic var font_size : Int = 0
     dynamic var user_id : String = ""
-    dynamic var time_stamp : String = ""
+    dynamic var sche_time_stamp : String = ""
+    dynamic var user_time_stamp : String = ""
     dynamic var staff_id : String = ""
+    dynamic var sche_inc_id : Int = 0
+    dynamic var user_inc_id : Int = 0
 }
