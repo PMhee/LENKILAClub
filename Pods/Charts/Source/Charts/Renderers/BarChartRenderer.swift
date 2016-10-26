@@ -77,7 +77,7 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
             else { return }
         
         let barWidthHalf = barData.barWidth / 2.0
-        
+    
         let buffer = _buffers[index]
         var bufferIndex = 0
         let containsStacks = dataSet.isStacked
@@ -326,11 +326,11 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
     
     open func prepareBarHighlight(
         x: Double,
-        y1: Double,
-        y2: Double,
-        barWidthHalf: Double,
-        trans: Transformer,
-        rect: inout CGRect)
+          y1: Double,
+          y2: Double,
+          barWidthHalf: Double,
+          trans: Transformer,
+          rect: inout CGRect)
     {
         let left = x - barWidthHalf
         let right = x + barWidthHalf
@@ -344,7 +344,7 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
         
         trans.rectValueToPixel(&rect, phaseY: animator?.phaseY ?? 1.0)
     }
-    
+
     open override func drawValues(context: CGContext)
     {
         // if values are drawn
@@ -358,7 +358,7 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
                 else { return }
             
             var dataSets = barData.dataSets
-            
+
             let valueOffsetPlus: CGFloat = 4.5
             var posOffset: CGFloat
             var negOffset: CGFloat
@@ -394,7 +394,7 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
                 let trans = dataProvider.getTransformer(forAxis: dataSet.axisDependency)
                 
                 let phaseY = animator.phaseY
-                
+        
                 // if only single values are drawn (sum)
                 if !dataSet.isStacked
                 {
@@ -575,7 +575,7 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
                 set.isHighlightEnabled
                 else { continue }
             
-            if let e = set.entryForXValue(high.x) as? BarChartDataEntry
+            if let e = set.entryForXValue(high.x, closestToY: high.y) as? BarChartDataEntry
             {
                 if !isInBoundsX(entry: e, dataSet: set)
                 {

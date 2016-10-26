@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="H1D-Ez-AJM">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="H1D-Ez-AJM">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -83,7 +83,7 @@
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="row" id="LXJ-2a-PqI" customClass="SettingTableViewCell" customModule="LenkilaClub" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="55.5" width="240" height="60"/>
+                                        <rect key="frame" x="0.0" y="56" width="240" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LXJ-2a-PqI" id="zyj-tl-BX5">
                                             <frame key="frameInset" width="240" height="60"/>
@@ -1623,7 +1623,7 @@
                                         <rect key="frame" x="0.0" y="28" width="240" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="OYx-vT-39M" id="qpj-b4-Fyv">
-                                            <frame key="frameInset" width="240" height="43.5"/>
+                                            <frame key="frameInset" width="240" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="g6v-Si-bBf">
@@ -1643,7 +1643,7 @@
                                         <rect key="frame" x="0.0" y="72" width="240" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eXH-Qy-fEB" id="HFN-IF-R7S">
-                                            <frame key="frameInset" width="240" height="43.5"/>
+                                            <frame key="frameInset" width="240" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="pKD-Ky-H1C">
@@ -1728,7 +1728,7 @@
             <objects>
                 <navigationController id="27U-qI-sxa" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="c8n-tg-Pb1"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="3Uc-3c-7Ma">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="3Uc-3c-7Ma">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2385,7 +2385,7 @@
                                         <rect key="frame" x="0.0" y="28" width="240" height="66"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xmG-an-Dtp" id="CAP-yP-w75">
-                                            <frame key="frameInset" width="240" height="65.5"/>
+                                            <frame key="frameInset" width="240" height="66"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="โปรวันเกิด" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FVB-Ca-6ya">
@@ -3959,7 +3959,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="qvw-OO-gIY"/>
-        <segue reference="IJL-Ur-3Jx"/>
+        <segue reference="iYM-cn-N4p"/>
         <segue reference="onY-9k-hCM"/>
     </inferredMetricsTieBreakers>
 </document>

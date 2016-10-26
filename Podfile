@@ -4,11 +4,11 @@
 use_frameworks!
 
 target 'LenkilaClub' do
-    pod 'RealmSwift'
-    pod 'Charts'
-    #pod 'CVCalendar', '~> 1.4.0'
-    pod 'SCLAlertView'
-    pod 'Alamofire', '~> 4.0'
+    pod 'RealmSwift', ‘~> 2.0.2’
+    pod 'Charts', '~> 3.0.0’
+    pod 'CVCalendar'
+    pod 'SCLAlertView’, ‘~> 0.7.0’
+    pod 'Alamofire'
 end
 
 target 'LenkilaClubTests' do

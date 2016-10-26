@@ -137,32 +137,32 @@ class ScheduleViewController: UIViewController,UIScrollViewDelegate,UIGestureRec
                             self.clearTable()
                             self.genScheduleOnTable()
                             self.already_show = false
-                            if self.isConnectedToNetwork(){
-                                let setting = Setting.allObjects()
-                                let encode = "\((setting[0] as! Setting).sportClub_id)/\((setting[0] as! Setting).staff_id)/\(id)".addingPercentEncoding(withAllowedCharacters: .urlHostAllowed())
-                                print("\(self.ip_address)Schedule/delete/sportClubID=\(encode!)")
-                                Alamofire.request(.DELETE, "\(self.ip_address)Schedule/delete/\(encode!)")
-                                    .responseString { response in
-                                        print("Success: \(response.result.isSuccess)")
-                                        //print("Response String: \(response.result.value)")
-                                        if response.result.isSuccess{
-                                        }
-                                        
-                                    }
-                                    .responseJSON { response in
-                                        debugPrint(response.result.value)
-                                }
-                            }else{
-                                let realm = RLMRealm.default()
-                                realm.beginWriteTransaction()
-                                let temp = Temp()
-                                realm.beginWriteTransaction()
-                                temp.type = "delete"
-                                temp.schedule_id = id
-                                temp.type_of_table = "schedule"
-                                realm.add(temp)
-                                try! realm.commitWriteTransaction()
-                            }
+//                            if self.isConnectedToNetwork(){
+//                                let setting = Setting.allObjects()
+//                                let encode = "\((setting[0] as! Setting).sportClub_id)/\((setting[0] as! Setting).staff_id)/\(id)".addingPercentEncoding(withAllowedCharacters: .urlHostAllowed())
+//                                print("\(self.ip_address)Schedule/delete/sportClubID=\(encode!)")
+//                                Alamofire.request(.DELETE, "\(self.ip_address)Schedule/delete/\(encode!)")
+//                                    .responseString { response in
+//                                        print("Success: \(response.result.isSuccess)")
+//                                        //print("Response String: \(response.result.value)")
+//                                        if response.result.isSuccess{
+//                                        }
+//                                        
+//                                    }
+//                                    .responseJSON { response in
+//                                        debugPrint(response.result.value)
+//                                }
+//                            }else{
+//                                let realm = RLMRealm.default()
+//                                realm.beginWriteTransaction()
+//                                let temp = Temp()
+//                                realm.beginWriteTransaction()
+//                                temp.type = "delete"
+//                                temp.schedule_id = id
+//                                temp.type_of_table = "schedule"
+//                                realm.add(temp)
+//                                try! realm.commitWriteTransaction()
+                           // }
                             
                         }
                     }
@@ -229,187 +229,187 @@ class ScheduleViewController: UIViewController,UIScrollViewDelegate,UIGestureRec
         self.genScheduleOnTable()
     }
     override func viewDidLoad() {
-        if isConnectedToNetwork(){
-            super.viewDidLoad()
-            var json = NSArray()
-            var json_user = NSArray()
-            let setting = Setting.allObjects()
-            var set = Setting()
-            let sche_tt = (setting[0] as! Setting).sche_time_stamp
-            let user_tt = (setting[0] as! Setting).user_time_stamp
-            var encode = "\((setting[0] as! Setting).sportClub_id)/\(sche_tt)".addingPercentEncoding(withAllowedCharacters: .urlHostAllowed())
-            Alamofire.request(.GET, "\(ip_address)Schedule/lastUpdate/"+encode!)
-                .validate()
-                .responseString { response in
-                    print("Success: \(response.result.isSuccess)")
-                    print("Response String: \(response.result.value)")
-                }.responseJSON { response in
-                    debugPrint(response.result.value)
-                    if response.result.value == nil {
-                        
-                    }else{
-                        json = response.result.value as! NSArray
-                    }
-            }
-            encode = "\((setting[0] as! Setting).sportClub_id)/\(user_tt)".addingPercentEncoding(withAllowedCharacters: .urlHostAllowed())
-            Alamofire.request(.GET, "\(ip_address)Schedule/lastUpdate/"+encode!)
-            Alamofire.request(.GET, "\(ip_address)User/lastUpdate/"+encode!)
-                .validate()
-                .responseString { response in
-                    print("Success: \(response.result.isSuccess)")
-                    print("Response String: \(response.result.value)")
-                }.responseJSON { response in
-                    debugPrint(response.result.value)
-                    if response.result.value == nil {
-                        
-                    }else{
-                        json_user = response.result.value as! NSArray
-                    }
-            }
-            // do some task
-            var maxU = 0
-            var maxS = 0
-            self.delay(2){
-                print("JSON"+String(json.count)+String(json_user.count))
-                if json_user.count > 0 {
-                    let realm = RLMRealm.default()
-                    realm.beginWriteTransaction()
-                    let s = setting[0] as! Setting
-                    s.user_time_stamp = (json[0] as AnyObject).value(forKey: "updated_at") as! String
-                    try! realm.commitWriteTransaction()
-                    self.user_update = true
-                    for i in 0..<json_user.count{
-                        let realm = RLMRealm.default()
-                        realm.beginWriteTransaction()
-                        let user =  User()
-                        user.id = ((json_user[i] as AnyObject).value(forKey: "userID") as! NSNumber).stringValue
-                        user.name = ((json_user[i] as AnyObject).value(forKey: "firstName") as! String)+((json_user[i] as AnyObject).value(forKey: "lastName") as! String)
-                        user.nickName = (json_user[i] as AnyObject).value(forKey: "nickName") as! String
-                        user.gender = (json_user[i] as AnyObject).value(forKey: "gender") as! String
-                        user.age = ((json_user[i] as AnyObject).value(forKey: "age") as! NSNumber).intValue
-                        user.workPlace = (json_user[i] as AnyObject).value(forKey: "workplace") as! String
-                        user.playCount = ((json_user[i] as AnyObject).value(forKey: "playCount") as! NSNumber).intValue
-                        user.contact = (json_user[i] as AnyObject).value(forKey: "telephone") as! String
-                        user.price = ((json_user[i] as AnyObject).value(forKey: "discountPercent") as! NSNumber).intValue
-                        user.freqPlay = (json_user[i] as AnyObject).value(forKey: "freqPlay") as! String
-                        let df = DateFormatter()
-                        df.dateFormat = "yyyy-MM-dd HH:mm:ss"
-                        user.updated_at = df.date(from: (json_user[i] as AnyObject).value(forKey: "updated_at") as! String)!
-                        user.created_at = df.date(from: (json_user[i] as AnyObject).value(forKey: "created_at") as! String)!
-                        set = setting[0] as! Setting
-                        set.user_time_stamp = (json_user[i] as AnyObject).value(forKey: "updated_at") as! String
-                        if Int(user.id) > maxU {
-                            maxU = Int(user.id)!
-                        }
-                        let users = User.allObjects()
-                        if Int(user.id) < set.user_inc_id {
-                            for i in 0..<users.count{
-                                let u = users[i] as! User
-                                if u.id == user.id{
-                                    u.id = user.id
-                                    u.name = user.name
-                                    u.nickName = user.nickName
-                                    u.gender = user.gender
-                                    u.age = user.age
-                                    u.workPlace = user.workPlace
-                                    u.playCount = user.playCount
-                                    u.contact = user.contact
-                                    u.price = user.price
-                                    u.freqPlay = user.freqPlay
-                                }
-                            }
-                            try! realm.commitWriteTransaction()
-                        }else{
-                            realm.add(user)
-                            try! realm.commitWriteTransaction()
-                        }
-                    }
-                }
-                if json.count > 0 {
-                    let realm = RLMRealm.default()
-                    realm.beginWriteTransaction()
-                    let s = setting[0] as! Setting
-                    s.sche_time_stamp = (json[0] as AnyObject).value(forKey: "updated_at") as! String
-                    try! realm.commitWriteTransaction()
-                    self.schedule_update = true
-                    for i in 0..<json.count{
-                        let realm = RLMRealm.default()
-                        realm.beginWriteTransaction()
-                        let schedule = Schedule()
-                        schedule.id = ((json[i] as AnyObject).value(forKey: "scheduleID") as! NSNumber).stringValue
-                        schedule.type = (json[i] as AnyObject).value(forKey: "type") as! String
-                        schedule.date = (json[i] as AnyObject).value(forKey: "date") as! String
-                        schedule.time = (json[i] as AnyObject).value(forKey: "time") as! String
-                        schedule.price = ((json[i] as AnyObject).value(forKey: "price") as! NSNumber).doubleValue
-                        schedule.field = ((json[i] as AnyObject).value(forKey: "fieldID") as! NSNumber).stringValue
-                        schedule.tag = ((json[i] as AnyObject).value(forKey: "tag") as! NSNumber).intValue
-                        schedule.userID = ((json[i] as AnyObject).value(forKey: "userID") as! NSNumber).stringValue
-                        schedule.colorTag = (json[i] as AnyObject).value(forKey: "colorTag") as! String
-                        schedule.paid_type = (json[i] as AnyObject).value(forKey: "paidType") as! String
-                        schedule.already_paid = (json[i] as AnyObject).value(forKey: "alreadyPaid") as! Bool
-                        schedule.sort_date = ((json[i] as AnyObject).value(forKey: "sortDate") as! NSNumber).intValue
-                        schedule.sportClubID = ((json[i] as AnyObject).value(forKey: "sportClubID") as! NSNumber).stringValue
-                        schedule.staffID = ((json[i] as AnyObject).value(forKey: "staffID") as! NSNumber).stringValue
-                        let df = DateFormatter()
-                        df.dateFormat = "yyyy-MM-dd HH:mm:ss"
-                        schedule.updated_at = df.date(from: (json[i] as AnyObject).value(forKey: "updated_at") as! String)!
-                        schedule.created_at = df.date(from: (json[i] as AnyObject).value(forKey: "created_at") as! String)!
-                        set = setting[0] as! Setting
-                        if Int(schedule.id) > maxS {
-                            maxS = Int(schedule.id)!
-                        }
-                        set.sche_time_stamp = (json[i] as AnyObject).value(forKey: "updated_at") as! String
-                        let schedules = Schedule.allObjects()
-                        if Int(schedule.id) < set.sche_inc_id{
-                            for i in 0..<schedules.count{
-                                let s = schedules[i] as! Schedule
-                                if s.id == schedule.id{
-                                    s.id = schedule.id
-                                    s.type = schedule.type
-                                    s.date = schedule.date
-                                    s.time = schedule.time
-                                    s.price = schedule.price
-                                    s.field = schedule.field
-                                    s.tag = schedule.tag
-                                    s.userID = schedule.userID
-                                    s.colorTag = schedule.colorTag
-                                    s.paid_type = schedule.paid_type
-                                    s.already_paid = schedule.already_paid
-                                    s.sort_date = schedule.sort_date
-                                    s.sportClubID = schedule.sportClubID
-                                    s.staffID = schedule.staffID
-                                    break
-                                }
-                            }
-                            try! realm.commitWriteTransaction()
-                        }else{
-                            realm.add(schedule)
-                            try! realm.commitWriteTransaction()
-                        }
-                    }
-                    let appearance = SCLAlertView.SCLAppearance(
-                        kTitleFont: UIFont(name: "ThaiSansLite", size: 20)!,
-                        kTextFont: UIFont(name: "ThaiSansLite", size: 16)!,
-                        kButtonFont: UIFont(name: "ThaiSansLite", size: 16)!,
-                        showCloseButton: false
-                    )
-                    let alert = SCLAlertView(appearance:appearance)
-                    alert.showInfo("อัพเดทข้อมูล", subTitle: "อัพเดทข้อมูลเรียบร้อยแล้ว",duration:2.0)
-                    
-                }
-                let realm = RLMRealm.default()
-                realm.beginWriteTransaction()
-                let s = setting[0] as! Setting
-                if s.sche_inc_id < maxS {
-                    s.sche_inc_id = maxS+1
-                }
-                if s.user_inc_id < maxU {
-                    s.user_inc_id = maxU+1
-                }
-                try! realm.commitWriteTransaction()
-            }
-            
-        }
+//        if isConnectedToNetwork(){
+//            super.viewDidLoad()
+//            var json = NSArray()
+//            var json_user = NSArray()
+//            let setting = Setting.allObjects()
+//            var set = Setting()
+//            let sche_tt = (setting[0] as! Setting).sche_time_stamp
+//            let user_tt = (setting[0] as! Setting).user_time_stamp
+//            var encode = "\((setting[0] as! Setting).sportClub_id)/\(sche_tt)".addingPercentEncoding(withAllowedCharacters: .urlHostAllowed())
+//            Alamofire.request(.GET, "\(ip_address)Schedule/lastUpdate/"+encode!)
+//                .validate()
+//                .responseString { response in
+//                    print("Success: \(response.result.isSuccess)")
+//                    print("Response String: \(response.result.value)")
+//                }.responseJSON { response in
+//                    debugPrint(response.result.value)
+//                    if response.result.value == nil {
+//                        
+//                    }else{
+//                        json = response.result.value as! NSArray
+//                    }
+//            }
+//            encode = "\((setting[0] as! Setting).sportClub_id)/\(user_tt)".addingPercentEncoding(withAllowedCharacters: .urlHostAllowed())
+//            Alamofire.request(.GET, "\(ip_address)Schedule/lastUpdate/"+encode!)
+//            Alamofire.request(.GET, "\(ip_address)User/lastUpdate/"+encode!)
+//                .validate()
+//                .responseString { response in
+//                    print("Success: \(response.result.isSuccess)")
+//                    print("Response String: \(response.result.value)")
+//                }.responseJSON { response in
+//                    debugPrint(response.result.value)
+//                    if response.result.value == nil {
+//                        
+//                    }else{
+//                        json_user = response.result.value as! NSArray
+//                    }
+//            }
+//            // do some task
+//            var maxU = 0
+//            var maxS = 0
+//            self.delay(2){
+//                print("JSON"+String(json.count)+String(json_user.count))
+//                if json_user.count > 0 {
+//                    let realm = RLMRealm.default()
+//                    realm.beginWriteTransaction()
+//                    let s = setting[0] as! Setting
+//                    s.user_time_stamp = (json[0] as AnyObject).value(forKey: "updated_at") as! String
+//                    try! realm.commitWriteTransaction()
+//                    self.user_update = true
+//                    for i in 0..<json_user.count{
+//                        let realm = RLMRealm.default()
+//                        realm.beginWriteTransaction()
+//                        let user =  User()
+//                        user.id = ((json_user[i] as AnyObject).value(forKey: "userID") as! NSNumber).stringValue
+//                        user.name = ((json_user[i] as AnyObject).value(forKey: "firstName") as! String)+((json_user[i] as AnyObject).value(forKey: "lastName") as! String)
+//                        user.nickName = (json_user[i] as AnyObject).value(forKey: "nickName") as! String
+//                        user.gender = (json_user[i] as AnyObject).value(forKey: "gender") as! String
+//                        user.age = ((json_user[i] as AnyObject).value(forKey: "age") as! NSNumber).intValue
+//                        user.workPlace = (json_user[i] as AnyObject).value(forKey: "workplace") as! String
+//                        user.playCount = ((json_user[i] as AnyObject).value(forKey: "playCount") as! NSNumber).intValue
+//                        user.contact = (json_user[i] as AnyObject).value(forKey: "telephone") as! String
+//                        user.price = ((json_user[i] as AnyObject).value(forKey: "discountPercent") as! NSNumber).intValue
+//                        user.freqPlay = (json_user[i] as AnyObject).value(forKey: "freqPlay") as! String
+//                        let df = DateFormatter()
+//                        df.dateFormat = "yyyy-MM-dd HH:mm:ss"
+//                        user.updated_at = df.date(from: (json_user[i] as AnyObject).value(forKey: "updated_at") as! String)!
+//                        user.created_at = df.date(from: (json_user[i] as AnyObject).value(forKey: "created_at") as! String)!
+//                        set = setting[0] as! Setting
+//                        set.user_time_stamp = (json_user[i] as AnyObject).value(forKey: "updated_at") as! String
+//                        if Int(user.id) > maxU {
+//                            maxU = Int(user.id)!
+//                        }
+//                        let users = User.allObjects()
+//                        if Int(user.id) < set.user_inc_id {
+//                            for i in 0..<users.count{
+//                                let u = users[i] as! User
+//                                if u.id == user.id{
+//                                    u.id = user.id
+//                                    u.name = user.name
+//                                    u.nickName = user.nickName
+//                                    u.gender = user.gender
+//                                    u.age = user.age
+//                                    u.workPlace = user.workPlace
+//                                    u.playCount = user.playCount
+//                                    u.contact = user.contact
+//                                    u.price = user.price
+//                                    u.freqPlay = user.freqPlay
+//                                }
+//                            }
+//                            try! realm.commitWriteTransaction()
+//                        }else{
+//                            realm.add(user)
+//                            try! realm.commitWriteTransaction()
+//                        }
+//                    }
+//                }
+//                if json.count > 0 {
+//                    let realm = RLMRealm.default()
+//                    realm.beginWriteTransaction()
+//                    let s = setting[0] as! Setting
+//                    s.sche_time_stamp = (json[0] as AnyObject).value(forKey: "updated_at") as! String
+//                    try! realm.commitWriteTransaction()
+//                    self.schedule_update = true
+//                    for i in 0..<json.count{
+//                        let realm = RLMRealm.default()
+//                        realm.beginWriteTransaction()
+//                        let schedule = Schedule()
+//                        schedule.id = ((json[i] as AnyObject).value(forKey: "scheduleID") as! NSNumber).stringValue
+//                        schedule.type = (json[i] as AnyObject).value(forKey: "type") as! String
+//                        schedule.date = (json[i] as AnyObject).value(forKey: "date") as! String
+//                        schedule.time = (json[i] as AnyObject).value(forKey: "time") as! String
+//                        schedule.price = ((json[i] as AnyObject).value(forKey: "price") as! NSNumber).doubleValue
+//                        schedule.field = ((json[i] as AnyObject).value(forKey: "fieldID") as! NSNumber).stringValue
+//                        schedule.tag = ((json[i] as AnyObject).value(forKey: "tag") as! NSNumber).intValue
+//                        schedule.userID = ((json[i] as AnyObject).value(forKey: "userID") as! NSNumber).stringValue
+//                        schedule.colorTag = (json[i] as AnyObject).value(forKey: "colorTag") as! String
+//                        schedule.paid_type = (json[i] as AnyObject).value(forKey: "paidType") as! String
+//                        schedule.already_paid = (json[i] as AnyObject).value(forKey: "alreadyPaid") as! Bool
+//                        schedule.sort_date = ((json[i] as AnyObject).value(forKey: "sortDate") as! NSNumber).intValue
+//                        schedule.sportClubID = ((json[i] as AnyObject).value(forKey: "sportClubID") as! NSNumber).stringValue
+//                        schedule.staffID = ((json[i] as AnyObject).value(forKey: "staffID") as! NSNumber).stringValue
+//                        let df = DateFormatter()
+//                        df.dateFormat = "yyyy-MM-dd HH:mm:ss"
+//                        schedule.updated_at = df.date(from: (json[i] as AnyObject).value(forKey: "updated_at") as! String)!
+//                        schedule.created_at = df.date(from: (json[i] as AnyObject).value(forKey: "created_at") as! String)!
+//                        set = setting[0] as! Setting
+//                        if Int(schedule.id) > maxS {
+//                            maxS = Int(schedule.id)!
+//                        }
+//                        set.sche_time_stamp = (json[i] as AnyObject).value(forKey: "updated_at") as! String
+//                        let schedules = Schedule.allObjects()
+//                        if Int(schedule.id) < set.sche_inc_id{
+//                            for i in 0..<schedules.count{
+//                                let s = schedules[i] as! Schedule
+//                                if s.id == schedule.id{
+//                                    s.id = schedule.id
+//                                    s.type = schedule.type
+//                                    s.date = schedule.date
+//                                    s.time = schedule.time
+//                                    s.price = schedule.price
+//                                    s.field = schedule.field
+//                                    s.tag = schedule.tag
+//                                    s.userID = schedule.userID
+//                                    s.colorTag = schedule.colorTag
+//                                    s.paid_type = schedule.paid_type
+//                                    s.already_paid = schedule.already_paid
+//                                    s.sort_date = schedule.sort_date
+//                                    s.sportClubID = schedule.sportClubID
+//                                    s.staffID = schedule.staffID
+//                                    break
+//                                }
+//                            }
+//                            try! realm.commitWriteTransaction()
+//                        }else{
+//                            realm.add(schedule)
+//                            try! realm.commitWriteTransaction()
+//                        }
+//                    }
+//                    let appearance = SCLAlertView.SCLAppearance(
+//                        kTitleFont: UIFont(name: "ThaiSansLite", size: 20)!,
+//                        kTextFont: UIFont(name: "ThaiSansLite", size: 16)!,
+//                        kButtonFont: UIFont(name: "ThaiSansLite", size: 16)!,
+//                        showCloseButton: false
+//                    )
+//                    let alert = SCLAlertView(appearance:appearance)
+//                    alert.showInfo("อัพเดทข้อมูล", subTitle: "อัพเดทข้อมูลเรียบร้อยแล้ว",duration:2.0)
+//                    
+//                }
+//                let realm = RLMRealm.default()
+//                realm.beginWriteTransaction()
+//                let s = setting[0] as! Setting
+//                if s.sche_inc_id < maxS {
+//                    s.sche_inc_id = maxS+1
+//                }
+//                if s.user_inc_id < maxU {
+//                    s.user_inc_id = maxU+1
+//                }
+//                try! realm.commitWriteTransaction()
+//            }
+//            
+//        }
         //        Alamofire.request(.POST, "http://192.168.1.35:8000/Schedule/delete/1/1/2")
         //            .validate()
         //            .responseString { response in
@@ -510,98 +510,98 @@ class ScheduleViewController: UIViewController,UIScrollViewDelegate,UIGestureRec
             self.view.bringSubview(toFront: self.vw_tab)
             self.view.sendSubview(toBack: self.vw_peak)
         }
-        if self.isConnectedToNetwork(){
-            let setting = Setting.allObjects()
-            let tmp = Temp.allObjects()
-            print("temp"+String(tmp.count))
-            if tmp.count > 0 {
-                for i in 0..<tmp.count{
-                    let t = tmp[i] as! Temp
-                    print(t)
-                    if t.type_of_table == "schedule"{
-                        if t.type == "create"{
-                            for i in 0..<schedualArray.count{
-                                if t.schedule_id == schedualArray[i].id{
-                                    let encode = "\((setting[0] as! Setting).sportClub_id)&scheduleID=\(self.schedualArray[i].id)&type=reserve&date=\(self.schedualArray[i].date)&time=\(self.schedualArray[i].time)&price=\(self.schedualArray[i].price)&tag=\(self.schedualArray[i].tag)&userID=\(self.schedualArray[i].userID)&colorTag=\(self.schedualArray[i].colorTag)&paidType=\(self.schedualArray[i].paid_type)&alreadyPaid=\(self.schedualArray[i].already_paid)&sortDate=\(self.schedualArray[i].sort_date)&fieldID=\(self.schedualArray[i].field)&staffID=\((setting[0] as! Setting).staff_id)".addingPercentEncoding(withAllowedCharacters: .urlHostAllowed())
-                                    print("\(self.ip_address)Schedule/create?sportClubID=\(encode!)")
-                                    Alamofire.request(.POST, "\(self.ip_address)Schedule/create?sportClubID=\(encode!)")
-                                        .responseString { response in
-                                            print("Success: \(response.result.isSuccess)")
-                                            print("Response String: \(response.result.value)")
-                                            if response.result.isSuccess{
-                                                let realm = RLMRealm.default()
-                                                realm.beginWriteTransaction()
-                                                realm.delete(t)
-                                                try! realm.commitWriteTransaction()
-                                            }
-                                    }
-                                }
-                            }
-                        }else if t.type == "update"{
-                            for i in 0..<schedualArray.count{
-                                if t.schedule_id == schedualArray[i].id{
-                                    let encode = "\((setting[0] as! Setting).sportClub_id)&scheduleID=\(self.schedualArray[i].id)&type=reserve&date=\(self.schedualArray[i].date)&time=\(self.schedualArray[i].time)&price=\(self.schedualArray[i].price)&tag=\(self.schedualArray[i].tag)&userID=\(self.schedualArray[i].userID)&colorTag=\(self.schedualArray[i].colorTag)&paidType=\(self.schedualArray[i].paid_type)&alreadyPaid=\(self.schedualArray[i].already_paid)&sortDate=\(self.schedualArray[i].sort_date)&fieldID=\(self.schedualArray[i].field)&staffID=\((setting[0] as! Setting).staff_id)".addingPercentEncoding(withAllowedCharacters: .urlHostAllowed())
-                                    Alamofire.request(.POST, "\(self.ip_address)Schedule/update?sportClubID=\(encode!)")
-                                        .responseString { response in
-                                            print("Success: \(response.result.isSuccess)")
-                                            print("Response String: \(response.result.value)")
-                                            if response.result.isSuccess{
-                                                let realm = RLMRealm.default()
-                                                realm.beginWriteTransaction()
-                                                realm.delete(t)
-                                                try! realm.commitWriteTransaction()
-                                            }
-                                    }
-                                }
-                            }
-                            
-                        }else{
-                            for i in 0..<schedualArray.count{
-                                if t.schedule_id == schedualArray[i].id{
-                                    let ec = "\((setting[0] as! Setting).sportClub_id)/scheduleID=\(self.schedualArray[i].id)/staffID=\((setting[0] as! Setting).staff_id)".addingPercentEncoding(withAllowedCharacters: .urlHostAllowed())
-                                    Alamofire.request(.POST, "\(self.ip_address)Schedule/delete/sportClubID=\(ec!)")
-                                        .responseString { response in
-                                            print("Success: \(response.result.isSuccess)")
-                                            print("Response String: \(response.result.value)")
-                                            if response.result.isSuccess{
-                                                let realm = RLMRealm.default()
-                                                realm.beginWriteTransaction()
-                                                realm.delete(t)
-                                                try! realm.commitWriteTransaction()
-                                            }
-                                    }
-                                }
-                            }
-                        }
-                    }else{
-                        if t.type == "create"{
-                            for i in 0..<user_array.count{
-                                if t.user_id == user_array[i].id{
-                                    api.addTempUser(user_array[i], success: { (response) in
-                                        let realm = RLMRealm.default()
-                                        realm.beginWriteTransaction()
-                                        realm.delete(t)
-                                        try! realm.commitWriteTransaction()
-                                        }, failure: {_ in })
-                                }
-                            }
-                        }else{
-                            for i in 0..<user_array.count{
-                                if t.user_id == user_array[i].id{
-                                    api.updateTempUser(user_array[i], success: { (response) in
-                                        let realm = RLMRealm.default()
-                                        realm.beginWriteTransaction()
-                                        realm.delete(t)
-                                        try! realm.commitWriteTransaction()
-                                        }, failure: {_ in })
-                                }
-                            }
-                            
-                        }
-                    }
-                }
-            }
-        }
+//        if self.isConnectedToNetwork(){
+//            let setting = Setting.allObjects()
+//            let tmp = Temp.allObjects()
+//            print("temp"+String(tmp.count))
+//            if tmp.count > 0 {
+//                for i in 0..<tmp.count{
+//                    let t = tmp[i] as! Temp
+//                    print(t)
+//                    if t.type_of_table == "schedule"{
+//                        if t.type == "create"{
+//                            for i in 0..<schedualArray.count{
+//                                if t.schedule_id == schedualArray[i].id{
+//                                    let encode = "\((setting[0] as! Setting).sportClub_id)&scheduleID=\(self.schedualArray[i].id)&type=reserve&date=\(self.schedualArray[i].date)&time=\(self.schedualArray[i].time)&price=\(self.schedualArray[i].price)&tag=\(self.schedualArray[i].tag)&userID=\(self.schedualArray[i].userID)&colorTag=\(self.schedualArray[i].colorTag)&paidType=\(self.schedualArray[i].paid_type)&alreadyPaid=\(self.schedualArray[i].already_paid)&sortDate=\(self.schedualArray[i].sort_date)&fieldID=\(self.schedualArray[i].field)&staffID=\((setting[0] as! Setting).staff_id)".addingPercentEncoding(withAllowedCharacters: .urlHostAllowed())
+//                                    print("\(self.ip_address)Schedule/create?sportClubID=\(encode!)")
+//                                    Alamofire.request(.POST, "\(self.ip_address)Schedule/create?sportClubID=\(encode!)")
+//                                        .responseString { response in
+//                                            print("Success: \(response.result.isSuccess)")
+//                                            print("Response String: \(response.result.value)")
+//                                            if response.result.isSuccess{
+//                                                let realm = RLMRealm.default()
+//                                                realm.beginWriteTransaction()
+//                                                realm.delete(t)
+//                                                try! realm.commitWriteTransaction()
+//                                            }
+//                                    }
+//                                }
+//                            }
+//                        }else if t.type == "update"{
+//                            for i in 0..<schedualArray.count{
+//                                if t.schedule_id == schedualArray[i].id{
+//                                    let encode = "\((setting[0] as! Setting).sportClub_id)&scheduleID=\(self.schedualArray[i].id)&type=reserve&date=\(self.schedualArray[i].date)&time=\(self.schedualArray[i].time)&price=\(self.schedualArray[i].price)&tag=\(self.schedualArray[i].tag)&userID=\(self.schedualArray[i].userID)&colorTag=\(self.schedualArray[i].colorTag)&paidType=\(self.schedualArray[i].paid_type)&alreadyPaid=\(self.schedualArray[i].already_paid)&sortDate=\(self.schedualArray[i].sort_date)&fieldID=\(self.schedualArray[i].field)&staffID=\((setting[0] as! Setting).staff_id)".addingPercentEncoding(withAllowedCharacters: .urlHostAllowed())
+//                                    Alamofire.request(.POST, "\(self.ip_address)Schedule/update?sportClubID=\(encode!)")
+//                                        .responseString { response in
+//                                            print("Success: \(response.result.isSuccess)")
+//                                            print("Response String: \(response.result.value)")
+//                                            if response.result.isSuccess{
+//                                                let realm = RLMRealm.default()
+//                                                realm.beginWriteTransaction()
+//                                                realm.delete(t)
+//                                                try! realm.commitWriteTransaction()
+//                                            }
+//                                    }
+//                                }
+//                            }
+//                            
+//                        }else{
+//                            for i in 0..<schedualArray.count{
+//                                if t.schedule_id == schedualArray[i].id{
+//                                    let ec = "\((setting[0] as! Setting).sportClub_id)/scheduleID=\(self.schedualArray[i].id)/staffID=\((setting[0] as! Setting).staff_id)".addingPercentEncoding(withAllowedCharacters: .urlHostAllowed())
+//                                    Alamofire.request(.POST, "\(self.ip_address)Schedule/delete/sportClubID=\(ec!)")
+//                                        .responseString { response in
+//                                            print("Success: \(response.result.isSuccess)")
+//                                            print("Response String: \(response.result.value)")
+//                                            if response.result.isSuccess{
+//                                                let realm = RLMRealm.default()
+//                                                realm.beginWriteTransaction()
+//                                                realm.delete(t)
+//                                                try! realm.commitWriteTransaction()
+//                                            }
+//                                    }
+//                                }
+//                            }
+//                        }
+//                    }else{
+//                        if t.type == "create"{
+//                            for i in 0..<user_array.count{
+//                                if t.user_id == user_array[i].id{
+//                                    api.addTempUser(user_array[i], success: { (response) in
+//                                        let realm = RLMRealm.default()
+//                                        realm.beginWriteTransaction()
+//                                        realm.delete(t)
+//                                        try! realm.commitWriteTransaction()
+//                                        }, failure: {_ in })
+//                                }
+//                            }
+//                        }else{
+//                            for i in 0..<user_array.count{
+//                                if t.user_id == user_array[i].id{
+//                                    api.updateTempUser(user_array[i], success: { (response) in
+//                                        let realm = RLMRealm.default()
+//                                        realm.beginWriteTransaction()
+//                                        realm.delete(t)
+//                                        try! realm.commitWriteTransaction()
+//                                        }, failure: {_ in })
+//                                }
+//                            }
+//                            
+//                        }
+//                    }
+//                }
+//            }
+//        }
         self.clearTable()
         self.genScheduleOnTable()
         if self.schedualArray.count > 0 {
@@ -803,7 +803,9 @@ class ScheduleViewController: UIViewController,UIScrollViewDelegate,UIGestureRec
                     temp_h = height
                     self.hh = transition.y
                     self.field = String(tempx)
-                    self.time = String(tempy+4)+".00"+" - "+String(tempy+height+4)+".00"
+                    var time1 = ""+String(tempy+4)+".00 - "
+                    var time2 = ""+String(tempy+height+4)+".00"
+                    self.time = "" + time1 + time2
                 }
             }
         case .ended :
@@ -826,7 +828,9 @@ class ScheduleViewController: UIViewController,UIScrollViewDelegate,UIGestureRec
             //print(width)
             let v = UIView(frame: CGRect(x: (width*CGFloat(i))+(width), y: 0, width: 1, height: self.view.frame.height))
             v.backgroundColor = UIColor(red: 225/255, green: 224/255, blue: 225/255, alpha: 1.0)
-            let label = UILabel(frame:CGRect(x: (width*CGFloat(i))+(width)+(width/2)-6,y: self.view.frame.height*CGFloat(0.15),width: 20,height: 20))
+            var xt = (width*CGFloat(i))+(width)+(width/2)-6
+            var yt = self.view.frame.height*CGFloat(0.15)
+            let label = UILabel(frame:CGRect(x: xt,y: yt,width: 20,height: 20))
             label.text = String(i+1)
             label.font = UIFont(name: "ThaiSansLite", size: 15)
             label.textColor = UIColor.black
@@ -931,21 +935,21 @@ class ScheduleViewController: UIViewController,UIScrollViewDelegate,UIGestureRec
     override var supportedInterfaceOrientations : UIInterfaceOrientationMask {
         return [UIInterfaceOrientationMask.portrait]
     }
-    func isConnectedToNetwork() -> Bool {
-        var zeroAddress = sockaddr_in()
-        zeroAddress.sin_len = UInt8(MemoryLayout.size(ofValue: zeroAddress))
-        zeroAddress.sin_family = sa_family_t(AF_INET)
-        let defaultRouteReachability = withUnsafePointer(to: &zeroAddress) {
-            SCNetworkReachabilityCreateWithAddress(nil, UnsafePointer($0))
-        }
-        var flags = SCNetworkReachabilityFlags()
-        if !SCNetworkReachabilityGetFlags(defaultRouteReachability!, &flags) {
-            return false
-        }
-        let isReachable = (flags.rawValue & UInt32(kSCNetworkFlagsReachable)) != 0
-        let needsConnection = (flags.rawValue & UInt32(kSCNetworkFlagsConnectionRequired)) != 0
-        return (isReachable && !needsConnection)
-    }
+//    func isConnectedToNetwork() -> Bool {
+//        var zeroAddress = sockaddr_in()
+//        zeroAddress.sin_len = UInt8(MemoryLayout.size(ofValue: zeroAddress))
+//        zeroAddress.sin_family = sa_family_t(AF_INET)
+//        let defaultRouteReachability = withUnsafePointer(to: &zeroAddress) {
+//            SCNetworkReachabilityCreateWithAddress(nil, UnsafePointer($0))
+//        }
+//        var flags = SCNetworkReachabilityFlags()
+//        if !SCNetworkReachabilityGetFlags(defaultRouteReachability!, &flags) {
+//            return false
+//        }
+//        let isReachable = (flags.rawValue & UInt32(kSCNetworkFlagsReachable)) != 0
+//        let needsConnection = (flags.rawValue & UInt32(kSCNetworkFlagsConnectionRequired)) != 0
+//        return (isReachable && !needsConnection)
+//    }
     
     /*
      // MARK: - Navigation

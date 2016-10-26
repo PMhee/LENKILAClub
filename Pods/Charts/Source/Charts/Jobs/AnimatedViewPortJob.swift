@@ -16,7 +16,7 @@ import CoreGraphics
     import UIKit
 #endif
 
-open class AnimatedViewPortJob: ChartViewPortJob
+open class AnimatedViewPortJob: ViewPortJob
 {
     internal var phase: CGFloat = 1.0
     internal var xOrigin: CGFloat = 0.0
@@ -30,10 +30,10 @@ open class AnimatedViewPortJob: ChartViewPortJob
     fileprivate var _easing: ChartEasingFunctionBlock?
     
     public init(
-        viewPortHandler: ChartViewPortHandler,
-        xIndex: CGFloat,
+        viewPortHandler: ViewPortHandler,
+        xValue: Double,
         yValue: Double,
-        transformer: ChartTransformer,
+        transformer: Transformer,
         view: ChartViewBase,
         xOrigin: CGFloat,
         yOrigin: CGFloat,
@@ -41,7 +41,7 @@ open class AnimatedViewPortJob: ChartViewPortJob
         easing: ChartEasingFunctionBlock?)
     {
         super.init(viewPortHandler: viewPortHandler,
-            xIndex: xIndex,
+            xValue: xValue,
             yValue: yValue,
             transformer: transformer,
             view: view)
@@ -70,13 +70,13 @@ open class AnimatedViewPortJob: ChartViewPortJob
         
         updateAnimationPhase(_startTime)
         
-        _displayLink = NSUIDisplayLink(target: self, selector: #selector(AnimatedViewPortJob.animationLoop))
+        _displayLink = NSUIDisplayLink(target: self, selector: #selector(animationLoop))
         _displayLink.add(to: RunLoop.main, forMode: RunLoopMode.commonModes)
     }
     
     open func stop(finish: Bool)
     {
-        if (_displayLink != nil)
+        if _displayLink != nil
         {
             _displayLink.remove(from: RunLoop.main, forMode: RunLoopMode.commonModes)
             _displayLink = nil
@@ -108,7 +108,7 @@ open class AnimatedViewPortJob: ChartViewPortJob
         
         if _easing != nil
         {
-            phase = _easing!(elapsed, duration)
+            phase = CGFloat(_easing!(elapsed, duration))
         }
         else
         {
@@ -124,7 +124,7 @@ open class AnimatedViewPortJob: ChartViewPortJob
         
         animationUpdate()
         
-        if (currentTime >= _endTime)
+        if currentTime >= _endTime
         {
             stop(finish: true)
         }

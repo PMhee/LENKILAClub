@@ -41,20 +41,20 @@ class ViewController: UIViewController,UITextFieldDelegate {
     @IBAction func sign_in_action(_ sender: UIButton) {
         var json = NSDictionary()
         let setting = Setting.allObjects()
-        Alamofire.request(.POST, "http://128.199.227.19/Staff/login/"+tf_username.text!+"&"+username_textfield.text!)
-            .validate()
-            .responseString { response in
-                print("Success: \(response.result.isSuccess)")
-                print("Response String: \(response.result.value)")
-            }
-            .responseJSON { response in
-                debugPrint(response.result.value)
-                if response.result.value == nil {
-                    
-                }else{
-                    json = response.result.value as! NSDictionary
-                }
-        }
+//        Alamofire.request(.POST, "http://128.199.227.19/Staff/login/"+tf_username.text!+"&"+username_textfield.text!)
+//            .validate()
+//            .responseString { response in
+//                print("Success: \(response.result.isSuccess)")
+//                print("Response String: \(response.result.value)")
+//            }
+//            .responseJSON { response in
+//                debugPrint(response.result.value)
+//                if response.result.value == nil {
+//                    
+//                }else{
+//                    json = response.result.value as! NSDictionary
+//                }
+//        }
         delay(2){
             if json.value(forKey: "auth") == nil{
                 self.delay(2){
@@ -135,7 +135,7 @@ class ViewController: UIViewController,UITextFieldDelegate {
         super.viewDidAppear(true)
         let setting = Setting.allObjects()
         let s = setting[0] as! Setting
-        //performSegueWithIdentifier("signIn", sender: self)
+        performSegue(withIdentifier: "signIn", sender: self)
         if s.already_login{
             performSegue(withIdentifier: "signIn", sender: self)
         }

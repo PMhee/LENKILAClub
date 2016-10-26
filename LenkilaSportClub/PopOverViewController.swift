@@ -223,9 +223,9 @@ extension PopOverViewController {
     func toggleMonthViewWithMonthOffset(_ offset: Int) {
         let calendar = Calendar.current
         //        let calendarManager = calendarView.manager
-        let components = Manager.componentsForDate(Foundation.Date()) // from today
+        var components = Manager.componentsForDate(Foundation.Date()) // from today
         
-        components.month += offset
+        components.month! += offset
         
         let resultDate = calendar.date(from: components)!
         

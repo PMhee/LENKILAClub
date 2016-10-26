@@ -2,8 +2,6 @@
 //  CandleChartDataSet.swift
 //  Charts
 //
-//  Created by Daniel Cohen Gindi on 4/3/15.
-//
 //  Copyright 2015 Daniel Cohen Gindi & Philipp Jahoda
 //  A port of MPAndroidChart for iOS
 //  Licensed under Apache License 2.0
@@ -23,54 +21,52 @@ open class CandleChartDataSet: LineScatterCandleRadarChartDataSet, ICandleChartD
         super.init()
     }
     
-    public override init(yVals: [ChartDataEntry]?, label: String?)
+    public override init(values: [ChartDataEntry]?, label: String?)
     {
-        super.init(yVals: yVals, label: label)
+        super.init(values: values, label: label)
     }
     
     // MARK: - Data functions and accessors
     
-    open override func calcMinMax(start: Int, end: Int)
+    open override func calcMinMax(entry e: ChartDataEntry)
     {
-        let yValCount = self.entryCount
+        guard let e = e as? CandleChartDataEntry
+            else { return }
         
-        if yValCount == 0
+        if e.low < _yMin
         {
-            return
+            _yMin = e.low
         }
         
-        var entries = yVals as! [CandleChartDataEntry]
-        
-        var endValue : Int
-        
-        if end == 0 || end >= yValCount
+        if e.high > _yMax
         {
-            endValue = yValCount - 1
-        }
-        else
-        {
-            endValue = end
+            _yMax = e.high
         }
         
-        _lastStart = start
-        _lastEnd = end
+        calcMinMaxX(entry: e)
+    }
+    
+    open override func calcMinMaxY(entry e: ChartDataEntry)
+    {
+        guard let e = e as? CandleChartDataEntry
+            else { return }
         
-        _yMin = DBL_MAX
-        _yMax = -DBL_MAX
-        
-        for i in stride(from: start, through: endValue, by: 1)
+        if e.high < _yMin
         {
-            let e = entries[i]
-            
-            if (e.low < _yMin)
-            {
-                _yMin = e.low
-            }
-            
-            if (e.high > _yMax)
-            {
-                _yMax = e.high
-            }
+            _yMin = e.high
+        }
+        if e.high > _yMax
+        {
+            _yMax = e.high
+        }
+        
+        if e.low < _yMin
+        {
+            _yMin = e.low
+        }
+        if e.low > _yMax
+        {
+            _yMax = e.low
         }
     }
     
@@ -87,11 +83,11 @@ open class CandleChartDataSet: LineScatterCandleRadarChartDataSet, ICandleChartD
     {
         set
         {
-            if (newValue < 0.0)
+            if newValue < 0.0
             {
                 _barSpace = 0.0
             }
-            else if (newValue > 0.45)
+            else if newValue > 0.45
             {
                 _barSpace = 0.45
             }
