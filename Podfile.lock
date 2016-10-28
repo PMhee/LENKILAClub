@@ -1,13 +1,13 @@
 PODS:
   - Alamofire (4.0.1)
-  - Charts (2.3.0):
-    - Charts/Core (= 2.3.0)
-  - Charts/Core (2.3.0)
-  - Realm (2.0.0):
-    - Realm/Headers (= 2.0.0)
-  - Realm/Headers (2.0.0)
-  - RealmSwift (2.0.0):
-    - Realm (= 2.0.0)
+  - Charts (2.2.5):
+    - Charts/Core (= 2.2.5)
+  - Charts/Core (2.2.5)
+  - Realm (2.0.1):
+    - Realm/Headers (= 2.0.1)
+  - Realm/Headers (2.0.1)
+  - RealmSwift (2.0.1):
+    - Realm (= 2.0.1)
   - SCLAlertView (0.6.0)
 
 DEPENDENCIES:
@@ -18,9 +18,9 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   Alamofire: 7682d43245de14874acd142ec137b144aa1dd335
-  Charts: 55d7fd9af175b500208601bea872f0fc72c1d19e
-  Realm: 6dda421ae4b3e9a09742fc2cf4b876d459cbedcd
-  RealmSwift: 7d015f34a2781a50889be9b5a15c36c08597ea0e
+  Charts: b48fcc8d7190de910ff9e9748f5360c8ea7856e5
+  Realm: 0557ee0e4ab4f0936c90e370056d1ed6265f93d6
+  RealmSwift: 64e00af79bdcd7d2a7a23fdc1cb3faf22b80ae4c
   SCLAlertView: 0f6b3c23a48b4993564ff1dd3c065782e4b2b687
 
 COCOAPODS: 0.39.0
