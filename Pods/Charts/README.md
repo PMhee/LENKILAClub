@@ -1,9 +1,14 @@
+<<<<<<< HEAD
 **Version 2.2.5**, synced to [MPAndroidChart #1b9b3da](https://github.com/PhilJay/MPAndroidChart/commit/1b9b3da)
+=======
+**Version 3.0**, synced to [MPAndroidChart #810c99c](https://github.com/PhilJay/MPAndroidChart/commit/810c99c)
+>>>>>>> c6b0cd0431b1e43c905dfbbe8f6ec1b399d78ed0
 
 ![alt tag](https://raw.github.com/danielgindi/Charts/master/Assets/feature_graphic.png)
-  ![Supported Platforms](https://img.shields.io/cocoapods/p/Charts.svg) [![Releases](https://img.shields.io/github/release/danielgindi/Charts.svg)](https://github.com/danielgindi/Charts/releases) [![Latest pod release](https://img.shields.io/cocoapods/v/Charts.svg)](http://cocoapods.org/pods/charts) [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage) [![Build Status](https://travis-ci.org/danielgindi/Charts.svg?branch=master)](https://travis-ci.org/danielgindi/Charts) 
+  ![Supported Platforms](https://img.shields.io/cocoapods/p/Charts.svg) [![Releases](https://img.shields.io/github/release/danielgindi/Charts.svg)](https://github.com/danielgindi/Charts/releases) [![Latest pod release](https://img.shields.io/cocoapods/v/Charts.svg)](http://cocoapods.org/pods/charts) [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage) [![Build Status](https://travis-ci.org/danielgindi/Charts.svg?branch=master)](https://travis-ci.org/danielgindi/Charts) [![codecov](https://codecov.io/gh/danielgindi/Charts/branch/master/graph/badge.svg)](https://codecov.io/gh/danielgindi/Charts)
 [![Join the chat at https://gitter.im/danielgindi/Charts](https://badges.gitter.im/danielgindi/Charts.svg)](https://gitter.im/danielgindi/Charts?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
+<<<<<<< HEAD
 ## Just a heads up: We've renamed from *ios-charts* to **Charts**.
 
 * Xcode 7.3 / Swift 2.2 / 3.0
@@ -11,12 +16,37 @@
 * iOS 8.0 / 9.0 (Use as an **Embedded** Framework)
 * tvOS 9.0
 * OSX 10.11
+=======
+### Just a heads up: Charts 3.0 has some breaking changes. Please read [the release/migration notes](https://github.com/danielgindi/Charts/releases/tag/v3.0.0). 
+
+* Xcode 8.0 / Swift 3.0 (For Swift 2.3 support please use [Charts 2.3.0](https://github.com/danielgindi/Charts/tree/v2.3.0))
+* iOS >= 8.0 (Use as an **Embedded** Framework)
+* tvOS >= 9.0
+* macOS >= 10.11
+>>>>>>> c6b0cd0431b1e43c905dfbbe8f6ec1b399d78ed0
 
 Okay so there's this beautiful library called [MPAndroidChart](https://github.com/PhilJay/MPAndroidChart) by [Philipp Jahoda](https://www.linkedin.com/in/philippjahoda) which has become very popular amongst Android developers, and in the meanwhile there's no decent charting solution for iOS.
 
 I've chosen to write it in `Swift` as it can be highly optimized by the compiler, and can be used in both `Swift` and `ObjC` project. The demo project is written in `ObjC` to demonstrate how it works.
 
+<<<<<<< HEAD
 **An amazing feature** of this library now, for Android, iOS, tvOS and OSX, is the time it saves you when developing for both platforms, as the learning curve is singleton- it happens only once, and the code stays very similar so developers don't have to go around and re-invent the app to produce the same output with a different library. (And that's not even considering the fact that there's not really another good choice out there currently...)
+=======
+**An amazing feature** of this library now, for Android, iOS, tvOS and macOS, is the time it saves you when developing for both platforms, as the learning curve is singleton- it happens only once, and the code stays very similar so developers don't have to go around and re-invent the app to produce the same output with a different library. (And that's not even considering the fact that there's not really another good choice out there currently...)
+
+## Having trouble running the demo?
+
+* `ChartsDemo/ChartsDemo.xcodeproj` is the demo project for iOS/tvOS
+* `ChartsDemo-OSX/ChartsDemo-OSX.xcodeproj` is the demo project for macOS
+* Make sure you are running a supported version of Xcode.
+  * Usually it is specified here a few lines above.
+  * In most cases it will be the latest Xcode version.
+* Make sure that your project supports Swift 3.0
+* Run `carthage checkout` in the project folder, to fetch dependencies (i.e Realm).
+  * Realm is not required for using Charts - it is just a feature. But as the demo demonstrates Realm - you have to have it when running the demo.
+  * If you don't have Carthage - you can get it [here](https://github.com/Carthage/Carthage/releases).
+
+>>>>>>> c6b0cd0431b1e43c905dfbbe8f6ec1b399d78ed0
 
 ## Usage
 

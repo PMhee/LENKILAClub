@@ -88,7 +88,7 @@ open class ChartColorTemplates: NSObject
     {
         let leftParenCharset: CharacterSet = CharacterSet(charactersIn: "( ")
         let commaCharset: CharacterSet = CharacterSet(charactersIn: ", ")
-        
+
         let colorString = colorString.lowercased()
         
         if colorString.hasPrefix("#")

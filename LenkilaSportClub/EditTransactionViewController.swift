@@ -76,49 +76,49 @@ class EditTransactionViewController: UIViewController,UITextFieldDelegate,UIGest
             }
         }
         try! realm.commitWriteTransaction()
-        if self.isConnectedToNetwork(){
-            let setting = Setting.allObjects()
-            let encode = "\((setting[0] as! Setting).sportClub_id)&scheduleID=\(schedule.id)&alreadyPaid=\(schedule.already_paid)&price=\(schedule.price)&staffID=\((setting[0] as! Setting).staff_id)".addingPercentEncoding(withAllowedCharacters: .urlHostAllowed())
-            Alamofire.request(.PUT, "\(self.ip_address)Schedule/update?sportClubID=\(encode!)")
-                .responseString { response in
-                    print("Success: \(response.result.isSuccess)")
-                    print("Response String: \(response.result.value)")
-                    if !response.result.isSuccess{
-                        let temp = Temp()
-                        realm.beginWriteTransaction()
-                        temp.type = "update"
-                        temp.type_of_table = "schedule"
-                        temp.schedule_id = self.schedule.id
-                        realm.add(temp)
-                        try! realm.commitWriteTransaction()
-                    }
-            }
-                .responseJSON { response in
-                    debugPrint(response.result.value)
-                    if response.result.value == nil {
-                        
-                    }else{
-                        let json = response.result.value as! NSDictionary
-                        let df = DateFormatter()
-                        df.dateFormat = "yyyy-MM-dd HH:mm:ss"
-                        realm.beginWriteTransaction()
-                        self.schedule.updated_at = df.date(from: json.value(forKey: "updated_at") as! String)!
-                        let setting = Setting.allObjects()
-                        let s = setting[0] as! Setting
-                        s.sche_time_stamp = json.value(forKey: "updated_at") as! String
-                        try! realm.commitWriteTransaction()
-                    }
-            }
-
-        }else{
-            let temp = Temp()
-            realm.beginWriteTransaction()
-            temp.type = "update"
-            temp.type_of_table = "schedule"
-            temp.schedule_id = schedule.id
-            realm.add(temp)
-            try! realm.commitWriteTransaction()
-        }
+//        if self.isConnectedToNetwork(){
+//            let setting = Setting.allObjects()
+//            let encode = "\((setting[0] as! Setting).sportClub_id)&scheduleID=\(schedule.id)&alreadyPaid=\(schedule.already_paid)&price=\(schedule.price)&staffID=\((setting[0] as! Setting).staff_id)".addingPercentEncoding(withAllowedCharacters: .urlHostAllowed())
+//            Alamofire.request(.PUT, "\(self.ip_address)Schedule/update?sportClubID=\(encode!)")
+//                .responseString { response in
+//                    print("Success: \(response.result.isSuccess)")
+//                    print("Response String: \(response.result.value)")
+//                    if !response.result.isSuccess{
+//                        let temp = Temp()
+//                        realm.beginWriteTransaction()
+//                        temp.type = "update"
+//                        temp.type_of_table = "schedule"
+//                        temp.schedule_id = self.schedule.id
+//                        realm.add(temp)
+//                        try! realm.commitWriteTransaction()
+//                    }
+//            }
+//                .responseJSON { response in
+//                    debugPrint(response.result.value)
+//                    if response.result.value == nil {
+//                        
+//                    }else{
+//                        let json = response.result.value as! NSDictionary
+//                        let df = DateFormatter()
+//                        df.dateFormat = "yyyy-MM-dd HH:mm:ss"
+//                        realm.beginWriteTransaction()
+//                        self.schedule.updated_at = df.date(from: json.value(forKey: "updated_at") as! String)!
+//                        let setting = Setting.allObjects()
+//                        let s = setting[0] as! Setting
+//                        s.sche_time_stamp = json.value(forKey: "updated_at") as! String
+//                        try! realm.commitWriteTransaction()
+//                    }
+//            }
+//
+//        }else{
+//            let temp = Temp()
+//            realm.beginWriteTransaction()
+//            temp.type = "update"
+//            temp.type_of_table = "schedule"
+//            temp.schedule_id = schedule.id
+//            realm.add(temp)
+//            try! realm.commitWriteTransaction()
+//        }
         self.performSegue(withIdentifier: "confirm", sender: self)
     }
     var realPrice:Double!
@@ -255,21 +255,21 @@ class EditTransactionViewController: UIViewController,UITextFieldDelegate,UIGest
         }
     }
 
-    func isConnectedToNetwork() -> Bool {
-        var zeroAddress = sockaddr_in()
-        zeroAddress.sin_len = UInt8(MemoryLayout.size(ofValue: zeroAddress))
-        zeroAddress.sin_family = sa_family_t(AF_INET)
-        let defaultRouteReachability = withUnsafePointer(to: &zeroAddress) {
-            SCNetworkReachabilityCreateWithAddress(nil, UnsafePointer($0))
-        }
-        var flags = SCNetworkReachabilityFlags()
-        if !SCNetworkReachabilityGetFlags(defaultRouteReachability!, &flags) {
-            return false
-        }
-        let isReachable = (flags.rawValue & UInt32(kSCNetworkFlagsReachable)) != 0
-        let needsConnection = (flags.rawValue & UInt32(kSCNetworkFlagsConnectionRequired)) != 0
-        return (isReachable && !needsConnection)
-    }
+//    func isConnectedToNetwork() -> Bool {
+//        var zeroAddress = sockaddr_in()
+//        zeroAddress.sin_len = UInt8(MemoryLayout.size(ofValue: zeroAddress))
+//        zeroAddress.sin_family = sa_family_t(AF_INET)
+//        let defaultRouteReachability = withUnsafePointer(to: &zeroAddress) {
+//            SCNetworkReachabilityCreateWithAddress(nil, UnsafePointer($0))
+//        }
+//        var flags = SCNetworkReachabilityFlags()
+//        if !SCNetworkReachabilityGetFlags(defaultRouteReachability!, &flags) {
+//            return false
+//        }
+//        let isReachable = (flags.rawValue & UInt32(kSCNetworkFlagsReachable)) != 0
+//        let needsConnection = (flags.rawValue & UInt32(kSCNetworkFlagsConnectionRequired)) != 0
+//        return (isReachable && !needsConnection)
+//    }
     /*
      // MARK: - Navigation
      

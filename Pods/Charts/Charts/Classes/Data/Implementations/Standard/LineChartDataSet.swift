@@ -2,8 +2,6 @@
 //  LineChartDataSet.swift
 //  Charts
 //
-//  Created by Daniel Cohen Gindi on 26/2/15.
-//
 //  Copyright 2015 Daniel Cohen Gindi & Philipp Jahoda
 //  A port of MPAndroidChart for iOS
 //  Licensed under Apache License 2.0
@@ -38,9 +36,9 @@ open class LineChartDataSet: LineRadarChartDataSet, ILineChartDataSet
         initialize()
     }
     
-    public override init(yVals: [ChartDataEntry]?, label: String?)
+    public override init(values: [ChartDataEntry]?, label: String?)
     {
-        super.init(yVals: yVals, label: label)
+        super.init(values: values, label: label)
         initialize()
     }
     
@@ -67,11 +65,11 @@ open class LineChartDataSet: LineRadarChartDataSet, ILineChartDataSet
         set
         {
             _cubicIntensity = newValue
-            if (_cubicIntensity > 1.0)
+            if _cubicIntensity > 1.0
             {
                 _cubicIntensity = 1.0
             }
-            if (_cubicIntensity < 0.05)
+            if _cubicIntensity < 0.05
             {
                 _cubicIntensity = 0.05
             }
@@ -118,13 +116,13 @@ open class LineChartDataSet: LineRadarChartDataSet, ILineChartDataSet
     
     open var circleColors = [NSUIColor]()
     
-    /// - returns: the color at the given index of the DataSet's circle-color array.
+    /// - returns: The color at the given index of the DataSet's circle-color array.
     /// Performs a IndexOutOfBounds check by modulus.
-    open func getCircleColor(_ index: Int) -> NSUIColor?
+    open func getCircleColor(atIndex index: Int) -> NSUIColor?
     {
         let size = circleColors.count
         let index = index % size
-        if (index >= size)
+        if index >= size
         {
             return nil
         }
@@ -139,6 +137,12 @@ open class LineChartDataSet: LineRadarChartDataSet, ILineChartDataSet
         circleColors.append(color)
     }
     
+    open func setCircleColors(_ colors: NSUIColor...)
+    {
+        circleColors.removeAll(keepingCapacity: false)
+        circleColors.append(contentsOf: colors)
+    }
+    
     /// Resets the circle-colors array and creates a new one
     open func resetCircleColors(_ index: Int)
     {
@@ -148,16 +152,16 @@ open class LineChartDataSet: LineRadarChartDataSet, ILineChartDataSet
     /// If true, drawing circles is enabled
     open var drawCirclesEnabled = true
     
-    /// - returns: true if drawing circles for this DataSet is enabled, false if not
+    /// - returns: `true` if drawing circles for this DataSet is enabled, `false` ifnot
     open var isDrawCirclesEnabled: Bool { return drawCirclesEnabled }
     
     /// The color of the inner circle (the circle-hole).
     open var circleHoleColor: NSUIColor? = NSUIColor.white
     
-    /// True if drawing circles for this DataSet is enabled, false if not
+    /// `true` if drawing circles for this DataSet is enabled, `false` ifnot
     open var drawCircleHoleEnabled = true
     
-    /// - returns: true if drawing the circle-holes is enabled, false if not.
+    /// - returns: `true` if drawing the circle-holes is enabled, `false` ifnot.
     open var isDrawCircleHoleEnabled: Bool { return drawCircleHoleEnabled }
     
     /// This is how much (in pixels) into the dash pattern are we starting from.
@@ -172,10 +176,10 @@ open class LineChartDataSet: LineRadarChartDataSet, ILineChartDataSet
     open var lineCapType = CGLineCap.butt
     
     /// formatter for customizing the position of the fill-line
-    fileprivate var _fillFormatter: ChartFillFormatter = ChartDefaultFillFormatter()
+    fileprivate var _fillFormatter: IFillFormatter = DefaultFillFormatter()
     
-    /// Sets a custom FillFormatter to the chart that handles the position of the filled-line for each DataSet. Set this to null to use the default logic.
-    open var fillFormatter: ChartFillFormatter?
+    /// Sets a custom IFillFormatter to the chart that handles the position of the filled-line for each DataSet. Set this to null to use the default logic.
+    open var fillFormatter: IFillFormatter?
     {
         get
         {
@@ -185,7 +189,7 @@ open class LineChartDataSet: LineRadarChartDataSet, ILineChartDataSet
         {
             if newValue == nil
             {
-                _fillFormatter = ChartDefaultFillFormatter()
+                _fillFormatter = DefaultFillFormatter()
             }
             else
             {

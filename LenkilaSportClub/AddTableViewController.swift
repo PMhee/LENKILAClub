@@ -56,7 +56,7 @@ class AddTableViewController: UIViewController,UITextFieldDelegate,UIGestureReco
     var in_keyboard : Bool = false
     var userArray = [User]()
     let ip_address = "http://128.199.227.19/"
-    var alamoFireManager : Alamofire.Manager!
+    //var alamoFireManager : Alamofire.Manager!
     @IBOutlet weak var cons_vw_tab_width: NSLayoutConstraint!
     @IBOutlet var tab_gesture: UITapGestureRecognizer!
     var checkedArray = [UIImageView]()
@@ -293,7 +293,7 @@ class AddTableViewController: UIViewController,UITextFieldDelegate,UIGestureReco
         let configuration = URLSessionConfiguration.default
         configuration.timeoutIntervalForRequest = 4 // seconds
         configuration.timeoutIntervalForResource = 4
-        self.alamoFireManager = Alamofire.Manager(configuration: configuration)
+        //self.alamoFireManager = Alamofire.Manager(configuration: configuration)
         var json = NSDictionary()
         let realm = RLMRealm.default()
         var schedule = Schedule()
@@ -416,44 +416,44 @@ class AddTableViewController: UIViewController,UITextFieldDelegate,UIGestureReco
                         realm.beginWriteTransaction()
                         realm.add(schedules)
                         try! realm.commitWriteTransaction()
-                        if self.isConnectedToNetwork(){
-                            let encode = "\((setting[0] as! Setting).sportClub_id)&scheduleID=\(schedules.id)&type=reserve&date=\(schedules.date)&time=\(schedules.time)&price=\(schedules.price)&tag=\(schedules.tag)&userID=\(schedules.userID)&colorTag=\(schedules.colorTag)&paidType=\(schedules.paid_type)&alreadyPaid=\(schedules.already_paid)&sortDate=\(schedules.sort_date)&fieldID=\(schedules.field)&staffID=\((setting[0] as! Setting).staff_id)".addingPercentEncoding(withAllowedCharacters: .urlHostAllowed())
-                            print(encode!)
-                            self.alamoFireManager.request(.POST, "\(self.ip_address)Schedule/create?sportClubID=\(encode!)")
-                                .validate()
-                                .responseString { response in
-                                    print("Success: \(response.result.isSuccess)")
-                                    print("Response String: \(response.result.value)")
-                                    
-                                    if !response.result.isSuccess{
-                                        //                                        let temp = Temp()
-                                        //                                        realm.beginWriteTransaction()
-                                        //                                        temp.type = "create"
-                                        //                                        temp.schedule_id = schedules.id
-                                        //                                        temp.type_of_table = "schedule"
-                                        //                                        realm.addObject(temp)
-                                        //                                        try! realm.commitWriteTransaction()
-                                    }
-                                }.responseJSON { response in
-                                    debugPrint(response.result.value)
-                                    if response.result.value == nil {
-                                        print("it's ")
-                                    }else{
-                                        json = response.result.value as! NSDictionary
-                                        realm.beginWriteTransaction()
-                                        let df = DateFormatter()
-                                        df.dateFormat = "yyyy-MM-dd HH:mm:ss"
-                                        let update = df.date(from: json.value(forKey: "updated_at") as! String)!
-                                        let create = df.date(from: json.value(forKey: "created_at") as! String)!
-                                        schedules.updated_at = update
-                                        schedules.created_at = create
-                                        let setting = Setting.allObjects()
-                                        let s = setting[0] as! Setting
-                                        s.sche_time_stamp = json.value(forKey: "updated_at") as! String
-                                        try! realm.commitWriteTransaction()
-                                    }
-                            }
-                        }else{
+//                        if self.isConnectedToNetwork(){
+//                            let encode = "\((setting[0] as! Setting).sportClub_id)&scheduleID=\(schedules.id)&type=reserve&date=\(schedules.date)&time=\(schedules.time)&price=\(schedules.price)&tag=\(schedules.tag)&userID=\(schedules.userID)&colorTag=\(schedules.colorTag)&paidType=\(schedules.paid_type)&alreadyPaid=\(schedules.already_paid)&sortDate=\(schedules.sort_date)&fieldID=\(schedules.field)&staffID=\((setting[0] as! Setting).staff_id)".addingPercentEncoding(withAllowedCharacters: .urlHostAllowed())
+//                            print(encode!)
+//                            self.alamoFireManager.request(.POST, "\(self.ip_address)Schedule/create?sportClubID=\(encode!)")
+//                                .validate()
+//                                .responseString { response in
+//                                    print("Success: \(response.result.isSuccess)")
+//                                    print("Response String: \(response.result.value)")
+//                                    
+//                                    if !response.result.isSuccess{
+//                                        //                                        let temp = Temp()
+//                                        //                                        realm.beginWriteTransaction()
+//                                        //                                        temp.type = "create"
+//                                        //                                        temp.schedule_id = schedules.id
+//                                        //                                        temp.type_of_table = "schedule"
+//                                        //                                        realm.addObject(temp)
+//                                        //                                        try! realm.commitWriteTransaction()
+//                                    }
+//                                }.responseJSON { response in
+//                                    debugPrint(response.result.value)
+//                                    if response.result.value == nil {
+//                                        print("it's ")
+//                                    }else{
+//                                        json = response.result.value as! NSDictionary
+//                                        realm.beginWriteTransaction()
+//                                        let df = DateFormatter()
+//                                        df.dateFormat = "yyyy-MM-dd HH:mm:ss"
+//                                        let update = df.date(from: json.value(forKey: "updated_at") as! String)!
+//                                        let create = df.date(from: json.value(forKey: "created_at") as! String)!
+//                                        schedules.updated_at = update
+//                                        schedules.created_at = create
+//                                        let setting = Setting.allObjects()
+//                                        let s = setting[0] as! Setting
+//                                        s.sche_time_stamp = json.value(forKey: "updated_at") as! String
+//                                        try! realm.commitWriteTransaction()
+//                                    }
+//                            }
+//                        }else{
                             print("ww")
                             let temp = Temp()
                             realm.beginWriteTransaction()
@@ -462,52 +462,52 @@ class AddTableViewController: UIViewController,UITextFieldDelegate,UIGestureReco
                             temp.type_of_table = "schedule"
                             realm.add(temp)
                             try! realm.commitWriteTransaction()
-                        }
+                        //}
                     }else{
                         try! realm.commitWriteTransaction()
-                        if self.isConnectedToNetwork(){
-                            let encode = "\((setting[0] as! Setting).sportClub_id)&scheduleID=\(schedules.id)&type=reserve&date=\(schedules.date)&time=\(schedules.time)&price=\(schedules.price)&tag=\(schedules.tag)&userID=\(schedules.userID)&colorTag=\(schedules.colorTag)&paidType=\(schedules.paid_type)&alreadyPaid=\(schedules.already_paid)&sortDate=\(schedules.sort_date)&fieldID=\(schedules.field)&staffID=\((setting[0] as! Setting).staff_id)".addingPercentEncoding(withAllowedCharacters: .urlHostAllowed())
-                            self.alamoFireManager.request(.POST, "\(self.ip_address)Schedule/create?sportClubID=\(encode!)")
-                                .validate()
-                                .responseString { response in
-                                    print("Success: \(response.result.isSuccess)")
-                                    print("Response String: \(response.result.value)")
-                                    if !response.result.isSuccess{
-                                        //                                        let temp = Temp()
-                                        //                                        realm.beginWriteTransaction()
-                                        //                                        temp.type = "update"
-                                        //                                        temp.type_of_table = "schedule"
-                                        //                                        temp.schedule_id = schedules.id
-                                        //                                        try! realm.commitWriteTransaction()
-                                    }
-                                }.responseJSON { response in
-                                    debugPrint(response.result.value)
-                                    if response.result.value == nil {
-                                        
-                                    }else{
-                                        realm.beginWriteTransaction()
-                                        json = response.result.value as! NSDictionary
-                                        let df = DateFormatter()
-                                        df.dateFormat = "yyyy-MM-dd HH:mm:ss"
-                                        let update = df.date(from: json.value(forKey: "updated_at") as! String)!
-                                        let create = df.date(from: json.value(forKey: "created_at") as! String)!
-                                        schedules.updated_at = update
-                                        schedules.created_at = create
-                                        let setting = Setting.allObjects()
-                                        let s = setting[0] as! Setting
-                                        s.sche_time_stamp = json.value(forKey: "updated_at") as! String
-                                        try! realm.commitWriteTransaction()
-                                    }
-                                    
-                            }
-                        }else{
+//                        if self.isConnectedToNetwork(){
+//                            let encode = "\((setting[0] as! Setting).sportClub_id)&scheduleID=\(schedules.id)&type=reserve&date=\(schedules.date)&time=\(schedules.time)&price=\(schedules.price)&tag=\(schedules.tag)&userID=\(schedules.userID)&colorTag=\(schedules.colorTag)&paidType=\(schedules.paid_type)&alreadyPaid=\(schedules.already_paid)&sortDate=\(schedules.sort_date)&fieldID=\(schedules.field)&staffID=\((setting[0] as! Setting).staff_id)".addingPercentEncoding(withAllowedCharacters: .urlHostAllowed())
+//                            self.alamoFireManager.request(.POST, "\(self.ip_address)Schedule/create?sportClubID=\(encode!)")
+//                                .validate()
+//                                .responseString { response in
+//                                    print("Success: \(response.result.isSuccess)")
+//                                    print("Response String: \(response.result.value)")
+//                                    if !response.result.isSuccess{
+//                                        //                                        let temp = Temp()
+//                                        //                                        realm.beginWriteTransaction()
+//                                        //                                        temp.type = "update"
+//                                        //                                        temp.type_of_table = "schedule"
+//                                        //                                        temp.schedule_id = schedules.id
+//                                        //                                        try! realm.commitWriteTransaction()
+//                                    }
+//                                }.responseJSON { response in
+//                                    debugPrint(response.result.value)
+//                                    if response.result.value == nil {
+//                                        
+//                                    }else{
+//                                        realm.beginWriteTransaction()
+//                                        json = response.result.value as! NSDictionary
+//                                        let df = DateFormatter()
+//                                        df.dateFormat = "yyyy-MM-dd HH:mm:ss"
+//                                        let update = df.date(from: json.value(forKey: "updated_at") as! String)!
+//                                        let create = df.date(from: json.value(forKey: "created_at") as! String)!
+//                                        schedules.updated_at = update
+//                                        schedules.created_at = create
+//                                        let setting = Setting.allObjects()
+//                                        let s = setting[0] as! Setting
+//                                        s.sche_time_stamp = json.value(forKey: "updated_at") as! String
+//                                        try! realm.commitWriteTransaction()
+//                                    }
+//                                    
+//                            }
+//                        }else{
                             let temp = Temp()
                             realm.beginWriteTransaction()
                             temp.type = "update"
                             temp.type_of_table = "schedule"
                             temp.schedule_id = schedules.id
                             try! realm.commitWriteTransaction()
-                        }
+                        //}
                     }
                 }else{
                     not_found = true
@@ -542,53 +542,53 @@ class AddTableViewController: UIViewController,UITextFieldDelegate,UIGestureReco
                     if self.edit{}else{
                         realm.add(user)
                     }
-                    if self.isConnectedToNetwork(){
-                        print("User ID"+user.id)
-                        let ec = "\((setting[0] as! Setting).sportClub_id)&userID=\(user.id)&nickName=\(user.nickName)&telephone=\(user.contact)".addingPercentEncoding(withAllowedCharacters: .urlHostAllowed())
-                        self.alamoFireManager.request(.POST, "\(self.ip_address)User/create?sportClubID=\(ec!)")
-                            .validate()
-                            .responseString { response in
-                                print("Success: \(response.result.isSuccess)")
-                                print("Response String: \(response.result.value)")
-                                if !response.result.isSuccess{
-                                    //                                    let temp = Temp()
-                                    //                                    realm.beginWriteTransaction()
-                                    //                                    temp.type = "create"
-                                    //                                    temp.type_of_table = "user"
-                                    //                                    temp.user_id = user.id
-                                    //                                    realm.addObject(temp)
-                                    //                                    try! realm.commitWriteTransaction()
-                                }
-                            }.responseJSON { response in
-                                debugPrint(response.result.value)
-                                if response.result.value == nil {
-                                    
-                                }else{
-                                    realm.beginWriteTransaction()
-                                    json = response.result.value as! NSDictionary
-                                    let df = DateFormatter()
-                                    df.dateFormat = "yyyy-MM-dd HH:mm:ss"
-                                    let update = df.date(from: json.value(forKey: "updated_at") as! String)!
-                                    let create = df.date(from: json.value(forKey: "created_at") as! String)!
-                                    user.updated_at = update
-                                    user.created_at = create
-                                    let setting = Setting.allObjects()
-                                    let s = setting[0] as! Setting
-                                    s.user_time_stamp = json.value(forKey: "updated_at") as! String
-                                    try! realm.commitWriteTransaction()
-                                }
-                        }
-                        print("\(self.ip_address)User/create?sportClubID=\(ec!)")
-                    }else{
-                        let temp = Temp()
-                        print("ww")
-                        realm.beginWriteTransaction()
-                        temp.type = "create"
-                        temp.type_of_table = "user"
-                        temp.user_id = user.id
-                        realm.add(temp)
-                        try! realm.commitWriteTransaction()
-                    }
+//                    if self.isConnectedToNetwork(){
+//                        print("User ID"+user.id)
+//                        let ec = "\((setting[0] as! Setting).sportClub_id)&userID=\(user.id)&nickName=\(user.nickName)&telephone=\(user.contact)".addingPercentEncoding(withAllowedCharacters: .urlHostAllowed())
+//                        self.alamoFireManager.request(.POST, "\(self.ip_address)User/create?sportClubID=\(ec!)")
+//                            .validate()
+//                            .responseString { response in
+//                                print("Success: \(response.result.isSuccess)")
+//                                print("Response String: \(response.result.value)")
+//                                if !response.result.isSuccess{
+//                                    //                                    let temp = Temp()
+//                                    //                                    realm.beginWriteTransaction()
+//                                    //                                    temp.type = "create"
+//                                    //                                    temp.type_of_table = "user"
+//                                    //                                    temp.user_id = user.id
+//                                    //                                    realm.addObject(temp)
+//                                    //                                    try! realm.commitWriteTransaction()
+//                                }
+//                            }.responseJSON { response in
+//                                debugPrint(response.result.value)
+//                                if response.result.value == nil {
+//                                    
+//                                }else{
+//                                    realm.beginWriteTransaction()
+//                                    json = response.result.value as! NSDictionary
+//                                    let df = DateFormatter()
+//                                    df.dateFormat = "yyyy-MM-dd HH:mm:ss"
+//                                    let update = df.date(from: json.value(forKey: "updated_at") as! String)!
+//                                    let create = df.date(from: json.value(forKey: "created_at") as! String)!
+//                                    user.updated_at = update
+//                                    user.created_at = create
+//                                    let setting = Setting.allObjects()
+//                                    let s = setting[0] as! Setting
+//                                    s.user_time_stamp = json.value(forKey: "updated_at") as! String
+//                                    try! realm.commitWriteTransaction()
+//                                }
+//                        }
+//                        print("\(self.ip_address)User/create?sportClubID=\(ec!)")
+//                    }else{
+//                        let temp = Temp()
+//                        print("ww")
+//                        realm.beginWriteTransaction()
+//                        temp.type = "create"
+//                        temp.type_of_table = "user"
+//                        temp.user_id = user.id
+//                        realm.add(temp)
+//                        try! realm.commitWriteTransaction()
+                    //}
                     var schedule = Schedule()
                     let sche = Schedule.allObjects()
                     if self.edit{
@@ -697,43 +697,43 @@ class AddTableViewController: UIViewController,UITextFieldDelegate,UIGestureReco
                             temp = schedules.date
                             if self.edit{
                                 try! realm.commitWriteTransaction()
-                                if self.isConnectedToNetwork(){
-                                    let encode = "\((setting[0] as! Setting).sportClub_id)&scheduleID=\(schedules.id)&type=reserve&date=\(schedules.date)&time=\(schedules.time)&price=\(schedules.price)&tag=\(schedules.tag)&userID=\(schedules.userID)&colorTag=\(schedules.colorTag)&paidType=\(schedules.paid_type)&alreadyPaid=\(schedules.already_paid)&sortDate=\(schedules.sort_date)&fieldID=\(schedules.field)&staffID=\((setting[0] as! Setting).staff_id)".addingPercentEncoding(withAllowedCharacters: .urlHostAllowed())
-                                    print(encode)
-                                    self.alamoFireManager.request(.POST, "\(self.ip_address)Schedule/create?sportClubID=\(encode!)")
-                                        .validate()
-                                        .responseString { response in
-                                            print("Success: \(response.result.isSuccess)")
-                                            print("Response String: \(response.result.value)")
-                                            if !response.result.isSuccess{
-                                                //                                                let temp = Temp()
-                                                //                                                realm.beginWriteTransaction()
-                                                //                                                temp.type = "update"
-                                                //                                                temp.type_of_table = "schedule"
-                                                //                                                temp.schedule_id = schedules.id
-                                                //                                                realm.addObject(temp)
-                                                //                                                try! realm.commitWriteTransaction()
-                                            }
-                                        }.responseJSON { response in
-                                            debugPrint(response.result.value)
-                                            if response.result.value == nil {
-                                                
-                                            }else{
-                                                realm.beginWriteTransaction()
-                                                json = response.result.value as! NSDictionary
-                                                let df = DateFormatter()
-                                                df.dateFormat = "yyyy-MM-dd HH:mm:ss"
-                                                let update = df.date(from: json.value(forKey: "updated_at") as! String)!
-                                                let create = df.date(from: json.value(forKey: "created_at") as! String)!
-                                                schedules.updated_at = update
-                                                schedules.created_at = create
-                                                let setting = Setting.allObjects()
-                                                let s = setting[0] as! Setting
-                                                s.sche_time_stamp = json.value(forKey: "updated_at") as! String
-                                                try! realm.commitWriteTransaction()
-                                            }
-                                    }
-                                }else{
+//                                if self.isConnectedToNetwork(){
+//                                    let encode = "\((setting[0] as! Setting).sportClub_id)&scheduleID=\(schedules.id)&type=reserve&date=\(schedules.date)&time=\(schedules.time)&price=\(schedules.price)&tag=\(schedules.tag)&userID=\(schedules.userID)&colorTag=\(schedules.colorTag)&paidType=\(schedules.paid_type)&alreadyPaid=\(schedules.already_paid)&sortDate=\(schedules.sort_date)&fieldID=\(schedules.field)&staffID=\((setting[0] as! Setting).staff_id)".addingPercentEncoding(withAllowedCharacters: .urlHostAllowed())
+//                                    print(encode)
+//                                    self.alamoFireManager.request(.POST, "\(self.ip_address)Schedule/create?sportClubID=\(encode!)")
+//                                        .validate()
+//                                        .responseString { response in
+//                                            print("Success: \(response.result.isSuccess)")
+//                                            print("Response String: \(response.result.value)")
+//                                            if !response.result.isSuccess{
+//                                                //                                                let temp = Temp()
+//                                                //                                                realm.beginWriteTransaction()
+//                                                //                                                temp.type = "update"
+//                                                //                                                temp.type_of_table = "schedule"
+//                                                //                                                temp.schedule_id = schedules.id
+//                                                //                                                realm.addObject(temp)
+//                                                //                                                try! realm.commitWriteTransaction()
+//                                            }
+//                                        }.responseJSON { response in
+//                                            debugPrint(response.result.value)
+//                                            if response.result.value == nil {
+//                                                
+//                                            }else{
+//                                                realm.beginWriteTransaction()
+//                                                json = response.result.value as! NSDictionary
+//                                                let df = DateFormatter()
+//                                                df.dateFormat = "yyyy-MM-dd HH:mm:ss"
+//                                                let update = df.date(from: json.value(forKey: "updated_at") as! String)!
+//                                                let create = df.date(from: json.value(forKey: "created_at") as! String)!
+//                                                schedules.updated_at = update
+//                                                schedules.created_at = create
+//                                                let setting = Setting.allObjects()
+//                                                let s = setting[0] as! Setting
+//                                                s.sche_time_stamp = json.value(forKey: "updated_at") as! String
+//                                                try! realm.commitWriteTransaction()
+//                                            }
+//                                    }
+//                                }else{
                                     print("ww")
                                     let temp = Temp()
                                     realm.beginWriteTransaction()
@@ -742,48 +742,48 @@ class AddTableViewController: UIViewController,UITextFieldDelegate,UIGestureReco
                                     temp.schedule_id = schedules.id
                                     realm.add(temp)
                                     try! realm.commitWriteTransaction()
-                                }
+                                //}
                             }else{
                                 realm.beginWriteTransaction()
                                 realm.add(schedules)
                                 try! realm.commitWriteTransaction()
-                                if self.isConnectedToNetwork(){
-                                    let encode = "\((setting[0] as! Setting).sportClub_id)&scheduleID=\(schedules.id)&type=reserve&date=\(schedules.date)&time=\(schedules.time)&price=\(schedules.price)&tag=\(schedules.tag)&userID=\(schedules.userID)&colorTag=\(schedules.colorTag)&paidType=\(schedules.paid_type)&alreadyPaid=\(schedules.already_paid)&sortDate=\(schedules.sort_date)&fieldID=\(schedules.field)&staffID=\((setting[0] as! Setting).staff_id)".addingPercentEncoding(withAllowedCharacters: .urlHostAllowed())
-                                    print(encode)
-                                    self.alamoFireManager.request(.POST, "\(self.ip_address)Schedule/create?sportClubID=\(encode!)")
-                                        .validate()
-                                        .responseString { response in
-                                            print("Success: \(response.result.isSuccess)")
-                                            print("Response String: \(response.result.value)")
-                                            if !response.result.isSuccess{
-                                                //                                            let temp = Temp()
-                                                //                                            realm.beginWriteTransaction()
-                                                //                                            temp.type = "create"
-                                                //                                            temp.type_of_table = "schedule"
-                                                //                                            temp.schedule_id = schedules.id
-                                                //                                            realm.addObject(temp)
-                                                //                                            try! realm.commitWriteTransaction()
-                                            }
-                                        }.responseJSON { response in
-                                            debugPrint(response.result.value)
-                                            if response.result.value == nil {
-                                                
-                                            }else{
-                                                json = response.result.value as! NSDictionary
-                                                let df = DateFormatter()
-                                                df.dateFormat = "yyyy-MM-dd HH:mm:ss"
-                                                let update = df.date(from: json.value(forKey: "updated_at") as! String)!
-                                                let create = df.date(from: json.value(forKey: "created_at") as! String)!
-                                                realm.beginWriteTransaction()
-                                                schedules.updated_at = update
-                                                schedules.created_at = create
-                                                let setting = Setting.allObjects()
-                                                let s = setting[0] as! Setting
-                                                s.sche_time_stamp = json.value(forKey: "updated_at") as! String
-                                                try! realm.commitWriteTransaction()
-                                            }
-                                    }
-                                }else{
+//                                if self.isConnectedToNetwork(){
+//                                    let encode = "\((setting[0] as! Setting).sportClub_id)&scheduleID=\(schedules.id)&type=reserve&date=\(schedules.date)&time=\(schedules.time)&price=\(schedules.price)&tag=\(schedules.tag)&userID=\(schedules.userID)&colorTag=\(schedules.colorTag)&paidType=\(schedules.paid_type)&alreadyPaid=\(schedules.already_paid)&sortDate=\(schedules.sort_date)&fieldID=\(schedules.field)&staffID=\((setting[0] as! Setting).staff_id)".addingPercentEncoding(withAllowedCharacters: .urlHostAllowed())
+//                                    print(encode)
+//                                    self.alamoFireManager.request(.POST, "\(self.ip_address)Schedule/create?sportClubID=\(encode!)")
+//                                        .validate()
+//                                        .responseString { response in
+//                                            print("Success: \(response.result.isSuccess)")
+//                                            print("Response String: \(response.result.value)")
+//                                            if !response.result.isSuccess{
+//                                                //                                            let temp = Temp()
+//                                                //                                            realm.beginWriteTransaction()
+//                                                //                                            temp.type = "create"
+//                                                //                                            temp.type_of_table = "schedule"
+//                                                //                                            temp.schedule_id = schedules.id
+//                                                //                                            realm.addObject(temp)
+//                                                //                                            try! realm.commitWriteTransaction()
+//                                            }
+//                                        }.responseJSON { response in
+//                                            debugPrint(response.result.value)
+//                                            if response.result.value == nil {
+//                                                
+//                                            }else{
+//                                                json = response.result.value as! NSDictionary
+//                                                let df = DateFormatter()
+//                                                df.dateFormat = "yyyy-MM-dd HH:mm:ss"
+//                                                let update = df.date(from: json.value(forKey: "updated_at") as! String)!
+//                                                let create = df.date(from: json.value(forKey: "created_at") as! String)!
+//                                                realm.beginWriteTransaction()
+//                                                schedules.updated_at = update
+//                                                schedules.created_at = create
+//                                                let setting = Setting.allObjects()
+//                                                let s = setting[0] as! Setting
+//                                                s.sche_time_stamp = json.value(forKey: "updated_at") as! String
+//                                                try! realm.commitWriteTransaction()
+//                                            }
+//                                    }
+//                                }else{
                                     print("ww")
                                     let temp = Temp()
                                     realm.beginWriteTransaction()
@@ -792,7 +792,7 @@ class AddTableViewController: UIViewController,UITextFieldDelegate,UIGestureReco
                                     temp.schedule_id = schedules.id
                                     realm.add(temp)
                                     try! realm.commitWriteTransaction()
-                                }
+                                //}
                             }
                         }
                         self.performSegue(withIdentifier: "back_to_schedule", sender: self)
@@ -821,44 +821,44 @@ class AddTableViewController: UIViewController,UITextFieldDelegate,UIGestureReco
             if found {
                 if edit{
                     try! realm.commitWriteTransaction()
-                    if self.isConnectedToNetwork(){
-                        let encode = "\((setting[0] as! Setting).sportClub_id)&scheduleID=\(schedule.id)&type=reserve&date=\(schedule.date)&time=\(schedule.time)&price=\(schedule.price)&tag=\(schedule.tag)&userID=\(schedule.userID)&colorTag=\(schedule.colorTag)&paidType=\(schedule.paid_type)&alreadyPaid=\(schedule.already_paid)&sortDate=\(schedule.sort_date)&fieldID=\(schedule.field)&staffID=\((setting[0] as! Setting).staff_id)".addingPercentEncoding(withAllowedCharacters: .urlHostAllowed())
-                        print(encode)
-                        self.alamoFireManager.request(.PUT, "\(ip_address)Schedule/update?sportClubID=\(encode!)")
-                            
-                            .validate()
-                            .responseString { response in
-                                print("Success: \(response.result.isSuccess)")
-                                print("Response String: \(response.result.value)")
-                                if !response.result.isSuccess{
-                                    
-                                }
-                            }.responseJSON { response in
-                                debugPrint(response.result.value)
-                                if response.result.value == nil {
-                                    //                                    let temp = Temp()
-                                    //                                    realm.beginWriteTransaction()
-                                    //                                    temp.type = "update"
-                                    //                                    temp.type_of_table = "schedule"
-                                    //                                    temp.schedule_id = schedule.id
-                                    //                                    realm.addObject(temp)
-                                    //                                    try! realm.commitWriteTransaction()
-                                }else{
-                                    realm.beginWriteTransaction()
-                                    json = response.result.value as! NSDictionary
-                                    let df = DateFormatter()
-                                    df.dateFormat = "yyyy-MM-dd HH:mm:ss"
-                                    let update = df.date(from: json.value(forKey: "updated_at") as! String)!
-                                    let create = df.date(from: json.value(forKey: "created_at") as! String)!
-                                    schedule.updated_at = update
-                                    schedule.created_at = create
-                                    let setting = Setting.allObjects()
-                                    let s = setting[0] as! Setting
-                                    s.sche_time_stamp = json.value(forKey: "updated_at") as! String
-                                    try! realm.commitWriteTransaction()
-                                }
-                        }
-                    }else{
+//                    if self.isConnectedToNetwork(){
+//                        let encode = "\((setting[0] as! Setting).sportClub_id)&scheduleID=\(schedule.id)&type=reserve&date=\(schedule.date)&time=\(schedule.time)&price=\(schedule.price)&tag=\(schedule.tag)&userID=\(schedule.userID)&colorTag=\(schedule.colorTag)&paidType=\(schedule.paid_type)&alreadyPaid=\(schedule.already_paid)&sortDate=\(schedule.sort_date)&fieldID=\(schedule.field)&staffID=\((setting[0] as! Setting).staff_id)".addingPercentEncoding(withAllowedCharacters: .urlHostAllowed())
+//                        print(encode)
+//                        self.alamoFireManager.request(.PUT, "\(ip_address)Schedule/update?sportClubID=\(encode!)")
+//                            
+//                            .validate()
+//                            .responseString { response in
+//                                print("Success: \(response.result.isSuccess)")
+//                                print("Response String: \(response.result.value)")
+//                                if !response.result.isSuccess{
+//                                    
+//                                }
+//                            }.responseJSON { response in
+//                                debugPrint(response.result.value)
+//                                if response.result.value == nil {
+//                                    //                                    let temp = Temp()
+//                                    //                                    realm.beginWriteTransaction()
+//                                    //                                    temp.type = "update"
+//                                    //                                    temp.type_of_table = "schedule"
+//                                    //                                    temp.schedule_id = schedule.id
+//                                    //                                    realm.addObject(temp)
+//                                    //                                    try! realm.commitWriteTransaction()
+//                                }else{
+//                                    realm.beginWriteTransaction()
+//                                    json = response.result.value as! NSDictionary
+//                                    let df = DateFormatter()
+//                                    df.dateFormat = "yyyy-MM-dd HH:mm:ss"
+//                                    let update = df.date(from: json.value(forKey: "updated_at") as! String)!
+//                                    let create = df.date(from: json.value(forKey: "created_at") as! String)!
+//                                    schedule.updated_at = update
+//                                    schedule.created_at = create
+//                                    let setting = Setting.allObjects()
+//                                    let s = setting[0] as! Setting
+//                                    s.sche_time_stamp = json.value(forKey: "updated_at") as! String
+//                                    try! realm.commitWriteTransaction()
+//                                }
+//                        }
+//                    }else{
                         print("ww")
                         let temp = Temp()
                         realm.beginWriteTransaction()
@@ -867,52 +867,52 @@ class AddTableViewController: UIViewController,UITextFieldDelegate,UIGestureReco
                         temp.schedule_id = schedule.id
                         realm.add(temp)
                         try! realm.commitWriteTransaction()
-                    }
+                    //}
                 }else{
                     realm.beginWriteTransaction()
                     realm.add(schedule)
                     try! realm.commitWriteTransaction()
-                    if self.isConnectedToNetwork(){
-                        let encode = "\((setting[0] as! Setting).sportClub_id)&scheduleID=\(schedule.id)&type=reserve&date=\(schedule.date)&time=\(schedule.time)&price=\(schedule.price)&tag=\(schedule.tag)&userID=\(schedule.userID)&colorTag=\(schedule.colorTag)&paidType=\(schedule.paid_type)&alreadyPaid=\(schedule.already_paid)&sortDate=\(schedule.sort_date)&fieldID=\(schedule.field)&staffID=\((setting[0] as! Setting).staff_id)".addingPercentEncoding(withAllowedCharacters: .urlHostAllowed())
-                        print(encode)
-                        self.alamoFireManager.request(.POST, "\(ip_address)Schedule/create?sportClubID=\(encode!)")
-                            
-                            .validate()
-                            .responseString { response in
-                                print("Success: \(response.result.isSuccess) Here")
-                                print("Response String: \(response.result.value)")
-                                print(response.result)
-                                if !response.result.isSuccess{
-                                }
-                            }.responseJSON { response in
-                                debugPrint(response.result.value)
-                                if response.result.value == nil {
-                                    print("hello")
-                                    //                                let temp = Temp()
-                                    //                                realm.beginWriteTransaction()
-                                    //                                temp.type = "create"
-                                    //                                temp.type_of_table = "schedule"
-                                    //                                temp.schedule_id = schedule.id
-                                    //                                realm.addObject(temp)
-                                    //                                try! realm.commitWriteTransaction()
-                                    
-                                }else{
-                                    json = response.result.value as! NSDictionary
-                                    print(json)
-                                    realm.beginWriteTransaction()
-                                    let df = DateFormatter()
-                                    df.dateFormat = "yyyy-MM-dd HH:mm:ss"
-                                    let update = df.date(from: json.value(forKey: "updated_at") as! String)!
-                                    let create = df.date(from: json.value(forKey: "created_at") as! String)!
-                                    schedule.updated_at = update
-                                    schedule.created_at = create
-                                    let setting = Setting.allObjects()
-                                    let s = setting[0] as! Setting
-                                    s.sche_time_stamp = json.value(forKey: "updated_at") as! String
-                                    try! realm.commitWriteTransaction()
-                                }
-                        }
-                    }else{
+//                    if self.isConnectedToNetwork(){
+//                        let encode = "\((setting[0] as! Setting).sportClub_id)&scheduleID=\(schedule.id)&type=reserve&date=\(schedule.date)&time=\(schedule.time)&price=\(schedule.price)&tag=\(schedule.tag)&userID=\(schedule.userID)&colorTag=\(schedule.colorTag)&paidType=\(schedule.paid_type)&alreadyPaid=\(schedule.already_paid)&sortDate=\(schedule.sort_date)&fieldID=\(schedule.field)&staffID=\((setting[0] as! Setting).staff_id)".addingPercentEncoding(withAllowedCharacters: .urlHostAllowed())
+//                        print(encode)
+//                        self.alamoFireManager.request(.POST, "\(ip_address)Schedule/create?sportClubID=\(encode!)")
+//                            
+//                            .validate()
+//                            .responseString { response in
+//                                print("Success: \(response.result.isSuccess) Here")
+//                                print("Response String: \(response.result.value)")
+//                                print(response.result)
+//                                if !response.result.isSuccess{
+//                                }
+//                            }.responseJSON { response in
+//                                debugPrint(response.result.value)
+//                                if response.result.value == nil {
+//                                    print("hello")
+//                                    //                                let temp = Temp()
+//                                    //                                realm.beginWriteTransaction()
+//                                    //                                temp.type = "create"
+//                                    //                                temp.type_of_table = "schedule"
+//                                    //                                temp.schedule_id = schedule.id
+//                                    //                                realm.addObject(temp)
+//                                    //                                try! realm.commitWriteTransaction()
+//                                    
+//                                }else{
+//                                    json = response.result.value as! NSDictionary
+//                                    print(json)
+//                                    realm.beginWriteTransaction()
+//                                    let df = DateFormatter()
+//                                    df.dateFormat = "yyyy-MM-dd HH:mm:ss"
+//                                    let update = df.date(from: json.value(forKey: "updated_at") as! String)!
+//                                    let create = df.date(from: json.value(forKey: "created_at") as! String)!
+//                                    schedule.updated_at = update
+//                                    schedule.created_at = create
+//                                    let setting = Setting.allObjects()
+//                                    let s = setting[0] as! Setting
+//                                    s.sche_time_stamp = json.value(forKey: "updated_at") as! String
+//                                    try! realm.commitWriteTransaction()
+//                                }
+//                        }
+                   // }else{
                         print("ww")
                         let temp = Temp()
                         realm.beginWriteTransaction()
@@ -921,7 +921,7 @@ class AddTableViewController: UIViewController,UITextFieldDelegate,UIGestureReco
                         temp.schedule_id = schedule.id
                         realm.add(temp)
                         try! realm.commitWriteTransaction()
-                    }
+                    //}
                     
                 }
                 self.performSegue(withIdentifier: "back_to_schedule", sender: self)
@@ -946,44 +946,44 @@ class AddTableViewController: UIViewController,UITextFieldDelegate,UIGestureReco
                     user.contact = self.tf_tel.text!
                     if self.edit{
                         try! realm.commitWriteTransaction()
-                        if self.isConnectedToNetwork(){
-                            let encode = "\((setting[0] as! Setting).sportClub_id)&scheduleID=\(schedule.id)&type=reserve&date=\(schedule.date)&time=\(schedule.time)&price=\(schedule.price)&tag=\(schedule.tag)&userID=\(schedule.userID)&colorTag=\(schedule.colorTag)&paidType=\(schedule.paid_type)&alreadyPaid=\(schedule.already_paid)&sortDate=\(schedule.sort_date)&fieldID=\(schedule.field)&staffID=\((setting[0] as! Setting).staff_id)".addingPercentEncoding(withAllowedCharacters: .urlHostAllowed())
-                            print(encode)
-                            self.alamoFireManager.request(.POST, "\(self.ip_address)Schedule/create?sportClubID=\(encode!)")
-                                
-                                .validate()
-                                .responseString { response in
-                                    print("Success: \(response.result.isSuccess)")
-                                    print("Response String: \(response.result.value)")
-                                    if !response.result.isSuccess{
-                                        //                                        let temp = Temp()
-                                        //                                        realm.beginWriteTransaction()
-                                        //                                        temp.type = "update"
-                                        //                                        temp.type_of_table = "schedule"
-                                        //                                        temp.schedule_id = schedule.id
-                                        //                                        realm.addObject(temp)
-                                        //                                        try! realm.commitWriteTransaction()
-                                    }
-                                }.responseJSON { response in
-                                    debugPrint(response.result.value)
-                                    if response.result.value == nil {
-                                        
-                                    }else{
-                                        realm.beginWriteTransaction()
-                                        json = response.result.value as! NSDictionary
-                                        let df = DateFormatter()
-                                        df.dateFormat = "yyyy-MM-dd HH:mm:ss"
-                                        let update = df.date(from: json.value(forKey: "updated_at") as! String)!
-                                        let create = df.date(from: json.value(forKey: "created_at") as! String)!
-                                        schedule.updated_at = update
-                                        schedule.created_at = create
-                                        let setting = Setting.allObjects()
-                                        let s = setting[0] as! Setting
-                                        s.sche_time_stamp = json.value(forKey: "updated_at") as! String
-                                        try! realm.commitWriteTransaction()
-                                    }
-                            }
-                        }else{
+//                        if self.isConnectedToNetwork(){
+//                            let encode = "\((setting[0] as! Setting).sportClub_id)&scheduleID=\(schedule.id)&type=reserve&date=\(schedule.date)&time=\(schedule.time)&price=\(schedule.price)&tag=\(schedule.tag)&userID=\(schedule.userID)&colorTag=\(schedule.colorTag)&paidType=\(schedule.paid_type)&alreadyPaid=\(schedule.already_paid)&sortDate=\(schedule.sort_date)&fieldID=\(schedule.field)&staffID=\((setting[0] as! Setting).staff_id)".addingPercentEncoding(withAllowedCharacters: .urlHostAllowed())
+//                            print(encode)
+//                            self.alamoFireManager.request(.POST, "\(self.ip_address)Schedule/create?sportClubID=\(encode!)")
+//                                
+//                                .validate()
+//                                .responseString { response in
+//                                    print("Success: \(response.result.isSuccess)")
+//                                    print("Response String: \(response.result.value)")
+//                                    if !response.result.isSuccess{
+//                                        //                                        let temp = Temp()
+//                                        //                                        realm.beginWriteTransaction()
+//                                        //                                        temp.type = "update"
+//                                        //                                        temp.type_of_table = "schedule"
+//                                        //                                        temp.schedule_id = schedule.id
+//                                        //                                        realm.addObject(temp)
+//                                        //                                        try! realm.commitWriteTransaction()
+//                                    }
+//                                }.responseJSON { response in
+//                                    debugPrint(response.result.value)
+//                                    if response.result.value == nil {
+//                                        
+//                                    }else{
+//                                        realm.beginWriteTransaction()
+//                                        json = response.result.value as! NSDictionary
+//                                        let df = DateFormatter()
+//                                        df.dateFormat = "yyyy-MM-dd HH:mm:ss"
+//                                        let update = df.date(from: json.value(forKey: "updated_at") as! String)!
+//                                        let create = df.date(from: json.value(forKey: "created_at") as! String)!
+//                                        schedule.updated_at = update
+//                                        schedule.created_at = create
+//                                        let setting = Setting.allObjects()
+//                                        let s = setting[0] as! Setting
+//                                        s.sche_time_stamp = json.value(forKey: "updated_at") as! String
+//                                        try! realm.commitWriteTransaction()
+//                                    }
+//                            }
+//                        }else{
                             print("ww")
                             let temp = Temp()
                             realm.beginWriteTransaction()
@@ -992,92 +992,92 @@ class AddTableViewController: UIViewController,UITextFieldDelegate,UIGestureReco
                             temp.schedule_id = schedule.id
                             realm.add(temp)
                             try! realm.commitWriteTransaction()
-                        }
+                        //}
                     }else{
                         schedule.userID = user.id
                         realm.beginWriteTransaction()
                         realm.add(schedule)
                         realm.add(user)
                         try! realm.commitWriteTransaction()
-                        if self.isConnectedToNetwork(){
-                            let encode = "\((setting[0] as! Setting).sportClub_id)&scheduleID=\(schedule.id)&type=reserve&date=\(schedule.date)&time=\(schedule.time)&price=\(schedule.price)&tag=\(schedule.tag)&userID=\(schedule.userID)&colorTag=\(schedule.colorTag)&paidType=\(schedule.paid_type)&alreadyPaid=\(schedule.already_paid)&sortDate=\(schedule.sort_date)&fieldID=\(schedule.field)&staffID=\((setting[0] as! Setting).staff_id)".addingPercentEncoding(withAllowedCharacters: .urlHostAllowed())
-                            print(encode)
-                            self.alamoFireManager.request(.POST, "\(self.ip_address)Schedule/create?sportClubID=\(encode!)")
-                                
-                                .validate()
-                                .responseString { response in
-                                    print("Success: \(response.result.isSuccess)")
-                                    print("Response String: \(response.result.value)")
-                                    if !response.result.isSuccess{
-                                    }
-                                }.responseJSON { response in
-                                    debugPrint(response.result.value)
-                                    if response.result.value == nil {
-                                        //                                    let temp = Temp()
-                                        //                                    realm.beginWriteTransaction()
-                                        //                                    temp.type = "create"
-                                        //                                    temp.type_of_table = "schedule"
-                                        //                                    temp.schedule_id = schedule.id
-                                        //                                    realm.addObject(temp)
-                                        //                                    temp.type = "create"
-                                        //                                    temp.type_of_table = "user"
-                                        //                                    temp.user_id = user.id
-                                        //                                    realm.addObject(temp)
-                                        //                                    try! realm.commitWriteTransaction()
-                                        
-                                    }else{
-                                        json = response.result.value as! NSDictionary
-                                        realm.beginWriteTransaction()
-                                        let df = DateFormatter()
-                                        df.dateFormat = "yyyy-MM-dd HH:mm:ss"
-                                        print(json.value(forKey: "updated_at") as! String)
-                                        let update = df.date(from: json.value(forKey: "updated_at") as! String)!
-                                        let create = df.date(from: json.value(forKey: "created_at") as! String)!
-                                        schedule.updated_at = update
-                                        schedule.created_at = create
-                                        let setting = Setting.allObjects()
-                                        let s = setting[0] as! Setting
-                                        s.sche_time_stamp = json.value(forKey: "updated_at") as! String
-                                        try! realm.commitWriteTransaction()
-                                    }
-                            }
-                            print("User ID"+user.id)
-                            let ec = "\((setting[0] as! Setting).sportClub_id)&userID=\(user.id)&nickName=\(user.nickName)&telephone=\(user.contact)".addingPercentEncoding(withAllowedCharacters: .urlHostAllowed())
-                            self.alamoFireManager.request(.POST, "\(self.ip_address)User/create?sportClubID=\(ec!)")
-                                .validate()
-                                .responseString { response in
-                                    print("Success: \(response.result.isSuccess)")
-                                    print("Response String: \(response.result.value)")
-                                    if !response.result.isSuccess{
-                                        //                                    let temp = Temp()
-                                        //                                    realm.beginWriteTransaction()
-                                        //                                    temp.type = "create"
-                                        //                                    temp.type_of_table = "user"
-                                        //                                    temp.user_id = user.id
-                                        //                                    realm.addObject(temp)
-                                        //                                    try! realm.commitWriteTransaction()
-                                    }
-                                }.responseJSON { response in
-                                    debugPrint(response.result.value)
-                                    if response.result.value == nil {
-                                        
-                                    }else{
-                                        json = response.result.value as! NSDictionary
-                                        realm.beginWriteTransaction()
-                                        let df = DateFormatter()
-                                        df.dateFormat = "yyyy-MM-dd HH:mm:ss"
-                                        let update = df.date(from: json.value(forKey: "updated_at") as! String)!
-                                        let create = df.date(from: json.value(forKey: "created_at") as! String)!
-                                        user.updated_at = update
-                                        user.created_at = create
-                                        let setting = Setting.allObjects()
-                                        let s = setting[0] as! Setting
-                                        s.user_time_stamp = json.value(forKey: "updated_at") as! String
-                                        try! realm.commitWriteTransaction()
-                                    }
-                            }
-                            print("\(self.ip_address)User/create?sportClubID=\(ec!)")
-                        }else{
+//                        if self.isConnectedToNetwork(){
+//                            let encode = "\((setting[0] as! Setting).sportClub_id)&scheduleID=\(schedule.id)&type=reserve&date=\(schedule.date)&time=\(schedule.time)&price=\(schedule.price)&tag=\(schedule.tag)&userID=\(schedule.userID)&colorTag=\(schedule.colorTag)&paidType=\(schedule.paid_type)&alreadyPaid=\(schedule.already_paid)&sortDate=\(schedule.sort_date)&fieldID=\(schedule.field)&staffID=\((setting[0] as! Setting).staff_id)".addingPercentEncoding(withAllowedCharacters: .urlHostAllowed())
+//                            print(encode)
+//                            self.alamoFireManager.request(.POST, "\(self.ip_address)Schedule/create?sportClubID=\(encode!)")
+//                                
+//                                .validate()
+//                                .responseString { response in
+//                                    print("Success: \(response.result.isSuccess)")
+//                                    print("Response String: \(response.result.value)")
+//                                    if !response.result.isSuccess{
+//                                    }
+//                                }.responseJSON { response in
+//                                    debugPrint(response.result.value)
+//                                    if response.result.value == nil {
+//                                        //                                    let temp = Temp()
+//                                        //                                    realm.beginWriteTransaction()
+//                                        //                                    temp.type = "create"
+//                                        //                                    temp.type_of_table = "schedule"
+//                                        //                                    temp.schedule_id = schedule.id
+//                                        //                                    realm.addObject(temp)
+//                                        //                                    temp.type = "create"
+//                                        //                                    temp.type_of_table = "user"
+//                                        //                                    temp.user_id = user.id
+//                                        //                                    realm.addObject(temp)
+//                                        //                                    try! realm.commitWriteTransaction()
+//                                        
+//                                    }else{
+//                                        json = response.result.value as! NSDictionary
+//                                        realm.beginWriteTransaction()
+//                                        let df = DateFormatter()
+//                                        df.dateFormat = "yyyy-MM-dd HH:mm:ss"
+//                                        print(json.value(forKey: "updated_at") as! String)
+//                                        let update = df.date(from: json.value(forKey: "updated_at") as! String)!
+//                                        let create = df.date(from: json.value(forKey: "created_at") as! String)!
+//                                        schedule.updated_at = update
+//                                        schedule.created_at = create
+//                                        let setting = Setting.allObjects()
+//                                        let s = setting[0] as! Setting
+//                                        s.sche_time_stamp = json.value(forKey: "updated_at") as! String
+//                                        try! realm.commitWriteTransaction()
+//                                    }
+//                            }
+//                            print("User ID"+user.id)
+//                            let ec = "\((setting[0] as! Setting).sportClub_id)&userID=\(user.id)&nickName=\(user.nickName)&telephone=\(user.contact)".addingPercentEncoding(withAllowedCharacters: .urlHostAllowed())
+//                            self.alamoFireManager.request(.POST, "\(self.ip_address)User/create?sportClubID=\(ec!)")
+//                                .validate()
+//                                .responseString { response in
+//                                    print("Success: \(response.result.isSuccess)")
+//                                    print("Response String: \(response.result.value)")
+//                                    if !response.result.isSuccess{
+//                                        //                                    let temp = Temp()
+//                                        //                                    realm.beginWriteTransaction()
+//                                        //                                    temp.type = "create"
+//                                        //                                    temp.type_of_table = "user"
+//                                        //                                    temp.user_id = user.id
+//                                        //                                    realm.addObject(temp)
+//                                        //                                    try! realm.commitWriteTransaction()
+//                                    }
+//                                }.responseJSON { response in
+//                                    debugPrint(response.result.value)
+//                                    if response.result.value == nil {
+//                                        
+//                                    }else{
+//                                        json = response.result.value as! NSDictionary
+//                                        realm.beginWriteTransaction()
+//                                        let df = DateFormatter()
+//                                        df.dateFormat = "yyyy-MM-dd HH:mm:ss"
+//                                        let update = df.date(from: json.value(forKey: "updated_at") as! String)!
+//                                        let create = df.date(from: json.value(forKey: "created_at") as! String)!
+//                                        user.updated_at = update
+//                                        user.created_at = create
+//                                        let setting = Setting.allObjects()
+//                                        let s = setting[0] as! Setting
+//                                        s.user_time_stamp = json.value(forKey: "updated_at") as! String
+//                                        try! realm.commitWriteTransaction()
+//                                    }
+//                            }
+//                            print("\(self.ip_address)User/create?sportClubID=\(ec!)")
+//                        }else{
                             print("ww")
                             let temp = Temp()
                             realm.beginWriteTransaction()
@@ -1093,7 +1093,7 @@ class AddTableViewController: UIViewController,UITextFieldDelegate,UIGestureReco
                             t.user_id = user.id
                             realm.add(t)
                             try! realm.commitWriteTransaction()
-                        }
+                        //}
                     }
                     self.performSegue(withIdentifier: "back_to_schedule", sender: self)
                 })
@@ -1345,21 +1345,21 @@ class AddTableViewController: UIViewController,UITextFieldDelegate,UIGestureReco
     override var supportedInterfaceOrientations : UIInterfaceOrientationMask {
         return [UIInterfaceOrientationMask.portrait]
     }
-    func isConnectedToNetwork() -> Bool {
-        var zeroAddress = sockaddr_in()
-        zeroAddress.sin_len = UInt8(MemoryLayout.size(ofValue: zeroAddress))
-        zeroAddress.sin_family = sa_family_t(AF_INET)
-        let defaultRouteReachability = withUnsafePointer(to: &zeroAddress) {
-            SCNetworkReachabilityCreateWithAddress(nil, UnsafePointer($0))
-        }
-        var flags = SCNetworkReachabilityFlags()
-        if !SCNetworkReachabilityGetFlags(defaultRouteReachability!, &flags) {
-            return false
-        }
-        let isReachable = (flags.rawValue & UInt32(kSCNetworkFlagsReachable)) != 0
-        let needsConnection = (flags.rawValue & UInt32(kSCNetworkFlagsConnectionRequired)) != 0
-        return (isReachable && !needsConnection)
-    }
+//    func isConnectedToNetwork() -> Bool {
+//        var zeroAddress = sockaddr_in()
+//        zeroAddress.sin_len = UInt8(MemoryLayout.size(ofValue: zeroAddress))
+//        zeroAddress.sin_family = sa_family_t(AF_INET)
+//        let defaultRouteReachability = withUnsafePointer(to: &zeroAddress) {
+//            SCNetworkReachabilityCreateWithAddress(nil, UnsafePointer($0))
+//        }
+//        var flags = SCNetworkReachabilityFlags()
+//        if !SCNetworkReachabilityGetFlags(defaultRouteReachability!, &flags) {
+//            return false
+//        }
+//        let isReachable = (flags.rawValue & UInt32(kSCNetworkFlagsReachable)) != 0
+//        let needsConnection = (flags.rawValue & UInt32(kSCNetworkFlagsConnectionRequired)) != 0
+//        return (isReachable && !needsConnection)
+//    }
     /*
      // MARK: - Navigation
      

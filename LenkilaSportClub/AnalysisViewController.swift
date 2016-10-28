@@ -250,7 +250,7 @@ class AnalysisViewController: UIViewController,UIGestureRecognizerDelegate,UIScr
         vw_graph.delegate = self
         vw_graph.descriptionText = ""
         vw_graph.descriptionTextColor = UIColor(red: 238/255, green: 238/255, blue: 238/255, alpha: 1.0)
-        vw_graph.infoTextColor = UIColor(red: 238/255, green: 238/255, blue: 238/255, alpha: 1.0)
+        //vw_graph.infoTextColor = UIColor(red: 238/255, green: 238/255, blue: 238/255, alpha: 1.0)
         vw_graph.drawMarkers = false
         // Do any additional setup after loading the view.
     }
@@ -285,11 +285,12 @@ class AnalysisViewController: UIViewController,UIGestureRecognizerDelegate,UIScr
     func setChart(_ dataPoints: [String], values: [Double]) {
         var dataEntries: [ChartDataEntry] = []
         for i in 0..<dataPoints.count {
-            let dataEntry = ChartDataEntry(value: values[i], xIndex: i)
+            let dataEntry = ChartDataEntry(x: values[i], y: Double(i))
             dataEntries.append(dataEntry)
         }
-        let lineChartDataSet = LineChartDataSet(yVals: dataEntries, label: "")
-        let lineChartData = LineChartData(xVals: dataPoints, dataSet: lineChartDataSet)
+        let lineChartDataSet = LineChartDataSet(values: dataEntries, label: "")
+        let lineChartData = LineChartData(dataSet: lineChartDataSet)
+        //let lineChartData = LineChartData(xVals: dataPoints, dataSet: lineChartDataSet)
         lineChartDataSet.valueFont = UIFont(name: "ThaiSansLite", size: 10)!
         vw_graph.data = lineChartData
         var colors: [UIColor] = []
@@ -308,11 +309,11 @@ class AnalysisViewController: UIViewController,UIGestureRecognizerDelegate,UIScr
     func setChartDate(_ dataPoints: [String], values: [Double]) {
         var dataEntries: [ChartDataEntry] = []
         for i in 0..<dataPoints.count {
-            let dataEntry = ChartDataEntry(value: values[i], xIndex: i)
+            let dataEntry = ChartDataEntry(x: values[i], y: Double(i))
             dataEntries.append(dataEntry)
         }
-        let lineChartDataSet = LineChartDataSet(yVals: dataEntries, label: "")
-        let lineChartData = LineChartData(xVals: dataPoints, dataSet: lineChartDataSet)
+        let lineChartDataSet = LineChartDataSet(values: dataEntries, label: "")
+        let lineChartData = LineChartData(dataSet: lineChartDataSet)
         lineChartDataSet.valueFont = UIFont(name: "ThaiSansLite", size: 10)!
         vw_graph.data = lineChartData
         var colors: [UIColor] = []
@@ -347,7 +348,7 @@ class AnalysisViewController: UIViewController,UIGestureRecognizerDelegate,UIScr
         var month = components.month
         var year = components.year
         dateFormat.dateFormat = "mm/dd/yyyy"
-        year -= 1
+        year! -= 1
         let current = dateFormat.date(from: String(describing: month)+"/"+String(describing: day)+"/"+String(describing: year))
         dateFormat.dateStyle = DateFormatter.Style.full
         let today_last_year = dateFormat.string(from: current!)
@@ -358,7 +359,7 @@ class AnalysisViewController: UIViewController,UIGestureRecognizerDelegate,UIScr
         }
         lb_income_today_lastyear.text = numberFormatter.string(from: calDayMoneyIncome(today_last_year) as NSNumber)
         lb_customer_today_lastyear.text = String(sum_count)
-        year += 1
+        year! += 1
         var sumy : Double = 0.0
         var sumCounty : Int = 0
         var sum : Double = 0.0
@@ -560,7 +561,7 @@ class AnalysisViewController: UIViewController,UIGestureRecognizerDelegate,UIScr
         }
         var year = d.substring(with: (d.characters.index(d.startIndex, offsetBy: index+1) ..< d.characters.index(d.endIndex, offsetBy: 0)))
         if year.characters.count > 4 {
-            let range: Range<String.Index> = year.range(of: " ")!
+            let range = year.range(of: " ")!
             let index: Int = year.characters.distance(from: year.startIndex, to: range.lowerBound)
             year = year.substring(with: (year.characters.index(year.startIndex, offsetBy: 0) ..< year.characters.index(year.startIndex, offsetBy: index)))
         }
@@ -654,7 +655,7 @@ class AnalysisViewController: UIViewController,UIGestureRecognizerDelegate,UIScr
                 if y == year {
                 if m == month {
                     var a : String = self.scheduleArray[i].time
-                    var range: Range<String.Index> = a.range(of: ".")!
+                    var range = a.range(of: ".")!
                     var index: Int = a.characters.distance(from: a.startIndex, to: range.lowerBound)
                     let startHour = a.substring(with: (a.characters.index(a.startIndex, offsetBy: 0) ..< a.characters.index(a.startIndex, offsetBy: index)))
                     range = a.range(of: " ")!
@@ -675,7 +676,7 @@ class AnalysisViewController: UIViewController,UIGestureRecognizerDelegate,UIScr
                         }
                         slot[j]! += 1
                     }
-                    wd -= 2
+                    wd! -= 2
                     if wd == -1 {
                         wd = 6
                     }

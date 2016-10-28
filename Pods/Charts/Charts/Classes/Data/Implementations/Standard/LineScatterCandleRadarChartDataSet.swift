@@ -2,8 +2,6 @@
 //  LineScatterCandleRadarChartDataSet.swift
 //  Charts
 //
-//  Created by Daniel Cohen Gindi on 29/7/15.
-//
 //  Copyright 2015 Daniel Cohen Gindi & Philipp Jahoda
 //  A port of MPAndroidChart for iOS
 //  Licensed under Apache License 2.0
@@ -26,10 +24,10 @@ open class LineScatterCandleRadarChartDataSet: BarLineScatterCandleBubbleChartDa
     /// Enables / disables the vertical highlight-indicator. If disabled, the indicator is not drawn.
     open var drawVerticalHighlightIndicatorEnabled = true
     
-    /// - returns: true if horizontal highlight indicator lines are enabled (drawn)
+    /// - returns: `true` if horizontal highlight indicator lines are enabled (drawn)
     open var isHorizontalHighlightIndicatorEnabled: Bool { return drawHorizontalHighlightIndicatorEnabled }
     
-    /// - returns: true if vertical highlight indicator lines are enabled (drawn)
+    /// - returns: `true` if vertical highlight indicator lines are enabled (drawn)
     open var isVerticalHighlightIndicatorEnabled: Bool { return drawVerticalHighlightIndicatorEnabled }
     
     /// Enables / disables both vertical and horizontal highlight-indicators.
